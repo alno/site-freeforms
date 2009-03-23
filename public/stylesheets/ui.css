@@ -25,6 +25,7 @@ body {
 #content {
 	float: right;
 	width: 80%;
+	padding: 25px;
 }
 
 #footer {
@@ -50,4 +51,15 @@ tr.message.unread {
 
 .content {
 	border: 1px solid #000000;
+}
+
+input.error {
+    color: #ff0000;
+}
+label.error {
+    margin: 5px;
+    padding: 5px;
+    padding-left: 30px;
+    background: url(../images/icons/error.png) left no-repeat;
+    color: #ff0000;
 }

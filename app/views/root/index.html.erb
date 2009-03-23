@@ -1,0 +1,16 @@
+<div id="tabs">
+	<ul>
+		<li><a href="#login">Вход</a></li>
+		<li><a href="#register">Регистрация</a></li>
+	</ul>
+	<div id="login">
+		<%=render :partial => 'sessions/new' %>
+	</div>
+	<div id="register">
+		<%=render :partial => 'users/new' %>
+	</div>
+</div>
+
+<script>
+    $('#tabs').tabs({selected:0});
+</script>

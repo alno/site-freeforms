@@ -2841,3 +2841,992 @@ ActionView::MissingTemplate (Missing template root/status.erb in view path app/v
   
 
 Rendering rescues/layout (internal_server_error)
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2009-03-23 22:32:29) [GET]
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering sessions/new
+Completed in 166ms (View: 6, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2009-03-23 22:33:54) [GET]
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/index
+Rendering sessions/new
+
+ActionView::TemplateError (undefined method `javascript_inlude_tag' for #<ActionView::Base:0xb6fef630>) on line #9 of app/views/layouts/index.html.erb:
+6:   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+7:   <title>Messages: <%= controller.action_name %></title>
+8:   <%= stylesheet_link_tag 'scaffold', 'ui' %>
+9:   <%= javascript_inlude_tag 'jquery', 'flexgrid.pack.js' %>
+10: </head>
+11: <body>
+12: 	
+
+    app/views/layouts/index.html.erb:9
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (240.9ms)
+Rendered rescues/_request_and_response (3.8ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2009-03-23 22:34:18) [GET]
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/index
+Rendering sessions/new
+Completed in 49ms (View: 9, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-03-23 22:34:18) [GET]
+
+ActionController::RoutingError (No route matches "/javascripts/flexgrid.pack.js" with {:method=>:get}):
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing RootController#index (for 127.0.0.1 at 2009-03-23 22:36:32) [GET]
+  Parameters: {"action"=>"index", "controller"=>"root"}
+Rendering root/index
+Completed in 19ms (View: 14, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing RootController#index (for 127.0.0.1 at 2009-03-23 22:36:51) [GET]
+  Parameters: {"action"=>"index", "controller"=>"root"}
+Rendering template within layouts/index
+Rendering root/index
+Completed in 4ms (View: 2, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-03-23 22:36:51) [GET]
+
+ActionController::RoutingError (No route matches "/javascripts/flexgrid.pack.js" with {:method=>:get}):
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing RootController#index (for 127.0.0.1 at 2009-03-23 22:38:05) [GET]
+  Parameters: {"action"=>"index", "controller"=>"root"}
+Rendering template within layouts/index
+Rendering root/index
+Completed in 49ms (View: 47, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-03-23 22:38:06) [GET]
+
+ActionController::RoutingError (No route matches "/javascripts/flexgrid.pack.js" with {:method=>:get}):
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing RootController#index (for 127.0.0.1 at 2009-03-23 22:38:55) [GET]
+  Parameters: {"action"=>"index", "controller"=>"root"}
+Rendering template within layouts/index
+Rendering root/index
+Completed in 14ms (View: 8, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-03-23 22:38:56) [GET]
+
+ActionController::RoutingError (No route matches "/javascripts/flexgrid.pack.js" with {:method=>:get}):
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing RootController#index (for 127.0.0.1 at 2009-03-23 22:40:19) [GET]
+  Parameters: {"action"=>"index", "controller"=>"root"}
+Rendering template within layouts/index
+Rendering root/index
+Completed in 20ms (View: 4, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-03-23 22:40:20) [GET]
+
+ActionController::RoutingError (No route matches "/javascripts/flexgrid.pack.js" with {:method=>:get}):
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing RootController#index (for 127.0.0.1 at 2009-03-23 22:42:42) [GET]
+  Parameters: {"action"=>"index", "controller"=>"root"}
+Rendering template within layouts/index
+Rendering root/index
+Completed in 4ms (View: 2, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-03-23 22:42:42) [GET]
+
+ActionController::RoutingError (No route matches "/javascripts/flexgrid.pack.js" with {:method=>:get}):
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing RootController#index (for 127.0.0.1 at 2009-03-23 22:44:13) [GET]
+  Parameters: {"action"=>"index", "controller"=>"root"}
+Rendering template within layouts/index
+Rendering root/index
+Completed in 8ms (View: 5, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-03-23 22:44:14) [GET]
+
+ActionController::RoutingError (No route matches "/javascripts/flexgrid.pack.js" with {:method=>:get}):
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing RootController#index (for 127.0.0.1 at 2009-03-23 22:45:40) [GET]
+  Parameters: {"action"=>"index", "controller"=>"root"}
+Rendering template within layouts/index
+Rendering root/index
+Completed in 10ms (View: 7, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-03-23 22:45:40) [GET]
+
+ActionController::RoutingError (No route matches "/javascripts/flexgrid.pack.js" with {:method=>:get}):
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing RootController#index (for 127.0.0.1 at 2009-03-23 22:46:17) [GET]
+  Parameters: {"action"=>"index", "controller"=>"root"}
+Rendering template within layouts/index
+Rendering root/index
+Completed in 10ms (View: 7, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-03-23 22:46:18) [GET]
+
+ActionController::RoutingError (No route matches "/javascripts/flexgrid.pack.js" with {:method=>:get}):
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing RootController#index (for 127.0.0.1 at 2009-03-23 22:46:32) [GET]
+  Parameters: {"action"=>"index", "controller"=>"root"}
+Rendering template within layouts/index
+Rendering root/index
+Completed in 11ms (View: 8, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-03-23 22:46:32) [GET]
+
+ActionController::RoutingError (No route matches "/javascripts/flexgrid.pack.js" with {:method=>:get}):
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing RootController#index (for 127.0.0.1 at 2009-03-23 22:46:57) [GET]
+  Parameters: {"action"=>"index", "controller"=>"root"}
+Rendering template within layouts/index
+Rendering root/index
+Completed in 21ms (View: 12, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-03-23 22:46:57) [GET]
+
+ActionController::RoutingError (No route matches "/javascripts/flexgrid.pack.js" with {:method=>:get}):
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing RootController#index (for 127.0.0.1 at 2009-03-23 22:48:42) [GET]
+  Parameters: {"action"=>"index", "controller"=>"root"}
+Rendering template within layouts/index
+Rendering root/index
+Completed in 8ms (View: 6, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-03-23 22:48:42) [GET]
+
+ActionController::RoutingError (No route matches "/javascripts/flexgrid.pack.js" with {:method=>:get}):
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing RootController#index (for 127.0.0.1 at 2009-03-23 22:49:04) [GET]
+  Parameters: {"action"=>"index", "controller"=>"root"}
+Rendering template within layouts/index
+Rendering root/index
+Completed in 5ms (View: 2, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-03-23 22:49:05) [GET]
+
+ActionController::RoutingError (No route matches "/javascripts/flexgrid.pack.js" with {:method=>:get}):
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing RootController#index (for 127.0.0.1 at 2009-03-23 22:49:20) [GET]
+  Parameters: {"action"=>"index", "controller"=>"root"}
+Rendering template within layouts/index
+Rendering root/index
+Completed in 10ms (View: 6, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-03-23 22:49:20) [GET]
+
+ActionController::RoutingError (No route matches "/javascripts/flexgrid.pack.js" with {:method=>:get}):
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing RootController#index (for 127.0.0.1 at 2009-03-23 22:49:59) [GET]
+  Parameters: {"action"=>"index", "controller"=>"root"}
+Rendering template within layouts/index
+Rendering root/index
+Completed in 204ms (View: 6, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-03-23 22:50:00) [GET]
+
+ActionController::RoutingError (No route matches "/javascripts/flexgrid.pack.js" with {:method=>:get}):
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing RootController#index (for 127.0.0.1 at 2009-03-23 22:51:21) [GET]
+  Parameters: {"action"=>"index", "controller"=>"root"}
+Rendering template within layouts/index
+Rendering root/index
+
+ActionView::TemplateError (Called id for nil, which would mistakenly be 4 -- if you really wanted the id of nil, use object_id) on line #9 of app/views/root/index.html.erb:
+6: 		<li><a href="#register">Регистрация</a></li>
+7: 	</ul>
+8: 	<div id="login">
+9: 		<% form_for @user_session, :url => session_path do |f| %>
+10:   <%= f.error_messages %>
+11:   <%= f.label :email %><br />
+12:   <%= f.text_field :email %><br />
+
+    app/views/root/index.html.erb:9
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (246.3ms)
+Rendered rescues/_request_and_response (0.5ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing RootController#index (for 127.0.0.1 at 2009-03-23 22:52:12) [GET]
+  Parameters: {"action"=>"index", "controller"=>"root"}
+Rendering template within layouts/index
+Rendering root/index
+Rendered users/_form (1.8ms)
+Completed in 42ms (View: 20, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing RootController#index (for 127.0.0.1 at 2009-03-23 22:52:42) [GET]
+  Parameters: {"action"=>"index", "controller"=>"root"}
+Rendering template within layouts/index
+Rendering root/index
+Rendered users/_form (1.6ms)
+Completed in 35ms (View: 14, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2009-03-23 22:52:49) [POST]
+  Parameters: {"commit"=>"Login", "user_session"=>{"remember_me"=>"0", "password"=>"[FILTERED]", "email"=>"saxzxs"}, "action"=>"create", "controller"=>"sessions"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."email" = 'saxzxs') LIMIT 1[0m
+Rendering template within layouts/index
+Rendering sessions/new
+Completed in 74ms (View: 12, DB: 0) | 200 OK [http://localhost/session]
+
+
+Processing RootController#index (for 127.0.0.1 at 2009-03-23 23:05:50) [GET]
+  Parameters: {"action"=>"index", "controller"=>"root"}
+Rendering template within layouts/index
+Rendering root/index
+Rendered users/_form (0.9ms)
+Completed in 33ms (View: 9, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing RootController#index (for 127.0.0.1 at 2009-03-23 23:09:04) [GET]
+  Parameters: {"action"=>"index", "controller"=>"root"}
+Rendering template within layouts/index
+Rendering root/index
+Rendered sessions/_new (2.8ms)
+
+ActionView::TemplateError (Missing template root/_form.erb in view path app/views) on line #3 of app/views/users/_new.html.erb:
+1: <% form_for @user, :url => account_path do |f| %>
+2:   <%= f.error_messages %>
+3:   <%= render :partial => "form", :object => f %>
+4:   <%= f.submit I18n.t :register %>
+5: <% end %>
+
+    app/views/users/_new.html.erb:3
+    app/views/users/_new.html.erb:1
+    app/views/root/index.html.erb:10
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (69.7ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing RootController#index (for 127.0.0.1 at 2009-03-23 23:09:20) [GET]
+  Parameters: {"action"=>"index", "controller"=>"root"}
+Rendering template within layouts/index
+Rendering root/index
+Rendered sessions/_new (1.8ms)
+Rendered users/_form (1.0ms)
+Rendered users/_new (8.8ms)
+Completed in 159ms (View: 16, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing RootController#index (for 127.0.0.1 at 2009-03-23 23:09:59) [GET]
+  Parameters: {"action"=>"index", "controller"=>"root"}
+Rendering template within layouts/index
+Rendering root/index
+Rendered sessions/_new (4.0ms)
+Rendered users/_form (0.9ms)
+Rendered users/_new (5.0ms)
+Completed in 36ms (View: 15, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing RootController#index (for 127.0.0.1 at 2009-03-23 23:10:42) [GET]
+  Parameters: {"action"=>"index", "controller"=>"root"}
+Rendering template within layouts/index
+Rendering root/index
+Rendered sessions/_new (1.7ms)
+Rendered users/_form (0.9ms)
+Rendered users/_new (5.0ms)
+Completed in 36ms (View: 11, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing RootController#index (for 127.0.0.1 at 2009-03-23 23:12:25) [GET]
+  Parameters: {"action"=>"index", "controller"=>"root"}
+Rendering template within layouts/index
+Rendering root/index
+Rendered sessions/_new (1.7ms)
+Rendered users/_form (0.8ms)
+Rendered users/_new (4.9ms)
+Completed in 34ms (View: 9, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing RootController#index (for 127.0.0.1 at 2009-03-23 23:18:01) [GET]
+  Parameters: {"action"=>"index", "controller"=>"root"}
+Rendering template within layouts/index
+Rendering root/index
+Rendered sessions/_new (1.8ms)
+Rendered users/_form (0.9ms)
+Rendered users/_new (5.0ms)
+Completed in 32ms (View: 11, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing RootController#index (for 127.0.0.1 at 2009-03-23 23:19:09) [GET]
+  Parameters: {"action"=>"index", "controller"=>"root"}
+Rendering template within layouts/index
+Rendering root/index
+Rendered sessions/_new (1.9ms)
+Rendered users/_form (1.6ms)
+Rendered users/_new (18.2ms)
+Completed in 166ms (View: 27, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing RootController#index (for 127.0.0.1 at 2009-03-23 23:22:06) [GET]
+  Parameters: {"action"=>"index", "controller"=>"root"}
+Rendering template within layouts/index
+Rendering root/index
+Rendered sessions/_new (1.6ms)
+Rendered users/_form (1.8ms)
+Rendered users/_new (7.8ms)
+Completed in 34ms (View: 12, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing RootController#index (for 127.0.0.1 at 2009-03-23 23:22:49) [GET]
+  Parameters: {"action"=>"index", "controller"=>"root"}
+Rendering template within layouts/index
+Rendering root/index
+Rendered sessions/_new (2.8ms)
+Rendered users/_form (0.9ms)
+Rendered users/_new (6.9ms)
+Completed in 42ms (View: 18, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing RootController#index (for 127.0.0.1 at 2009-03-23 23:23:19) [GET]
+  Parameters: {"action"=>"index", "controller"=>"root"}
+Rendering template within layouts/index
+Rendering root/index
+Rendered sessions/_new (67.1ms)
+Rendered users/_form (2.6ms)
+Rendered users/_new (7.9ms)
+Completed in 130ms (View: 85, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing RootController#index (for 127.0.0.1 at 2009-03-23 23:26:06) [GET]
+  Parameters: {"action"=>"index", "controller"=>"root"}
+Rendering template within layouts/index
+Rendering root/index
+Rendered sessions/_new (2.9ms)
+Rendered users/_form (3.0ms)
+Rendered users/_new (10.0ms)
+Completed in 43ms (View: 20, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing RootController#index (for 127.0.0.1 at 2009-03-23 23:26:34) [GET]
+  Parameters: {"action"=>"index", "controller"=>"root"}
+Rendering template within layouts/index
+Rendering root/index
+Rendered sessions/_new (2.0ms)
+Rendered users/_form (2.1ms)
+Rendered users/_new (11.4ms)
+Completed in 41ms (View: 16, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing RootController#index (for 127.0.0.1 at 2009-03-23 23:27:58) [GET]
+  Parameters: {"action"=>"index", "controller"=>"root"}
+Rendering template within layouts/index
+Rendering root/index
+Rendered sessions/_new (3.2ms)
+Rendered users/_form (1.2ms)
+Rendered users/_new (5.9ms)
+Completed in 49ms (View: 16, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing RootController#index (for 127.0.0.1 at 2009-03-23 23:28:01) [GET]
+  Parameters: {"action"=>"index", "controller"=>"root"}
+Rendering template within layouts/index
+Rendering root/index
+Rendered sessions/_new (2.0ms)
+Rendered users/_form (1.2ms)
+Rendered users/_new (7.2ms)
+Completed in 35ms (View: 12, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing RootController#index (for 127.0.0.1 at 2009-03-23 23:28:13) [GET]
+  Parameters: {"action"=>"index", "controller"=>"root"}
+Rendering template within layouts/index
+Rendering root/index
+Rendered sessions/_new (2.1ms)
+Rendered users/_form (3.2ms)
+Rendered users/_new (7.6ms)
+Completed in 153ms (View: 111, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing RootController#index (for 127.0.0.1 at 2009-03-23 23:28:17) [GET]
+  Parameters: {"action"=>"index", "controller"=>"root"}
+Rendering template within layouts/index
+Rendering root/index
+Rendered sessions/_new (1.9ms)
+Rendered users/_form (1.2ms)
+Rendered users/_new (6.1ms)
+Completed in 34ms (View: 12, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing RootController#index (for 127.0.0.1 at 2009-03-23 23:30:38) [GET]
+  Parameters: {"action"=>"index", "controller"=>"root"}
+Rendering template within layouts/index
+Rendering root/index
+Rendered sessions/_new (3.9ms)
+Rendered users/_form (2.5ms)
+Rendered users/_new (9.5ms)
+Completed in 45ms (View: 21, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing RootController#post (for 127.0.0.1 at 2009-03-23 23:40:26) [GET]
+  Parameters: {"name"=>"vdsxz", "title"=>"", "action"=>"post", "user_id"=>"1", "content"=>"vdscxz", "controller"=>"root", "email"=>"fffff@mail.ru"}
+  [4;35;1mUser Load (0.7ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mMessage Create (0.5ms)[0m   [0;1mINSERT INTO "messages" ("sender_email", "created_at", "title", "token", "updated_at", "user_id", "read_at", "parent_id", "content", "sender_name") VALUES('fffff@mail.ru', '2009-03-23 20:40:26', '', 'dd039ea51b10f66d9e59d3882631325c135308cd', '2009-03-23 20:40:26', 1, NULL, NULL, 'vdscxz', 'vdsxz')[0m
+Completed in 82ms (View: 1, DB: 1) | 200 OK [http://localhost/post/1?name=vdsxz&email=fffff%40mail.ru&title=&content=vdscxz]
+
+
+Processing RootController#post (for 127.0.0.1 at 2009-03-23 23:40:43) [GET]
+  Parameters: {"name"=>"vdsxz", "title"=>"", "action"=>"post", "user_id"=>"1", "content"=>"vdscxz", "controller"=>"root", "email"=>"fffff@mail.ru"}
+  [4;35;1mUser Load (0.7ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mMessage Create (0.5ms)[0m   [0;1mINSERT INTO "messages" ("sender_email", "created_at", "title", "token", "updated_at", "user_id", "read_at", "parent_id", "content", "sender_name") VALUES('fffff@mail.ru', '2009-03-23 20:40:43', '', 'f0dd04c1b472a9bcd14b22172268fdb979d26239', '2009-03-23 20:40:43', 1, NULL, NULL, 'vdscxz', 'vdsxz')[0m
+Completed in 86ms (View: 1, DB: 1) | 200 OK [http://localhost/post/1?name=vdsxz&email=fffff%40mail.ru&title=&content=vdscxz]
+
+
+Processing RootController#post (for 127.0.0.1 at 2009-03-23 23:41:08) [GET]
+  Parameters: {"name"=>"vdsxz", "title"=>"", "action"=>"post", "user_id"=>"1", "content"=>"vdscxz", "controller"=>"root", "email"=>"fffff@mail.ru"}
+  [4;35;1mUser Load (10.8ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mMessage Create (0.5ms)[0m   [0;1mINSERT INTO "messages" ("sender_email", "created_at", "title", "token", "updated_at", "user_id", "read_at", "parent_id", "content", "sender_name") VALUES('fffff@mail.ru', '2009-03-23 20:41:08', '', '4281a64ca4591db199aec3b6fe4a2145d0e76f5a', '2009-03-23 20:41:08', 1, NULL, NULL, 'vdscxz', 'vdsxz')[0m
+Completed in 91ms (View: 1, DB: 11) | 200 OK [http://localhost/post/1?name=vdsxz&email=fffff%40mail.ru&title=&content=vdscxz]
+
+
+Processing RootController#status (for 127.0.0.1 at 2009-03-23 23:41:12) [GET]
+  Parameters: {"token"=>"4281a64ca4591db199aec3b6fe4a2145d0e76f5a", "action"=>"status", "controller"=>"root"}
+  [4;35;1mMessage Load (0.5ms)[0m   [0mSELECT * FROM "messages" WHERE ("messages"."token" = '4281a64ca4591db199aec3b6fe4a2145d0e76f5a') LIMIT 1[0m
+Rendering template within layouts/index
+Rendering root/status
+Completed in 35ms (View: 14, DB: 0) | 200 OK [http://localhost/status/4281a64ca4591db199aec3b6fe4a2145d0e76f5a]
+
+
+Processing RootController#status (for 127.0.0.1 at 2009-03-23 23:41:41) [GET]
+  Parameters: {"token"=>"4281a64ca4591db199aec3b6fe4a2145d0e76f5a", "action"=>"status", "controller"=>"root"}
+  [4;36;1mMessage Load (0.8ms)[0m   [0;1mSELECT * FROM "messages" WHERE ("messages"."token" = '4281a64ca4591db199aec3b6fe4a2145d0e76f5a') LIMIT 1[0m
+Rendering template within layouts/index
+Rendering root/status
+Completed in 272ms (View: 9, DB: 1) | 200 OK [http://localhost/status/4281a64ca4591db199aec3b6fe4a2145d0e76f5a]
+
+
+Processing RootController#index (for 127.0.0.1 at 2009-03-23 23:42:34) [GET]
+  Parameters: {"action"=>"index", "controller"=>"root"}
+Rendering template within layouts/index
+Rendering root/index
+Rendered sessions/_new (2.4ms)
+Rendered users/_form (2.2ms)
+Rendered users/_new (8.9ms)
+Completed in 38ms (View: 14, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing RootController#index (for 127.0.0.1 at 2009-03-23 23:48:52) [GET]
+  Parameters: {"action"=>"index", "controller"=>"root"}
+Rendering template within layouts/index
+Rendering root/index
+Rendered sessions/_new (2.2ms)
+Rendered users/_form (1.7ms)
+Rendered users/_new (16.9ms)
+Completed in 56ms (View: 30, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-03-23 23:48:52) [GET]
+
+ActionController::RoutingError (No route matches "/javascripts/jquery.validate.pack.jss" with {:method=>:get}):
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing RootController#index (for 127.0.0.1 at 2009-03-23 23:52:14) [GET]
+  Parameters: {"action"=>"index", "controller"=>"root"}
+Rendering template within layouts/index
+Rendering root/index
+Rendered sessions/_new (2.3ms)
+Rendered users/_form (1.2ms)
+Rendered users/_new (5.4ms)
+Completed in 36ms (View: 17, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-03-23 23:52:15) [GET]
+
+ActionController::RoutingError (No route matches "/javascripts/jquery.validate.pack.jss" with {:method=>:get}):
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing RootController#index (for 127.0.0.1 at 2009-03-23 23:52:41) [GET]
+  Parameters: {"action"=>"index", "controller"=>"root"}
+Rendering template within layouts/index
+Rendering root/index
+Rendered sessions/_new (6.6ms)
+Rendered users/_form (1.3ms)
+Rendered users/_new (10.2ms)
+Completed in 92ms (View: 30, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2009-03-23 23:52:54) [POST]
+  Parameters: {"commit"=>"Зарегистрироваться", "action"=>"create", "controller"=>"users", "user"=>{"password_confirmation"=>"[FILTERED]", "password"=>"[FILTERED]", "email"=>"fffrdss"}}
+  [4;35;1mUser Exists (0.2ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'fffrdss') LIMIT 1[0m
+  [4;36;1mUser Exists (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."perishable_token" = '2diFPVFxRzxqrhvyXmmn') LIMIT 1[0m
+  [4;35;1mUser Exists (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."persistence_token" = '321989ad7b2409bc2a51ad44fa771af5328398a10169602d821ed11b14d33113f2fc8084616a989ad0d9e1fa004e0ac00d2e57177fa63f9549a94a43e9d9d4cf') LIMIT 1[0m
+  [4;36;1mUser Exists (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."single_access_token" = 'Qw6mhlMcEcR5lS5pALuD') LIMIT 1[0m
+Rendering template within layouts/default
+Rendering users/new
+Rendered users/_form (1.4ms)
+Rendered users/_new (33.0ms)
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+The error occurred while evaluating nil.messages) on line #5 of app/views/shared/_sidebar.html.erb:
+2: 	<li><%=link_to I18n.t( :link_account ), '/'%></li>
+3: 	<li><%=link_to I18n.t( :link_account ), account_path%></li>
+4: 	<li>
+5: 		<%=link_to I18n.t( :link_messages ) + ' (' + current_user.messages.size.to_s + ')', messages_path%>
+6: 		<ul>
+7: 			<li><%=link_to I18n.t( :link_unread_messages ) + ' (' + current_user.messages.unread.size.to_s + ')', unread_messages_path%></li>
+8: 		</ul>
+
+    app/views/shared/_sidebar.html.erb:5
+    app/views/layouts/default.html.erb:18
+    app/controllers/users_controller.rb:18:in `create'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (115.7ms)
+Rendered rescues/_request_and_response (0.5ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UsersController#create (for 127.0.0.1 at 2009-03-23 23:53:06) [POST]
+  Parameters: {"commit"=>"Зарегистрироваться", "action"=>"create", "controller"=>"users", "user"=>{"password_confirmation"=>"[FILTERED]", "password"=>"[FILTERED]", "email"=>"fffrdss"}}
+  [4;35;1mUser Exists (0.2ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'fffrdss') LIMIT 1[0m
+  [4;36;1mUser Exists (0.2ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."perishable_token" = 'Cmz5C3SraUiJDPXerfzX') LIMIT 1[0m
+  [4;35;1mUser Exists (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."persistence_token" = '8fddbac51980be21f74dcac58ef9b40a014f1cdd1b69fe9228a63f1c70118fd8ca8b95fc4335e88769d32a6a88cbd11524a2a9013d6488817c8f83ef8ebc3e79') LIMIT 1[0m
+  [4;36;1mUser Exists (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."single_access_token" = 'KhiJLjJJwihAIOyI4KIe') LIMIT 1[0m
+Rendering template within layouts/default
+Rendering users/new
+Rendered users/_form (12.7ms)
+Rendered users/_new (15.2ms)
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+The error occurred while evaluating nil.messages) on line #5 of app/views/shared/_sidebar.html.erb:
+2: 	<li><%=link_to I18n.t( :link_account ), '/'%></li>
+3: 	<li><%=link_to I18n.t( :link_account ), account_path%></li>
+4: 	<li>
+5: 		<%=link_to I18n.t( :link_messages ) + ' (' + current_user.messages.size.to_s + ')', messages_path%>
+6: 		<ul>
+7: 			<li><%=link_to I18n.t( :link_unread_messages ) + ' (' + current_user.messages.unread.size.to_s + ')', unread_messages_path%></li>
+8: 		</ul>
+
+    app/views/shared/_sidebar.html.erb:5
+    app/views/layouts/default.html.erb:18
+    app/controllers/users_controller.rb:18:in `create'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (188.2ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing RootController#index (for 127.0.0.1 at 2009-03-23 23:54:08) [GET]
+  Parameters: {"action"=>"index", "controller"=>"root"}
+Rendering template within layouts/index
+Rendering root/index
+Rendered sessions/_new (2.9ms)
+Rendered users/_form (1.2ms)
+Rendered users/_new (12.7ms)
+Completed in 85ms (View: 30, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2009-03-23 23:54:27) [POST]
+  Parameters: {"commit"=>"Зарегистрироваться", "action"=>"create", "controller"=>"users", "user"=>{"password_confirmation"=>"[FILTERED]", "password"=>"[FILTERED]", "email"=>"fffrdss@MAI.R"}}
+  [4;35;1mUser Exists (0.2ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'fffrdss@MAI.R') LIMIT 1[0m
+  [4;36;1mUser Exists (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."perishable_token" = 'HUk5KDsUipTlCycUOIy7') LIMIT 1[0m
+  [4;35;1mUser Exists (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."persistence_token" = '6b77162f91d7905030c6302e676665704616f40f11ad30ae935688cc2b22968e3d5368a5beeac2d74b24b90aa0a7b98b8332bf110eb9c302f2f5f537d7d362cf') LIMIT 1[0m
+  [4;36;1mUser Exists (0.2ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."single_access_token" = 'A8C5TK3rLvawmUUkFvAB') LIMIT 1[0m
+Rendering template within layouts/default
+Rendering users/new
+Rendered users/_form (1.3ms)
+Rendered users/_new (3.3ms)
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+The error occurred while evaluating nil.messages) on line #5 of app/views/shared/_sidebar.html.erb:
+2: 	<li><%=link_to I18n.t( :link_account ), '/'%></li>
+3: 	<li><%=link_to I18n.t( :link_account ), account_path%></li>
+4: 	<li>
+5: 		<%=link_to I18n.t( :link_messages ) + ' (' + current_user.messages.size.to_s + ')', messages_path%>
+6: 		<ul>
+7: 			<li><%=link_to I18n.t( :link_unread_messages ) + ' (' + current_user.messages.unread.size.to_s + ')', unread_messages_path%></li>
+8: 		</ul>
+
+    app/views/shared/_sidebar.html.erb:5
+    app/views/layouts/default.html.erb:18
+    app/controllers/users_controller.rb:18:in `create'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (77.1ms)
+Rendered rescues/_request_and_response (0.5ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing RootController#index (for 127.0.0.1 at 2009-03-23 23:55:29) [GET]
+  Parameters: {"action"=>"index", "controller"=>"root"}
+Rendering template within layouts/index
+Rendering root/index
+Rendered sessions/_new (2.1ms)
+Rendered users/_form (12.2ms)
+Rendered users/_new (17.6ms)
+Completed in 165ms (View: 31, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing RootController#index (for 127.0.0.1 at 2009-03-23 23:56:52) [GET]
+  Parameters: {"action"=>"index", "controller"=>"root"}
+Rendering template within layouts/index
+Rendering root/index
+Rendered sessions/_new (2.1ms)
+Rendered users/_form (1.3ms)
+Rendered users/_new (6.8ms)
+Completed in 39ms (View: 18, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing RootController#index (for 127.0.0.1 at 2009-03-23 23:58:09) [GET]
+  Parameters: {"action"=>"index", "controller"=>"root"}
+Rendering template within layouts/index
+Rendering root/index
+Rendered sessions/_new (2.0ms)
+Rendered users/_form (1.3ms)
+Rendered users/_new (5.5ms)
+Completed in 33ms (View: 10, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing RootController#index (for 127.0.0.1 at 2009-03-24 00:00:39) [GET]
+  Parameters: {"action"=>"index", "controller"=>"root"}
+Rendering template within layouts/index
+Rendering root/index
+Rendered sessions/_new (1.9ms)
+Rendered users/_form (13.4ms)
+Rendered users/_new (157.0ms)
+Completed in 183ms (View: 162, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing RootController#index (for 127.0.0.1 at 2009-03-24 00:01:07) [GET]
+  Parameters: {"action"=>"index", "controller"=>"root"}
+Rendering template within layouts/index
+Rendering root/index
+Rendered sessions/_new (3.3ms)
+Rendered users/_form (1.2ms)
+Rendered users/_new (5.5ms)
+Completed in 33ms (View: 12, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing RootController#index (for 127.0.0.1 at 2009-03-24 00:01:40) [GET]
+  Parameters: {"action"=>"index", "controller"=>"root"}
+Rendering template within layouts/index
+Rendering root/index
+Rendered sessions/_new (2.1ms)
+Rendered users/_form (1.3ms)
+Rendered users/_new (9.3ms)
+Completed in 81ms (View: 18, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing RootController#index (for 127.0.0.1 at 2009-03-24 00:02:06) [GET]
+  Parameters: {"action"=>"index", "controller"=>"root"}
+Rendering template within layouts/index
+Rendering root/index
+Rendered sessions/_new (2.0ms)
+Rendered users/_form (1.6ms)
+Rendered users/_new (7.5ms)
+Completed in 33ms (View: 13, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing RootController#index (for 127.0.0.1 at 2009-03-24 00:03:46) [GET]
+  Parameters: {"action"=>"index", "controller"=>"root"}
+Rendering template within layouts/index
+Rendering root/index
+Rendered sessions/_new (3.7ms)
+Rendered users/_form (1.3ms)
+Rendered users/_new (13.4ms)
+Completed in 108ms (View: 37, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing RootController#index (for 127.0.0.1 at 2009-03-24 00:04:16) [GET]
+  Parameters: {"action"=>"index", "controller"=>"root"}
+Rendering template within layouts/index
+Rendering root/index
+Rendered sessions/_new (3.8ms)
+Rendered users/_form (1.2ms)
+Rendered users/_new (5.7ms)
+Completed in 43ms (View: 16, DB: 0) | 200 OK [http://localhost/]

@@ -6,7 +6,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resource :account, :controller => 'users'
   map.resource :session
   
-  map.root :controller => 'sessions', :action => 'new'
+  map.root :controller => 'root', :action => 'index'
   
   map.post_message '/post/:user_id', :controller => 'root', :action => 'post'
   map.message_status '/status/:token', :controller => 'root', :action => 'status'

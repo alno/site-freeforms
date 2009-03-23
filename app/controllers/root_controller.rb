@@ -1,4 +1,11 @@
 class RootController < ApplicationController
+
+  layout 'index'
+
+  def index
+    @user = User.new
+    @user_session = UserSession.new
+  end
   
   def post
     @message = Message.new

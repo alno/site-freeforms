@@ -25,7 +25,7 @@ var messageFormConfig = {
 
 var messageForm = {
 	onSuccess: function( token ) {
-		var content = 'Сообщение отправлено. <a href="http://' + messageFormConfig.host + '/status/' + token + '">Статус</a>';
+		var content = 'Сообщение отправлено. Вы можете посмотреть его статус по ссылке: <a href="http://' + messageFormConfig.host + '/status/' + token + '">http://' + messageFormConfig.host + '/status/' + token + '</a>';
 		
 		document.getElementById('message_form_div').innerHTML = content;
 	},

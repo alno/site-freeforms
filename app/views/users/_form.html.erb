@@ -1,9 +1,8 @@
-<%= form.label :email %><br />
-<%= form.text_field :email %><br />
-<br />
-<%= form.label :password, form.object.new_record? ? nil : "Change password" %><br />
-<%= form.password_field :password %><br />
-<br />
-<%= form.label :password_confirmation %><br />
-<%= form.password_field :password_confirmation %><br />
-<br />
+<p><%= form.label :email, t('activerecord.attributes.user.email') %><br />
+<%= form.text_field :email %></p>
+
+<p><%= form.label :password, form.object.new_record? ? t('activerecord.attributes.user.password') : t('activerecord.attributes.user.change_password') %><br />
+<%= form.password_field :password %></p>
+
+<p><%= form.label :password_confirmation, t('activerecord.attributes.user.password_confirmation') %><br />
+<%= form.password_field :password_confirmation %></p>

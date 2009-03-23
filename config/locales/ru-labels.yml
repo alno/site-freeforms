@@ -16,3 +16,20 @@ ru:
   link_messages: Сообщения
   link_unread_messages: Непрочитанные
   
+  enter: Войти
+  register: Зарегистрироваться
+
+  activerecord:
+    attributes:
+
+      user_session:
+        email: E-Mail
+        password: Пароль
+        remember_me: Запомнить меня
+
+      user:
+        email: E-Mail
+        password: Пароль
+        change_password: Новый пароль
+        password_confirmation: Подтверждение пароля
+  
