@@ -1,0 +1,18 @@
+ru:
+  messages: Сообщения
+  
+  message_date: Дата
+  message_title: Заголовок
+  message_sender_name: Имя
+  message_sender_email: E-Mail
+  
+  message_from: Отправитель
+  message_sent_time: Отправлено
+  message_read_time: Прочитано
+  
+  message_default_title: Без заголовка
+  
+  link_account: Профиль
+  link_messages: Сообщения
+  link_unread_messages: Непрочитанные
+  

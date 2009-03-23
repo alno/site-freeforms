@@ -1,0 +1,32 @@
+#message_form_div {
+	position: relative;
+}
+
+#message_form_block {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: gray;
+	opacity: 0.6;
+	display: none;
+	text-align: center;	
+}
+
+#message_form_block_center {
+	position: absolute;
+	top: 50%;
+	left: 0;
+	width: 100%;
+	text-align: center;
+}
+
+#message_form_div p.error{
+	border: solid 1px #ff0000;
+}
+
+#message_form_div p input,
+#message_form_div p textarea {
+	width: 100%;
+}

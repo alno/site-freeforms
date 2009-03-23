@@ -1,0 +1,22 @@
+
+<p>
+  <b><%=I18n.t :message_from%>:</b>
+  <%=h @message.sender_name %> (<%=h @message.sender_email %>)
+</p>
+
+<p>
+  <b><%=I18n.t :message_sent_time%>:</b>
+  <%=h @message.created_at%>
+</p>
+
+<p>
+  <b><%=I18n.t :message_read_time%>:</b>
+  <%=h @message.read_at%>
+</p>
+
+<p>
+  <b><%=I18n.t :message_title%>:</b>
+  <%=@message.title.blank? ? I18n.t( :message_default_title ) : h( @message.title ) %>
+</p>
+
+<div class="content"><%=h @message.content %></div>

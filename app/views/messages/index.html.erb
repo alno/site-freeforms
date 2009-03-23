@@ -1,0 +1,22 @@
+<h1><%=I18n.t :messages%></h1>
+
+<table cellspacing="0">
+  <tr>
+    <th><%=I18n.t :message_date%></th>
+    <th><%=I18n.t :message_title%></th>
+    <th><%=I18n.t :message_sender_name%></th>
+    <th><%=I18n.t :message_sender_email%></th>
+  </tr>
+
+<% @messages.each do |message| %>
+  <tr class="message<%=' unread' unless message.read_at%> <%=cycle('even','odd')%>">
+  	<td><%=link_to message.created_at, message_path( message ) %></td>
+    <td><%=link_to message.title.blank? ? I18n.t( :message_default_title ) : h( message.title ), message_path( message ) %></td>
+    <td><%=h message.sender_name %></td>
+    <td><%=h message.sender_email %></td>
+    <td><%= link_to 'Edit', edit_message_path(message) %></td>
+    <td><%= link_to 'Destroy', message, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+
+</table>

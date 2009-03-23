@@ -1,0 +1,10 @@
+<ul>
+	<li><%=link_to I18n.t( :link_account ), '/'%></li>
+	<li><%=link_to I18n.t( :link_account ), account_path%></li>
+	<li>
+		<%=link_to I18n.t( :link_messages ) + ' (' + current_user.messages.size.to_s + ')', messages_path%>
+		<ul>
+			<li><%=link_to I18n.t( :link_unread_messages ) + ' (' + current_user.messages.unread.size.to_s + ')', unread_messages_path%></li>
+		</ul>
+	</li>
+</ul>

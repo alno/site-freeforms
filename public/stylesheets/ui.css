@@ -1,0 +1,53 @@
+body {
+	
+}
+
+#header {
+  background-color: #637E9F;
+  color: white;
+  font-family: "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+  padding: 30px;
+  text-align: left;
+}
+
+#main {
+  background-color: white;
+  border-bottom: 4px solid #fc0;
+  float: left;
+  width: 100%;
+}
+
+#left {
+	float: left;
+	width: 20%;
+}
+
+#content {
+	float: right;
+	width: 80%;
+}
+
+#footer {
+  color: #AFAFAF;
+  float: left;
+  font-size: 90%;
+  padding-top: 1px;
+  padding-bottom: 20px;
+  width: 100%;
+}
+
+tr.message.even {
+	background: #DDDDDD;
+}
+
+tr.message.odd {
+	
+}
+
+tr.message.unread {
+	font-weight: bold;
+}
+
+.content {
+	border: 1px solid #000000;
+}
