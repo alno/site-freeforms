@@ -44,7 +44,11 @@
 }
 
 .mfd p.error{
-	border: solid 1px #ff0000;
+	border: solid 2px #ff0000;
+}
+
+.mfd p.error input {
+	background: #f66;
 }
 
 .mfd p label {
@@ -54,6 +58,11 @@
 .mfd hr {
 	border: none;
 	border-bottom: 2px solid #999999;
+}
+
+.mfd p{
+	padding: 3px;
+	padding-bottom: 5px;
 }
 
 .mfd p input,
@@ -81,6 +90,16 @@
 	position: absolute;
 	left: 120px;
 	width: 300px;
+}
+
+.mfd p.mf_sender_name span,
+.mfd p.mf_sender_email span
+{
+	position: absolute;
+	left: 430px;
+	
+	color:#f00;
+	font-weight: bold;
 }
 
 .mfd p.mf_sender_name label,

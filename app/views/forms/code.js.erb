@@ -35,7 +35,7 @@ var mf_<%=@form.id%> = new function() {
 	}
 	
 	function writeStringField( name, title ) {
-		document.write('<p id="mf_<%=@form.id%>_'+name+'" class="mf_'+name + '"><label for="'+name+'">'+title+'</label><input type="text" name="'+name+'" /></p>');
+		document.write('<p id="mf_<%=@form.id%>_'+name+'" class="mf_'+name + '"><label for="'+name+'">'+title+'</label><input type="text" name="'+name+'" /><span id="mfe_<%=@form.id%>_'+name+'"></span></p>');
 	}
 	
 	this.onSuccess = function( token ) {
@@ -45,7 +45,8 @@ var mf_<%=@form.id%> = new function() {
 	this.onError = function(errors) {
 		for ( var i = 0; i < errors.length; ++ i ) {
 			var error = errors[i];
-			document.getElementById('mf_<%=@form.id%>_'+error[0]).className = 'error';
+			document.getElementById('mf_<%=@form.id%>_'+error[0]).className += ' error';
+			document.getElementById('mfe_<%=@form.id%>_'+error[0]).innerHTML = error[1];
 		}
 
 		document.getElementById('mfb_<%=@form.id%>').style['display'] = 'none';

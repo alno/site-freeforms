@@ -4,13 +4,14 @@
 %html{ 'xmlns' => "http://www.w3.org/1999/xhtml", 'xml:lang' => "ru", 'lang' => "ru" }
   %head
     %meta{ 'http-equiv' => "content-type", 'content' => "text/html;charset=UTF-8" }
-    %title=t 'titles.' + controller.controller_name + '.' + controller.action_name
+    %title=t( 'titles.' + controller.controller_name + '.' + controller.action_name ) + ' | FreeForms.ru'
     = stylesheet_link_tag 'ui', 'base/ui.all.css', 'flexigrid/flexigrid'
     = javascript_include_tag 'jquery', 'jquery-ui', 'flexigrid.pack.js', 'jquery.validate.pack.js', 'application'
   %body
     #page
       #header
-        %h1 FreeForms.ru
+        %h1
+          %a{ :href => root_url } FreeForms.ru
         %h2 Бесплатные контактные формы для Вашего сайта
       #main
         #left= render :partial => 'shared/sidebar'

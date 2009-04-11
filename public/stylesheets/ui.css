@@ -89,10 +89,15 @@ body {
 	border: 1px solid #999999;
 }
 
-#header h1 {
-
+#header h1 a{
   color: #fc0;
+  text-decoration: none;
 }
+#header h1 a:hover{
+  color: #fe0;
+  text-decoration: none;
+}
+
 #header h2 {
 color: #000;
 }
