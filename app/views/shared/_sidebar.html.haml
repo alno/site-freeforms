@@ -1,0 +1,18 @@
+%ul
+  - if current_user
+    %li= link_to t( :link_account ), account_path
+    - current_user.forms.each do |form|
+      %li= link_to t( :link_form ), form_path( form )
+      %li
+        = link_to t( :link_messages ) + ' (' + form.messages.size.to_s + ')', form_messages_path( form )
+        - unread_count = form.messages.unread.size
+        - if unread_count > 0
+          %ul
+            %li= link_to t( :link_unread_messages ) + ' (' + unread_count.to_s + ')', unread_form_messages_path( form )
+        
+    %li= link_to t( 'actions.session.destroy' ), logout_path
+  - else
+    %li= link_to t( 'actions.session.create' ), root_path + '#login'
+    %li= link_to t( 'actions.account.create' ), root_url + '#register'
+	
+  %li= link_to t( :link_about ), about_path

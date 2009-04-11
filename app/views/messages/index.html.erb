@@ -1,22 +1,25 @@
-<h1><%=I18n.t :messages%></h1>
-
-<table cellspacing="0">
-  <tr>
-    <th><%=I18n.t :message_date%></th>
-    <th><%=I18n.t :message_title%></th>
-    <th><%=I18n.t :message_sender_name%></th>
-    <th><%=I18n.t :message_sender_email%></th>
-  </tr>
-
+<table id="messages_table">
 <% @messages.each do |message| %>
-  <tr class="message<%=' unread' unless message.read_at%> <%=cycle('even','odd')%>">
-  	<td><%=link_to message.created_at, message_path( message ) %></td>
-    <td><%=link_to message.title.blank? ? I18n.t( :message_default_title ) : h( message.title ), message_path( message ) %></td>
+  <tr>
+    <td><%=link_to image_tag( 'icons/newmail.png' ), message_path( message ), :title => t('tooltips.messages.new') unless message.read_at%></td>
+  	<td><%=link_to l( message.created_at, :format => :long ), message_path( message ) %></td>
     <td><%=h message.sender_name %></td>
     <td><%=h message.sender_email %></td>
-    <td><%= link_to 'Edit', edit_message_path(message) %></td>
-    <td><%= link_to 'Destroy', message, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to image_tag( 'icons/delete.png' ), message, :title => t('tooltips.messages.delete'), :confirm => t('confirm.delete_message'), :method => :delete %></td>
   </tr>
 <% end %>
-
 </table>
+
+<script type="text/javascript">
+
+	$.addFlex(document.getElementById("messages_table"),{
+		colModel : [
+			{display: '', name : 'status', width : 40, sortable : false, align: 'right'},
+			{display: 'Дата', name : 'created_at', width : 200, sortable : true, align: 'left'},
+			{display: 'Имя отправителя', name : 'sender_name', width : 180, sortable : true, align: 'left'},
+			{display: 'E-Mail отправителя', name : 'sender_email', width : 180, sortable : true, align: 'left'},
+		],
+		height: 'auto'
+	});
+	
+</script>

@@ -1,0 +1,13 @@
+--- 
+user: industar
+group: industar
+
+environment: production
+
+address: 127.0.0.1
+port: "8000"
+servers: 1
+
+cwd: /home/industar/data/apps/freeforms/current
+log_file: log/mongrel.log
+pid_file: /home/industar/data/apps/freeforms/shared/pids/mongrel.pid

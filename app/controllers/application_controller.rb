@@ -1,15 +1,12 @@
-# Filters added to this controller apply to all controllers in the application.
-# Likewise, all the methods added will be available for all controllers.
-
 class ApplicationController < ActionController::Base
   
-  helper :all # include all helpers, all the time
-  #protect_from_forgery # See ActionController::RequestForgeryProtection for details
-
-  # Scrub sensitive parameters from your log
-  # filter_parameter_logging :password
+  include ExceptionNotifiable
+    
+  layout 'default'
   
   filter_parameter_logging :password, :password_confirmation
+  
+  helper :all # include all helpers, all the time
   helper_method :current_user_session, :current_user
   
   protected
@@ -25,18 +22,18 @@ class ApplicationController < ActionController::Base
   def require_user
     unless current_user
       store_location
-      flash[:notice] = "You must be logged in to access this page"
-      redirect_to new_user_session_url
+      flash[:error] = I18n.t('error.login_required')
+      redirect_to root_url
       return false
     end
   end
-
-  def require_no_user
-    if current_user
-      store_location
-      flash[:notice] = "You must be logged out to access this page"
-      redirect_to account_url
-      return false
+  
+  def load_user_using_perishable_token
+    @user = User.find_using_perishable_token(params[:id])
+    
+    unless @user
+      flash[:error] = I18n.t('error.no_user_found')
+      redirect_to root_url
     end
   end
 

@@ -1,29 +1,33 @@
 class RootController < ApplicationController
 
-  layout 'index'
-
   def index
     @user = User.new
     @user_session = UserSession.new
   end
   
   def post
+    @form = Form.find(params[:form_id]) # Форма, в которую постится собщение
+    
     @message = Message.new
-    @message.user_id = params[:user_id]
-    @message.sender_name = params[:name]
-    @message.sender_email = params[:email]
-    @message.title = params[:title]
-    @message.content = params[:content]
+    @message.form = @form
+    @message.user = @form.user
+    @message.sender_name = params[:sender_name]
+    @message.sender_email = params[:sender_email]
+    @message.data = []
+    
+    @form.fields.each_with_index do |field,i|
+      @message.data << field.enabled? ? params[:fields][i.to_s.to_sym] : nil
+    end
     
     if @message.save
-      render :text => "messageForm.onSuccess('#{@message.token}')"
+      render :js => "mf_#{@message.form_id}.onSuccess('#{@message.token}')"
     else
-      render :text => "messageForm.onError(#{@message.errors.to_json})"
+      render :js => "mf_#{@message.form_id}.onError(#{@message.errors.to_json})"
     end
   end
   
   def status
     @message = Message.find_by_token(params[:token])
   end
-  
+    
 end

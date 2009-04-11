@@ -3,33 +3,118 @@ ru:
   
   message_date: Дата
   message_title: Заголовок
+  message_content: Текст сообщения
   message_sender_name: Имя
   message_sender_email: E-Mail
   
+  message_status: Статус сообщения
   message_from: Отправитель
   message_sent_time: Отправлено
   message_read_time: Прочитано
+  message_unread: Сообщение не прочитано
+  
+  form_title: Название
+  form_description: Описание
+  form_code_inline: Код для вставки формы прямо на страницу (его необходимо скопировать в то место страницы, где Вы хотите разместить форму)
+  form_code_popup: Код для вставки ссылки на всплывающее окно с формой (его необходимо скопировать в то место страницы, где Вы хотите разместить форму)
   
   message_default_title: Без заголовка
   
   link_account: Профиль
+  link_form: Форма
   link_messages: Сообщения
   link_unread_messages: Непрочитанные
+  link_about: О проекте
   
-  enter: Войти
-  register: Зарегистрироваться
+  tooltips:
+    messages:
+      new: Новое сообщение
+      delete: Удалить сообщение
+  
+  confirm:
+    delete_message: Вы уверены, что хотите удалить сообщение?
+    
+  actions:
+    form:
+      edit: Редактировать форму
+      update: Сохранить
+    session:
+      create: Войти
+      destroy: Выйти
+    account:
+      create: Зарегистрироваться
+      update: Сохранить
+    account_password:
+      create: Восстановить пароль
+      update: Установить пароль
+  
+  titles:
+    root:
+      index: "FreeForms.ru"
+      status: Статус сообщения
+      about: О проекте
+    messages:
+      show: Просмотр сообщения
+      index: Сообщения
+      unread: Непрочитанные сообщения
+    forms:
+      show: Форма
+      edit: Редактирование формы
+    sessions:
+      new: Вход
+      create: Вход
+    accounts:
+      show: Профиль
+      new: Регистрация
+      edit: Редактирование профиля
+      create: Регистрация
+    account_passwords:
+      show: Сменить пароль
+      update: Сменить пароль
+      
+  form_fields:
+    title: Заголовок сообщения
+    content: Текст сообщения
+  
+  default_form_title: Контактная форма
+  default_form_description: Это ваша форма, которую необходимо разместить на Вашей странице, чтобы пользователи могли посылать сообщения через нее.
+  
+  notice:
+    reset_instructions_sent: Инструкции по восстановлению пароля высланы на указанный Вами E-Mail.
+    password_updated: Пароль успешно изменен!
+    login_successful: Вы успешно вошли в сервис!
+    logout_successful: Вы успешно вышли из сервиса!
+    account_registered: Поздравляем! Вы успешно зарегистрировались! Дальнейшие инструкции высланы Вам по почте на указанный E-Mail.
+    account_activated: Поздравляем! Ваш аккаунт успешно активирован!
+    account_updated: Аккаунт обновлен!
+  error:
+    no_user_found: Ошибка! Такого пользователя не найдено!
+    login_required: Ошибка! Для просмотра этой страницы необходимо залогиниться!
+    wrong_login_or_password: Ошибка! Пользователя с указанным логином и паролем не найдено!
+  
+  update: Обновить
+  edit_account: Редактировать профиль
 
   activerecord:
     attributes:
+    
+      form:
+        title: Название
+        description: Описание
 
-      user_session:
+      session:
         email: E-Mail
         password: Пароль
         remember_me: Запомнить меня
 
-      user:
+      account:
         email: E-Mail
         password: Пароль
         change_password: Новый пароль
+        password_confirmation: Подтверждение пароля
+        
+      account_password:
+        email: E-Mail
+        password: Пароль
         password_confirmation: Подтверждение пароля
   

@@ -1,0 +1,6 @@
+#!/usr/bin/env ruby
+require 'rubygems'
+require 'ebb'
+ 
+Ebb::Runner::Rails.new.run(ARGV)
+ 

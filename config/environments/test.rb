@@ -1,5 +1,17 @@
 # Settings specified here will take precedence over those in config/environment.rb
 
+APP_HOST = 'localhost:3000'
+JS_HOST = 'localhost:3000'
+FORM_CODE_PREFIX = '/forms'
+FORM_CODE_SUFFIX = '/code'
+
+#config.gem 'rspec', :lib => 'spec', :version => ">= 1.2.0"
+#config.gem 'rspec-rails', :lib => 'spec/rails', :version => ">= 1.2.0" 
+
+config.gem 'carlosbrando-remarkable', :lib => 'remarkable', :source => "http://gems.github.com"
+config.gem 'bmabey-email_spec', :lib => 'email_spec', :source => "http://gems.github.com"
+#config.gem 'cucumber'
+
 # The test environment is used exclusively to run your application's
 # test suite.  You never need to work with it otherwise.  Remember that
 # your test database is "scratch space" for the test suite and is wiped

@@ -1,0 +1,81 @@
+var mf_<%=@form.id%> = new function() {
+
+	function attachScript(src){
+		var e = document.createElement("script");
+		e.type = "text/javascript";
+		e.src = src;
+		document.getElementsByTagName("head")[0].appendChild(e);
+	}
+	
+	function attachStyle(src) {
+		var e = document.createElement("link");
+		e.href = src;
+		e.rel = 'stylesheet';
+		e.type = 'text/css';	
+		document.getElementsByTagName("head")[0].appendChild(e);
+	}
+	
+	function encodeForm( form ) {
+		var str = '';
+		
+		for ( var i = 0; i < form.elements.length; ++ i ) {
+			if ( i > 0 ) 
+				str += '&';
+				
+			str += form.elements[i].name + '=' + encodeURIComponent( form.elements[i].value );
+		}
+		
+		return str;
+	}
+	
+	function setBlockContent( content ) {
+		var b = document.getElementById('mfb_<%=@form.id%>');
+		b.innerHTML = '<div>' + content + '</div>';
+		b.style['display'] = 'block';
+	}
+	
+	function writeStringField( name, title ) {
+		document.write('<p id="mf_<%=@form.id%>_'+name+'"><label for="'+name+'">'+title+'</label><input type="text" name="'+name+'" /></p>');
+	}
+	
+	this.onSuccess = function( token ) {
+		setBlockContent( '<p><%=e 'Сообщение отправлено. Вы можете посмотреть его статус по ссылке:'%> <a href="http://<%=APP_HOST%>/status/' + token + '">http://<%=APP_HOST%>/status/' + token + '</a></p>' );
+	},
+
+	this.onError = function(errors) {
+		for ( var i = 0; i < errors.length; ++ i ) {
+			var error = errors[i];
+			document.getElementById('mf_<%=@form.id%>_'+error[0]).className = 'error';
+		}
+
+		document.getElementById('mfb_<%=@form.id%>').style['display'] = 'none';
+	},
+
+	this.post = function(form) {
+		setBlockContent( '<p><%=e 'Подождите, идет отправка сообщения...'%><br /><br /><img src="http://<%=JS_HOST%>/images/loader-bar.gif" /></p>' );
+
+		attachScript('http://<%=APP_HOST%>/post/<%=@form.id%>?' + encodeForm( form ) );
+	},
+	
+	this.build = function() {
+		attachStyle('http://<%=JS_HOST%>/form.css');
+		
+		document.write('<div id="mfd_<%=@form.id%>" class="mfd"><form action="http://<%=APP_HOST%>/post/<%=@form.id%>" method="POST">');
+		
+		writeStringField('sender_name','<%=e 'Ваше имя'%>');
+		writeStringField('sender_email','<%=e 'Ваш EMail'%>');
+		
+		<% @form.fields.each_with_index do |field,i|%>
+			<% if field.enabled? %>
+  				document.write('<%=field.render_input(@form.id,i)%>');
+  	    	<% end %>
+		<% end %>
+		
+		document.write('<input type="submit" onclick="mf_<%=@form.id%>.post(this.form); return false;" value="<%=e 'Отправить'%>" />');
+		document.write('</form><div id="mfb_<%=@form.id%>" class="fb"></div></div>');
+	}
+	
+	return this;
+};
+
+mf_<%=@form.id%>.build();

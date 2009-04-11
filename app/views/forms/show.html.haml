@@ -1,0 +1,34 @@
+%p
+  %b=t(:form_title) + ':'
+  =h @form.title
+  
+%p
+  %b=t(:form_description) + ':'
+  =h @form.description
+
+%h2 Поля
+
+- @form.fields.each_with_index do |field,i|
+  %p
+    %b=field.title
+    %ul
+      - if field.default
+        %li
+          %b По умолчанию:
+          = field.default
+        
+      - if field.disabled?
+        %li
+          %b Запрещено
+
+%h2 Код
+
+%p
+  %b=t(:form_code_inline) + ':'
+  %pre=h @form.code(:js_inline)
+
+%p
+  %b=t(:form_code_popup) + ':'
+  %pre=h @form.code(:popup)
+
+= link_to t('actions.form.edit'), edit_form_path( @form )

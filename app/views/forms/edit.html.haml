@@ -1,0 +1,28 @@
+- labelling_form_for( @form ) do |f|
+  
+  = f.text_field :title  
+  = f.text_field :description
+
+  %h2 Поля
+  
+  - @form.fields.each_with_index do |field,i|
+    %p
+      %label Заголовок
+      = text_field_tag("form[fields][#{i}][title]", field.title)
+      %br   
+        
+      %label Тип
+      = select_tag("form[fields][#{i}][type]", options_for_select( { "Строка" => :string, "Текст" => :text }, field.type ))
+      %br
+        
+      %label По умолчанию
+      = text_field_tag("form[fields][#{i}][default]", field.default)
+      %br      
+      
+      = check_box_tag("form[fields][#{i}][enabled]", 1, field.enabled?)
+      %label Разрешено
+      %br
+      
+    %hr
+        
+  = f.submit_update

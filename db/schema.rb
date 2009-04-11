@@ -9,21 +9,31 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090321123044) do
+ActiveRecord::Schema.define(:version => 5) do
+
+  create_table "forms", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "title"
+    t.string   "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "fields"
+  end
 
   create_table "messages", :force => true do |t|
     t.integer  "parent_id"
     t.integer  "user_id"
     t.string   "token"
-    t.string   "title"
-    t.string   "content"
     t.string   "sender_name"
     t.string   "sender_email"
     t.datetime "read_at"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "form_id"
+    t.string   "data"
   end
 
+  add_index "messages", ["form_id"], :name => "index_messages_on_form_id"
   add_index "messages", ["parent_id"], :name => "index_messages_on_parent_id"
   add_index "messages", ["token"], :name => "index_messages_on_token"
   add_index "messages", ["user_id"], :name => "index_messages_on_user_id"
@@ -44,6 +54,10 @@ ActiveRecord::Schema.define(:version => 20090321123044) do
     t.string   "last_login_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.datetime "activated_at"
   end
+
+  add_index "users", ["email"], :name => "index_users_on_email"
+  add_index "users", ["persistence_token"], :name => "index_users_on_persistence_token"
 
 end

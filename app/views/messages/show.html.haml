@@ -1,0 +1,17 @@
+%p
+  %b=t :message_from
+  =h( @message.sender_name ) + ' (' + h( @message.sender_email ) + ')'
+
+%p
+  %b=t :message_sent_time
+  =l @message.created_at, :format => :long
+
+%p
+  %b=t :message_read_time
+  = @message.read_at ? l( @message.read_at, :format => :long ) : t( :message_unread )
+
+- @message.form.fields.each_with_index do |field,i|
+  - if field.enabled?
+    %p
+      %b=h field.title
+      = field.render_value( @message.data[i] )

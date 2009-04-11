@@ -1,16 +1,36 @@
 <div id="tabs">
 	<ul>
-		<li><a href="#login">Вход</a></li>
-		<li><a href="#register">Регистрация</a></li>
+		<li><a href="#login"><%=t 'actions.session.create' %></a></li>
+		<li><a href="#register"><%=t 'actions.account.create' %></a></li>
+		<li><a href="#restore_password"><%=t 'actions.account_password.create' %></a></li>
 	</ul>
 	<div id="login">
-		<%=render :partial => 'sessions/new' %>
+		<% labelling_form_for :session, @user_session, :url => session_path do |f| %>
+			<%= f.text_field :email %>			
+			<%= f.password_field :password %>			
+			<%= f.check_box :remember_me %>
+			
+			<%= f.submit_create %>
+		<% end %>
 	</div>
 	<div id="register">
-		<%=render :partial => 'users/new' %>
+		<% labelling_form_for :account, @user, :url => account_path do |f| %>
+			<%= f.error_messages %>
+  
+			<%= f.text_field :email %>
+			<%= f.password_field :password %>
+			<%= f.password_field :password_confirmation %>
+  
+			<%= f.submit_create %>
+		<% end %>
+	</div>
+	<div id="restore_password">
+		<% labelling_form_for :account_password, User.new, :url => account_passwords_path do |f| %>
+			<%= f.text_field :email %>
+			
+			<%= f.submit_create %>
+		<% end %>
 	</div>
 </div>
 
-<script>
-    $('#tabs').tabs({selected:0});
-</script>
+<script>ui.initIndex(<%=@hash || 'location.hash'%>);</script>

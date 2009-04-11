@@ -1,1 +1,14 @@
-<%=@message.read_at%>
+<p>
+  <b><%=t :message_sent_time %>:</b>
+  <%=l @message.created_at, :format => :long%>
+</p>
+
+<p>
+  <b><%=t :message_read_time %>:</b>
+  <%=@message.read_at ? l( @message.read_at, :format => :long ) : t( :message_unread )%>
+</p>
+
+<p>
+  <b><%=t :message_sender_name %>:</b>
+  <%=@message.sender_name %>
+</p>

@@ -1,5 +1,10 @@
 # Settings specified here will take precedence over those in config/environment.rb
 
+APP_HOST = 'www.freeforms.ru'
+JS_HOST = 'js.freeforms.ru'
+FORM_CODE_PREFIX = ''
+FORM_CODE_SIFFIX = ''
+
 # The production environment is meant for finished, "live" apps.
 # Code is not reloaded between requests
 config.cache_classes = true

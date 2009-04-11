@@ -1,29 +1,27 @@
 class SessionsController < ApplicationController
-
-  layout 'index'
   
-  before_filter :require_no_user, :only => [:new, :create]
   before_filter :require_user, :only => :destroy
-  
+    
   def new
-    @user_session = UserSession.new
+    redirect_to root_url + '#login'
   end
   
   def create
-    @user_session = UserSession.new(params[:user_session])
+    @user_session = UserSession.new(params[:session])
     
     if @user_session.save
-      flash[:notice] = "Login successful!"
+      flash[:notice] = I18n.t('notice.login_successful')
       redirect_back_or_default account_url
     else
-      render :action => :new
+      flash[:error] = I18n.t('error.wrong_login_or_password')
+      redirect_to root_url + '#login'
     end
   end
 
   def destroy
     current_user_session.destroy
-    flash[:notice] = "Logout successful!"
-    redirect_back_or_default new_session_url
+    flash[:notice] = I18n.t('notice.logout_successful')
+    redirect_back_or_default root_url
   end
 
 end

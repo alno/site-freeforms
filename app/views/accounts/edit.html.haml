@@ -1,0 +1,7 @@
+- labelling_form_for :account, @user, :url => account_path do |f|
+  = f.error_messages
+  
+  = f.password_field :password
+  = f.password_field :password_confirmation
+
+  = f.submit_update
