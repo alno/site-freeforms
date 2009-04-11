@@ -1,4 +1,4 @@
-body { background-color: #fff; color: #333; }
+body { background-color: #fff; color: #333; padding: 15px; margin: 0; }
 
 body, p, ol, ul, td {
   font-family: verdana, arial, helvetica, sans-serif;
@@ -72,38 +72,77 @@ body {
 }
 
 #header {
-  background-color: #637E9F;
-  color: white;
+  background: url(/images/logo-white.png) no-repeat;
+  background-position: 15px 15px;
+  background-color: #ffffff; /*#87a5b7;*/
+  height: 80px;
   font-family: "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
-  padding: 30px;
+  padding: 10px;
+  padding-left: 200px;
   text-align: left;
+  
+	-moz-border-radius: 10px;
+	-khtml-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+		
+	border: 1px solid #999999;
+}
+
+#header h1 {
+
+  color: #fc0;
+}
+#header h2 {
+color: #000;
 }
 
 #main {
   background-color: white;
-  border-bottom: 4px solid #fc0;
   float: left;
   width: 100%;
+  
+	padding-top: 5px;
+	padding-bottom: 5px;
+	
+  border-bottom: 4px solid #fc0;
 }
 
 #left {
 	float: left;
 	width: 20%;
+	
+	margin-top: 65px;
+	
+	border: 1px solid #999999;
+	
+		-moz-border-radius: 4px;
+	-khtml-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	border-radius: 4px;
+}
+
+#title {
+	float: right;
+	width: 75%;
+	height: 40px;
+	margin-top: 10px;
+	margin-left: 25px;
 }
 
 #content {
 	float: right;
 	width: 75%;
-	padding: 25px;
+	padding: 15px;
 }
 
 #footer {
   color: #AFAFAF;
   float: left;
   font-size: 90%;
-  padding-top: 1px;
+  padding: 10px;
+  padding-top: 5px;
   padding-bottom: 20px;
-  width: 100%;
 }
 
 tr.message.even {

@@ -24,8 +24,8 @@ Feature: Account
     When I open the email
     Then I should see "password" in the email
     When I follow "password" in the email
-    And I fill in "account[password]" with "New password"
-    And I fill in "account[password_confirmation]" with "New password"
+    And I fill in "account_password[password]" with "New password"
+    And I fill in "account_password[password_confirmation]" with "New password"
     And I press "Установить пароль"
     Then I should see "Пароль успешно изменен"
     And I should be able to login as "tester@mail.ru" with "New password"
@@ -34,7 +34,7 @@ Feature: Account
     Given I am logged in as "tester@mail.ru"
     When I go to the homepage
     And I follow "Профиль"
-    And I follow "Редактировать"
+    And I follow "Редактировать профиль"
     Then I should be on the edit account page
     When I fill in "account[password]" with "New password"
     And I fill in "account[password_confirmation]" with "New password"

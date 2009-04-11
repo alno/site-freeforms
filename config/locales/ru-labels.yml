@@ -70,7 +70,7 @@ ru:
       create: Регистрация
     account_passwords:
       show: Сменить пароль
-      update: Сменить пароль
+      update: Установить пароль
       
   form_fields:
     title: Заголовок сообщения

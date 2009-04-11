@@ -37,11 +37,54 @@
 	border-radius: 10px;
 }
 
+.mfd {	
+	margin: 5px;
+	padding: 10px;
+	border: 2px solid #666666;
+}
+
 .mfd p.error{
 	border: solid 1px #ff0000;
+}
+
+.mfd p label {
+	font-weight: bold;
+}
+
+.mfd hr {
+	border: none;
+	border-bottom: 2px solid #999999;
 }
 
 .mfd p input,
 .mfd p textarea {
 	width: 100%;
+	border: 1px solid #666666;
+	padding: 2px;
+}
+
+.mfd p input:focus,
+.mfd p textarea:focus {
+	background: #ffffe0;
+	border: 1px solid #669966;
+}
+
+.mfd p.mf_sender_name input,
+.mfd p.mf_sender_email input
+{
+	position: relative;
+}
+
+.mfd p.mf_sender_name input,
+.mfd p.mf_sender_email input
+{
+	position: absolute;
+	left: 120px;
+	width: 300px;
+}
+
+.mfd p.mf_sender_name label,
+.mfd p.mf_sender_email label
+{
+	padding-right: 10px;
 }

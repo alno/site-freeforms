@@ -1,4 +1,4 @@
-- labelling_form_for :account, @user, :url => account_path do |f|
+- labelling_form_for :account, @user, :url => account_path, :html => { :method => :put } do |f|
   = f.error_messages
   
   = f.password_field :password

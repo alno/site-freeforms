@@ -9,7 +9,7 @@ class Form::TextField < Form::Field
   end
   
   def render_input( form_id, field_num )
-    "<p id=\"mf_#{form_id}_#{field_num}\"><label for=\"fields[#{field_num}]\">#{escaped_title}</label><textarea name=\"fields[#{field_num}]\">#{escaped_default}</textarea></p>"
+    "<p id=\"mf_#{form_id}_#{field_num}\" class=\"mf_text\"><label for=\"fields[#{field_num}]\">#{escaped_title}</label><textarea name=\"fields[#{field_num}]\">#{escaped_default}</textarea></p>"
   end
   
 end

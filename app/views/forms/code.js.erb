@@ -35,7 +35,7 @@ var mf_<%=@form.id%> = new function() {
 	}
 	
 	function writeStringField( name, title ) {
-		document.write('<p id="mf_<%=@form.id%>_'+name+'"><label for="'+name+'">'+title+'</label><input type="text" name="'+name+'" /></p>');
+		document.write('<p id="mf_<%=@form.id%>_'+name+'" class="mf_'+name + '"><label for="'+name+'">'+title+'</label><input type="text" name="'+name+'" /></p>');
 	}
 	
 	this.onSuccess = function( token ) {
@@ -64,6 +64,8 @@ var mf_<%=@form.id%> = new function() {
 		
 		writeStringField('sender_name','<%=e 'Ваше имя'%>');
 		writeStringField('sender_email','<%=e 'Ваш EMail'%>');
+		
+		document.write('<hr />');
 		
 		<% @form.fields.each_with_index do |field,i|%>
 			<% if field.enabled? %>
