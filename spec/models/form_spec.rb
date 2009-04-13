@@ -29,11 +29,15 @@ describe "Form Fields" do
   
 end
 
-describe Form.make, "A new form" do
-        
-  it { should be_valid }
-  it { should have(2).fields }
- # it { @field.fields[0].title.should == I18n.t( 'form_fields.title' ) }
- # it { @field.fields[1].title.should == I18n.t( 'form_fields.content' ) }
+describe "A new form" do
+  
+  before(:all) do
+     @form = Form.make
+  end
+  
+  it { @form.should be_valid }
+  it { @form.should have(2).fields }
+  it { @form.fields[0].title.should == I18n.t( 'form_fields.title' ) }
+  it { @form.fields[1].title.should == I18n.t( 'form_fields.content' ) }
   
 end
