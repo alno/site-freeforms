@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(:version => 5) do
     t.string   "description"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "fields"
+    t.text     "fields"
   end
 
   create_table "messages", :force => true do |t|
@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(:version => 5) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "form_id"
-    t.string   "data"
+    t.text     "data"
   end
 
   add_index "messages", ["form_id"], :name => "index_messages_on_form_id"
