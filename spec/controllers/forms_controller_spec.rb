@@ -20,7 +20,7 @@ describe FormsController do
 
     should_assign_to :form
     should_respond_with :success
-    should_render_template :show
+    should_render_template :code
   end
 
 end

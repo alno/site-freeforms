@@ -19,11 +19,11 @@ set :group_writable, false
 namespace :deploy do
 
    task :start, :roles => :app do
-     run "cd #{current_path} && mongrel_rails cluster::start"
+     run "cd #{current_path} && mongrel_rails start -d -e production -p 8000 -a 127.0.0.1 -P #{deploy_to}/shared/pids/mongrel.8000.pid -c #{current_path} --user industar --group industar"
    end
  
    task :restart, :roles => :app do
-     run "cd #{current_path} && mongrel_rails cluster::stop && rm #{deploy_to}/shared/pids/mongrel* && mongrel_rails cluster::start"
+     run "cd #{current_path} && mongrel_rails stop -P #{deploy_to}/shared/pids/mongrel.8000.pid && mongrel_rails start -d -e production -p 8000 -a 127.0.0.1 -P #{deploy_to}/shared/pids/mongrel.8000.pid -c #{current_path} --user industar --group industar"
    end
 
 end

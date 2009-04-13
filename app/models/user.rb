@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   
   has_many :messages
   has_many :forms
-  
+    
   after_create do |user|
     user.forms.create!( :title => I18n.t( :default_form_title ), :description => I18n.t( :default_form_description ) )
   end

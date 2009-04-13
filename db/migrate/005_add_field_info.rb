@@ -3,8 +3,8 @@ class AddFieldInfo < ActiveRecord::Migration
   class Message < ActiveRecord::Base; serialize :data; end
   
   def self.up
-    add_column :forms, :fields, :string
-    add_column :messages, :data, :string
+    add_column :forms, :fields, :text
+    add_column :messages, :data, :text
     
     Form.find(:all).each do |f|
       f.fields = [ ::Form::StringField.new( :title => 'Заголовок сообщения' ), ::Form::TextField.new( :title => 'Текст сообщения' ) ]

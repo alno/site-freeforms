@@ -20,12 +20,12 @@ describe "Form Fields" do
   it { Form::StringField.new.render_value('123').should == '123' }
   it { Form::TextField.new.render_value('123').should == '<pre>123</pre>' }
   
-  it { Form::StringField.new(:title => '123').render_input(12,1).should == '<p id="mf_12_1"><label for="fields[1]">123</label><input type="text" name="fields[1]" /></p>' }
-  it { Form::StringField.new(:title => '123', :default => 'def').render_input(12,1).should == '<p id="mf_12_1"><label for="fields[1]">123</label><input type="text" name="fields[1]" value="def" /></p>' }
+  it { Form::StringField.new(:title => '123').render_input(12,1).should == '<p id="mf_12_1" class="mf_string"><label for="fields[1]">123</label><input type="text" name="fields[1]" /></p>' }
+  it { Form::StringField.new(:title => '123', :default => 'def').render_input(12,1).should == '<p id="mf_12_1" class="mf_string"><label for="fields[1]">123</label><input type="text" name="fields[1]" value="def" /></p>' }
   
-  it { Form::TextField.new(:title => '1234').render_input(12,1).should == '<p id="mf_12_1"><label for="fields[1]">1234</label><textarea name="fields[1]"></textarea></p>' }
-  it { Form::TextField.new(:title => '123', :default => 'deaa').render_input(12,1).should == '<p id="mf_12_1"><label for="fields[1]">123</label><textarea name="fields[1]">deaa</textarea></p>' }
-  it { Form::TextField.new(:title => 'тест', :default => 'по умолчанию').render_input(12,1).should == '<p id="mf_12_1"><label for="fields[1]">' + HTMLEntities.encode_entities('тест', :basic, :decimal) + '</label><textarea name="fields[1]">' + HTMLEntities.encode_entities('по умолчанию', :basic, :decimal) + '</textarea></p>' }
+  it { Form::TextField.new(:title => '1234').render_input(12,1).should == '<p id="mf_12_1" class="mf_text"><label for="fields[1]">1234</label><textarea name="fields[1]"></textarea></p>' }
+  it { Form::TextField.new(:title => '123', :default => 'deaa').render_input(12,1).should == '<p id="mf_12_1" class="mf_text"><label for="fields[1]">123</label><textarea name="fields[1]">deaa</textarea></p>' }
+  it { Form::TextField.new(:title => 'тест', :default => 'по умолчанию').render_input(12,1).should == '<p id="mf_12_1" class="mf_text"><label for="fields[1]">' + HTMLEntities.encode_entities('тест', :basic, :decimal) + '</label><textarea name="fields[1]">' + HTMLEntities.encode_entities('по умолчанию', :basic, :decimal) + '</textarea></p>' }
   
 end
 

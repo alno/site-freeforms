@@ -2,7 +2,7 @@
 Message.blueprint do
   sender_name { Sham.name }
   sender_email { Sham.email }
-  form { Form.make }
+  form
   user { form.user }
   data { [ Sham.title, Sham.body ] }
   token

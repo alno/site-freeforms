@@ -22,6 +22,7 @@ class AccountPasswordsController < ApplicationController
   def update
     @user.password = params[:account_password][:password]
     @user.password_confirmation = params[:account_password][:password_confirmation]
+    @user.activated_at = Time.now unless @user.activated_at
     
     if @user.save
       flash[:notice] = I18n.t('notice.password_updated')
