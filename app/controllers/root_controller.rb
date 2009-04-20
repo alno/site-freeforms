@@ -11,12 +11,10 @@ class RootController < ApplicationController
     @message = Message.new
     @message.form = @form
     @message.user = @form.user
-    @message.sender_name = params[:sender_name]
-    @message.sender_email = params[:sender_email]
     @message.data = []
     
     @form.fields.each_with_index do |field,i|
-      @message.data << field.enabled? ? params[:fields][i.to_s.to_sym] : nil
+      @message.data << ( field.enabled? ? params[:fields][i.to_s] : field.default )      
     end
     
     if @message.save

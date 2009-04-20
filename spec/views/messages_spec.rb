@@ -12,8 +12,8 @@ describe "messages/show.html" do
   end
 
   it "should contain sender info" do
-    response.should have_text(/#{Regexp.quote( @message.sender_name )}/)
-    response.should have_text(/#{Regexp.quote( @message.sender_email )}/)
+    response.should have_text(/#{Regexp.quote( @message.data[1] )}/)
+    response.should have_text(/#{Regexp.quote( @message.data[0] )}/)
   end
   
   it "should contain timestamps" do
@@ -43,13 +43,13 @@ describe "messages/index.html" do
   
   it "should contain messages sender name" do
     @messages.each do |msg|
-      response.should have_text(/#{Regexp.quote( msg.sender_name )}/)
+      response.should have_text(/#{Regexp.quote( msg.data[1] )}/)
     end
   end
   
   it "should contain messages sender email" do
     @messages.each do |msg|
-      response.should have_text(/#{Regexp.quote( msg.sender_email )}/)
+      response.should have_text(/#{Regexp.quote( msg.data[0] )}/)
     end
   end
     

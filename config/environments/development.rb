@@ -1,5 +1,6 @@
 # Settings specified here will take precedence over those in config/environment.rb
 
+MAIL_HOST = 'localhost:3000'
 APP_HOST = 'localhost:3000'
 JS_HOST = 'localhost:3000'
 FORM_CODE_PREFIX = '/forms'

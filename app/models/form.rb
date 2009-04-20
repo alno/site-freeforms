@@ -9,7 +9,7 @@ class Form < ActiveRecord::Base
   validates_presence_of :user_id
   
   before_create do |form|
-    form.fields = [ StringField.new( :title => I18n.t( 'form_fields.title' ) ), TextField.new( :title => I18n.t( 'form_fields.content' ) ) ] unless form.fields
+    form.fields = [ Form::EmailField.new( :title => I18n.t( 'form_fields.email' ), :required => true ), Form::StringField.new( :title => I18n.t( 'form_fields.name' ) ), StringField.new( :title => I18n.t( 'form_fields.title' ) ), TextField.new( :title => I18n.t( 'form_fields.content' ) ) ] unless form.fields
   end
   
   def code(type = nil)
@@ -22,6 +22,6 @@ class Form < ActiveRecord::Base
     "http://#{JS_HOST}#{FORM_CODE_PREFIX}/#{id}#{FORM_CODE_SUFFIX}.#{format}"
   end
   
-  FIELD_TYPES = [ Form::StringField, Form::TextField ] # Необходимо, чтобы корректно десериализовались данные
+  FIELD_TYPES = [ Form::StringField, Form::TextField, Form::EmailField ] # Необходимо, чтобы корректно десериализовались данные
   
 end

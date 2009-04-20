@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 5) do
+ActiveRecord::Schema.define(:version => 6) do
 
   create_table "forms", :force => true do |t|
     t.integer  "user_id"
@@ -24,8 +24,6 @@ ActiveRecord::Schema.define(:version => 5) do
     t.integer  "parent_id"
     t.integer  "user_id"
     t.string   "token"
-    t.string   "sender_name"
-    t.string   "sender_email"
     t.datetime "read_at"
     t.datetime "created_at"
     t.datetime "updated_at"

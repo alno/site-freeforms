@@ -34,10 +34,6 @@ var mf_<%=@form.id%> = new function() {
 		b.style['display'] = 'block';
 	}
 	
-	function writeStringField( name, title ) {
-		document.write('<p id="mf_<%=@form.id%>_'+name+'" class="mf_'+name + '"><label for="'+name+'">'+title+'</label><input type="text" name="'+name+'" /><span id="mfe_<%=@form.id%>_'+name+'"></span></p>');
-	}
-	
 	this.onSuccess = function( token ) {
 		setBlockContent( '<p><%=e 'Сообщение отправлено. Вы можете посмотреть его статус по ссылке:'%> <a href="http://<%=APP_HOST%>/status/' + token + '">http://<%=APP_HOST%>/status/' + token + '</a></p>' );
 	},
@@ -62,11 +58,7 @@ var mf_<%=@form.id%> = new function() {
 		attachStyle('http://<%=JS_HOST%>/form.css');
 		
 		document.write('<div id="mfd_<%=@form.id%>" class="mfd"><form action="http://<%=APP_HOST%>/post/<%=@form.id%>" method="POST">');
-		
-		writeStringField('sender_name','<%=e 'Ваше имя'%>');
-		writeStringField('sender_email','<%=e 'Ваш EMail'%>');
-		
-		document.write('<hr />');
+		document.write('<h3><%=e @form.title%></h3>');
 		
 		<% @form.fields.each_with_index do |field,i|%>
 			<% if field.enabled? %>
@@ -74,7 +66,7 @@ var mf_<%=@form.id%> = new function() {
   	    	<% end %>
 		<% end %>
 		
-		document.write('<input type="submit" onclick="mf_<%=@form.id%>.post(this.form); return false;" value="<%=e 'Отправить'%>" />');
+		document.write('<div class="submit"><input type="submit" onclick="mf_<%=@form.id%>.post(this.form); return false;" value="<%=e 'Отправить'%>" /></div>');
 		document.write('</form><div id="mfb_<%=@form.id%>" class="fb"></div></div>');
 	}
 	

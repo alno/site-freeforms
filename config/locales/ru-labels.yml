@@ -73,6 +73,8 @@ ru:
       update: Установить пароль
       
   form_fields:
+    name: Ваше имя
+    email: Ваш E-Mail
     title: Заголовок сообщения
     content: Текст сообщения
   
@@ -94,6 +96,14 @@ ru:
   
   update: Обновить
   edit_account: Редактировать профиль
+  
+  fields:
+    errors:
+      field:
+        missed: Поле обязательно для заполнения!
+      email:
+        missed: E-Mail обязателен для заполнения!
+        invalid: Вы ввели некорректный E-Mail!
 
   activerecord:
     attributes:

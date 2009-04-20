@@ -2,6 +2,7 @@ class Form::Field
   attr_accessor :title
   attr_accessor :default  
   attr_accessor :disabled
+  attr_accessor :required
   
   def self.create( type, atts )
     "Form::#{type.camelize}Field".constantize.new( atts )
@@ -26,6 +27,12 @@ class Form::Field
     !@disabled
   end
   
+  def error_for(value)
+    return required? ? I18n.t('fields.errors.field.missed') : nil if value.blank?    
+    nil
+  end
+    
   alias_method :disabled?, :disabled
+  alias_method :required?, :required
   
 end

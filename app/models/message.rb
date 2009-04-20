@@ -9,10 +9,14 @@ class Message < ActiveRecord::Base
   validates_presence_of :user
   validates_presence_of :data
   
-  validates_format_of :sender_email, :with => /\A[\w\.%\+\-]+@(?:[A-Z0-9\-]+\.)+(?:[A-Z]{2}|aero|ag|asia|at|be|biz|ca|cc|cn|com|de|edu|eu|fm|gov|gs|jobs|jp|in|info|me|mil|mobi|museum|ms|name|net|nu|nz|org|tc|tw|tv|uk|us|vg|ws)\z/i, :message => 'Указан некорректный E-Mail'
-  validates_presence_of :sender_email, :message => 'Не указан E-Mail'
-  
   named_scope :unread, :conditions => "read_at IS NULL"
+  
+  def validate_on_create
+    form.fields.each_with_index do |field,i|
+      e = field.error_for( data[i] )
+      errors.add(i,e) if field.enabled? && e
+    end
+  end
   
   before_create do |msg|
     msg.token = Authlogic::CryptoProviders::Sha1.encrypt(Time.now.to_s + (1..10).collect{ rand.to_s }.join)

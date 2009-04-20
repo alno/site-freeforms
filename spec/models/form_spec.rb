@@ -1,8 +1,20 @@
 require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 
-describe "Form Fields" do
+describe "Field" do
   
-  describe "Empty field" do
+  def render_input(form_id,field_num,text)
+    simple_matcher("render input to '#{text}'") { |given| given.render_input(form_id,field_num) == text }
+  end
+  
+  def render_value(value,text)
+    simple_matcher("render value '#{value}' to '#{text}'") { |given| given.render_value(value) == text }
+  end
+  
+  def accept(value)
+    simple_matcher("accept value '#{value}'") { |given| given.error_for(value).nil? }
+  end
+  
+  context "empty" do
     before(:all) do
       @field = Form::Field.new      
     end    
@@ -17,15 +29,49 @@ describe "Form Fields" do
   it { Form::Field.new(:title => 'Тест').escaped_title.should == HTMLEntities.encode_entities('Тест', :basic, :decimal) }
   it { Form::Field.new(:default => 'По умолчанию').escaped_default.should == HTMLEntities.encode_entities('По умолчанию', :basic, :decimal) }
     
-  it { Form::StringField.new.render_value('123').should == '123' }
-  it { Form::TextField.new.render_value('123').should == '<pre>123</pre>' }
+  it { Form::TextField.new(:title => '123', :default => 'deaa').render_input(12,1).should == '<p id="mf_12_1" class="mf_text"><label for="fields[1]">123</label><span id="mfe_12_1"></span><textarea name="fields[1]">deaa</textarea></p>' }
+  it { Form::TextField.new(:title => 'тест', :default => 'по умолчанию').render_input(12,1).should == '<p id="mf_12_1" class="mf_text"><label for="fields[1]">' + HTMLEntities.encode_entities('тест', :basic, :decimal) + '</label><span id="mfe_12_1"></span><textarea name="fields[1]">' + HTMLEntities.encode_entities('по умолчанию', :basic, :decimal) + '</textarea></p>' }
+    
+  context Form::StringField.new(:title => '123'), "string" do
+    it { should render_input( 12, 1, '<p id="mf_12_1" class="mf_string"><label for="fields[1]">123</label><input type="text" name="fields[1]" /><span id="mfe_12_1"></span></p>' ) }
+    it { should render_value( 'fdszcxd', 'fdszcxd' ) }
+  end
   
-  it { Form::StringField.new(:title => '123').render_input(12,1).should == '<p id="mf_12_1" class="mf_string"><label for="fields[1]">123</label><input type="text" name="fields[1]" /></p>' }
-  it { Form::StringField.new(:title => '123', :default => 'def').render_input(12,1).should == '<p id="mf_12_1" class="mf_string"><label for="fields[1]">123</label><input type="text" name="fields[1]" value="def" /></p>' }
+  context Form::StringField.new(:title => '123', :default => 'def'), "string with default" do
+    it { should render_input( 12, 1, '<p id="mf_12_1" class="mf_string"><label for="fields[1]">123</label><input type="text" name="fields[1]" value="def" /><span id="mfe_12_1"></span></p>' ) }
+  end
   
-  it { Form::TextField.new(:title => '1234').render_input(12,1).should == '<p id="mf_12_1" class="mf_text"><label for="fields[1]">1234</label><textarea name="fields[1]"></textarea></p>' }
-  it { Form::TextField.new(:title => '123', :default => 'deaa').render_input(12,1).should == '<p id="mf_12_1" class="mf_text"><label for="fields[1]">123</label><textarea name="fields[1]">deaa</textarea></p>' }
-  it { Form::TextField.new(:title => 'тест', :default => 'по умолчанию').render_input(12,1).should == '<p id="mf_12_1" class="mf_text"><label for="fields[1]">' + HTMLEntities.encode_entities('тест', :basic, :decimal) + '</label><textarea name="fields[1]">' + HTMLEntities.encode_entities('по умолчанию', :basic, :decimal) + '</textarea></p>' }
+  context Form::TextField.new(:title => '1234'), "text" do    
+    it { should render_value( '123', '<pre>123</pre>' ) }    
+    it { should render_input( 13, 1, '<p id="mf_13_1" class="mf_text"><label for="fields[1]">1234</label><span id="mfe_13_1"></span><textarea name="fields[1]"></textarea></p>' ) }
+    it { should accept( "tester@mail.ru" ) }
+    it { should accept( "" ) }
+    it { should accept( nil ) }
+  end
+  
+  context Form::TextField.new(:required => true), "required text" do    
+    it { should accept( "tester@mail.ru" ) }
+    it { should_not accept( "" ) }
+    it { should_not accept( nil ) }
+  end
+  
+  context Form::EmailField.new(:title => 'qwerty'), "email" do    
+    it { should render_input( 15, 7, '<p id="mf_15_7" class="mf_email"><label for="fields[7]">qwerty</label><input type="text" name="fields[7]" /><span id="mfe_15_7"></span></p>' ) }    
+    it { should accept( "tester@mail.ru" ) }
+    it { should accept( "12345@dff22.com.ua" ) }
+    it { should accept( "asdf11@mail.ru" ) }
+    it { should_not accept( "12345@dff22.com.ua." ) }
+    it { should_not accept( "12345@ru" ) }
+    it { should accept( "" ) }
+    it { should accept( nil ) }
+  end
+  
+  context Form::EmailField.new(:required => true), "required email" do    
+    it { should accept( "tester@mail.ru" ) }
+    it { should_not accept( "12345@dff22.com.ua." ) }
+    it { should_not accept( "" ) }
+    it { should_not accept( nil ) }
+  end
   
 end
 
@@ -36,8 +82,10 @@ describe "A new form" do
   end
   
   it { @form.should be_valid }
-  it { @form.should have(2).fields }
-  it { @form.fields[0].title.should == I18n.t( 'form_fields.title' ) }
-  it { @form.fields[1].title.should == I18n.t( 'form_fields.content' ) }
+  it { @form.should have(4).fields }
+  it { @form.fields[0].title.should == I18n.t( 'form_fields.email' ) }
+  it { @form.fields[1].title.should == I18n.t( 'form_fields.name' ) }
+  it { @form.fields[2].title.should == I18n.t( 'form_fields.title' ) }
+  it { @form.fields[3].title.should == I18n.t( 'form_fields.content' ) }
   
 end
