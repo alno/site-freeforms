@@ -1,5 +1,15 @@
-%p
-  %b Email
-  =h @user.email
+#account-tabs
+  %ul
+    %li
+      %a{ :href => '#account-main' }= t 'titles.accounts.show'
+      
+  #account-main
+    %p
+      %b Email
+      =h @user.email
+      
+%br
  
-= link_to t(:edit_account), edit_account_path 
+= styled_link_to :edit_account, edit_account_path
+
+%script= "ui.initAccount(#{@hash || 'location.hash'});"

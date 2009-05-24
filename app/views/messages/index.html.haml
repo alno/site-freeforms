@@ -1,0 +1,10 @@
+- paginated_section @messages do
+  - @messages.each do |message|
+    - message.form.fields.each_with_index do |field,i|
+      %p
+        %b= field.title + ':'
+        = field.render_value( message.data[i] )
+    %p
+      = styled_link_to 'actions.message.show', message_path( message )
+      = styled_link_to 'actions.message.destroy', message_path( message ), :title => t('tooltips.messages.delete'), :confirm => t('confirm.destroy_message'), :method => :delete
+    %hr

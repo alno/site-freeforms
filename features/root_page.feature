@@ -17,5 +17,5 @@ Feature: Root page
     Given I am logged in as "tester@mail.ru"
     When I go to the homepage
     Then I should see "Профиль"
-    And I should see "Форма"
+    And I should see "Просмотреть форму"
     And I should see "Выйти"

@@ -1,0 +1,15 @@
+javascripts:
+- app:
+  - jquery
+  - jquery-cookie
+  - jquery-ui-custom
+  - jquery-validate
+  - jquery-colorpicker
+  - flexigrid
+  - jrails
+  - application
+stylesheets:
+- app:
+  - ui
+  - jquery-ui-custom
+  - flexigrid

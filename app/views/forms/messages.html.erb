@@ -1,0 +1,33 @@
+<% paginated_section @messages do %>
+
+	<table id="messages_table">
+	<% @messages.each do |message| %>
+	  <tr>
+	    <td><%=link_to image_tag( 'icons/newmail.png' ), message_path( message ), :title => t('tooltips.messages.new') unless message.read_at%></td>
+	  	<td><%=link_to l( message.created_at, :format => :long ), message_path( message ) %></td>
+	  	
+	  	<% @form.fields.each_with_index do |field,i| if field.type != :text %>
+	   		<td><%=field.render_value( message.data[i] ) %></td>
+	    <% end end %>
+	    
+	    <td><%= link_to image_tag( 'icons/delete.png' ), message, :title => t('tooltips.messages.delete'), :confirm => t('confirm.destroy_message'), :method => :delete %></td>
+	  </tr>
+	<% end %>
+	</table>
+
+<% end %>
+
+<script type="text/javascript">
+
+	$.addFlex(document.getElementById("messages_table"),{
+		colModel : [
+			{display: '', name : 'status', width : 40, sortable : false, align: 'right'},
+			{display: 'Дата', name : 'created_at', width : 200, sortable : true, align: 'left'}
+			<% @form.fields.each_with_index do |field,i| if field.type != :text %>
+				, {display: '<%=field.title%>', name : 'field_<%=i%>', width : 180, sortable : true, align: 'left'}
+			<% end end %>
+		],
+		height: 'auto'
+	});
+	
+</script>

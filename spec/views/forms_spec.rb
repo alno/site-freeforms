@@ -21,7 +21,7 @@ describe "forms/code.html" do
   end
 
   it "should include fields" do
-    response.should have_text(/Отправить сообщение/)
+    response.should have_text(/#{Regexp.quote(@form.title)}/)
     response.should have_text(/#{Regexp.quote(@form.code)}/)
   end
 end

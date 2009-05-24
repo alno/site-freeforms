@@ -22,17 +22,17 @@ describe "messages/show.html" do
   end
 end
 
-describe "messages/index.html" do
+describe "forms/messages.html" do
   before(:all) do
     @form = Form.make
-    @messages = [ Message.make( :read_at => Time.now, :form => @form ), Message.make( :read_at => Time.now, :form => @form ) ]
+    @messages = [ Message.make( :read_at => Time.now, :form => @form ), Message.make( :read_at => Time.now, :form => @form ) ].paginate
   end
   
   before do
     assigns[:form] = @form
     assigns[:messages] = @messages
 
-    render 'messages/index.html'
+    render 'forms/messages.html'
   end
 
   it "should contain links to messages" do
@@ -58,17 +58,17 @@ describe "messages/index.html" do
   end
 end
 
-describe "messages/index.html with unread" do
+describe "forms/messages.html with unread" do
   before(:all) do
     @form = Form.make
-    @messages = [ Message.make( :read_at => Time.now, :form => @form ), Message.make( :form => @form ) ]
+    @messages = [ Message.make( :read_at => Time.now, :form => @form ), Message.make( :form => @form ) ].paginate
   end
   
   before do
     assigns[:form] = @form
     assigns[:messages] = @messages
 
-    render 'messages/index.html'
+    render 'forms/messages.html'
   end
 
   it "should contain unread icon" do

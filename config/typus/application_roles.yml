@@ -1,0 +1,25 @@
+###
+## Typus Roles Configuration File
+##
+#
+#     admin:
+#       Post: create, read, update, delete
+#       Category: create, read, update, delete
+#
+#     editor:
+#       Post: create, read, update
+#       Category: read, update
+#
+# You can also define "resources" which are not related to a model, 
+# for example to control MemCached, see the Starling queue statistics.
+#
+#     admin:
+#      Starling: index
+#      MemCached: index, cleanup
+#
+###
+
+admin:
+  Form: create, read, update, delete
+  User: create, read, update, delete
+  Message: create, read, update, delete

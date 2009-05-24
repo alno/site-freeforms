@@ -13,40 +13,62 @@ ru:
   message_read_time: Прочитано
   message_unread: Сообщение не прочитано
   
-  form_title: Название
-  form_description: Описание
   form_code_inline: Код для вставки формы прямо на страницу (его необходимо скопировать в то место страницы, где Вы хотите разместить форму)
   form_code_popup: Код для вставки ссылки на всплывающее окно с формой (его необходимо скопировать в то место страницы, где Вы хотите разместить форму)
   
   message_default_title: Без заголовка
   
-  link_account: Профиль
-  link_form: Форма
-  link_messages: Сообщения
-  link_unread_messages: Непрочитанные
+  link_account: Мой профиль
+  link_project: О проекте
   link_about: О проекте
+  
+  cancel: Отменить
+  
+  form:
+    description: Описание
+    fields: Поля
+    style: Внешний вид
+    code: Код для вставки
+    preview: Просмотр
   
   tooltips:
     messages:
       new: Новое сообщение
       delete: Удалить сообщение
+    forms:
+      delete: Удалить форму
   
   confirm:
-    delete_message: Вы уверены, что хотите удалить сообщение?
+    destroy_message: Вы уверены, что хотите удалить сообщение?
+    destroy_form: Вы уверены, что хотите удалить форму? Вместе с формой будут удалены все отправленные на нее сообщения.
     
   actions:
     form:
+      new: Создать новую форму
+      index: Мои формы
+      show: Просмотреть форму
       edit: Редактировать форму
-      update: Сохранить
+      clone: Клонировать форму
+      create: Создать форму
+      update: Сохранить форму
+      destroy: Удалить форму
+      messages: Сообщения
     session:
       create: Войти
       destroy: Выйти
     account:
+      show: Мой профиль
+      edit: Редактировать профиль
       create: Зарегистрироваться
       update: Сохранить
     account_password:
       create: Восстановить пароль
       update: Установить пароль
+    message:
+      index: Мои сообщения
+      unread: Непрочитанные
+      show: Показать
+      destroy: Удалить
   
   titles:
     root:
@@ -58,8 +80,13 @@ ru:
       index: Сообщения
       unread: Непрочитанные сообщения
     forms:
+      index: Формы
       show: Форма
       edit: Редактирование формы
+      new: Новая форма
+      clone: Клонирование формы
+      messages: Сообщения для формы
+      unread: Непрочитанные сообщения для формы
     sessions:
       new: Вход
       create: Вход
@@ -97,6 +124,20 @@ ru:
   update: Обновить
   edit_account: Редактировать профиль
   
+  types:
+    email: E-Mail
+    string: Строка
+    text: Текст
+    
+  style:
+    font_family: Шрифт
+    font_size: Размер шрифта
+    font_color: Цвет текста
+    title_family: Шрифт заголовка
+    title_size: Размер шрифта заголовка
+    title_color: Цвет заголовка
+    background: Цвет фона
+  
   fields:
     errors:
       field:
@@ -111,6 +152,7 @@ ru:
       form:
         title: Название
         description: Описание
+        submit_title: Текст на кнопке
 
       session:
         email: E-Mail

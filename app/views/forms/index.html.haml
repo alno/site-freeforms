@@ -1,0 +1,11 @@
+- paginated_section @forms do
+  - @forms.each do |form|
+    %h3= form.title
+    %p= form.description
+    %p
+      = styled_link_to 'actions.form.show', form_path( form ) + '#form-preview'
+      = styled_link_to 'actions.form.messages', messages_form_path( form )
+      = styled_link_to 'actions.form.edit', edit_form_path( form ) + '#form-description'
+      = styled_link_to 'actions.form.clone', clone_form_path( form ) + '#form-description'
+      = styled_link_to 'actions.form.destroy', form_path( form ), :title => t('tooltips.forms.delete'), :confirm => t('confirm.destroy_form'), :method => :delete
+    %hr

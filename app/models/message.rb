@@ -1,5 +1,7 @@
 class Message < ActiveRecord::Base
   
+  acts_as_paranoid # Не удалять из базы
+  
   serialize :data
   
   belongs_to :user
@@ -10,6 +12,11 @@ class Message < ActiveRecord::Base
   validates_presence_of :data
   
   named_scope :unread, :conditions => "read_at IS NULL"
+  
+  # Кол-во сообщений на одну страницу
+  def self.per_page
+    30
+  end
   
   def validate_on_create
     form.fields.each_with_index do |field,i|

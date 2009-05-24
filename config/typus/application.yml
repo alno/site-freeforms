@@ -1,0 +1,107 @@
+###
+## Typus Configuration File
+##
+#
+# Post:
+#   fields:
+#     list: id, title, category_id, created_at, is_published?
+#     form: title, body, is_published?, created_at
+#     show: title, category, is_published?
+#     relationship: title, status
+#     options:
+#       auto_generated:
+#       booleans:
+#         is_published: ["Yes, it is", "No, it isn't"]
+#       date_formats:
+#         created_at: post_long
+#       selectors:
+#       read_only:
+#   actions:
+#     index: cleanup
+#     edit: send_as_newsletter
+#     show: rebuild
+#   export: csv, xml, pdf
+#   order_by: created_at
+#   relationships:
+#   filters: is_published?, created_at, category_id
+#   search: title, body
+#   application: Application
+#   description: Some text to describe the model
+#   options:
+#     default_action_on_item: show
+#     end_year: 2015
+#     form_rows: 25
+#     icon_on_boolean: true
+#     index_after_save: false
+#     minute_step: 15
+#     nil: 'nil'
+#     per_page: 5
+#     sidebar_selector: 5
+#     start_year: 1990
+#     toggle: true
+#
+###
+
+Form:
+  fields:
+    list: id, user, title, description, deleted_at, submit_title
+    form: user, title, description, fields, deleted_at, style, submit_title
+    show: id, user, title, description, created_at, updated_at, fields, deleted_at, style, submit_title
+    relationship:
+    options:
+      auto_generated:
+      read_only:
+      selectors:
+  actions:
+    index:
+    edit:
+  export:
+  order_by:
+  relationships: messages, user
+  filters:
+  search:
+  application: contact_forms
+  description:
+
+User:
+  fields:
+    list: id, email, crypted_password, password_salt, persistence_token, single_access_token, perishable_token, login_count, failed_login_count, last_request_at, current_login_at, last_login_at, current_login_ip, last_login_ip, activated_at, deleted_at
+    form: email, crypted_password, password_salt, persistence_token, single_access_token, perishable_token, login_count, failed_login_count, last_request_at, current_login_at, last_login_at, current_login_ip, last_login_ip, activated_at, deleted_at
+    show: id, email, crypted_password, password_salt, persistence_token, single_access_token, perishable_token, login_count, failed_login_count, last_request_at, current_login_at, last_login_at, current_login_ip, last_login_ip, created_at, updated_at, activated_at, deleted_at
+    relationship:
+    options:
+      auto_generated:
+      read_only:
+      selectors:
+  actions:
+    index:
+    edit:
+  export:
+  order_by:
+  relationships: forms, messages
+  filters:
+  search:
+  application: contact_forms
+  description:
+
+Message:
+  fields:
+    list: id, parent_id, user, token, read_at, form, deleted_at
+    form: parent_id, user, token, read_at, form, data, deleted_at
+    show: id, parent_id, user, token, read_at, created_at, updated_at, form, data, deleted_at
+    relationship:
+    options:
+      auto_generated:
+      read_only:
+      selectors:
+  actions:
+    index:
+    edit:
+  export:
+  order_by:
+  relationships: form, user
+  filters:
+  search:
+  application: contact_forms
+  description:
+

@@ -4,8 +4,8 @@ class AddEmailAndTitleFields < ActiveRecord::Migration
   
   def self.up    
     Form.find(:all).each do |f|
-      f.fields.insert( 0, Form::EmailField.new( :title => I18n.t( 'form_fields.email' ), :required => true ) )
-      f.fields.insert( 1, Form::StringField.new( :title => I18n.t( 'form_fields.name' ) ) )
+      f.fields.insert( 0, ::Form::EmailField.new( :title => I18n.t( 'form_fields.email' ), :required => true ) )
+      f.fields.insert( 1, ::Form::StringField.new( :title => I18n.t( 'form_fields.name' ) ) )
       f.save
     end
     

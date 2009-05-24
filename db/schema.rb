@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 6) do
+ActiveRecord::Schema.define(:version => 9) do
 
   create_table "forms", :force => true do |t|
     t.integer  "user_id"
@@ -18,6 +18,9 @@ ActiveRecord::Schema.define(:version => 6) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "fields"
+    t.datetime "deleted_at"
+    t.text     "style"
+    t.string   "submit_title"
   end
 
   create_table "messages", :force => true do |t|
@@ -29,12 +32,26 @@ ActiveRecord::Schema.define(:version => 6) do
     t.datetime "updated_at"
     t.integer  "form_id"
     t.text     "data"
+    t.datetime "deleted_at"
   end
 
   add_index "messages", ["form_id"], :name => "index_messages_on_form_id"
   add_index "messages", ["parent_id"], :name => "index_messages_on_parent_id"
   add_index "messages", ["token"], :name => "index_messages_on_token"
   add_index "messages", ["user_id"], :name => "index_messages_on_user_id"
+
+  create_table "typus_users", :force => true do |t|
+    t.string   "first_name",       :default => "",    :null => false
+    t.string   "last_name",        :default => "",    :null => false
+    t.string   "role",                                :null => false
+    t.string   "email",                               :null => false
+    t.boolean  "status",           :default => false
+    t.string   "token",                               :null => false
+    t.string   "salt",                                :null => false
+    t.string   "crypted_password",                    :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                              :null => false
@@ -53,6 +70,7 @@ ActiveRecord::Schema.define(:version => 6) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.datetime "activated_at"
+    t.datetime "deleted_at"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email"

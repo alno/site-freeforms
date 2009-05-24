@@ -5,8 +5,7 @@ class MessagesController < ApplicationController
   # GET /messages
   # GET /messages.xml
   def index
-    @form = current_user.forms.find(params[:form_id])
-    @messages = @form.messages.find(:all,:order => 'created_at DESC')
+    @messages = current_user.messages.paginate( :all, :page => params[:page], :order => 'created_at DESC' )
 
     respond_to do |format|
       format.html { render :action => 'index' }
@@ -17,8 +16,7 @@ class MessagesController < ApplicationController
   # GET /messages/unread
   # GET /messages/unread.xml
   def unread
-    @form = current_user.forms.find(params[:form_id])
-    @messages = @form.messages.unread.find(:all,:order => 'created_at DESC')
+    @messages = current_user.messages.unread.paginate( :all, :page => params[:page], :order => 'created_at DESC' )
 
     respond_to do |format|
       format.html { render :action => 'index' }
@@ -50,7 +48,7 @@ class MessagesController < ApplicationController
     @message.destroy
 
     respond_to do |format|
-      format.html { redirect_to(messages_url) }
+      format.html { redirect_to messages_path }
       format.xml  { head :ok }
     end
   end

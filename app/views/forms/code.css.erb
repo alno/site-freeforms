@@ -1,0 +1,114 @@
+.mfd {
+	position: relative;
+		
+	margin: 5px;
+	padding: 10px;
+	border: 2px solid #666666;
+	
+	background: <%=@form.style.background %>;
+	
+	font-family: <%=@form.style.font_family %>;
+	font-size: <%=@form.style.font_size %>px;
+	color: <%=@form.style.font_color %>;
+}
+
+.mfd h3 {
+	text-align: center;
+	
+	font-family: <%=@form.style.title_family %>;
+	font-size: <%=@form.style.title_size %>px;
+	color: <%=@form.style.title_color %>;
+}
+
+.mfd .submit {
+}
+
+.mfd .submit input {
+}
+
+.mfd p.error{
+	border: solid 2px #ff0000;
+}
+
+.mfd p.error input {
+	background: #f66;
+}
+
+.mfd p label {
+	font-weight: bold;
+}
+
+.mfd hr {
+	border: none;
+	border-bottom: 2px solid #999999;
+}
+
+.mfd p{
+	padding: 3px;
+	padding-bottom: 5px;
+}
+
+.mfd p input,
+.mfd p textarea {
+	width: 100%;
+	border: 1px solid #666666;
+	padding: 2px;
+}
+
+.mfd p input:focus,
+.mfd p textarea:focus {
+	background: #ffffe0;
+	border: 1px solid #669966;
+}
+
+.mfd p input {
+	width: 300px;
+}
+
+.mfd p span {	
+	color:#f00;
+	font-weight: bold;
+	padding-left: 10px;
+}
+
+.mfd p label {
+	padding-right: 10px;
+}
+
+
+
+.mfd .fb {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: gray;
+	opacity: 0.9;
+	display: none;
+	text-align: center;		
+	
+	border: 1px solid #000000;
+}
+
+.mfd .fb div {
+	position: absolute;
+	top: 25%;
+	left: 0;
+	width: 100%;
+	text-align: center;
+}
+
+.mfd .fb div p {
+	padding: 30px;
+	margin-left: 30px;
+	margin-right: 30px;
+	background: #ffffff;
+	opacity: 1.5;
+	border: 1px solid #000000;
+	
+	-moz-border-radius: 10px;
+	-khtml-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+}

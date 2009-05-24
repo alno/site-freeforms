@@ -8,14 +8,23 @@ class FormsController < ApplicationController
   
   caches_page :code
   
+  def index
+    @forms = current_user.forms.paginate( :all, :page => params[:page], :order => 'created_at DESC' )
+  end
+  
   def code
     @form = Form.find(params[:id])
   end
   
-  def index    
+  def new
+    @form = Form.new
   end
   
   def show
+    @form = current_user.forms.find(params[:id])
+  end
+  
+  def clone
     @form = current_user.forms.find(params[:id])
   end
   
@@ -23,21 +32,63 @@ class FormsController < ApplicationController
     @form = current_user.forms.find(params[:id])
   end
   
+  def messages
+    @form = current_user.forms.find( params[:id] )
+    @messages = @form.messages.paginate( :all, :page => params[:page], :order => 'created_at DESC' )
+
+    respond_to do |format|
+      format.html { render :action => 'messages' }
+      format.xml  { render :xml => @messages }
+    end
+  end
+  
+  def unread
+    @form = current_user.forms.find( params[:id] )
+    @messages = @form.messages.unread.paginate( :all, :page => params[:page], :order => 'created_at DESC' )
+
+    respond_to do |format|
+      format.html { render :action => 'messages' }
+      format.xml  { render :xml => @messages }
+    end
+  end
+  
+  def create
+    @form = current_user.forms.build
+    @form.assing params[:form]
+    
+    if @form.save
+      redirect_to form_path( @form )
+    else
+      render :action => :new
+    end
+  end
+  
   def update
     @form = current_user.forms.find(params[:id])
-    @form.title = params[:form][:title]
-    @form.description = params[:form][:description]
-    @form.fields = []
-    
-    params[:form][:fields].each do |k,f|
-      @form.fields << Form::Field.create( f[:type], :title => f[:title], :default => f[:default], :disabled => (f[:enabled].to_i != 1) )
-    end    
+    @form.assing params[:form]
     
     if @form.save
       redirect_to form_path( @form )
     else
       render :action => :edit
     end
+  end
+  
+  def preview
+    @form = current_user.forms.build
+    @form.id = 0
+    @form.assing params[:form]
+    
+    @css = render_to_string :action => 'code.css', :layout => false
+    
+    render :layout => false
+  end
+  
+  def destroy
+    @form = current_user.forms.find(params[:id])
+    @form.destroy
+    
+    redirect_to account_path
   end
 
 end

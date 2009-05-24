@@ -1,7 +1,18 @@
 - labelling_form_for :account, @user, :url => account_path, :html => { :method => :put } do |f|
-  = f.error_messages
-  
-  = f.password_field :password
-  = f.password_field :password_confirmation
+  #account-tabs
+    %ul
+      %li
+        %a{ :href => '#account-main' }= t 'titles.accounts.show'
+        
+    #account-main
+      = f.error_messages
+      
+      = f.password_field :password
+      = f.password_field :password_confirmation
+      
+  %br
+    
+  = f.submit_update :class => 'button'
+  = styled_link_to :cancel, account_path
 
-  = f.submit_update
+%script= "ui.initAccount(#{@hash || 'location.hash'});"

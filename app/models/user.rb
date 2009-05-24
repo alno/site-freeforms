@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   
   acts_as_authentic
+  acts_as_paranoid # Не удалять из базы
   
   has_many :messages
   has_many :forms

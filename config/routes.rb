@@ -1,10 +1,7 @@
 ActionController::Routing::Routes.draw do |map|
   
-  map.resources :forms, :member => [ :code ] do |m|
-    m.resources :messages, :collection => [ :unread, :unanswered ]
-  end
-  
-  map.resources :messages
+  map.resources :forms, :member => [ :code, :clone, :messages, :unread ], :collection => [ :preview ]  
+  map.resources :messages, :collection => [ :unread ]
     
   map.resource :account
   map.resource :session
@@ -19,4 +16,7 @@ ActionController::Routing::Routes.draw do |map|
   map.message_status '/status/:token', :controller => 'root', :action => 'status'
     
   map.about '/about', :controller => 'root', :action => 'about'
+  
+  map.connect ':controller.:format'
+  map.connect ':controller/:action/:id.:format'
 end

@@ -9,9 +9,8 @@ class Form::Field
   end
   
   def initialize( atts = {} )
-    atts.symbolize_keys!
     atts.each do |k,v|
-      self.send "#{k}=".to_sym, v if v && v != ''
+      self.send "#{k}=".to_sym, v if v && v != '' && v != self.send( k )
     end
   end
   

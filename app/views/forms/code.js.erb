@@ -55,7 +55,7 @@ var mf_<%=@form.id%> = new function() {
 	},
 	
 	this.build = function() {
-		attachStyle('http://<%=JS_HOST%>/form.css');
+		attachStyle('<%=@form.code_url :css %>');
 		
 		document.write('<div id="mfd_<%=@form.id%>" class="mfd"><form action="http://<%=APP_HOST%>/post/<%=@form.id%>" method="POST">');
 		document.write('<h3><%=e @form.title%></h3>');
@@ -66,7 +66,7 @@ var mf_<%=@form.id%> = new function() {
   	    	<% end %>
 		<% end %>
 		
-		document.write('<div class="submit"><input type="submit" onclick="mf_<%=@form.id%>.post(this.form); return false;" value="<%=e 'Отправить'%>" /></div>');
+		document.write('<div class="submit"><input type="submit" onclick="mf_<%=@form.id%>.post(this.form); return false;" value="<%=e @form.submit_title%>" /></div>');
 		document.write('</form><div id="mfb_<%=@form.id%>" class="fb"></div></div>');
 	}
 	

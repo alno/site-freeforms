@@ -1,6 +1,9 @@
 class Form < ActiveRecord::Base
   
-  serialize :fields
+  acts_as_paranoid # Не удалять из базы
+  
+  serialize :fields # Информация о полях формы в сериализованном виде
+  serialize :style # Информация о стиле формы в сериализованном виде
   
   belongs_to :user
   
@@ -8,8 +11,37 @@ class Form < ActiveRecord::Base
   
   validates_presence_of :user_id
   
-  before_create do |form|
-    form.fields = [ Form::EmailField.new( :title => I18n.t( 'form_fields.email' ), :required => true ), Form::StringField.new( :title => I18n.t( 'form_fields.name' ) ), StringField.new( :title => I18n.t( 'form_fields.title' ) ), TextField.new( :title => I18n.t( 'form_fields.content' ) ) ] unless form.fields
+  def self.per_page
+    30
+  end
+  
+  def self.default_fields
+    [ 
+      Form::EmailField.new( :title => I18n.t( 'form_fields.email' ), :required => true ), 
+      Form::StringField.new( :title => I18n.t( 'form_fields.name' ) ), 
+      StringField.new( :title => I18n.t( 'form_fields.title' ) ), 
+      TextField.new( :title => I18n.t( 'form_fields.content' ) ) 
+    ]
+  end
+    
+  def initialize(args = {})
+    super(args)
+    
+    self.fields = Form.default_fields unless self.fields
+    self.style = Form::Style.new unless self.style
+  end
+  
+  def assing(args)
+    self.title = args[:title]
+    self.submit_title = args[:submit_title]
+    self.description = args[:description]
+    self.style = Form::Style.new( args[:style] )
+    
+    self.fields = []
+    
+    args[:fields].each do |k,f|
+      self.fields << Form::Field.create( f[:type], :title => f[:title], :default => f[:default], :disabled => (f[:enabled].to_i != 1) )
+    end  
   end
   
   def code(type = nil)
@@ -22,6 +54,6 @@ class Form < ActiveRecord::Base
     "http://#{JS_HOST}#{FORM_CODE_PREFIX}/#{id}#{FORM_CODE_SUFFIX}.#{format}"
   end
   
-  FIELD_TYPES = [ Form::StringField, Form::TextField, Form::EmailField ] # Необходимо, чтобы корректно десериализовались данные
+  INNER_CLASSES = [ Form::Style, Form::StringField, Form::TextField, Form::EmailField ] # Необходимо, чтобы корректно десериализовались данные
   
 end
