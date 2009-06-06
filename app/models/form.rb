@@ -27,6 +27,7 @@ class Form < ActiveRecord::Base
   def initialize(args = {})
     super(args)
     
+    self.submit_title = "Отправить" unless self.submit_title
     self.fields = Form.default_fields unless self.fields
     self.style = Form::Style.new unless self.style
   end

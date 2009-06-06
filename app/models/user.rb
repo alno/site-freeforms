@@ -19,9 +19,16 @@ class User < ActiveRecord::Base
     reset_perishable_token!
     UserMailer.deliver_activation_instructions(self)
   end
-      
-  def active?
-    activated_at
+  
+  def activated
+    !!activated_at
   end
-
+  
+  def activated=(value)
+    self.activated_at = ( value && value != 0 && value != "0" ? Time.now : nil )
+  end
+  
+  alias_method :active?, :activated
+  alias_method :activated?, :activated
+  
 end

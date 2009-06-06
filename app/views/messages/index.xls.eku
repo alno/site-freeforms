@@ -1,0 +1,21 @@
+__filename = "messages.xls"
+
+current_user.forms.each do |form|
+  
+  # Создаем новый лист
+  sheet = xls.create_worksheet :name => form.title
+  
+  # Пишем заголовок
+  form.fields.each_with_index do |field,i|
+    sheet[0,i] = field.title
+  end
+  
+  sheet.row(1).default_format = Spreadsheet::Format.new(:weight => :bold)
+  
+  # Пишем данные сообщений
+  form.messages.find(:all).each_with_index do |message,c|
+    form.fields.each_with_index do |field,i|
+      sheet[c+1,i] = message.data[i]
+    end
+  end
+end

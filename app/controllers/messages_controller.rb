@@ -10,6 +10,7 @@ class MessagesController < ApplicationController
     respond_to do |format|
       format.html { render :action => 'index' }
       format.xml  { render :xml => @messages }
+      format.xls
     end
   end
   

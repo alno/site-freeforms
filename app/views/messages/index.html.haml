@@ -1,3 +1,7 @@
+%p
+  Получить в виде 
+  = link_to "XLS", messages_url( :format => :xls )
+  
 - paginated_section @messages do
   - @messages.each do |message|
     - message.form.fields.each_with_index do |field,i|

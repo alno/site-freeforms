@@ -2,10 +2,10 @@
 
 # System wide options
 
-Typus::Configuration.options[:app_name] = 'contact_forms'
+Typus::Configuration.options[:app_name] = 'FreeForms'
 # Typus::Configuration.options[:config_folder] = 'config/typus'
 # Typus::Configuration.options[:email] = 'admin@example.com'
-# Typus::Configuration.options[:locales] = [ [ "English", :en ], [ "Español", :es ] ]
+Typus::Configuration.options[:locales] = [ [ "Russian", :ru ] ]
 # Typus::Configuration.options[:recover_password] = true
 # Typus::Configuration.options[:root] = 'admin'
 # Typus::Configuration.options[:ssl] = false
