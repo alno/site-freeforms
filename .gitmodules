@@ -12,7 +12,7 @@
         url = git://github.com/rails/exception_notification.git
 [submodule "vendor/plugins/typus"]
         path = vendor/plugins/typus
-        url = git://github.com/fesplugas/typus.git
+        url = git://github.com/alno/typus.git
 [submodule "vendor/plugins/ekuseru"]
         path = vendor/plugins/ekuseru
         url = git://github.com/xinuc/ekuseru.git
