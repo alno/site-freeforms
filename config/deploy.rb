@@ -1,16 +1,18 @@
 set :application, "freeforms"
-set :repository,  "http://svn.alno.name/rails/contact_forms"
+set :repository,  "industar@freeforms.ru:/home/industar/data/git/freeforms.git"
 set :deploy_to, "/home/industar/data/apps/#{application}"
 
 # If you aren't using Subversion to manage your source code, specify
 # your SCM below:
-set :scm, :subversion
-set :scm_username, "alno"
-set :scm_password, "ChamIsCat"
+set :scm, :git
+set :scm_username, "industar"
+set :scm_password, "tNvbf5KP"
 
-set :deploy_via, :export
+default_run_options[:pty] = true
 
-server "alno.name", :app, :web, :db, :primary => true
+set :deploy_via, :remote_cache
+
+server "freeforms.ru", :app, :web, :db, :primary => true
 
 set :user, "industar"
 set :password, "tNvbf5KP"
@@ -18,10 +20,13 @@ set :password, "tNvbf5KP"
 set :use_sudo, false
 set :group_writable, false
 
+set :git_enable_submodules, 1
+set :git_shallow_clone, 1
+
 namespace :deploy do
   
   task :after_symlink, :roles => :web do
-    run "cd #{current_path} && rake asset:packager:build_all"
+    run "cd #{current_path} && rake asset:packager:build_all --trace"
   end
 
   task :start, :roles => :app do
