@@ -13,3 +13,6 @@
 [submodule "vendor/plugins/typus"]
         path = vendor/plugins/typus
         url = git://github.com/fesplugas/typus.git
+[submodule "vendor/plugins/ekuseru"]
+        path = vendor/plugins/ekuseru
+        url = git://github.com/xinuc/ekuseru.git
