@@ -10,7 +10,7 @@ current_user.forms.each do |form|
     sheet[0,i] = field.title
   end
   
-  sheet.row(1).default_format = Spreadsheet::Format.new(:weight => :bold)
+  sheet.row(0).default_format = Spreadsheet::Format.new(:weight => :bold)
   
   # Пишем данные сообщений
   form.messages.find(:all).each_with_index do |message,c|
