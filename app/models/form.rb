@@ -33,7 +33,7 @@ class Form < ActiveRecord::Base
     self.style = Form::Style.new unless self.style
   end
   
-  def assing(args)
+  def assign(args)
     self.title = args[:title]
     self.submit_title = args[:submit_title]
     self.description = args[:description]
@@ -41,7 +41,7 @@ class Form < ActiveRecord::Base
     
     self.fields = []
     
-    args[:fields].each do |k,f|
+    args[:fields].each do |f|
       self.fields << Form::Field.create( f[:type], :title => f[:title], :default => f[:default], :disabled => (f[:enabled].to_i != 1) )
     end  
   end

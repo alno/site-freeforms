@@ -265,6 +265,11 @@ input.error {
 	-webkit-border-radius: 4px;
 }
 
+.field_editor {
+  padding: 10px;
+  margin: 5px;
+}
+
 a.button {
 	padding: .45em 1em .45em 20px;
 }
@@ -322,4 +327,12 @@ label.error {
 #flash-notice img {
     float: left;
     padding-right: 15px;
+}
+
+#form_fields_area label.tl {
+	width: 150px;
+}
+
+#form_fields_area input.t {
+	width: 150px;
 }

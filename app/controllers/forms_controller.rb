@@ -54,7 +54,7 @@ class FormsController < ApplicationController
   
   def create
     @form = current_user.forms.build
-    @form.assing params[:form]
+    @form.assign params[:form]
     
     if @form.save
       redirect_to form_path( @form )
@@ -65,7 +65,7 @@ class FormsController < ApplicationController
   
   def update
     @form = current_user.forms.find(params[:id])
-    @form.assing params[:form]
+    @form.assign params[:form]
     
     if @form.save
       redirect_to form_path( @form )
@@ -77,7 +77,7 @@ class FormsController < ApplicationController
   def preview
     @form = current_user.forms.build
     @form.id = 0
-    @form.assing params[:form]
+    @form.assign params[:form]
     
     @css = render_to_string :action => 'code.css', :layout => false
     

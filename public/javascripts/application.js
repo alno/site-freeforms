@@ -152,5 +152,74 @@ var ui = {
 		$('#about-tabs').tabs({ 
 			selected : selectedTab
 		});
+	},
+	
+	renderFieldEditor : function( title, type, def, enabled ) {
+		
+		function renderTextField( name, value ) {
+			var s = '';
+			
+			s += '<input class="t" type="text" name="form[fields][][';
+			s += name;
+			s += ']" value="';
+			s += value;
+			s += '" />';
+			
+			return s;
+		}
+		
+		function renderCheckBox( name, value ) {
+			var s = '';
+			
+			s += '<input ';
+			s += (value != false) ? 'checked="checked" ' : '';
+			s += 'type="checkbox" name="form[fields][][';
+			s += name;
+			s += ']" value="1"/>';
+			
+			return s;
+		}
+		
+		function renderSelect(name,v,opts) {
+			var s = '';
+			
+			s += '<select name="form[fields][][';
+			s += name;
+			s += ']">';
+			
+			for ( var k in opts ) {
+				s += '<option value="';
+				s += k;
+				s += (v == k) ? '" selected="selected">' : '">';
+				s += opts[k];
+				s += '</option>';
+			}
+			
+			s += '</select>';
+			
+			return s;
+		}		
+		
+		var s = '';
+		
+		s += '<table class="field_editor ui-widget ui-widget-content ui-corner-all"><tr><td>';
+		s += '<label>Заголовок:</label></td><td>';
+		s += renderTextField('title',title);
+		s += '</td><td>';
+		s += '<label>Тип:</label>';
+		s += renderSelect('type',type,{ text: 'Текст', email: 'E-Mail', string: 'Строка' });
+		s += '</td></tr><tr><td>';
+		s += '<label>По умолчанию:</label></td><td>';
+		s += renderTextField('default',def);
+		s += '</td><td>';
+		s += renderCheckBox('enabled',enabled);
+		s += '<label>Разрешено</label>';
+		s += '</td></tr></table>';
+		
+		return s;
+	},
+	
+	appendFieldEditor : function() {
+		$('#form_fields_area')[0].innerHTML += this.renderFieldEditor('','text','',true);
 	}
 };
