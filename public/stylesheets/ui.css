@@ -70,8 +70,17 @@ body {
 	
 }
 
+.beta {
+  font-family: Courier New;
+  color: #999999;
+}
+
 .pagination {
   margin: 10px;
+}
+
+.center {
+  text-align: center;
 }
 
 #header {
@@ -112,17 +121,6 @@ body {
   color: #000;
 }
 
-#left {
-  -moz-border-radius: 10px;
-  -khtml-border-radius: 10px;
-  -webkit-border-radius: 10px;
-  border-radius: 10px;
-  
-  border: 1px solid #dddddd;
-  
-  padding-bottom: 20px;
-}
-
 #topmenu {
   -moz-border-radius-bottomleft: 10px;
   -khtml-border-radius-bottomleft: 10px;
@@ -139,8 +137,6 @@ body {
   text-align: right;
 }
 
-
-#left ul,
 #topmenu ul {
   margin: 0px;
   display: block;
@@ -198,14 +194,14 @@ body {
 	margin-top: 65px;
 }
 
-#left li > a {
+#left div li > a {
 	font-size: 1em;
 	font-weight: bold;
 	text-decoration: none;
 	color: #1c94c4;
 }
 
-#left li > a:hover {
+#left div li > a:hover {
 	font-size: 1em;
 	text-decoration: none;
 	color: #c77405;

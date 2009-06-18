@@ -1,5 +1,10 @@
 - if current_user
-  %h3= t 'actions.form.index'
-  %ul
-    - current_user.forms.each do |form| 
-      %li= link_to form.title, form_path( form )
+  %ul{ :class => 'ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all' }
+    %li{ :class => 'ui-state-default ui-corner-top ui-tabs-selected ui-state-active' }= link_to t( 'actions.form.index' ), '#'
+      
+  %div{ :class => 'ui-tabs-panel ui-widget-content ui-corner-bottom' }    
+    .center= link_to t( 'actions.form.new'), new_form_path
+    
+    %ul.formlist
+      - current_user.forms.each do |form| 
+        %li= link_to form.title, form_path( form )

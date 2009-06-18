@@ -19,11 +19,11 @@
     #page
       #header
         %h1
-          %a{ :href => root_url } FreeForms.ru
+          %a{ :href => root_url } FreeForms.ru<sup class="beta">&beta;</sup>
         %h2 Бесплатные контактные формы для Вашего сайта
       #topmenu= render :partial => 'shared/topmenu'
       #main
-        #left= render :partial => 'shared/sidebar'
+        #left{ :class => 'ui-tabs ui-widget ui-widget-content ui-corner-all' }= render :partial => 'shared/sidebar'
         #title
           %h1=t 'titles.' + controller.controller_name + '.' + controller.action_name
         #content		  
