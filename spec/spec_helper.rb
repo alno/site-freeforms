@@ -19,7 +19,7 @@ Spec::Runner.configure do |config|
     
   config.include EmailSpec::Helpers
   config.include EmailSpec::Matchers
-
+  
   # == Fixtures
   #
   # You can declare fixtures for each example_group like this:

@@ -75,17 +75,24 @@ describe "Field" do
   
 end
 
-describe "A new form" do
+describe Form do
   
-  before(:all) do
-     @form = Form.make
+  it { should validate_uniqueness_of :access_key }
+  it { should have_many :messages }
+
+  describe "new" do
+    
+    before(:all) do
+       @form = Form.make
+    end
+    
+    it { @form.should be_valid }
+    it { @form.should have(4).fields }
+    it { @form.fields[0].title.should == I18n.t( 'form_fields.email' ) }
+    it { @form.fields[1].title.should == I18n.t( 'form_fields.name' ) }
+    it { @form.fields[2].title.should == I18n.t( 'form_fields.title' ) }
+    it { @form.fields[3].title.should == I18n.t( 'form_fields.content' ) }
+    it { @form.access_key.should_not be_nil }
+    
   end
-  
-  it { @form.should be_valid }
-  it { @form.should have(4).fields }
-  it { @form.fields[0].title.should == I18n.t( 'form_fields.email' ) }
-  it { @form.fields[1].title.should == I18n.t( 'form_fields.name' ) }
-  it { @form.fields[2].title.should == I18n.t( 'form_fields.title' ) }
-  it { @form.fields[3].title.should == I18n.t( 'form_fields.content' ) }
-  
 end

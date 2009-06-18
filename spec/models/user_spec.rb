@@ -1,23 +1,31 @@
 require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 
-describe User.make, "New user" do
-      
-  it { should be_valid }    
-  it { should have(1).form }
-  
-end  
-
 describe User do
   
-  it "should not create a new instance without password" do
-    u = User.make_unsaved( :password => nil )
-    u.should have(2).error_on(:password)
+  specify "should not create a new instance without password" do
+    User.make_unsaved( :password => nil ).should have(2).error_on(:password)
   end
   
-  it "should not create a new instance with invalid email" do
-    u = User.make_unsaved( :email => 'fe&r3d((' )
-    u.should have(1).error_on(:email)
+  specify "should not create a new instance with invalid email" do
+    User.make_unsaved( :email => 'fe&r3d((' ).should have(1).error_on(:email)
   end
+  
+  it { should have_many :forms }
+  it { should have_many :messages }
+  
+  it { should validate_uniqueness_of :access_key }
+  
+  context "new" do
+    
+    before(:all) do
+      @u = User.make
+    end
+        
+    it { @u.should be_valid }    
+    it { @u.should have(1).form }  
+    it { @u.access_key.should_not be_nil }
+    
+  end  
   
 end
 

@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 9) do
+ActiveRecord::Schema.define(:version => 10) do
 
   create_table "forms", :force => true do |t|
     t.integer  "user_id"
@@ -21,7 +21,10 @@ ActiveRecord::Schema.define(:version => 9) do
     t.datetime "deleted_at"
     t.text     "style"
     t.string   "submit_title"
+    t.string   "access_key"
   end
+
+  add_index "forms", ["access_key"], :name => "index_forms_on_access_key"
 
   create_table "messages", :force => true do |t|
     t.integer  "parent_id"
@@ -33,8 +36,10 @@ ActiveRecord::Schema.define(:version => 9) do
     t.integer  "form_id"
     t.text     "data"
     t.datetime "deleted_at"
+    t.string   "access_key"
   end
 
+  add_index "messages", ["access_key"], :name => "index_messages_on_access_key"
   add_index "messages", ["form_id"], :name => "index_messages_on_form_id"
   add_index "messages", ["parent_id"], :name => "index_messages_on_parent_id"
   add_index "messages", ["token"], :name => "index_messages_on_token"
@@ -71,8 +76,10 @@ ActiveRecord::Schema.define(:version => 9) do
     t.datetime "updated_at"
     t.datetime "activated_at"
     t.datetime "deleted_at"
+    t.string   "access_key"
   end
 
+  add_index "users", ["access_key"], :name => "index_users_on_access_key"
   add_index "users", ["email"], :name => "index_users_on_email"
   add_index "users", ["persistence_token"], :name => "index_users_on_persistence_token"
 

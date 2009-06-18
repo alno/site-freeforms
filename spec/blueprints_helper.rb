@@ -1,5 +1,5 @@
+require 'machinist/active_record'
 require 'faker'
-require 'machinist'
 require 'sham'
 
 Sham.name  { Faker::Name.name }

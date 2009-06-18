@@ -11,6 +11,7 @@ FORM_CODE_SUFFIX = '/code'
 
 config.gem 'carlosbrando-remarkable', :lib => 'remarkable', :source => "http://gems.github.com"
 config.gem 'bmabey-email_spec', :lib => 'email_spec', :source => "http://gems.github.com"
+config.gem 'notahat-machinist', :lib => 'machinist', :source => "http://gems.github.com"
 #config.gem 'cucumber'
 
 # The test environment is used exclusively to run your application's

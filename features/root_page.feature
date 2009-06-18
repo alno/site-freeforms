@@ -16,6 +16,6 @@ Feature: Root page
   Scenario: Logged in see around
     Given I am logged in as "tester@mail.ru"
     When I go to the homepage
-    Then I should see "Профиль"
-    And I should see "Просмотреть форму"
+    Then I should see "Мой профиль"
+    And I should see "Мои формы"
     And I should see "Выйти"

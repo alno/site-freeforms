@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   
-  acts_as_authentic
+  acts_as_accessible_by_key # Доступ по ключу  
+  acts_as_authentic # Аутентификация
   acts_as_paranoid # Не удалять из базы
   
   has_many :messages

@@ -17,7 +17,7 @@ module EmailHelpers
   attr_accessor :current_email_address
 end
 
-World {|world| world.extend EmailHelpers }
+World( EmailHelpers )
 
 # Use this step to reset the e-mail queue within a scenario.
 # This is done automatically before each scenario.

@@ -33,7 +33,7 @@ Feature: Account
   Scenario: Change password
     Given I am logged in as "tester@mail.ru"
     When I go to the homepage
-    And I follow "Профиль"
+    And I follow "Мой профиль"
     And I follow "Редактировать профиль"
     Then I should be on the edit account page
     When I fill in "account[password]" with "New password"

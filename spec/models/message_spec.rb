@@ -8,12 +8,13 @@ describe Message do
   
   context "new" do
     before(:all) do
-      @m = Message.make_unsaved( :form => @f )
+      @m = Message.make( :form => @f )
     end
     
     it { @m.should be_valid }
     it { @m.form.should_not be_nil }
     it { @m.data.size.should == @m.form.fields.size }
+    it { @m.access_key.should_not be_nil }
   end
   
   context "with no email" do
@@ -36,8 +37,8 @@ describe Message do
     it { @m.should have(1).error_on(0) }
     it { @m.should have(0).errors_on(1) }
     it { @m.should have(0).errors_on(2) }
-  end
-  
+  end  
+    
   specify { Message.make_unsaved( :data => [Sham.email,nil, Sham.body], :form => @f ).should be_valid }
 
 end

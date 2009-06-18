@@ -86,5 +86,5 @@
 = styled_link_to 'actions.form.edit', edit_form_path( @form ) + '#form-description'
 = styled_link_to 'actions.form.clone', clone_form_path( @form ) + '#form-description'
 = styled_link_to 'actions.form.destroy', form_path( @form ), :confirm => t('confirm.destroy_form'), :method => :delete
-    
-%script= "ui.initShowForm(#{@hash || 'location.hash'});"
+
+%script{ :type => 'text/javascript' }= "ui.initShowForm(#{@hash || 'location.hash'});"

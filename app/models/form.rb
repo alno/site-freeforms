@@ -1,5 +1,6 @@
 class Form < ActiveRecord::Base
   
+  acts_as_accessible_by_key # Доступ по ключу  
   acts_as_paranoid # Не удалять из базы
   
   serialize :fields # Информация о полях формы в сериализованном виде
