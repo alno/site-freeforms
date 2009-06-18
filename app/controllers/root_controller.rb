@@ -1,8 +1,10 @@
 class RootController < ApplicationController
 
   def index
+    return redirect_to messages_path if current_user
+    
     @user = User.new
-    @user_session = UserSession.new
+    @user_session = UserSession.new    
   end
   
   def post
@@ -27,5 +29,5 @@ class RootController < ApplicationController
   def status
     @message = Message.find_by_token(params[:token])
   end
-    
+  
 end

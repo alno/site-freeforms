@@ -12,6 +12,11 @@ class Form < ActiveRecord::Base
   
   validates_presence_of :user_id
   
+  before_save do |form|
+    form.title.strip! if form.title # Удаляем пробелы из начала и конца заголовка
+    form.title = "Безымянная форма" if form.title.blank? # Пустой заголовок заменяем на стандартный
+  end
+  
   def self.per_page
     30
   end
