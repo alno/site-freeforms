@@ -18,6 +18,7 @@
 
     #page
       #header
+        .lt= link_to t( :link_about ), about_path
         %h1
           %a{ :href => root_url } FreeForms.ru<sup class="beta">&beta;</sup>
         %h2 Бесплатные контактные формы для Вашего сайта
@@ -37,4 +38,9 @@
               = flash[:error]
     		  
           = yield
-      #footer 2009 &copy Authors
+      #footer
+        .l 2009 &copy Алексей Носков и Анатолий Макаровский <br /> &nbsp;
+        .r
+        <a href="/start#register">регистрация</a> ׀ <a href="/start#reset_password">восстановить пароль</a> ׀ <a href="/start#login">вход для регистрированных пользователей</a><br /> 
+        <a href="/messages">мои сообщения</a> ׀ <a href="/forms">мои формы</a> ׀ <a href="/about">о проекте</a>
+

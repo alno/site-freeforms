@@ -7,14 +7,15 @@ ActionController::Routing::Routes.draw do |map|
   map.resource :session
   
   map.resources :account_passwords
-  map.resources :account_activations
+  map.resources :account_activations  
   
-  map.root :controller => 'root', :action => 'index'
   map.logout '/logout', :controller => 'sessions', :action => 'destroy'
   
   map.post_message '/post/:form_id', :controller => 'root', :action => 'post'
   map.message_status '/status/:token', :controller => 'root', :action => 'status'
     
+  map.root :controller => 'root', :action => 'index'
+  map.start '/start', :controller => 'root', :action => 'start'
   map.about '/about', :controller => 'root', :action => 'about'
   
   map.connect ':controller.:format'

@@ -1,14 +1,3 @@
-%ul.left
-  - if current_user
-    %li= link_to t('actions.account.show'), account_path
-    %li= link_to t('actions.form.index'), forms_path
-    %li
-      = link_to t('actions.message.index'), messages_path
-      - unread_count = current_user.messages.unread.size
-      - if unread_count > 0
-        = '( ' + link_to( unread_count.to_s + ' непрочитано', unread_messages_path ) + ' )'
-  %li= link_to t( :link_about ), about_path
-  
 %ul.right  
   - if current_user
     %li= "Вы вошли как #{link_to( current_user.email, account_path )} (#{link_to( t( 'actions.session.destroy' ), logout_path )})"

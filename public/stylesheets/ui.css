@@ -92,20 +92,14 @@ body {
   padding-left: 200px;
   text-align: left;
   
-  -moz-border-radius-topleft: 10px;
-  -khtml-border-radius-topleft: 10px;
-  -webkit-border-top-left-radius: 10px;
-  border-radius-topleft: 10px;
-  
-  -moz-border-radius-topright: 10px;
-  -khtml-border-radius-topright: 10px;
-  -webkit-border-top-right-radius: 10px;
-  border-radius-topright: 10px;
-		
+  -moz-border-radius: 10px;
+  -khtml-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  		
   border: 1px solid #dddddd;
-  border-bottom: 0px;
   
-  margin-bottom: 0px;
+  margin-bottom: 5px;
 }
 
 #header h1 a{
@@ -122,18 +116,6 @@ body {
 }
 
 #topmenu {
-  -moz-border-radius-bottomleft: 10px;
-  -khtml-border-radius-bottomleft: 10px;
-  -webkit-border-bottom-left-radius: 10px;
-  border-radius-bottomleft: 10px;
-  
-  -moz-border-radius-bottomright: 10px;
-  -khtml-border-radius-bottomright: 10px;
-  -webkit-border-bottom-right-radius: 10px;
-  border-radius-bottomright: 10px;
-		
-  border: 1px solid #dddddd;
-  
   text-align: right;
 }
 
@@ -159,6 +141,30 @@ body {
   display: inline;
 }
 
+#footer {
+	width: 90%;
+	text-align: center;
+
+  color: #AFAFAF;
+  float: left;
+  font-size: 90%;
+  padding-top: 5px;
+  padding-bottom: 20px;
+}
+
+#footer a {
+	color: #AFAFAF;
+}
+
+#footer .l {
+	float: left;
+}
+
+#footer .r {
+	float: right;
+}
+
+#header .lt a,
 #topmenu a {
 	font-weight: bold; 
 	color: #1c94c4; 
@@ -169,6 +175,7 @@ body {
 	color: #1c94c4;
 }
 
+#header .lt a:hover,
 #topmenu a:hover {
 	font-size: 1em;
 	text-decoration: none;
@@ -191,7 +198,7 @@ body {
 	float: left;
 	width: 20%;
 	
-	margin-top: 65px;
+	margin-top: 55px;
 }
 
 #left div li > a {
@@ -211,7 +218,7 @@ body {
 	float: right;
 	width: 75%;
 	height: 40px;
-	margin-top: 10px;
+	margin-top: 0px;
 	margin-left: 15px;
 }
 
@@ -219,15 +226,6 @@ body {
 	float: right;
 	width: 75%;
 	padding: 15px;
-}
-
-#footer {
-  color: #AFAFAF;
-  float: left;
-  font-size: 90%;
-  padding: 10px;
-  padding-top: 5px;
-  padding-bottom: 20px;
 }
 
 tr.message.even {
@@ -321,6 +319,11 @@ label.error {
     margin: 20px;
 	border: 2px solid #090;
 	background: #dfd;
+}
+
+#header .lt {
+	float: right;
+	margin-right: 5px;
 }
 
 #flash-error img,

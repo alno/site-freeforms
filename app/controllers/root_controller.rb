@@ -1,5 +1,12 @@
 class RootController < ApplicationController
 
+  def start
+    @user = User.new
+    @user_session = UserSession.new
+    
+    render :action => 'index'
+  end
+  
   def index
     return redirect_to messages_path if current_user
     
