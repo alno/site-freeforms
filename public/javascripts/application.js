@@ -93,21 +93,37 @@ var ui = {
 			p.html('<iframe src="' + p.attr('code') + '" style="width:100%;height:500px;border:none;" />');
 		}
 		
+		function updateLinks(index) {
+			var edit_link = $('#form_edit_link');
+		    var clone_link = $('#form_clone_link');
+		        
+		    var hrefPart = '#form-' + ['description','fields','style','code','preview'][index];
+		        
+		    edit_link[0].href = edit_link[0].href.replace(/\#.*/,hrefPart);
+		    clone_link[0].href = clone_link[0].href.replace(/\#.*/,hrefPart);
+		}
+		
 		if ( selectedTab == '#form-description' ) selectedTab = 0;
-		if ( selectedTab == '#form-fields' ) selectedTab = 1;
-		if ( selectedTab == '#form-style' ) selectedTab = 2;
-		if ( selectedTab == '#form-code' ) selectedTab = 3;
-		if ( selectedTab == '#form-preview' ) {
+		else if ( selectedTab == '#form-fields' ) selectedTab = 1;
+		else if ( selectedTab == '#form-style' ) selectedTab = 2;
+		else if ( selectedTab == '#form-code' ) selectedTab = 3;
+		else if ( selectedTab == '#form-preview' ) {
 			selectedTab = 4;
 			preview();
+		} else {
+			selectedTab = parseInt( selectedTab );
 		}
+		
+		updateLinks( selectedTab );
 		
 		$('#form-tabs').tabs({ 
 			selected : selectedTab,
 			select:  function(event, ui) {
 		        if ( ui.index == 4 && $('#form-preview iframe').length == 0 )
 		        	preview();
-
+		        	
+		        updateLinks( ui.index );
+		        
 		        return true;
 		    }			
 		 });

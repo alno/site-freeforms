@@ -69,9 +69,10 @@ ru:
       update: Установить пароль
     message:
       index: Мои сообщения
-      unread: Непрочитанные
+      unread: Новые
       show: Показать
       destroy: Удалить
+      today: Сегодня
   
   titles:
     root:
@@ -81,7 +82,8 @@ ru:
     messages:
       show: Просмотр сообщения
       index: Сообщения
-      unread: Непрочитанные сообщения
+      unread: Новые сообщения
+      today: Сообщения сегодня
     forms:
       index: Формы
       show: Форма

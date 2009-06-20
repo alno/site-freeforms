@@ -26,6 +26,10 @@ module ApplicationHelper
     link_to( t(key), url, { :class => 'button' }.merge!( options ) )
   end
   
+  def icon_link_to( key, url, options = {} )
+    link_to( image_tag( "icons/#{key}.png", :width => 12, :height => 12 ), url, options )
+  end
+  
   def color_field_tag(name, value = nil, options = {})
     id = sanitize_to_id(name)
     tag( :input, { :type => "text", :name => name, :id => id, :value => value }.update( options.symbolize_keys ) ) + "<script>$('##{id}').addColorPicker();</script>"

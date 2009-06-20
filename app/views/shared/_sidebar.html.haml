@@ -1,10 +1,17 @@
 - if current_user
-  %ul{ :class => 'ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all' }
-    %li{ :class => 'ui-state-default ui-corner-top ui-tabs-selected ui-state-active' }= link_to t( 'actions.form.index' ), '#'
-      
-  %div{ :class => 'ui-tabs-panel ui-widget-content ui-corner-bottom' }    
-    .center= link_to t( 'actions.form.new'), new_form_path
+
+  %h3= link_to( t( 'actions.message.index' ), messages_path )
+  
+  %ul
+    %li= link_to t( 'actions.message.unread' ) + " (#{Message.unread.count})", unread_messages_path
+    %li= link_to t( 'actions.message.today' ) + " (#{Message.today.count})", today_messages_path
+    %li= link_to t( 'actions.message.index' ) + " (#{Message.count})", messages_path
+  
+  %h3= link_to( t( 'actions.form.index' ), forms_path )
     
-    %ul.formlist
-      - current_user.forms.each do |form| 
-        %li= link_to form.title, form_path( form )
+  %ul
+    - current_user.forms.each do |form| 
+      %li= link_to( form.title, form_path( form ) ) + ' ' + icon_link_to( :edit, edit_form_path( form ) )
+    %li= icon_link_to( :new, new_form_path ) + ' ' + link_to( '<i>' + t( 'actions.form.new' ) + '...</i>', new_form_path )
+        
+  %br

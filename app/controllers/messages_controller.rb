@@ -14,6 +14,15 @@ class MessagesController < ApplicationController
     end
   end
   
+  def today
+    @messages = current_user.messages.today.paginate( :all, :page => params[:page], :order => 'created_at DESC' )
+
+    respond_to do |format|
+      format.html { render :action => 'index' }
+      format.xml  { render :xml => @messages }
+    end
+  end
+  
   # GET /messages/unread
   # GET /messages/unread.xml
   def unread

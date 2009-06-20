@@ -13,6 +13,7 @@ class Message < ActiveRecord::Base
   validates_presence_of :data
   
   named_scope :unread, :conditions => "read_at IS NULL"
+  named_scope :today, lambda { { :conditions => [ "created_at > ?", Time.now - 24.hours ] } }
   
   # Кол-во сообщений на одну страницу
   def self.per_page
