@@ -16,3 +16,6 @@
 [submodule "vendor/plugins/ekuseru"]
         path = vendor/plugins/ekuseru
         url = git://github.com/xinuc/ekuseru.git
+[submodule "vendor/plugins/csv_builder"]
+	path = vendor/plugins/csv_builder
+	url = git://github.com/econsultancy/csv_builder.git

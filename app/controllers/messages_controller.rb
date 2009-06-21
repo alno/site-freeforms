@@ -2,15 +2,12 @@ class MessagesController < ApplicationController
     
   before_filter :require_user
   
-  # GET /messages
-  # GET /messages.xml
   def index
     @messages = current_user.messages.paginate( :all, :page => params[:page], :order => 'created_at DESC' )
 
     respond_to do |format|
-      format.html { render :action => 'index' }
       format.xml  { render :xml => @messages }
-      format.xls
+      format.html { render :action => 'index' }
     end
   end
   
@@ -18,24 +15,31 @@ class MessagesController < ApplicationController
     @messages = current_user.messages.today.paginate( :all, :page => params[:page], :order => 'created_at DESC' )
 
     respond_to do |format|
-      format.html { render :action => 'index' }
       format.xml  { render :xml => @messages }
+      format.html { render :action => 'index' }
     end
   end
   
-  # GET /messages/unread
-  # GET /messages/unread.xml
   def unread
     @messages = current_user.messages.unread.paginate( :all, :page => params[:page], :order => 'created_at DESC' )
 
     respond_to do |format|
-      format.html { render :action => 'index' }
       format.xml  { render :xml => @messages }
+      format.html { render :action => 'index' }
+    end
+  end
+  
+  def export
+    @filename = "export"
+    @output_encoding = "CP1251"
+    
+    respond_to do |format|
+      format.xml  { render :xml => @messages }
+      format.xls  { @filename += '.xls' }
+      format.csv  { @filename += '.csv' }
     end
   end
 
-  # GET /messages/1
-  # GET /messages/1.xml
   def show
     @message = current_user.messages.find(params[:id])
     @form = @message.form
@@ -51,8 +55,6 @@ class MessagesController < ApplicationController
     end
   end
   
-  # DELETE /messages/1
-  # DELETE /messages/1.xml
   def destroy
     @message = current_user.messages.find(params[:id])
     @message.destroy
@@ -62,5 +64,5 @@ class MessagesController < ApplicationController
       format.xml  { head :ok }
     end
   end
-    
+      
 end

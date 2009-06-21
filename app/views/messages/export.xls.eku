@@ -1,4 +1,4 @@
-__filename = "messages.xls"
+__filename = @filename
 
 current_user.forms.each do |form|
   
@@ -13,7 +13,7 @@ current_user.forms.each do |form|
   sheet.row(0).default_format = Spreadsheet::Format.new(:weight => :bold)
   
   # Пишем данные сообщений
-  form.messages.find(:all).each_with_index do |message,c|
+  form.messages.each_with_index do |message,c|
     form.fields.each_with_index do |field,i|
       sheet[c+1,i] = message.data[i]
     end
