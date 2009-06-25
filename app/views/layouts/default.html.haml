@@ -18,26 +18,26 @@
 
     #page
       #header
-        .lt= link_to t( :link_about ), about_path
+        .r= link_to t( :link_about ), about_path
         %h1
-          %a{ :href => root_url } FreeForms.ru<sup class="beta">&beta;</sup>
+          %a{ :href => root_url } FreeForms.ru<sup>&beta;</sup>
         %h2 Бесплатные контактные формы для Вашего сайта
       #topmenu= render :partial => 'shared/topmenu'
-      #main
-        #left{ :class => 'ui-widget ui-widget-content ui-corner-all' }= render :partial => 'shared/sidebar'
-        #title
-          %h1=t 'titles.' + controller.controller_name + '.' + controller.action_name
-        #content		  
-          - if flash[:notice]
-            #flash-notice
-              = image_tag 'icons/ok.png'
-              = flash[:notice]
-          - if flash[:error]
-            #flash-error
-              = image_tag 'icons/error.png'
-              = flash[:error]
+      
+      #left{ :class => 'ui-widget ui-widget-content ui-corner-all' }= render :partial => 'shared/sidebar'
+      #title
+        %h1=t 'titles.' + controller.controller_name + '.' + controller.action_name
+      #content		  
+        - if flash[:notice]
+          #flash-notice
+            = image_tag 'icons/ok.png'
+            = flash[:notice]
+        - if flash[:error]
+          #flash-error
+            = image_tag 'icons/error.png'
+            = flash[:error]
     		  
-          = yield
+        = yield
       #footer
         .l 2009 &copy Алексей Носков и Анатолий Макаровский <br /> &nbsp;
         .r

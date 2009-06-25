@@ -1,0 +1,268 @@
+!font_family = "Trebuchet MS, Tahoma, Verdana, Arial, sans-serif"
+
+!footer_color = #AFAFAF
+!header_color = #F6AF39
+
+=header_border
+  :-moz-border-radius 10px
+  :-khtml-border-radius 10px
+  :-webkit-border-radius 10px
+  :border-radius 10px
+  :border 1px solid #dddddd
+    
+=widget_border
+  :-moz-border-radius 4px
+  :-khtml-border-radius 4px
+  :-webkit-border-radius 4px
+  :border-radius 4px
+  :border 1px solid #dddddd  
+    
+=styled_link
+  :font-size 1em
+  :font-weight bold
+  :text-decoration none
+  :color #1c94c4
+
+  &:hover
+    :font-size 1em
+    :text-decoration none
+    :color #c77405
+
+=flash
+  :padding 15px
+  :margin 20px
+  img
+    :float left
+    :padding-right 15px   
+
+body
+  :background-color #fff
+  :color #333
+  :padding 15px
+  :margin 0
+
+body, p, ol, ul, td
+  :font-family = !font_family
+  :font-size 13px
+  :line-height 18px
+
+img
+  :border 0px
+
+pre
+  :background-color #eee
+  :padding 10px
+  :font-size 11px
+  :white-space pre
+  :white-space pre-wrap
+  :white-space pre-line
+  :white-space -moz-pre-wrap
+  :white-space -hp-pre-wrap
+  :white-space -o-pre-wrap
+  :white-space -pre-wrap
+  :word-wrap break-word
+
+a
+  :color #000
+
+  &:hover
+    :color #333
+
+.fieldWithErrors
+  :padding 2px
+  :background-color red
+  :display table
+
+#errorExplanation
+  :width 400px
+  :border 2px solid red
+  :padding 7px
+  :padding-bottom 12px
+  :margin-bottom 20px
+  :background-color #f0f0f0
+
+  h2
+    :text-align left
+    :font-weight bold
+    :padding 5px 5px 5px 15px
+    :font-size 12px
+    :margin -7px
+    :background-color #c00
+    :color #fff
+
+  p
+    :color #333
+    :margin-bottom 0
+    :padding 5px
+
+  ul li
+    :font-size 12px
+    :list-style square
+
+.pagination
+  :margin 10px
+
+.center
+  :text-align center
+
+#header
+  +header_border
+  
+  :background url(/images/logo-white.png) no-repeat
+  :background-position 15px 15px
+  :background-color #ffffff
+  
+  :font-family = !font_family
+  :padding 10px
+  :padding-left 200px
+  :text-align left
+  
+  :margin-bottom 5px
+
+  h1 a
+    :color = !header_color
+    :text-decoration none
+
+    &:hover
+      :color #1c94c4
+      :text-decoration none    
+
+    sup
+      :font-family Courier New
+      :color #999999
+
+  h2
+    :color #000
+      
+  .r
+    a
+      +styled_link
+    
+    :float right
+    :margin-right 5px
+
+#topmenu
+  a
+    +styled_link
+  
+  :text-align right
+
+  ul
+    :margin 0px
+    :display block
+
+    &.left
+      :float left
+  
+    &.right
+      :margin-right 15px
+  
+    li
+      :padding-right 15px
+      :display inline
+
+#footer
+  :width 100%
+  :text-align center
+  :color = !footer_color
+  :clear both
+  :font-size 90%
+  :padding 5px
+  :border-top = "4px solid " + !header_color
+
+  a
+    :color = !footer_color
+
+  .l
+    :float left
+
+  .r
+    :float right
+
+#left
+  :float left
+  :width 22%
+  :margin-top 55px
+  :margin-bottom 10px
+
+  h3
+    :text-align center
+
+  div li a
+    +styled_link
+
+#title
+  :float right
+  :width 75%
+  :height 40px
+  :margin-top 0px
+  :margin-left 15px
+
+#content
+  :float right
+  :width 75%
+  :padding 15px
+  :margin-bottom 10px
+
+tr.message
+  &.even
+    :background #DDDDDD
+
+  &.odd
+  &.unread
+    :font-weight bold
+
+
+.content
+  :border 1px solid #000000
+
+input.error
+  :color #ff0000
+
+.button  
+  +styled_link
+  +widget_border
+  
+  :background #f6f6f6 url(images/ui-bg_glass_100_f6f6f6_1x400.png) 50% 50% repeat-x
+  :padding .45em 1em .45em 20px
+
+.field_editor
+  :padding 10px
+  :margin 5px
+
+span.color
+  :padding 3px
+  :border 1px solid #000
+
+label
+  :font-weight bold
+
+  &.error
+    :margin 5px
+    :padding 5px
+    :padding-left 30px
+    :background url(../images/icons/error.png) left no-repeat
+    :color #ff0000
+
+.colorpicker
+  :border-collapse collapse
+
+  td
+    :padding 0px
+    :margin 0px
+    :width 10px
+    :height 10px 
+
+#flash-error
+  +flash
+  :border 2px solid #c00
+  :background #fcc
+
+#flash-notice
+  +flash
+  :border 2px solid #090
+  :background #dfd
+
+#form_fields_area
+  label.tl, input.t
+    :width 150px
