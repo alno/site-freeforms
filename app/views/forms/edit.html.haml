@@ -1,5 +1,5 @@
 - labelling_form_for( @form, :html => { :class => 'form_editor' } ) do |f|
-  #form-tabs= render :partial => 'editor', :locals => { :f => f }
+  = render :partial => 'editor', :locals => { :f => f }
   
   %br
   = f.submit_update :class => 'button'

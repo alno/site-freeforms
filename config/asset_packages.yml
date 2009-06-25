@@ -2,14 +2,16 @@ javascripts:
 - app:
   - jquery
   - jquery-cookie
-  - jquery-ui-custom
   - jquery-validate
   - jquery-colorpicker
+  - tools.tabs-1.0.1
   - flexigrid
   - jrails
   - application
 stylesheets:
 - app:
+  - common
+  - layout
   - ui
-  - jquery-ui-custom
+  - forms
   - flexigrid

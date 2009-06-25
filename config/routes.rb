@@ -14,8 +14,8 @@ ActionController::Routing::Routes.draw do |map|
   map.post_message '/post/:form_id', :controller => 'root', :action => 'post'
   map.message_status '/status/:token', :controller => 'root', :action => 'status'
     
-  map.root :controller => 'root', :action => 'index'
-  map.start '/start', :controller => 'root', :action => 'start'
+  map.root :controller => 'root', :action => 'index'  
+  map.register '/register', :controller => 'root', :action => 'register'
   map.about '/about', :controller => 'root', :action => 'about'
   
   map.connect ':controller.:format'

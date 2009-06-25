@@ -1,16 +1,16 @@
-#form-tabs
-  %ul
-    %li
-      %a{ :href => '#form-description' }= t 'form.description'
-    %li
-      %a{ :href => '#form-fields' }=t 'form.fields'
-    %li
-      %a{ :href => '#form-style' }=t 'form.style'
-    %li
-      %a{ :href => '#form-code' }=t 'form.code'
-    %li
-      %a{ :href => '#form-preview' }=t 'form.preview'
+%ul#form_tabs.tabs
+  %li
+    %a{ :href => '#form-description' }= t 'form.description'
+  %li
+    %a{ :href => '#form-fields' }=t 'form.fields'
+  %li
+    %a{ :href => '#form-style' }=t 'form.style'
+  %li
+    %a{ :href => '#form-code' }=t 'form.code'
+  %li
+    %a{ :href => '#form-preview' }=t 'form.preview'
 
+#form_panes.panes
   #form-description
     %p
       %b=t('activerecord.attributes.form.title') + ':'

@@ -1,4 +1,4 @@
-%ul
+%ul#form_tabs.tabs
   %li
     %a{ :href => '#form-description' }= t 'form.description'
   %li
@@ -7,51 +7,52 @@
     %a{ :href => '#form-style' }=t 'form.style'
   %li
     %a{ :href => '#form-preview' }=t 'form.preview'
-  
-#form-description  
-  = f.text_field :title
-  = f.text_field :submit_title
-  = f.text_area :description
 
-#form-fields
-  #form_fields_area
-    %script
-      - @form.fields.each_with_index do |field,i|
-        = "document.writeln(ui.renderFieldEditor('#{field.title}','#{field.type}','#{field.default}',#{field.enabled?}));"
+#form_panes.panes
+  #form-description  
+    = f.text_field :title
+    = f.text_field :submit_title
+    = f.text_area :description
   
-  %br
+  #form-fields
+    #form_fields_area
+      %script
+        - @form.fields.each_with_index do |field,i|
+          = "document.writeln(ui.renderFieldEditor('#{field.title}','#{field.type}','#{field.default}',#{field.enabled?}));"
     
-  = styled_link_to 'actions.field.new', '#', :onclick => 'ui.appendFieldEditor()';
-        
-#form-style
-  - style = @form.style
-  
-  %p
-    %label=t( 'style.font_family' ) + ':'
-    = font_select_tag( 'form[style][font_family]', style.font_family )
-  
-  %p
-    %label=t( 'style.font_size' ) + ':'
-    = text_field_tag( 'form[style][font_size]', style.font_size )
-  
-  %p
-    %label=t( 'style.font_color' ) + ':'
-    = color_field_tag( 'form[style][font_color]', style.font_color )
+    %br
+      
+    = styled_link_to 'actions.field.new', '#', :onclick => 'ui.appendFieldEditor()';
+          
+  #form-style
+    - style = @form.style
     
-  %p
-    %label=t( 'style.title_family' ) + ':'
-    = font_select_tag( 'form[style][title_family]', style.title_family )
-  
-  %p
-    %label=t( 'style.title_size' ) + ':'
-    = text_field_tag( 'form[style][title_size]', style.title_size )
-  
-  %p
-    %label=t( 'style.title_color' ) + ':'
-    = color_field_tag( 'form[style][title_color]', style.title_color )
-  
-  %p  
-    %label=t( 'style.background' ) + ':'
-    = color_field_tag( 'form[style][background]', style.background )
+    %p
+      %label=t( 'style.font_family' ) + ':'
+      = font_select_tag( 'form[style][font_family]', style.font_family )
     
-#form-preview
+    %p
+      %label=t( 'style.font_size' ) + ':'
+      = text_field_tag( 'form[style][font_size]', style.font_size )
+    
+    %p
+      %label=t( 'style.font_color' ) + ':'
+      = color_field_tag( 'form[style][font_color]', style.font_color )
+      
+    %p
+      %label=t( 'style.title_family' ) + ':'
+      = font_select_tag( 'form[style][title_family]', style.title_family )
+    
+    %p
+      %label=t( 'style.title_size' ) + ':'
+      = text_field_tag( 'form[style][title_size]', style.title_size )
+    
+    %p
+      %label=t( 'style.title_color' ) + ':'
+      = color_field_tag( 'form[style][title_color]', style.title_color )
+    
+    %p  
+      %label=t( 'style.background' ) + ':'
+      = color_field_tag( 'form[style][background]', style.background )
+      
+  #form-preview

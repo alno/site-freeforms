@@ -16,32 +16,32 @@
     screen.colorDepth:screen.pixelDepth))+";u"+escape(document.URL)+
     ";"+Math.random();//--></script><!--/LiveInternet-->
 
-    #page
-      #header
-        .r= link_to t( :link_about ), about_path
-        %h1
-          %a{ :href => root_url } FreeForms.ru<sup>&beta;</sup>
-        %h2 Бесплатные контактные формы для Вашего сайта
-      #topmenu= render :partial => 'shared/topmenu'
+    #header
+      .r= link_to t( :link_about ), about_path
+      %h1
+        %a{ :href => root_url } FreeForms.ru<sup>&beta;</sup>
+      %h2 контактные формы для Вашего сайта
+    #topmenu= render :partial => 'shared/topmenu'
       
-      #left{ :class => 'ui-widget ui-widget-content ui-corner-all' }= render :partial => 'shared/sidebar'
-      #title
-        %h1=t 'titles.' + controller.controller_name + '.' + controller.action_name
-      #content		  
-        - if flash[:notice]
-          #flash-notice
-            = image_tag 'icons/ok.png'
-            = flash[:notice]
-        - if flash[:error]
-          #flash-error
-            = image_tag 'icons/error.png'
-            = flash[:error]
+    #left= render :partial => 'shared/sidebar'
+    #title
+      %h1=t 'titles.' + controller.controller_name + '.' + controller.action_name
+    #content		  
+      - if flash[:notice]
+        #flash-notice
+          = image_tag 'icons/ok.png'
+          = flash[:notice]
+      - if flash[:error]
+        #flash-error
+          = image_tag 'icons/error.png'
+          = flash[:error]
     		  
-        = yield
-      #footer
-        .l 2009 &copy Алексей Носков и Анатолий Макаровский <br /> &nbsp;
-        .r
-        <a href="/start#register">регистрация</a> ׀ <a href="/start#reset_password">восстановить пароль</a> ׀ <a href="/start#login">вход для регистрированных пользователей</a><br /> 
+      = yield
+    #footer
+      .l 2009 &copy Алексей Носков и Анатолий Макаровский <br /> &nbsp;
+      .r
+      .c
+        <a href="/register#register">регистрация</a> ׀ <a href="/register#restore_password">восстановить пароль</a><br /> 
         <a href="/messages">мои сообщения</a> ׀ <a href="/forms">мои формы</a> ׀ <a href="/about">о проекте</a>
 
-    <script type="text/javascript" language="JavaScript" src="http://reformal.ru/tab.js?title=FreeForms&domain=freeforms&color=FFA000&align=right&charset=utf-8&ltitle=&lfont=&lsize=&waction=0&regime=0"></script>
+    <script type="text/javascript" language="JavaScript" src="http://reformal.ru/tab.js?title=FreeForms&domain=freeforms&color=F6AF39&align=right&charset=utf-8&ltitle=&lfont=&lsize=&waction=0&regime=0"></script>

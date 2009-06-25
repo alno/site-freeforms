@@ -1,0 +1,25 @@
+form p label {
+  display: block; }
+
+#login_form p.email label,
+#login_form p.password label {
+  display: block;
+  float: left;
+  padding: 0;
+  margin: 5px 5px 0;
+  text-align: right;
+  width: 50px; }
+#login_form p.email input,
+#login_form p.password input {
+  width: 70%; }
+#login_form p.remember_me label {
+  margin-left: 5px;
+  display: inline; }
+#login_form p.remember_me input {
+  margin-left: 60px; }
+#login_form > input {
+  float: right; }
+#login_form .alt {
+  float: left; }
+  #login_form .alt a {
+    display: block; }

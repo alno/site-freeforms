@@ -1,0 +1,104 @@
+
+body, p, ol, ul, td {
+  font-family: Trebuchet MS, Tahoma, Verdana, Arial, sans-serif;
+  font-size: 13px;
+  line-height: 18px; }
+
+#header {
+  width: 100%;
+  float: left;
+  background: url(/images/logo-white.png) no-repeat;
+  background-position: 15px 15px;
+  background-color: #ffffff; }
+  #header h1 a {
+    margin-left: 200px;
+    color: #f6af39;
+    text-decoration: none; }
+    #header h1 a:hover {
+      color: #1c94c4;
+      text-decoration: none; }
+    #header h1 a sup {
+      font-family: Courier New;
+      color: #999999; }
+  #header h2 {
+    margin-left: 200px;
+    color: #000; }
+  #header .r {
+    margin-right: 5px; }
+    #header .r a {
+      font-size: 1em;
+      font-weight: bold;
+      text-decoration: none;
+      color: #1c94c4; }
+      #header .r a:hover {
+        font-size: 1em;
+        text-decoration: none;
+        color: #c77405; }
+
+#topmenu {
+  width: 100%;
+  float: left;
+  background: #f6f6f6 url(images/ui-bg_glass_100_f6f6f6_1x400.png) 50% 50% repeat-x;
+  border-bottom: 2px solid silver; }
+  #topmenu a {
+    font-size: 1em;
+    font-weight: bold;
+    text-decoration: none;
+    color: #1c94c4; }
+    #topmenu a:hover {
+      font-size: 1em;
+      text-decoration: none;
+      color: #c77405; }
+  #topmenu ul {
+    margin: 0px;
+    display: block; }
+    #topmenu ul li {
+      display: inline; }
+  #topmenu li {
+    padding: 15px; }
+  #topmenu .l {
+    float: left; }
+  #topmenu .r {
+    float: right; }
+
+#left {
+  float: left;
+  width: 21%;
+  margin-top: 55px; }
+  #left h3 {
+    text-align: center; }
+  #left div li a {
+    font-size: 1em;
+    font-weight: bold;
+    text-decoration: none;
+    color: #1c94c4; }
+    #left div li a:hover {
+      font-size: 1em;
+      text-decoration: none;
+      color: #c77405; }
+
+#title {
+  float: left;
+  width: 78%;
+  height: 40px; }
+  #title h1 {
+    margin-left: 15px; }
+
+#content {
+  float: left;
+  width: 78%; }
+
+#footer {
+  clear: both;
+  width: 100%;
+  margin-top: 20px;
+  color: #afafaf;
+  font-size: 90%;
+  border-top: 4px solid #f6af39; }
+  #footer .c {
+    margin-left: 40%;
+    margin-right: 40%;
+    width: 40%;
+    text-align: center; }
+  #footer a {
+    color: #afafaf; }

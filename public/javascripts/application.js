@@ -1,31 +1,7 @@
 
 var ui = {
-	initIndex : function( selectedTab ) {
-						
-		if ( selectedTab == '#login' ) selectedTab = 0;
-		if ( selectedTab == '#register' ) selectedTab = 1;
-		if ( selectedTab == '#restore_password' ) selectedTab = 2;
-		
-		$('#new_user_session').validate({
-        	rules: {
-        		'user_session[password]': {
-        			required: true,
-        			minlength: 5
-        		},
-        		'user_session[email]': {
-        			required: true,
-        			email: true
-        		}
-        	},
-        	messages: {
-        		'user_session[password]': {
-        			required: "Введите пароль",
-        			minlength: "Пароль должен быть не короче 5 символов"
-        		},
-        		'user_session[email]': "Введите корректный E-Mail"
-        	}
-        });
-        
+	initIndex : function() {
+						        
         $('#new_user').validate({
         	rules: {
         		'user[password]': {
@@ -54,9 +30,9 @@ var ui = {
         		},
         		'user[email]': "Введите корректный E-Mail"
         	}
-		});
+		});		
 		
-		$('#tabs').tabs({ selected: selectedTab });
+		$("#register_tabs").tabs("#register_panes > div");
 	},
 	
 	initSetPassword : function() {
@@ -86,8 +62,7 @@ var ui = {
 		});
 	},
 	
-	initShowForm : function( selectedTab ) {
-		
+	initShowForm : function( selectedTab ) {		
 		function preview() {
 			var p = $('#form-preview');
 			p.html('<iframe src="' + p.attr('code') + '" style="width:100%;height:500px;border:none;" />');
@@ -116,13 +91,12 @@ var ui = {
 		
 		updateLinks( selectedTab );
 		
-		$('#form-tabs').tabs({ 
-			selected : selectedTab,
-			select:  function(event, ui) {
-		        if ( ui.index == 4 && $('#form-preview iframe').length == 0 )
+		$("#form_tabs").tabs("#form_panes > div",{ 
+			onBeforeClick: function(index) {
+		        if ( index == 4 && $('#form-preview iframe').length == 0 )
 		        	preview();
 		        	
-		        updateLinks( ui.index );
+		        updateLinks( index );
 		        
 		        return true;
 		    }			
@@ -142,10 +116,9 @@ var ui = {
 			preview();
 		}
 		
-		$('#form-tabs').tabs({ 
-			selected : selectedTab,
-			select:  function(event, ui) {
-		        if ( ui.index == 3 )
+		$("#form_tabs").tabs("#form_panes > div",{ 
+			onBeforeClick: function(index) {
+		        if ( index == 3 )
 		        	preview();
 		        
 		        return true;
@@ -154,20 +127,33 @@ var ui = {
 	},
 	
 	initAccount : function( selectedTab ) {
-		if ( selectedTab == '#account-main' ) selectedTab = 0;
-		
-		$('#account-tabs').tabs({ 
-			selected : selectedTab
-		});
+		$("#account_tabs").tabs("#account_panes > div");
 	},
 	
 	initAbout : function( selectedTab ) {
-		if ( selectedTab == '#about-intro' ) selectedTab = 0;
-		if ( selectedTab == '#about-why' ) selectedTab = 1;
-		
-		$('#about-tabs').tabs({ 
-			selected : selectedTab
-		});
+		$("#about_tabs").tabs("#about_panes > div");
+	},
+	
+	initEnterForm : function() {		
+		$('#new_user_session').validate({
+        	rules: {
+        		'user_session[password]': {
+        			required: true,
+        			minlength: 5
+        		},
+        		'user_session[email]': {
+        			required: true,
+        			email: true
+        		}
+        	},
+        	messages: {
+        		'user_session[password]': {
+        			required: "Введите пароль",
+        			minlength: "Пароль должен быть не короче 5 символов"
+        		},
+        		'user_session[email]': "Введите корректный E-Mail"
+        	}
+        });
 	},
 	
 	renderFieldEditor : function( title, type, def, enabled ) {

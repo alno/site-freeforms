@@ -1,6 +1,6 @@
-%ul.right  
+%ul.l
+%ul.r  
   - if current_user
     %li= "Вы вошли как #{link_to( current_user.email, account_path )} (#{link_to( t( 'actions.session.destroy' ), logout_path )})"
   - else
-    %li= link_to t( 'actions.session.create' ), root_path + '#login'
-    %li= link_to t( 'actions.account.create' ), root_url + '#register'
+    %li= link_to "Войти или зарегистрироваться", root_url + '#register'
