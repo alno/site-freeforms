@@ -26,7 +26,7 @@ set :git_shallow_clone, 1
 namespace :deploy do
   
   task :after_symlink, :roles => :web do
-    run "cd #{current_path} && rake app:assets:package RAILS_ENV=production"
+    run "cd #{current_path} && rake app:assets:package"
   end
 
   task :start, :roles => :app do
