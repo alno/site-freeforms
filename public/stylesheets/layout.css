@@ -64,7 +64,8 @@ body, p, ol, ul, td {
 #left {
   float: left;
   width: 21%;
-  margin-top: 55px; }
+  margin-top: 55px;
+  margin-bottom: 20px; }
   #left h3 {
     text-align: center; }
   #left div li a {
@@ -86,12 +87,12 @@ body, p, ol, ul, td {
 
 #content {
   float: left;
-  width: 78%; }
+  width: 78%;
+  margin-bottom: 20px; }
 
 #footer {
   clear: both;
   width: 100%;
-  margin-top: 20px;
   color: #afafaf;
   font-size: 90%;
   border-top: 4px solid #f6af39; }
