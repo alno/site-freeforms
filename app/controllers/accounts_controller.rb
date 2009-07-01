@@ -17,7 +17,7 @@ class AccountsController < ApplicationController
     else
       @user_session = UserSession.new
       @hash = '\'#register\''
-      render :template => 'root/index'
+      render :template => 'root/register'
     end
   end
 
