@@ -17,7 +17,7 @@ describe RootController do
     should_assign_to :user
     should_assign_to :user_session
     should_respond_with :success
-    should_render_template :index
+    should_render_template :about
   end
   
 end

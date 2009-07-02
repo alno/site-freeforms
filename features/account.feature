@@ -3,6 +3,7 @@ Feature: Account
   Scenario: Signup
     Given I am on the homepage
     And I have email address "my@mail.ru"
+    And I am on the register page
     When I fill in "account[email]" with "my@mail.ru"
     And I fill in "account[password]" with "mypass"
     And I fill in "account[password_confirmation]" with "mypass"
@@ -16,7 +17,7 @@ Feature: Account
   Scenario: Restore password
     Given I am registered in as "tester@mail.ru"
     And I have email address "tester@mail.ru"
-    When I go to the homepage
+    When I go to the register page
     And I fill in "account_password[email]" with "tester@mail.ru"
     And I press "Восстановить пароль"
     Then I should see "Инструкции по восстановлению пароля высланы"
@@ -33,7 +34,7 @@ Feature: Account
   Scenario: Change password
     Given I am logged in as "tester@mail.ru"
     When I go to the homepage
-    And I follow "Мой профиль"
+    And I follow "tester@mail.ru"
     And I follow "Редактировать профиль"
     Then I should be on the edit account page
     When I fill in "account[password]" with "New password"

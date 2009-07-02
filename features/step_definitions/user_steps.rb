@@ -35,7 +35,7 @@ When /^I delete the (\d+)(?:st|nd|rd|th) user$/ do |pos|
 end
 
 Then /^I should be able to login as "([^\"]*)" with "([^\"]*)"$/ do |email, password|
-  visit '/'
+  visit '/logout'
   fill_in("session[email]", :with => email) 
   fill_in("session[password]", :with => password) 
   click_button("Войти")

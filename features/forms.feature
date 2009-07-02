@@ -3,8 +3,7 @@ Feature: Forms
   Scenario: Logged in sees form
     Given I am logged in as "tester@mail.ru"
     When I go to the homepage
-    Then I should see "Мой профиль"
-    And I should see "Контактная форма"
+    Then I should see "Контактная форма"
     When I follow "Контактная форма"
     Then I should see "Описание"
     And I should see "Поля"
@@ -13,8 +12,7 @@ Feature: Forms
   Scenario: Logged in sees messages
     Given I am logged in as "tester@mail.ru"
     When I go to the homepage
-    Then I should see "Мой профиль"
-    And I should see "Мои сообщения"
+    Then I should see "Мои сообщения"
     When I follow "Мои сообщения"
     Then I should see "Сообщения"
     

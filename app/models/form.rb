@@ -42,13 +42,16 @@ class Form < ActiveRecord::Base
     self.title = args[:title]
     self.submit_title = args[:submit_title]
     self.description = args[:description]
-    self.style = Form::Style.new( args[:style] )
     
-    self.fields = []
+    self.style = Form::Style.new( args[:style] ) # Устанавливаем стиль формы
     
-    args[:fields].each do |f|
-      self.fields << Form::Field.create( f[:type], :title => f[:title], :default => f[:default], :disabled => (f[:enabled].to_i != 1) )
-    end  
+    if args[:fields] # Если заданы поля формы
+      self.fields = []
+      
+      args[:fields].each do |f|
+        self.fields << Form::Field.create( f[:type], :title => f[:title], :default => f[:default], :disabled => (f[:enabled].to_i != 1) )
+      end      
+    end
   end
   
   def code(type = nil)
