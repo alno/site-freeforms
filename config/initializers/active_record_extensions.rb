@@ -5,3 +5,6 @@ ActiveRecord::Base.instance_eval do
   end
   
 end
+
+ActiveRecord::Base.default_timezone = 'Moscow'
+
