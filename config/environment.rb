@@ -46,4 +46,8 @@ Rails::Initializer.run do |config|
   config.i18n.default_locale = :ru
 end
 
+require 'txt_builder'
+
 ActiveRecord::Base.default_timezone = 'Moscow'
+
+ActionView::Template.register_template_handler 'txtbuilder', ActionView::TemplateHandlers::TxtBuilder

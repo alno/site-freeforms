@@ -1,0 +1,11 @@
+@form.fields.each do |field|
+  txt << field.title
+end
+txt.newline
+
+@messages.each do |msg|
+  msg.data.each do |f|
+    txt << f.to_s
+  end
+  txt.newline
+end

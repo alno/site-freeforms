@@ -1,0 +1,5 @@
+@forms.each do |f|
+  txt << f.id.to_s
+  txt << f.title
+  txt.newline
+end

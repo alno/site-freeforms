@@ -1,3 +1,5 @@
+require 'iconv'
+
 class FormsController < ApplicationController
   
   layout 'default', :except => [ :code ]
@@ -10,6 +12,12 @@ class FormsController < ApplicationController
   
   def index
     @forms = current_user.forms.paginate( :all, :page => params[:page], :order => 'created_at DESC' )
+    
+    respond_to do |format|
+      format.html
+      format.text
+      format.xml  { render :xml => @forms }
+    end
   end
   
   def code
@@ -37,7 +45,8 @@ class FormsController < ApplicationController
     @messages = @form.messages.paginate( :all, :page => params[:page], :order => 'created_at DESC' )
 
     respond_to do |format|
-      format.html { render :action => 'messages' }
+      format.html
+      format.text
       format.xml  { render :xml => @messages }
     end
   end
@@ -48,6 +57,7 @@ class FormsController < ApplicationController
 
     respond_to do |format|
       format.html { render :action => 'messages' }
+      format.text { render :action => 'messages' }
       format.xml  { render :xml => @messages }
     end
   end
