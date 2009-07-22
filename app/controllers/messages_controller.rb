@@ -6,8 +6,8 @@ class MessagesController < ApplicationController
     @messages = current_user.messages.paginate( :all, :page => params[:page], :order => 'created_at DESC' )
 
     respond_to do |format|
-      format.xml  { render :xml => @messages }
       format.html { render :action => 'index' }
+      format.xml  { render :xml => @messages }
     end
   end
   
@@ -15,8 +15,8 @@ class MessagesController < ApplicationController
     @messages = current_user.messages.today.paginate( :all, :page => params[:page], :order => 'created_at DESC' )
 
     respond_to do |format|
-      format.xml  { render :xml => @messages }
       format.html { render :action => 'index' }
+      format.xml  { render :xml => @messages }
     end
   end
   
@@ -24,8 +24,8 @@ class MessagesController < ApplicationController
     @messages = current_user.messages.unread.paginate( :all, :page => params[:page], :order => 'created_at DESC' )
 
     respond_to do |format|
-      format.xml  { render :xml => @messages }
       format.html { render :action => 'index' }
+      format.xml  { render :xml => @messages }
     end
   end
   
