@@ -55,4 +55,12 @@
       %label=t( 'style.background' ) + ':'
       = color_field_tag( 'form[style][background]', style.background )
       
+    %p
+      %label=t( 'style.border_width' ) + ':'
+      = text_field_tag( 'form[style][border_width]', style.border_width )
+    
+    %p
+      %label=t( 'style.border_color' ) + ':'
+      = color_field_tag( 'form[style][border_color]', style.border_color )
+      
   #form-preview

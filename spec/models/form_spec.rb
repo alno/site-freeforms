@@ -87,11 +87,9 @@ describe Form do
     end
     
     it { @form.should be_valid }
-    it { @form.should have(4).fields }
-    it { @form.fields[0].title.should == I18n.t( 'form_fields.email' ) }
-    it { @form.fields[1].title.should == I18n.t( 'form_fields.name' ) }
-    it { @form.fields[2].title.should == I18n.t( 'form_fields.title' ) }
-    it { @form.fields[3].title.should == I18n.t( 'form_fields.content' ) }
+    it { @form.should have(2).fields }
+    it { @form.fields[0].title.should == I18n.t( 'form_fields.name' ) }
+    it { @form.fields[1].title.should == I18n.t( 'form_fields.content' ) }
     it { @form.access_key.should_not be_nil }
     
   end

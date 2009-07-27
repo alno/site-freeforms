@@ -1,6 +1,18 @@
 class Form::Style
   
-  attr_writer :background, :font_family, :font_size, :font_color, :title_family, :title_size, :title_color
+  def self.attr_with_default( attr, default )
+    src = <<-END_SRC
+      def #{attr}
+        @#{attr} || '#{default}'
+      end
+      
+      def #{attr}=(v)
+        @#{attr} = v
+      end
+    END_SRC
+    
+    class_eval src, __FILE__, __LINE__
+  end
   
   def initialize( atts = {} )
     atts.each do |k,v|
@@ -8,32 +20,17 @@ class Form::Style
     end
   end
   
-  def background
-    @background || '#fff'
-  end
+  attr_with_default :background, '#fff'  
   
-  def font_family
-    @font_family || 'Verdana'
-  end
+  attr_with_default :font_family, 'Verdana'
+  attr_with_default :font_size, 15
+  attr_with_default :font_color, '#000'
   
-  def font_size
-    @font_size || 15
-  end
+  attr_with_default :title_family, 'Verdana'
+  attr_with_default :title_size, 18
+  attr_with_default :title_color, '#000'
   
-  def font_color
-    @font_color || '#000'
-  end  
-  
-  def title_family
-    @title_family || 'Verdana'
-  end
-  
-  def title_size
-    @title_size || 18
-  end
-  
-  def title_color
-    @title_color || '#000'
-  end
+  attr_with_default :border_color, '#f00'
+  attr_with_default :border_width, 2
   
 end

@@ -22,11 +22,9 @@ class Form < ActiveRecord::Base
   end
   
   def self.default_fields
-    [ 
-      Form::EmailField.new( :title => I18n.t( 'form_fields.email' ), :required => true ), 
+    [
       Form::StringField.new( :title => I18n.t( 'form_fields.name' ) ), 
-      StringField.new( :title => I18n.t( 'form_fields.title' ) ), 
-      TextField.new( :title => I18n.t( 'form_fields.content' ) ) 
+      Form::TextField.new( :title => I18n.t( 'form_fields.content' ) ) 
     ]
   end
     

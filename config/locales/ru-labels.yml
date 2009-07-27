@@ -144,6 +144,8 @@ ru:
     title_size: Размер шрифта заголовка
     title_color: Цвет заголовка
     background: Цвет фона
+    border_width: Толщина границы
+    border_color: Цвет границы
   
   fields:
     errors:

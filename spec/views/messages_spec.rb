@@ -24,7 +24,12 @@ end
 
 describe "forms/messages.html" do
   before(:all) do
-    @form = Form.make
+    @form = Form.make( :fields => [ 
+      Form::EmailField.new( :title => I18n.t( 'form_fields.email' ), :required => true ), 
+      Form::StringField.new( :title => I18n.t( 'form_fields.name' ) ), 
+      Form::StringField.new( :title => I18n.t( 'form_fields.title' ) ), 
+      Form::TextField.new( :title => I18n.t( 'form_fields.content' ) ) 
+    ])
     @messages = [ Message.make( :read_at => Time.now, :form => @form ), Message.make( :read_at => Time.now, :form => @form ) ].paginate
   end
   

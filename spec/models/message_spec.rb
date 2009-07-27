@@ -3,7 +3,12 @@ require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 describe Message do
   
   before(:all) do    
-    @f = Form.make
+    @f = Form.make( :fields => [ 
+      Form::EmailField.new( :title => I18n.t( 'form_fields.email' ), :required => true ), 
+      Form::StringField.new( :title => I18n.t( 'form_fields.name' ) ), 
+      Form::StringField.new( :title => I18n.t( 'form_fields.title' ) ), 
+      Form::TextField.new( :title => I18n.t( 'form_fields.content' ) ) 
+    ])
   end
   
   context "new" do
