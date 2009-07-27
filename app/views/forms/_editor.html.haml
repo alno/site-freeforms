@@ -18,7 +18,7 @@
     #form_fields_area
       %script
         - @form.fields.each_with_index do |field,i|
-          = "document.writeln(ui.renderFieldEditor('#{field.title}','#{field.type}','#{field.default}',#{field.enabled?}));"
+          = "document.writeln(ui.renderFieldEditor('#{field.title}','#{field.type}','#{field.default}',#{field.enabled?},#{field.required?}));"
     
     %br
       
@@ -58,6 +58,10 @@
     %p
       %label=t( 'style.border_width' ) + ':'
       = text_field_tag( 'form[style][border_width]', style.border_width )
+      
+    %p
+      %label=t( 'style.border_radius' ) + ':'
+      = text_field_tag( 'form[style][border_radius]', style.border_radius )
     
     %p
       %label=t( 'style.border_color' ) + ':'

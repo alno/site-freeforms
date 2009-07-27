@@ -156,7 +156,7 @@ var ui = {
         });
 	},
 	
-	renderFieldEditor : function( title, type, def, enabled ) {
+	renderFieldEditor : function( title, type, def, enabled, required ) {
 		
 		function renderTextField( name, value ) {
 			var s = '';
@@ -204,19 +204,22 @@ var ui = {
 		
 		var s = '';
 		
-		s += '<table class="field_editor ui-widget ui-widget-content ui-corner-all"><tr><td>';
+		s += '<table class="field_editor"><tr><td>';
 		s += '<label>Заголовок:</label></td><td>';
 		s += renderTextField('title',title);
 		s += '</td><td>';
 		s += '<label>Тип:</label>';
 		s += renderSelect('type',type,{ text: 'Текст', email: 'E-Mail', string: 'Строка' });
-		s += '</td></tr><tr><td>';
+		s += '</td><td>';
 		s += '<label>По умолчанию:</label></td><td>';
 		s += renderTextField('default',def);
-		s += '</td><td>';
+		s += '</td></tr><tr><td>';
 		s += renderCheckBox('enabled',enabled);
 		s += '<label>Разрешено</label>';
-		s += '</td></tr></table>';
+		s += '</td><td>';
+		s += renderCheckBox('required',required);
+		s += '<label>Обязательно</label>';
+		s += '</td><td></td></tr></table>';
 		
 		return s;
 	},

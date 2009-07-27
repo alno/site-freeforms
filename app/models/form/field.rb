@@ -1,8 +1,23 @@
 class Form::Field
-  attr_accessor :title
-  attr_accessor :default  
-  attr_accessor :disabled
-  attr_accessor :required
+  
+  def self.attr_with_default( attr, default )
+    src = <<-END_SRC
+      def #{attr}
+        @#{attr} || '#{default}'
+      end
+      
+      def #{attr}=(v)
+        @#{attr} = v
+      end
+    END_SRC
+    
+    class_eval src, __FILE__, __LINE__
+  end
+  
+  attr_with_default :title, nil
+  attr_with_default :default, nil
+  attr_with_default :disabled, false
+  attr_with_default :required, false
   
   def self.create( type, atts )
     "Form::#{type.camelize}Field".constantize.new( atts )

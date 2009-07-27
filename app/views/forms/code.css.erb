@@ -9,6 +9,13 @@
 	padding: 10px;
 	border: <%=style.border_width %>px solid <%=style.border_color %>;
 	
+	<% if style.border_radius.to_i > 0 %>
+		-moz-border-radius: <%=style.border_radius %>px;
+		-khtml-border-radius: <%=style.border_radius %>px;
+		-webkit-border-radius: <%=style.border_radius %>px;
+		border-radius: <%=style.border_radius %>px;
+	<% end %>
+	
 	background: <%=style.background %>;
 	
 	font-family: <%=style.font_family %>;
@@ -38,8 +45,10 @@
 	background: #f66;
 }
 
-.mfd p label {
+.mfd p.error span {	
+	color: #f00;
 	font-weight: bold;
+	padding-left: 10px;
 }
 
 .mfd hr {
@@ -50,6 +59,11 @@
 .mfd p{
 	padding: 3px;
 	padding-bottom: 5px;
+}
+
+.mfd p label {
+	font-weight: bold;
+	padding-right: 10px;
 }
 
 .mfd p input,
@@ -69,18 +83,6 @@
 	width: 300px;
 }
 
-.mfd p span {	
-	color:#f00;
-	font-weight: bold;
-	padding-left: 10px;
-}
-
-.mfd p label {
-	padding-right: 10px;
-}
-
-
-
 .mfd .fb {
 	position: absolute;
 	top: 0;
@@ -93,6 +95,13 @@
 	text-align: center;		
 	
 	border: 1px solid #000000;
+	
+	<% if style.border_radius.to_i > 0 %>
+		-moz-border-radius: <%=style.border_radius %>px;
+		-khtml-border-radius: <%=style.border_radius %>px;
+		-webkit-border-radius: <%=style.border_radius %>px;
+		border-radius: <%=style.border_radius %>px;
+	<% end %>
 }
 
 .mfd .fb div {

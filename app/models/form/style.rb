@@ -32,5 +32,6 @@ class Form::Style
   
   attr_with_default :border_color, '#f00'
   attr_with_default :border_width, 2
+  attr_with_default :border_radius, 0
   
 end

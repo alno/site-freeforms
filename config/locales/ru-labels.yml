@@ -145,6 +145,7 @@ ru:
     title_color: Цвет заголовка
     background: Цвет фона
     border_width: Толщина границы
+    border_radius: Радиус углов границы
     border_color: Цвет границы
   
   fields:
