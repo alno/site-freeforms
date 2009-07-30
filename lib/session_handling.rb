@@ -5,7 +5,8 @@ module SessionHandling
     
     if params[:email] && params[:password] # Автоматический логин по параметрам
       @current_user_session = UserSession.new( :email => params[:email], :password => params[:password], :remember_me => params[:remember_me] )
-      @current_user_session = nil unless @current_user_session.save
+
+      return @current_user_session if @current_user_session.save
     end
     
     @current_user_session = UserSession.find # Восстановление сессии
