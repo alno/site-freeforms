@@ -35,7 +35,7 @@ var mf_<%=@form.id%> = new function() {
 	}
 	
 	this.onSuccess = function( token ) {
-		setBlockContent( '<p><%=e 'Сообщение отправлено. Вы можете посмотреть его статус по ссылке:'%> <a href="http://<%=APP_HOST%>/status/' + token + '">http://<%=APP_HOST%>/status/' + token + '</a></p>' );
+		setBlockContent( '<p><%=e 'Сообщение отправлено. Вы можете посмотреть его статус по ссылке:'%> <a href="http://<%=APP_HOST%>/status/' + token + '" target="_blank">http://<%=APP_HOST%>/status/' + token + '</a></p>' );
 	},
 
 	this.onError = function(errors) {
