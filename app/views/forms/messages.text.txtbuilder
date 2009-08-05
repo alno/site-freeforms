@@ -1,9 +1,11 @@
+txt << 'id'
 @form.fields.each do |field|
   txt << field.title
 end
 txt.newline
 
 @messages.each do |msg|
+  txt << msg.id.to_s # Записываем идентификатор сообщения
   msg.data.each do |f|
     txt << f.to_s
   end
