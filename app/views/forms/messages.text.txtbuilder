@@ -1,4 +1,6 @@
 txt << 'id'
+txt << 'created_at'
+txt << 'read_at'
 @form.fields.each do |field|
   txt << field.title
 end
@@ -6,6 +8,8 @@ txt.newline
 
 @messages.each do |msg|
   txt << msg.id.to_s # Записываем идентификатор сообщения
+  txt << msg.created_at.to_s
+  txt << msg.read_at.to_s
   msg.data.each do |f|
     txt << f.to_s
   end

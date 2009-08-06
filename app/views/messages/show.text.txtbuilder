@@ -1,10 +1,14 @@
 txt << 'id'
+txt << 'created_at'
+txt << 'read_at'
 @form.fields.each do |field|
   txt << field.title
 end
 txt.newline
 
 txt << @message.id.to_s # Идентификатор сообщения
+txt << @message.created_at.to_s
+txt << @message.read_at.to_s
 @message.data.each do |f|
   txt << f.to_s
   end

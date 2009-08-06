@@ -27,6 +27,10 @@ class Message < ActiveRecord::Base
     end
   end
   
+  def mark_read!
+    update_attribute :read_at, Time.now unless self[:read_at]
+  end
+  
   before_create do |msg|
     msg.token = Authlogic::CryptoProviders::Sha1.encrypt(Time.now.to_s + (1..10).collect{ rand.to_s }.join)
   end

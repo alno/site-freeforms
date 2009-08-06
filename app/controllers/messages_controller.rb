@@ -6,7 +6,12 @@ class MessagesController < ApplicationController
     @messages = current_user.messages.paginate( :all, :page => params[:page], :order => 'created_at DESC' )
 
     respond_to do |format|
-      format.html { render :action => 'index' }
+      format.html do
+        @messages.each do |m|
+          m.mark_read!
+        end
+        render :action => 'index'
+      end
       format.xml  { render :xml => @messages }
     end
   end
@@ -15,7 +20,12 @@ class MessagesController < ApplicationController
     @messages = current_user.messages.today.paginate( :all, :page => params[:page], :order => 'created_at DESC' )
 
     respond_to do |format|
-      format.html { render :action => 'index' }
+      format.html do
+        @messages.each do |m|
+          m.mark_read!
+        end
+        render :action => 'index'
+      end
       format.xml  { render :xml => @messages }
     end
   end
@@ -24,7 +34,12 @@ class MessagesController < ApplicationController
     @messages = current_user.messages.unread.paginate( :all, :page => params[:page], :order => 'created_at DESC' )
 
     respond_to do |format|
-      format.html { render :action => 'index' }
+      format.html do
+        @messages.each do |m|
+          m.mark_read!
+        end
+        render :action => 'index'
+      end
       format.xml  { render :xml => @messages }
     end
   end
@@ -41,13 +56,10 @@ class MessagesController < ApplicationController
   end
 
   def show
-    @message = current_user.messages.find(params[:id])
-    @form = @message.form
+    @message = current_user.messages.find(params[:id])    
+    @message.mark_read!
     
-    unless @message.read_at # Отмечаем сообщение, как прочитанное
-       @message.read_at = Time.now
-       @message.save!
-    end
+    @form = @message.form
 
     respond_to do |format|
       format.html # show.html.erb

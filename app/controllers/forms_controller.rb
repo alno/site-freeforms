@@ -45,7 +45,11 @@ class FormsController < ApplicationController
     @messages = @form.messages.paginate( :all, :page => params[:page], :order => 'created_at DESC' )
 
     respond_to do |format|
-      format.html
+      format.html do
+        @messages.each do |m|
+          m.mark_read!
+        end
+      end
       format.text
       format.xml  { render :xml => @messages }
     end
@@ -56,7 +60,12 @@ class FormsController < ApplicationController
     @messages = @form.messages.unread.paginate( :all, :page => params[:page], :order => 'created_at DESC' )
 
     respond_to do |format|
-      format.html { render :action => 'messages' }
+      format.html do
+        @messages.each do |m|
+          m.mark_read!
+        end
+        render :action => 'messages'
+      end
       format.text { render :action => 'messages' }
       format.xml  { render :xml => @messages }
     end
