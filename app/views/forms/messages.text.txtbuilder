@@ -8,8 +8,8 @@ txt.newline
 
 @messages.each do |msg|
   txt << msg.id.to_s # Записываем идентификатор сообщения
-  txt << msg.created_at.to_s
-  txt << msg.read_at.to_s
+  txt << (msg.created_at ? l( msg.created_at, :locale => :en ) : '')
+  txt << (msg.read_at ? l( msg.read_at, :locale => :en ) : '')
   msg.data.each do |f|
     txt << f.to_s
   end

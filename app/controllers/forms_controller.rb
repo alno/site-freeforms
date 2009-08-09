@@ -42,33 +42,14 @@ class FormsController < ApplicationController
   
   def messages
     @form = current_user.forms.find( params[:id] )
-    @messages = @form.messages.paginate( :all, :page => params[:page], :order => 'created_at DESC' )
 
-    respond_to do |format|
-      format.html do
-        @messages.each do |m|
-          m.mark_read!
-        end
-      end
-      format.text
-      format.xml  { render :xml => @messages }
-    end
+    render_messages( @form.messages )
   end
   
   def unread
     @form = current_user.forms.find( params[:id] )
-    @messages = @form.messages.unread.paginate( :all, :page => params[:page], :order => 'created_at DESC' )
 
-    respond_to do |format|
-      format.html do
-        @messages.each do |m|
-          m.mark_read!
-        end
-        render :action => 'messages'
-      end
-      format.text { render :action => 'messages' }
-      format.xml  { render :xml => @messages }
-    end
+    render_messages( @form.messages.unread )
   end
   
   def create
@@ -108,6 +89,33 @@ class FormsController < ApplicationController
     @form.destroy
     
     redirect_to account_path
+  end
+  
+  private
+  
+  def render_messages( msgs )
+    respond_to do |format|
+      format.html do
+        @messages = msgs.paginate( :all, :page => params[:page], :order => 'created_at DESC' )
+        @messages.each do |m|
+          m.mark_read!
+        end
+        
+        render :action => 'messages'
+      end
+      format.text do
+        if params[:min_id]          
+          @messages = msgs.find(:all,:conditions => [ 'id >= ?', params[:min_id] ])
+        else          
+          @messages = msgs
+        end
+        
+        render :action => 'messages'
+      end
+      format.xml do        
+        render :xml => (@messages = msgs)
+      end
+    end
   end
 
 end
