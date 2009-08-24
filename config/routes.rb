@@ -18,6 +18,8 @@ ActionController::Routing::Routes.draw do |map|
   map.register '/register', :controller => 'root', :action => 'register'
   map.about '/about', :controller => 'root', :action => 'about'
   
+  map.connect '/:id.:format', :controller => 'forms', :action => 'code'
+  
   map.connect ':controller.:format'
   map.connect ':controller/:action/:id.:format'
 end
