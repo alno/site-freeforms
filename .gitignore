@@ -3,3 +3,4 @@ config.ru
 tmp
 .project
 .buildpath
+config/deploy.rb
