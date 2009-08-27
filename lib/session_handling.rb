@@ -5,11 +5,11 @@ module SessionHandling
     
     if params[:email] && params[:password] # Автоматический логин по параметрам
       @current_user_session = UserSession.new( :email => params[:email], :password => params[:password], :remember_me => params[:remember_me] )
-
-      return @current_user_session if @current_user_session.save
-    end
-    
-    @current_user_session = UserSession.find # Восстановление сессии
+      @current_user_session = nil unless @current_user_session.save
+      @current_user_session
+    else
+      @current_user_session = UserSession.find # Восстановление сессии
+    end 
   end
 
   def current_user
@@ -18,12 +18,22 @@ module SessionHandling
   
   def require_user
     unless current_user
-      store_location
-      flash[:error] = I18n.t('error.login_required')
-      redirect_to root_url
-      return false
+      respond_to do |format|
+        format.html do
+          store_location
+          flash[:error] = I18n.t('error.login_required')
+          redirect_to root_url
+          return false
+        end
+        format.text do
+          render :text => ''
+        end
+        format.xml do        
+          render :xml => ''
+        end
+      end
     end
-  end
+  end  
   
   def load_user_using_perishable_token
     @user = User.find_using_perishable_token(params[:id])
