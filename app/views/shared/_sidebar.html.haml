@@ -5,8 +5,8 @@
     %li= link_to t( 'actions.message.unread' ) + " (#{current_user.messages.unread.count})", unread_messages_path
     %li= link_to t( 'actions.message.today' ) + " (#{current_user.messages.today.count})", today_messages_path
     %li= link_to t( 'actions.message.index' ) + " (#{current_user.messages.count})", messages_path
-    %li= link_to "Экспорт в XLS (Excel)", export_messages_url( :format => :xls )
-    %li= link_to "Экспорт в CSV", export_messages_url( :format => :csv )
+    %li= link_to "Скачать в XLS (Excel)", export_messages_url( :format => :xls )
+    %li= link_to "Скачать в CSV", export_messages_url( :format => :csv )
   
   %h3= link_to( t( 'actions.form.index' ), forms_path )
     

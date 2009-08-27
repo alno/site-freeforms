@@ -68,7 +68,7 @@ ru:
       create: Восстановить пароль
       update: Установить пароль
     message:
-      index: Мои сообщения
+      index: Все сообщения
       unread: Новые
       show: Показать
       destroy: Удалить
