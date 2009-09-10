@@ -15,3 +15,4 @@ stylesheets:
   - ui
   - forms
   - flexigrid
+  - forms/default

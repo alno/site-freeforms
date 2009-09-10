@@ -1,0 +1,29 @@
+- style = form.style
+    
+%p
+  %b=t( 'style.font_family' ) + ':'
+  %span{ :style => 'font-family: ' + style.font_family }=h style.font_family
+    
+%p
+  %b=t( 'style.font_size' ) + ':'
+  =h style.font_size
+    
+%p
+  %b=t( 'style.font_color' ) + ':'
+  %span{ :class => 'color', :style => 'background: ' + style.font_color }=h style.font_color
+      
+%p
+  %b=t( 'style.title_family' ) + ':'
+  %span{ :style => 'font-family: ' + style.title_family }=h style.title_family
+    
+%p
+  %b=t( 'style.title_size' ) + ':'
+  =h style.title_size
+    
+%p
+  %b=t( 'style.title_color' ) + ':'
+  %span{ :class => 'color', :style => 'background: ' + style.title_color }=h style.title_color
+    
+%p  
+  %b=t( 'style.background' ) + ':'
+  %span{ :class => 'color', :style => 'background: ' + style.background }=h style.background

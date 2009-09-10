@@ -96,6 +96,7 @@ jQuery.fn.addColorPicker = function( props ) {
 						
 					if ( props.showCode == 'yes' ) {
 						input.val( color );
+						input.change();
 					}
 						
 					if ( props.autoClose == 'yes' ) {
@@ -114,6 +115,7 @@ jQuery.fn.addColorPicker = function( props ) {
 						
 					if ( props.showCode == 'yes' ) {
 						input.val( color );
+						input.change();
 					}
 						
 					if ( props.callback ) {

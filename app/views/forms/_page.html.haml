@@ -1,0 +1,29 @@
+- f = nil if type == 'viewer'
+
+= render :partial => "forms/#{type}/common", :locals => { :form => @form, :f => f }
+
+= render :partial => 'forms/code.html', :locals => { :form => @form }
+
+%ul#form_tabs.tabs
+  %li
+    %a{ :href => '#form-fields' }=t 'form.fields'
+  %li
+    %a{ :href => '#form-style' }=t 'form.style'
+  %li
+    %a{ :href => '#form-code' }=t 'form.code'
+
+#form_panes.panes
+  #form-fields
+    = render :partial => "forms/#{type}/fields", :locals => { :form => @form, :f => f }
+  
+  #form-style
+    = render :partial => "forms/#{type}/style", :locals => { :form => @form, :f => f }
+              
+  #form-code
+    %p
+      %b=t(:form_code_inline) + ':'
+      %pre=h @form.code(:js_inline)
+    
+    %p
+      %b=t(:form_code_popup) + ':'
+      %pre=h @form.code(:popup)

@@ -2,9 +2,9 @@
 
 MAIL_HOST = 'freeforms.ru'
 APP_HOST = 'www.freeforms.ru'
-JS_HOST = 'js.freeforms.ru'
-FORM_CODE_PREFIX = ''
-FORM_CODE_SUFFIX = ''
+JS_HOST = 'www.freeforms.ru'
+FORM_CODE_PREFIX = '/forms'
+FORM_CODE_SUFFIX = '/code'
 
 # The production environment is meant for finished, "live" apps.
 # Code is not reloaded between requests

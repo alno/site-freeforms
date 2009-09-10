@@ -1,6 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
   
-  map.resources :forms, :member => [ :code, :clone, :messages, :unread ], :collection => [ :preview ]  
+  map.resources :forms, :member => [ :code, :clone, :messages, :unread ]  
   map.resources :messages, :collection => [ :unread, :today, :export ]
     
   map.resource :account

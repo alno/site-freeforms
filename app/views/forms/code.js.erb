@@ -55,19 +55,9 @@ var mf_<%=@form.id%> = new function() {
 	},
 	
 	this.build = function() {
-		attachStyle('<%=@form.code_url :css %>');
+		attachStyle('<%="http://#{JS_HOST}/stylesheets/forms/default.css" %>');
 		
-		document.write('<div id="mfd_<%=@form.id%>" class="mfd"><form action="http://<%=APP_HOST%>/post/<%=@form.id%>" method="POST">');
-		document.write('<h3><%=e @form.title%></h3>');
-		
-		<% @form.fields.each_with_index do |field,i|%>
-			<% if field.enabled? %>
-  				document.write('<%=field.render_input(@form.id,i)%>');
-  	    	<% end %>
-		<% end %>
-		
-		document.write('<div class="submit"><input type="submit" onclick="mf_<%=@form.id%>.post(this.form); return false;" value="<%=e @form.submit_title%>" /></div>');
-		document.write('</form><div id="mfb_<%=@form.id%>" class="fb"></div></div>');
+		document.writeln( '<%= form_html( @form ).gsub('\'') { |s| '\\\'' } %>' );
 	}
 	
 	return this;

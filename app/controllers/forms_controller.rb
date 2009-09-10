@@ -73,17 +73,7 @@ class FormsController < ApplicationController
       render :action => :edit
     end
   end
-  
-  def preview
-    @form = current_user.forms.build
-    @form.id = 0
-    @form.assign params[:form]
     
-    @css = render_to_string :action => 'code.css', :layout => false
-    
-    render :layout => false
-  end
-  
   def destroy
     @form = current_user.forms.find(params[:id])
     @form.destroy
