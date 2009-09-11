@@ -1,13 +1,15 @@
 javascripts:
 - app:
-  - jquery
-  - jquer
-  - jquery-cookie
-  - jquery-validate
-  - jquery-colorpicker
-  - tools.tabs-1.0.1
-  - flexigrid
-  - jrails
+  - lib/jquery
+  - lib/jquery-cookie
+  - lib/jquery-validate
+  - lib/jquery-colorpicker
+  - lib/ui.core
+  - lib/ui.draggable
+  - lib/ui.sortable
+  - lib/tools.tabs-1.0.1
+  - lib/flexigrid
+  - lib/jrails
   - application
   - editor
 stylesheets:

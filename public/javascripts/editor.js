@@ -49,6 +49,19 @@ var formEditor = new function() {
 		});
 	}
 	
+	function extendField() {
+		var field = $(this);
+		var removeIcon = $('<img src="/images/icons/delete.png" class="act_icon" />');
+		
+		removeIcon.click(function(){
+			var editor = editorFor( field );
+		
+			field.remove();
+			editor.remove();
+		});
+		removeIcon.prependTo( field );
+	}
+	
 	function onFieldClick() {
 		if ( currentField != null )
 			hideFieldEditor( currentField );			
@@ -77,11 +90,13 @@ var formEditor = new function() {
 				currentIndex = m[2];
 		});
 		
+		$('.mfd p').each( extendField );
+		
 		$('.mfd p, .mfd h3').click( onFieldClick );			
 		$('input,textarea').keyup( onInputKeyUp );		
 	}
 	
-	this.newField = function(formId,proto) {
+	this.addField = function( formId, proto ) {
 		var editor = $('#fe_' + formId + '_' + proto).clone();
 		var field = $('#mf_' + formId + '_' + proto).clone();
 		var index = ++ currentIndex;
@@ -100,6 +115,7 @@ var formEditor = new function() {
 				if ( v ) e.attr( a, v.replace(proto,index) );
 			}
 		});
+		field.each( extendField );
 		
 		editor.find('input,textarea').keyup( onInputKeyUp ); 
 		field.find('input,textarea').keyup( onInputKeyUp );
@@ -110,8 +126,12 @@ var formEditor = new function() {
 		field.click();
 	}
 	
-	this.newStringField = function() {
+	this.removeField = function( elem ) {
+		var field = fieldFor( elem );
+		var editor = editorFor( field );
 		
+		field.remove();
+		editor.remove();
 	}
 	
 	return this;

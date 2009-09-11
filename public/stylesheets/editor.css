@@ -7,10 +7,19 @@
     cursor: pointer; }
   .mfd p.current,
   .mfd h3.current {
-    border: 1px solid black; }
+    border: 1px solid #666666; }
+    .mfd p.current .act_icon,
+    .mfd h3.current .act_icon {
+      display: block; }
   .mfd p:hover,
   .mfd h3:hover {
-    border: 1px solid grey; }
+    border: 1px dashed #999999; }
+    .mfd p:hover .act_icon,
+    .mfd h3:hover .act_icon {
+      display: block; }
+  .mfd p .act_icon,
+  .mfd h3 .act_icon {
+    display: none; }
 
 .form_editor {
   background: white;
@@ -21,6 +30,15 @@
     .form_editor div input,
     .form_editor div textarea {
       width: 100%; }
+  .form_editor .act_icon {
+    margin: 4px; }
+
+.act_icon {
+  border: none;
+  float: right;
+  cursor: pointer;
+  width: 16px;
+  height: 16px; }
 
 #form_preview {
   width: 70%;
