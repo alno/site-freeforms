@@ -7,3 +7,5 @@
   = styled_link_to 'actions.form.destroy', form_path( @form ), :confirm => t('confirm.destroy_form'), :method => :delete
 
 %script= "ui.initEditForm(#{@hash || 'location.hash'});"
+
+= render :partial => 'forms/editors/protos', :locals => { :form => @form }

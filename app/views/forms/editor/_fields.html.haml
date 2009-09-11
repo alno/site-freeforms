@@ -1,8 +1,0 @@
-#form_fields_area
-  %script
-    - form.fields.each_with_index do |field,i|
-      = "document.writeln(ui.renderFieldEditor('#{field.title}','#{field.type}','#{field.default}',#{field.enabled?},#{field.required?}));"
-    
-%br
-      
-= styled_link_to 'actions.field.new', '#', :onclick => 'ui.appendFieldEditor()';

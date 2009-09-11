@@ -5,3 +5,5 @@
   = f.submit_create :class => 'button'
 
 %script= "ui.initEditForm(#{@hash || 'location.hash'});"
+
+= render :partial => 'forms/editors/protos', :locals => { :form => @form }

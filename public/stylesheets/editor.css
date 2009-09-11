@@ -30,5 +30,8 @@
   float: left;
   width: 30%; }
 
-#form_others {
+#form_editor_footer {
   clear: both; }
+
+#form_editor_protos {
+  display: none; }

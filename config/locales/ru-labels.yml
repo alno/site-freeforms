@@ -149,7 +149,10 @@ ru:
     border_color: Цвет границы
   
   fields:
-    email: E-Mail
+    email: Поле для E-Mail
+    string: Строковое поле
+    text: Многострочное поле
+    
     errors:
       field:
         missed: Поле обязательно для заполнения!

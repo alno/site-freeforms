@@ -1,13 +1,17 @@
 #form_preview
-  = render :partial => 'forms/code.html', :locals => { :form => @form }
+  = render :partial => 'forms/editors/preview', :locals => { :form => @form }
 
 #form_editors
+  %ul.editor_links
+    %li= link_to_function "New email field", "formEditor.newField(#{form.id},'email_proto')"
+    %li= link_to_function "New string field", "formEditor.newField(#{form.id},'string_proto')"
+    %li= link_to_function "New text field", "formEditor.newField(#{form.id},'text_proto')"
   .form_editor{ :id => "fe_#{form.id}" }
     = render :partial => "forms/editors/form", :locals => { :form => @form, :f => f }
   - @form.fields.each_with_index do |field,index|
     .form_editor{ :id => "fe_#{form.id}_#{index}" }
       = render :partial => "forms/editors/#{field.type}", :locals => { :field => field, :index => index, :form => @form, :f => f }
-    
-#form_others
 
-<script>initEditor();</script>
+#form_editor_footer
+
+<script>formEditor.init();</script>
