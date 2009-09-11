@@ -77,6 +77,25 @@ var formEditor = new function() {
 		$(this).change();
 	}
 	
+	function sortEditorsByFields(fields) {
+		var prevEditor = null;
+		
+		for ( var i = 0, l = fields.length; i < l; ++ i ) {
+			var mField = fields[i].match(/mf_(\d*)_(\d+)/);
+			
+			if ( mField == null )
+				continue;
+						
+			var editor = $( '#fe_' + mField[1] + '_' + mField[2] );
+			
+			if ( prevEditor ) {
+				editor.insertAfter( prevEditor );
+			}
+			
+			prevEditor = editor;
+		}
+	}
+	
 	this.editorFor = editorFor;
 	this.fieldFor = fieldFor;
 	
@@ -93,7 +112,14 @@ var formEditor = new function() {
 		$('.mfd p').each( extendField );
 		
 		$('.mfd p, .mfd h3').click( onFieldClick );			
-		$('input,textarea').keyup( onInputKeyUp );		
+		$('input,textarea').keyup( onInputKeyUp );
+		
+		$('.mfd').sortable({
+			items: '> p',
+			update: function(event,ui) {
+				sortEditorsByFields( $('.mfd').sortable('toArray') );
+			}
+		}).disableSelection();		
 	}
 	
 	this.addField = function( formId, proto ) {
@@ -124,6 +150,8 @@ var formEditor = new function() {
 		editor.appendTo( editorsPane );
 		field.insertBefore( '#mfd_' + formId + ' .submit' );
 		field.click();
+		
+		$('.mfd').sortable('refresh');
 	}
 	
 	this.removeField = function( elem ) {
