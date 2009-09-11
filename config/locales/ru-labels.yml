@@ -155,6 +155,7 @@ ru:
     email: Поле для E-Mail
     string: Строковое поле
     text: Многострочное поле
+    new: Добавить поле
     
     errors:
       field:

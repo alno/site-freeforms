@@ -21,6 +21,9 @@
   .mfd h3 .act_icon {
     display: none; }
 
+#form_preview {
+  padding-top: 40px; }
+
 .form_editor {
   background: white;
   width: 100%;
@@ -39,6 +42,35 @@
   cursor: pointer;
   width: 16px;
   height: 16px; }
+
+.editor_links {
+  display: block;
+  padding: 3px;
+  padding-left: 10px;
+  background: #f6f6f6 url(images/ui-bg_glass_100_f6f6f6_1x400.png) 50% 50% repeat-x;
+  border-bottom: 2px solid silver; }
+  .editor_links > li {
+    display: inline;
+    padding-left: 10px;
+    padding-right: 10px; }
+    .editor_links > li ul {
+      display: block;
+      padding: 5px;
+      padding-left: 10px;
+      padding-right: 10px;
+      background: #ffffff;
+      border: 1px solid silver; }
+    .editor_links > li li {
+      display: block; }
+  .editor_links a {
+    font-size: 1em;
+    font-weight: bold;
+    text-decoration: none;
+    color: #1c94c4; }
+    .editor_links a:hover {
+      font-size: 1em;
+      text-decoration: none;
+      color: #c77405; }
 
 #form_preview {
   width: 70%;

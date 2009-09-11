@@ -45,7 +45,7 @@ var formEditor = new function() {
 							
 		editorFor( field ).css({
 			display: 'block',
-			'margin-top': (field.offset().top - editorsPane.offset().top - 30) + 'px'
+			'margin-top': Math.max(field.offset().top - editorsPane.offset().top - $('.editor_links').height() - 30,0) + 'px'
 		});
 	}
 	
@@ -119,7 +119,19 @@ var formEditor = new function() {
 			update: function(event,ui) {
 				sortEditorsByFields( $('.mfd').sortable('toArray') );
 			}
-		}).disableSelection();		
+		}).disableSelection();
+		
+		$('.editor_links ul').hide();
+		$('.editor_links li').mouseover(function(){
+			var t = $(this);
+			$('> ul',this).css({
+				position: 'absolute',
+				top: (t.position().top + t.height()) + 'px',
+				left: t.position().left + 'px'
+			}).show();
+		}).mouseout(function(){
+			$('> ul',this).hide();
+		});
 	}
 	
 	this.addField = function( formId, proto ) {

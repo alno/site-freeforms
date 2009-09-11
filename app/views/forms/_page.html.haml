@@ -3,9 +3,13 @@
 
 #form_editors
   %ul.editor_links
-    %li= link_to_function "New email field", "formEditor.addField(#{form.id},'email_proto')"
-    %li= link_to_function "New string field", "formEditor.addField(#{form.id},'string_proto')"
-    %li= link_to_function "New text field", "formEditor.addField(#{form.id},'text_proto')"
+    %li
+      = link_to t('fields.new'), '#'
+      %ul
+        - ['string','text','email'].each do |type|
+          %li= link_to_function t("fields.#{type}"), "formEditor.addField(#{form.id},'#{type}_proto')"
+    %li=link_to_function "Свойства формы", "$('\#mfd_#{@form.id} h3').click()"
+    
   .form_editor{ :id => "fe_#{form.id}" }
     = render :partial => "forms/editors/form", :locals => { :form => @form, :f => f }
   - @form.fields.each_with_index do |field,index|

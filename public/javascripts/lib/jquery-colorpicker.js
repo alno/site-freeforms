@@ -141,8 +141,8 @@ jQuery.fn.addColorPicker = function( props ) {
 
 		picker.css({
 			"position": "absolute", 
-			"top": position.top - 20, 
-			"left": input.width() + position.left 
+			"top": position.top + 10, 
+			"left": position.left + 10 
 		}).show();
 	}).css({ 
 		'background-color': input.val() || '#fff' 

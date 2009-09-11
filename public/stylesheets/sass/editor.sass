@@ -22,6 +22,9 @@
     
   .act_icon
     display: none
+    
+#form_preview
+  padding-top: 40px
   
 .form_editor
   background: white
@@ -44,6 +47,34 @@
   cursor: pointer
   width: 16px
   height: 16px
+  
+.editor_links
+  display: block
+  padding: 3px
+  padding-left: 10px
+  
+  background = !widget_bg  
+  border-bottom = "2px solid " + !border_color
+  
+  > li
+    display: inline
+    padding-left: 10px
+    padding-right: 10px
+    
+    ul
+      display: block
+      padding: 5px
+      padding-left: 10px
+      padding-right: 10px
+      
+      background: #ffffff
+      border = "1px solid " + !border_color
+      
+    li
+      display: block
+      
+  a
+    +styled_link
   
 #form_preview
   width: 70%
