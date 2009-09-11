@@ -124,10 +124,6 @@ var ui = {
 		        return true;
 		    }
 		});
-		
-		$('input').keyup(function(){
-			$(this).change();
-		});
 	},
 	
 	initAccount : function( selectedTab ) {

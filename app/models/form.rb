@@ -37,11 +37,11 @@ class Form < ActiveRecord::Base
   end
   
   def assign(args)
-    self.title = args[:title]
-    self.submit_title = args[:submit_title]
-    self.description = args[:description]
+    self.title = args[:title] if args[:title]
+    self.submit_title = args[:submit_title] if args[:submit_title]
+    self.description = args[:description] if args[:description]
     
-    self.style = Form::Style.new( args[:style] ) # Устанавливаем стиль формы
+    self.style = Form::Style.new( args[:style] ) if args[:style] # Устанавливаем стиль формы
     
     if args[:fields] # Если заданы поля формы
       self.fields = []

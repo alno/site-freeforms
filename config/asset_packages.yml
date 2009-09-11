@@ -1,6 +1,7 @@
 javascripts:
 - app:
   - jquery
+  - jquer
   - jquery-cookie
   - jquery-validate
   - jquery-colorpicker
@@ -8,6 +9,7 @@ javascripts:
   - flexigrid
   - jrails
   - application
+  - editor
 stylesheets:
 - app:
   - common
@@ -16,3 +18,4 @@ stylesheets:
   - forms
   - flexigrid
   - forms/default
+  - editor

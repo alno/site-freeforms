@@ -1,0 +1,5 @@
+.form_common
+  = f.text_field :title, :onchange => "$('\#mfd_#{form.id} h3').html(this.value);"
+  = f.text_field :submit_title, :onchange => "$('\#mfd_#{form.id} .submit input').val(this.value);"
+.form_style
+  = render :partial => 'forms/editors/style', :locals => { :form => form, :f => f }

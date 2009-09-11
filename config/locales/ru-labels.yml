@@ -149,6 +149,7 @@ ru:
     border_color: Цвет границы
   
   fields:
+    email: E-Mail
     errors:
       field:
         missed: Поле обязательно для заполнения!
@@ -179,4 +180,10 @@ ru:
         email: E-Mail
         password: Пароль
         password_confirmation: Подтверждение пароля
+        
+      field:
+        title: Заголовок поля
+        default: Значение по умолчанию
+        enabled: Разрешено
+        required: Обязательное
   

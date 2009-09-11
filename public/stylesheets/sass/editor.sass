@@ -1,0 +1,38 @@
+@import helpers
+
+.mfd p,
+.mfd h3
+  border: 1px solid white
+  cursor: pointer
+  
+  *
+    cursor: pointer
+  
+  &.current
+    border: 1px solid black
+  
+  &:hover
+    border: 1px solid grey
+  
+.form_editor
+  background: white
+  width: 100%
+  border = "1px solid " + !border_color
+  
+  div
+    margin: 10px
+    
+    input,
+    textarea
+      width: 100%
+  
+#form_preview
+  width: 70%
+  float: left
+
+#form_editors
+  float: left
+  width: 30%
+  
+#form_others
+  clear: both

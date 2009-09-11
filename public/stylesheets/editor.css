@@ -1,0 +1,34 @@
+.mfd p,
+.mfd h3 {
+  border: 1px solid white;
+  cursor: pointer; }
+  .mfd p *,
+  .mfd h3 * {
+    cursor: pointer; }
+  .mfd p.current,
+  .mfd h3.current {
+    border: 1px solid black; }
+  .mfd p:hover,
+  .mfd h3:hover {
+    border: 1px solid grey; }
+
+.form_editor {
+  background: white;
+  width: 100%;
+  border: 1px solid silver; }
+  .form_editor div {
+    margin: 10px; }
+    .form_editor div input,
+    .form_editor div textarea {
+      width: 100%; }
+
+#form_preview {
+  width: 70%;
+  float: left; }
+
+#form_editors {
+  float: left;
+  width: 30%; }
+
+#form_others {
+  clear: both; }

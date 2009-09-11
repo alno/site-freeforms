@@ -1,4 +1,31 @@
-= render :partial => 'page', :locals => { :form => @form, :type => 'viewer' }
+%ul#form_tabs.tabs
+  %li
+    %a{ :href => '#form-description' }= t 'form.description'
+  %li
+    %a{ :href => '#form-fields' }=t 'form.fields'
+  %li
+    %a{ :href => '#form-style' }=t 'form.style'
+  %li
+    %a{ :href => '#form-code' }=t 'form.code'
+
+#form_panes.panes
+  #form-description
+    = render :partial => "forms/viewer/common", :locals => { :form => @form }
+    
+  #form-fields
+    = render :partial => "forms/viewer/fields", :locals => { :form => @form }
+  
+  #form-style
+    = render :partial => "forms/viewer/style", :locals => { :form => @form }
+              
+  #form-code
+    %p
+      %b=t(:form_code_inline) + ':'
+      %pre=h @form.code(:js_inline)
+    
+    %p
+      %b=t(:form_code_popup) + ':'
+      %pre=h @form.code(:popup)
 
 %br
 = styled_link_to 'actions.form.edit', edit_form_path( @form ) + '#', :id => 'form_edit_link'

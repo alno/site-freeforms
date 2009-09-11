@@ -1,0 +1,18 @@
+.field_type=t 'fields.email'
+  
+.field_common
+  %input{ :type => 'hidden', :value => 'email', :name => "form[fields][][type]"}
+  %input{ :type => 'hidden', :value => 'email', :name => "form[fields][][index]"}
+  
+  %label=t 'activerecord.attributes.field.title'
+  %input{ :type => 'text', :value => field.title, :name => "form[fields][][title]", :onchange => "$('\#mf_#{form.id}_#{index} label').html(this.value);" }
+    
+  %label=t 'activerecord.attributes.field.default'
+  %input{ :type => 'text', :value => field.default, :name => "form[fields][][default]", :onchange => "$('\#mf_#{form.id}_#{index} input').val(this.value);" }
+  
+.field_options
+  %input{ :type => 'checkbox', :value => '1', :name => "form[fields][][enabled]", :checked => (field.enabled? || nil) }
+  %label=t 'activerecord.attributes.field.enabled'
+  
+  %input{ :type => 'checkbox', :value => '1', :name => "form[fields][][required]", :checked => (field.required? || nil) }
+  %label=t 'activerecord.attributes.field.required'

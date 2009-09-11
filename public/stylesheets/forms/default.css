@@ -7,6 +7,8 @@
 
 .mfd h3 {
 	text-align: center;
+	margin: 0px;
+	padding: 10px;
 }
 
 .mfd .submit {
@@ -35,7 +37,7 @@
 }
 
 .mfd p{
-	padding: 3px;
+	padding: 5px;
 	padding-bottom: 5px;
 }
 
