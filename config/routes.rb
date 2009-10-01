@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+
+  map.wiki_root '/wiki'
   
   map.resources :forms, :member => [ :code, :clone, :messages, :unread, :today ]  
   map.resources :messages, :collection => [ :unread, :today ]

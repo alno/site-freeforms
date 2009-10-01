@@ -109,6 +109,9 @@ ru:
     account_passwords:
       show: Сменить пароль
       update: Установить пароль
+    wiki_pages:
+      show: Страница
+      edit: Редактирование страницы
       
   form_fields:
     name: Ваше имя
