@@ -17,7 +17,7 @@ class Message < ActiveRecord::Base
   
   # Кол-во сообщений на одну страницу
   def self.per_page
-    30
+    20
   end
   
   def validate_on_create

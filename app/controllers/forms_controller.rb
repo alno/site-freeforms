@@ -5,6 +5,7 @@ class FormsController < ApplicationController
   layout 'default', :except => [ :code ]
     
   before_filter :require_user, :except => [ :code ]
+  before_filter :load_user_form, :except => [ :index, :code, :new, :create ]
   
   cache_sweeper FormCodeSweeper, :only => [ :update, :destroy ]
   
@@ -21,34 +22,18 @@ class FormsController < ApplicationController
   end
   
   def code
-    @form = Form.find(params[:id])
+    @form = Form.find params[:id]
   end
   
   def new
     @form = Form.new
   end
-  
-  def show
-    @form = current_user.forms.find(params[:id])
-  end
-  
-  def clone
-    @form = current_user.forms.find(params[:id])
-  end
-  
-  def edit
-    @form = current_user.forms.find(params[:id])
-  end
-  
+    
   def messages
-    @form = current_user.forms.find( params[:id] )
-
     render_messages( @form.messages )
   end
   
   def unread
-    @form = current_user.forms.find( params[:id] )
-
     render_messages( @form.messages.unread )
   end
   
@@ -64,7 +49,6 @@ class FormsController < ApplicationController
   end
   
   def update
-    @form = current_user.forms.find(params[:id])
     @form.assign params[:form]
     
     if @form.save
@@ -75,21 +59,22 @@ class FormsController < ApplicationController
   end
     
   def destroy
-    @form = current_user.forms.find(params[:id])
     @form.destroy
     
     redirect_to account_path
   end
   
-  private
+  protected
+  
+  # Загрузить форму пользователя по заданному идентификатору
+  def load_user_form
+    @form = current_user.forms.find params[:id]
+  end
   
   def render_messages( msgs )
     respond_to do |format|
       format.html do
         @messages = msgs.paginate( :all, :page => params[:page], :order => 'created_at DESC' )
-        @messages.each do |m|
-          m.mark_read!
-        end
         
         render :action => 'messages'
       end

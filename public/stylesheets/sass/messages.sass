@@ -1,0 +1,25 @@
+@import helpers
+
+#messages_table
+  width: 100%
+  border = "1px solid " + !border_color
+  margin: 10px
+  
+  td
+    padding: 5px
+  
+  th
+    padding: 5px
+    text-align: left
+    background = !widget_bg  
+    border-bottom = "2px solid " + !border_color
+
+  tr.even
+    background: #fff
+  
+  tr.odd
+    background: #f2f2f2
+      
+  td.status,
+  td.actions
+    width: 16px

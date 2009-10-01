@@ -1,0 +1,18 @@
+#messages_table {
+  width: 100%;
+  border: 1px solid silver;
+  margin: 10px; }
+  #messages_table td {
+    padding: 5px; }
+  #messages_table th {
+    padding: 5px;
+    text-align: left;
+    background: #f6f6f6 url(images/ui-bg_glass_100_f6f6f6_1x400.png) 50% 50% repeat-x;
+    border-bottom: 2px solid silver; }
+  #messages_table tr.even {
+    background: #fff; }
+  #messages_table tr.odd {
+    background: #f2f2f2; }
+  #messages_table td.status,
+  #messages_table td.actions {
+    width: 16px; }

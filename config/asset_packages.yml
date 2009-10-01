@@ -8,7 +8,6 @@ javascripts:
   - lib/ui.draggable
   - lib/ui.sortable
   - lib/tools.tabs-1.0.1
-  - lib/flexigrid
   - lib/jrails
   - application
   - editor
@@ -18,6 +17,6 @@ stylesheets:
   - layout
   - ui
   - forms
-  - flexigrid
   - forms/default
   - editor
+  - messages
