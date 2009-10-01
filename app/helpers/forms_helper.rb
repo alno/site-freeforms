@@ -8,11 +8,8 @@ module FormsHelper
     style = form.style
     
     s = "border: #{style.border_width}px solid #{style.border_color};background: #{style.background};"
-    s << "font-family: #{style.font_family};font-size: #{style.font_size}px;color: #{style.font_color};"
-    
-    if style.border_radius.to_i > 0
-      s << "-moz-border-radius: #{style.border_radius}px;-khtml-border-radius: #{style.border_radius}px;-webkit-border-radius: #{style.border_radius}px;border-radius: #{style.border_radius}px;"
-    end
+    s << "font-family: #{style.font_family};font-size: #{style.font_size}px;color: #{style.font_color};"    
+    s << border_radius( style.border_radius ) if style.border_radius.to_i > 0    
     
     s
   end
@@ -26,11 +23,14 @@ module FormsHelper
   def fb_style( form )
     style = form.style
     
-    if style.border_radius.to_i > 0
-      "-moz-border-radius: #{style.border_radius}px;-khtml-border-radius: #{style.border_radius}px;-webkit-border-radius: #{style.border_radius}px;border-radius: #{style.border_radius}px;"
-    else
-      ""
-    end
+    s = ""
+    s << border_radius( style.border_radius ) if style.border_radius.to_i > 0
+    
+    s
+  end
+  
+  def border_radius( radius )
+    "-moz-border-radius: #{radius}px;-khtml-border-radius: #{radius}px;-webkit-border-radius: #{radius}px;border-radius: #{radius}px;"
   end
   
   def form_html( form )

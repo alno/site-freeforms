@@ -32,3 +32,14 @@ config.action_view.cache_template_loading            = true
 
 # Enable threaded mode
 # config.threadsafe!
+
+config.gem "ambethia-smtp-tls", :lib => 'smtp-tls', :source => 'http://gems.github.com/'
+
+config.action_mailer.smtp_settings = {
+  :address        => "smtp.gmail.com",
+  :port           => 587,
+  :domain         => "noreply@freeforms.ru",
+  :authentication => :plain,
+  :user_name      => "noreply@freeforms.ru",
+  :password       => "fewdscfelmr"
+}
