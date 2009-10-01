@@ -29,16 +29,16 @@ class FormsController < ApplicationController
     @form = Form.new
   end
     
-  def messages
-    render_messages( @form.messages )
+  def messages    
+    respond_with_messages( @form.messages, "all_messages_#{@form.id}" )
   end
   
-  def unread
-    render_messages( @form.messages.unread )
+  def unread    
+    respond_with_messages( @form.messages.unread, "unread_messages_#{@form.id}" )
   end
   
-  def today
-    render_messages( @form.messages.today )
+  def today    
+    respond_with_messages( @form.messages.today, "today_messages_#{@form.id}" )
   end
   
   def create
@@ -74,8 +74,8 @@ class FormsController < ApplicationController
   def load_user_form
     @form = current_user.forms.find params[:id]
   end
-  
-  def render_messages( msgs )
+    
+  def respond_with_messages( msgs, fname )
     respond_to do |format|
       format.html do
         @messages = msgs.paginate( :all, :page => params[:page], :order => 'created_at DESC' )
@@ -83,16 +83,26 @@ class FormsController < ApplicationController
         render :action => 'messages'
       end
       format.text do
-        if params[:min_id]          
-          @messages = msgs.find(:all,:conditions => [ 'id >= ?', params[:min_id] ])
-        else          
-          @messages = msgs
-        end
+        @messages = params[:min_id] ? msgs.find(:all,:conditions => [ 'id >= ?', params[:min_id] ]) : msgs
         
         render :action => 'messages'
       end
-      format.xml do        
-        render :xml => (@messages = msgs)
+      format.xml do
+        render :xml => msgs
+      end
+      format.xls do
+        @messages = msgs
+        @output_encoding = "CP1251"
+        @filename = fname + '.xls'
+        
+        render :action => 'messages'
+      end
+      format.csv do
+        @messages = msgs
+        @output_encoding = "CP1251"
+        @filename = fname + '.csv'
+        
+        render :action => 'messages'
       end
     end
   end

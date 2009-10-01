@@ -1,7 +1,7 @@
 ActionController::Routing::Routes.draw do |map|
   
   map.resources :forms, :member => [ :code, :clone, :messages, :unread, :today ]  
-  map.resources :messages, :collection => [ :unread, :today, :export ]
+  map.resources :messages, :collection => [ :unread, :today ]
     
   map.resource :account
   map.resource :session

@@ -1,0 +1,3 @@
+@messages.each do |m|
+  csv << m.data
+end

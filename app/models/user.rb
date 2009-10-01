@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   acts_as_authentic # Аутентификация
   acts_as_paranoid # Не удалять из базы
   
-  has_many :messages
+  has_many :messages, :order => 'created_at DESC'
   has_many :forms
     
   after_create do |user|
