@@ -37,6 +37,10 @@ class FormsController < ApplicationController
     render_messages( @form.messages.unread )
   end
   
+  def today
+    render_messages( @form.messages.today )
+  end
+  
   def create
     @form = current_user.forms.build
     @form.assign params[:form]

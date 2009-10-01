@@ -3,7 +3,8 @@
   border: 1px solid silver;
   margin: 10px; }
   #messages_table td {
-    padding: 5px; }
+    padding: 5px;
+    text-align: left; }
   #messages_table th {
     padding: 5px;
     text-align: left;
@@ -16,3 +17,16 @@
   #messages_table td.status,
   #messages_table td.actions {
     width: 16px; }
+  #messages_table td.date {
+    width: 150px; }
+
+#messages_filter {
+  width: 100%;
+  border: 1px solid silver;
+  margin: 10px;
+  margin-bottom: 20px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px; }
+  #messages_filter p {
+    margin: 0px;
+    padding: 10px; }

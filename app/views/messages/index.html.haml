@@ -1,10 +1,17 @@
-- paginated_section @messages do
-  - @messages.each do |message|
-    - message.form.fields.each_with_index do |field,i|
-      %p
-        %b= field.title + ':'
-        = field.render_value( message.data[i] )
-    %p
-      = styled_link_to 'actions.message.show', message_path( message )
-      = styled_link_to 'actions.message.destroy', message_path( message ), :title => t('tooltips.messages.delete'), :confirm => t('confirm.destroy_message'), :method => :delete
-    %hr
+= render :partial => 'messages/filter'
+      
+- paginated_section @messages, :previous_label => t('ui.pagination.prev'), :next_label => t('ui.pagination.next') do
+
+  %table#messages_table{ :cellspacing => 0 }
+    %tr.header
+      %th
+      %th Дата получения
+      %th Содержимое сообщения
+      %th
+
+    - @messages.each do |message|
+      %tr{ :class => cycle('even','odd') }
+        %td.status= link_to image_tag( 'icons/newmail.png', :width => 16, :height => 16 ), message_path( message ), :title => t('tooltips.messages.new') unless message.read_at
+        %td.date= link_to l( message.created_at, :format => :long ), message_path( message )	  	         
+        %td= message_body message	    
+        %td.actions= link_to image_tag( 'icons/delete.png', :width => 16, :height => 16 ), message, :title => t('tooltips.messages.delete'), :confirm => t('confirm.destroy_message'), :method => :delete

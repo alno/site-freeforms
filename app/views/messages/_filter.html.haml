@@ -1,0 +1,19 @@
+#messages_filter
+  %p
+    Форма: 
+    %select{ :onchange => 'document.location = this.value' }
+      %option{ :value => messages_path, :selected => @form.nil? }= t 'ui.filter.all'
+        
+      - current_user.forms.each do |form|
+        %option{ :value => messages_form_path( form ), :selected => (form == @form) }= form.title
+          
+    Тип сообщений:
+    %select{ :onchange => 'document.location = this.value' }
+      - if @form
+        %option{ :value => messages_form_path( @form ), :selected => (controller.action_name == 'messages') }= t 'ui.filter.all'
+        %option{ :value => unread_form_path( @form ), :selected => (controller.action_name == 'unread') }= t 'ui.filter.unread'
+        %option{ :value => today_form_path( @form ), :selected => (controller.action_name == 'today') }= t 'ui.filter.today'
+      - else
+        %option{ :value => messages_path, :selected => (controller.action_name == 'index') }= t 'ui.filter.all'
+        %option{ :value => unread_messages_path, :selected => (controller.action_name == 'unread') }= t 'ui.filter.unread'
+        %option{ :value => today_messages_path, :selected => (controller.action_name == 'today') }= t 'ui.filter.today'
