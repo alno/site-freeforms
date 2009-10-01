@@ -8,7 +8,7 @@ module WikiPagesHelper
       when 'edit' 
         "Редактирование #{@page.title}"
       else      
-        @page.title
+        @page.title || "Новая страница"
     end  
   end
   
