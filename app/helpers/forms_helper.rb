@@ -34,7 +34,7 @@ module FormsHelper
   end
   
   def form_html( form )
-    render_to_string( :partial => 'forms/code.html', :locals => { :form => form } ).gsub( /\s*\n\s*/, '' )
+    render( :partial => 'forms/code.html', :locals => { :form => form } ).gsub( /\s*\n\s*/, '' )
   end
   
   def field_editor_remove
