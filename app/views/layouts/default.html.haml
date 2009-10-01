@@ -4,7 +4,7 @@
 %html{ 'xmlns' => "http://www.w3.org/1999/xhtml", 'xml:lang' => "ru", 'lang' => "ru" }
   %head
     %meta{ 'http-equiv' => "content-type", 'content' => "text/html;charset=UTF-8" }
-    %title=t( 'titles.' + controller.controller_name + '.' + controller.action_name ) + ' | FreeForms.ru'
+    %title= page_title + ' | FreeForms.ru'
     = stylesheet_link_merged :app
     = javascript_include_merged :app
   %body
@@ -25,7 +25,7 @@
       
     #left= render :partial => 'shared/sidebar'
     #title
-      %h1=t 'titles.' + controller.controller_name + '.' + controller.action_name
+      %h1= page_title
     #content		  
       - if flash[:notice]
         #flash-notice

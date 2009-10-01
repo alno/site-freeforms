@@ -53,4 +53,8 @@ module ApplicationHelper
     select_tag( name, font_options_for_select( [ "Arial", "Verdana", "Tahoma", "Times New Roman", "Courier New", "Comic Sans" ], value ), options )
   end
   
+  def page_title
+    t( 'titles.' + controller.controller_name + '.' + controller.action_name )
+  end
+  
 end
