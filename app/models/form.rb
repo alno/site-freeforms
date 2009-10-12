@@ -10,9 +10,9 @@ class Form < ActiveRecord::Base
   
   has_many :messages, :order => 'created_at DESC'
   
-  validates_presence_of :user_id
+  validates_presence_of :user, :submit_title
   
-  before_save do |form|
+  before_validation do |form|
     form.title.strip! if form.title # Удаляем пробелы из начала и конца заголовка
     form.title = "Безымянная форма" if form.title.blank? # Пустой заголовок заменяем на стандартный
   end
@@ -31,6 +31,7 @@ class Form < ActiveRecord::Base
   def initialize(args = {})
     super(args)
     
+    self.title = "Моя форма" unless self.title
     self.submit_title = "Отправить" unless self.submit_title
     self.fields = Form.default_fields unless self.fields
     self.style = Form::Style.new unless self.style
