@@ -17,8 +17,11 @@ class Form::EmailField < Form::Field
   end
   
   def error_for(value)    
-    return required? ? I18n.t('fields.errors.email.missed') : nil if value.blank?
-    return I18n.t('fields.errors.email.invalid') unless value =~ EMAIL_REGEXP    
+    v = super
+    
+    return v if v
+    return I18n.t('fields.errors.email.invalid') unless value.blank? || value =~ EMAIL_REGEXP
+    
     nil
   end
   

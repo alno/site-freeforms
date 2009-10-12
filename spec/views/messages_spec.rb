@@ -1,11 +1,11 @@
 require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 
 describe "messages/show.html" do
-  before(:all) do
+  before :all do
     @message = Message.make( :read_at => Time.now )
   end
   
-  before do
+  before :each do
     assigns[:message] = @message
 
     render 'messages/show.html'
@@ -23,19 +23,23 @@ describe "messages/show.html" do
 end
 
 describe "forms/messages.html" do
-  before(:all) do
+  
+  before :all do
     @form = Form.make( :fields => [ 
       Form::EmailField.new( :title => I18n.t( 'form_fields.email' ), :required => true ), 
       Form::StringField.new( :title => I18n.t( 'form_fields.name' ) ), 
       Form::StringField.new( :title => I18n.t( 'form_fields.title' ) ), 
       Form::TextField.new( :title => I18n.t( 'form_fields.content' ) ) 
     ])
+    
     @messages = [ Message.make( :read_at => Time.now, :form => @form ), Message.make( :read_at => Time.now, :form => @form ) ].paginate
   end
   
-  before do
+  before :each do
     assigns[:form] = @form
     assigns[:messages] = @messages
+        
+    template.stub!(:current_user).and_return(@form.user)
 
     render 'forms/messages.html'
   end
@@ -64,14 +68,16 @@ describe "forms/messages.html" do
 end
 
 describe "forms/messages.html with unread" do
-  before(:all) do
+  before :all do
     @form = Form.make
     @messages = [ Message.make( :read_at => Time.now, :form => @form ), Message.make( :form => @form ) ].paginate
   end
   
-  before do
+  before :each do
     assigns[:form] = @form
     assigns[:messages] = @messages
+    
+    template.stub!(:current_user).and_return(@form.user)
 
     render 'forms/messages.html'
   end

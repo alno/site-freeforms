@@ -1,31 +1,20 @@
 class Form::Field
-  
-  def self.attr_with_default( attr, default )
-    src = <<-END_SRC
-      def #{attr}
-        @#{attr} || '#{default}'
-      end
-      
-      def #{attr}=(v)
-        @#{attr} = v
-      end
-    END_SRC
     
-    class_eval src, __FILE__, __LINE__
-  end
-  
-  attr_with_default :title, nil
-  attr_with_default :default, nil
-  attr_with_default :disabled, false
-  attr_with_default :required, false
+  attr_accessor :title
+  attr_accessor :default  
+  attr_accessor :disabled
+  attr_accessor :required
   
   def self.create( type, atts )
     "Form::#{type.camelize}Field".constantize.new( atts )
   end
   
   def initialize( atts = {} )
+    @disabled = false
+    @required = false
+    
     atts.each do |k,v|
-      self.send "#{k}=".to_sym, v if v && v != '' && v != self.send( k )
+      self.send "#{k}=", v
     end
   end
   
@@ -36,17 +25,14 @@ class Form::Field
   def escaped_default
     HTMLEntities.encode_entities(@default, :basic, :decimal) if @default
   end
-  
-  def enabled?
-    !@disabled
-  end
-  
+    
   def error_for(value)
-    return required? ? I18n.t('fields.errors.field.missed') : nil if value.blank?    
+    return I18n.t('fields.errors.field.missed') if required && value.blank?    
     nil
   end
     
-  alias_method :disabled?, :disabled
-  alias_method :required?, :required
+  def enabled?; !disabled; end
+  def disabled?; disabled; end
+  def required?; required; end
   
 end
