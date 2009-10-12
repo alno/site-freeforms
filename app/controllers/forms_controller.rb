@@ -77,33 +77,39 @@ class FormsController < ApplicationController
     
   def respond_with_messages( msgs, fname )
     respond_to do |format|
+      
       format.html do
         @messages = msgs.paginate( :all, :page => params[:page], :order => 'created_at DESC' )
         
         render :action => 'messages'
       end
+      
       format.text do
         @messages = params[:min_id] ? msgs.find(:all,:conditions => [ 'id >= ?', params[:min_id] ]) : msgs
         
         render :action => 'messages'
-      end
+      end if params[:format] == 'txt'
+      
       format.xml do
         render :xml => msgs
-      end
+      end if params[:format] == 'xml'
+      
       format.xls do
         @messages = msgs
         @output_encoding = "CP1251"
         @filename = fname + '.xls'
         
         render :action => 'messages'
-      end
+      end if params[:format] == 'xls'
+      
       format.csv do
         @messages = msgs
         @output_encoding = "CP1251"
         @filename = fname + '.csv'
         
         render :action => 'messages'
-      end
+      end if params[:format] == 'csv'
+      
     end
   end
 

@@ -12,8 +12,8 @@ Feature: Forms
   Scenario: Logged in sees messages
     Given I am logged in as "tester@mail.ru"
     When I go to the homepage
-    Then I should see "Мои сообщения"
-    When I follow "Мои сообщения"
+    Then I should see "Все сообщения"
+    When I follow "Все сообщения"
     Then I should see "Сообщения"
     
   Scenario: Logged in creates form

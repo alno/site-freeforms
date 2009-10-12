@@ -40,28 +40,33 @@ class MessagesController < ApplicationController
     
   def respond_with_messages( msgs, fname )
     respond_to do |format|
+      
       format.html do
         @messages = msgs.paginate( :all, :page => params[:page], :order => 'created_at DESC' )
         
         render :action => 'index'
       end
+      
       format.xml do
         render :xml => msgs
-      end
+      end if params[:format] == 'xml'
+      
       format.xls do
         @messages = msgs
         @output_encoding = "CP1251"
         @filename = fname + '.xls'
         
         render :action => 'index'
-      end
+      end if params[:format] == 'xls'
+      
       format.csv do
         @messages = msgs
         @output_encoding = "CP1251"
         @filename = fname + '.csv'
         
         render :action => 'index'
-      end
+      end if params[:format] == 'csv'
+      
     end
   end
       
