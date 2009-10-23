@@ -16,14 +16,10 @@
     screen.colorDepth:screen.pixelDepth))+";u"+escape(document.URL)+
     ";"+Math.random();//--></script><!--/LiveInternet-->
 
-    #header
-      .r= link_to t( :link_about ), about_path
-      %h1
-        %a{ :href => root_url } FreeForms.ru<sup>&beta;</sup>
-      %h2 контактные формы для Вашего сайта
-    #topmenu= render :partial => 'shared/topmenu'
+    #header= render :partial => 'layouts/header'
+    #topmenu= render :partial => 'layouts/topmenu'
       
-    #left= render :partial => 'shared/sidebar'
+    #left= render :partial => 'layouts/sidebar'
     #title
       %h1= page_title
     #content		  
