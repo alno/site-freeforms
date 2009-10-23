@@ -17,7 +17,7 @@ form p label {
   display: inline; }
 #login_form p.remember_me input {
   margin-left: 60px; }
-#login_form > input {
+#login_form input {
   float: right; }
 #login_form .alt {
   float: left; }

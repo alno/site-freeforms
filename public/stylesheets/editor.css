@@ -49,18 +49,18 @@
   padding-left: 10px;
   background: #f6f6f6 url(images/ui-bg_glass_100_f6f6f6_1x400.png) 50% 50% repeat-x;
   border-bottom: 2px solid silver; }
-  .editor_links > li {
+  .editor_links li {
     display: inline;
     padding-left: 10px;
     padding-right: 10px; }
-    .editor_links > li ul {
+    .editor_links li ul {
       display: block;
       padding: 5px;
       padding-left: 10px;
       padding-right: 10px;
       background: #ffffff;
       border: 1px solid silver; }
-    .editor_links > li li {
+    .editor_links li li {
       display: block; }
   .editor_links a {
     font-size: 1em;
@@ -73,7 +73,7 @@
       color: #c77405; }
 
 #form_preview {
-  width: 70%;
+  width: 68%;
   float: left; }
 
 #form_editors {

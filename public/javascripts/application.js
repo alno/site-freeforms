@@ -1,5 +1,4 @@
-
-var ui = {
+ui = {
 	initIndex : function() {
 						        
         $('#new_user').validate({
@@ -36,7 +35,7 @@ var ui = {
 	},
 	
 	initSetPassword : function() {
-		$('#set_password_form').validate({
+		$('#set_password_form').validate({			
         	rules: {
         		'user[password]': {
         			required: true,
@@ -46,9 +45,9 @@ var ui = {
         			required: true,
         			minlength: 5,
         			equalTo: "#user_password"
-        		},
-        	},
-        	messages: {
+        		}
+        	},			
+        	messages: {				
         		'user[password]': {
         			required: "Введите пароль",
         			minlength: "Пароль должен быть не короче 5 символов"
