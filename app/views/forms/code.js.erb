@@ -21,8 +21,11 @@ var mf_<%=@form.id%> = new function() {
 		for ( var i = 0; i < form.elements.length; ++ i ) {
 			if ( i > 0 ) 
 				str += '&';
-				
-			str += form.elements[i].name + '=' + encodeURIComponent( form.elements[i].value );
+			
+			var e = form.elements[i];
+			
+			if ( e.name && !e.disabled && (e.checked || /select|textarea/i.test(e.nodeName) || /text|hidden|password|search/i.test(e.type)) )
+				str += e.name + '=' + encodeURIComponent( e.value );
 		}
 		
 		return str;

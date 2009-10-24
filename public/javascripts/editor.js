@@ -174,5 +174,31 @@ var formEditor = new function() {
 		editor.remove();
 	}
 	
+	this.rebuildSelectOptions = function( elem, value ) {
+		var opts = value.split(/\r?\n/);
+		var select = fieldFor( elem ).find('select');
+				
+		select.find('option').remove();
+		
+		for ( var i = 0; i < opts.length; ++ i ) {
+			select.append('<option value="' + opts[i] + '">' + opts[i] + '</option>');
+		}
+	}
+	
+	this.rebuildRadioOptions = function( elem, value ) {
+		var opts = value.split(/\r?\n/);
+		var field = fieldFor( elem );
+		var span = field.find('span');
+		var name = field.find('label').attr('for');
+		
+		field.contents().filter(function() { return this.nodeType == Node.TEXT_NODE; }).remove();
+		field.find('input').remove();
+		
+		for ( var i = 0; i < opts.length; ++ i ) {
+			span.before('<input type="radio" name="' + name + '" value="' + opts[i] + '" />');
+			span.before(opts[i]);
+		}
+	}
+	
 	return this;
 }();

@@ -13,7 +13,7 @@
   %input{ :type => 'text', :value => field.default, :name => "form[fields][][default]", :onchange => "formEditor.fieldFor($(this)).find('input').val(this.value);" }
   
   %label=t 'activerecord.attributes.field.variants'
-  %textarea{ :name => "form[fields][][variants]" }= field.variants.join "\n"
+  %textarea{ :name => "form[fields][][variants]", :onchange => "formEditor.rebuildSelectOptions($(this),this.value);" }= field.variants.join "\n"
   
 .field_options  
   %input{ :type => 'checkbox', :value => '1', :name => "form[fields][][required]", :checked => (field.required? || nil) }
