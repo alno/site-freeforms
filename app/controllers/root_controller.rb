@@ -12,6 +12,12 @@ class RootController < ApplicationController
   def register    
     @user = User.new
     @user_session = UserSession.new    
+    @form = Form.new if params[:form]
+  end
+  
+  def restore
+    @user = User.new
+    @user_session = UserSession.new       
   end
   
   def about    

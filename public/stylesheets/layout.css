@@ -86,7 +86,8 @@ body, p, ol, ul, td {
 
 #content-full {
   padding: 20px; }
-  #content-full h1 {
+  #content-full h1,
+  #content-full h2 {
     margin: 15px; }
 
 #footer {

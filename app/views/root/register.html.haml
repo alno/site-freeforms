@@ -1,25 +1,28 @@
-%ul#register_tabs.tabs
-  %li
-    %a{ :href => '#register' }=t 'actions.account.create'
-  %li
-    %a{ :href => '#restore_password' }=t 'actions.account_password.create'
-
-#register_panes.panes
-  #register
-    - labelling_form_for :account, @user, :url => account_path do |f|
-      = f.error_messages
   
+%p Введите E-Mail и пароль, которые Вы будете использовать для входа на сервис. Настоятельно рекомендуем указывать настоящий E-Mail, поскольку в случае утери пароля новый пароль будет выслан именно на него.
+%p Здесь же Вы можете настроить Вашу первую форму. Для того, чтобы добавить поля воспользуйтесь панелью справа.
+  
+- labelling_form_for :account, @user, :url => account_path do |f|
+
+  = f.error_messages
+  
+  - if params[:form]  
+    #left
       = f.text_field :email
       = f.password_field :password
       = f.password_field :password_confirmation
+      
+      = f.submit_create :class => 'button'
+    
+    #content
+      - fields_for :form, @form do |ff|
+        = render :partial => 'forms/page', :locals => { :form => @form, :type => 'editor', :f => ff }
+  - else
+    = f.text_field :email
+    = f.password_field :password
+    = f.password_field :password_confirmation  
   
-      = f.submit_create
-
-  #restore_password
-    - labelling_form_for :account_password, User.new, :url => account_passwords_path do |f|
-      = f.text_field :email
-			
-      = f.submit_create
-
-
-%script= "ui.initIndex();"
+    = f.submit_create :class => 'button'
+  
+- if params[:form]     
+  = render :partial => 'forms/editors/protos', :locals => { :form => @form }

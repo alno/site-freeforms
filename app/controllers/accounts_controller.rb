@@ -7,16 +7,32 @@ class AccountsController < ApplicationController
   end
   
   def create
+    current_user_session.destroy if current_user_session
+    
     @user = User.new(params[:account])
+    @user.activated_at = Time.now
     
     if @user.save
-      @user.deliver_activation_instructions!
+      #@user.deliver_activation_instructions!
+      @user_session = UserSession.create @user
+      
+      if params[:form]
+        @form = @user.forms.first
+        @form.assign params[:form]
+        @form.save!
+      end
       
       flash[:notice] = I18n.t('notice.account_registered')
-      redirect_back_or_default root_url
+      
+      redirect_to mesages_url
     else
+      if params[:form]
+        @form = Form.new
+        @form.assign params[:form]
+      end
+      
       @user_session = UserSession.new
-      @hash = '\'#register\''
+      
       render :template => 'root/register'
     end
   end
