@@ -6,7 +6,7 @@
     %li
       = link_to t('fields.new'), '#'
       %ul
-        - ['string','text','email'].each do |type|
+        - ['string','text','email','select','radio','check'].each do |type|
           %li= link_to_function t("fields.#{type}"), "formEditor.addField('#{form.id}','#{type}_proto')"
     %li=link_to_function "Свойства формы", "$('\#mfd_#{@form.id} h3').click()"
     

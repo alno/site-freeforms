@@ -48,7 +48,7 @@ class Form < ActiveRecord::Base
       self.fields = []
       
       args[:fields].each do |f|
-        self.fields << Form::Field.create( f[:type], :title => f[:title], :default => f[:default], :disabled => (f[:enabled].to_i != 1) )
+        self.fields << Form::Field.create( f[:type], f )
       end      
     end
   end
@@ -63,6 +63,6 @@ class Form < ActiveRecord::Base
     "http://#{JS_HOST}#{FORM_CODE_PREFIX}/#{id}#{FORM_CODE_SUFFIX}.#{format}"
   end
   
-  INNER_CLASSES = [ Form::Style, Form::StringField, Form::TextField, Form::EmailField ] # Необходимо, чтобы корректно десериализовались данные
+  INNER_CLASSES = [ Form::Style, Form::StringField, Form::TextField, Form::EmailField, Form::SelectField, Form::RadioField, Form::CheckField ] # Необходимо, чтобы корректно десериализовались данные
   
 end

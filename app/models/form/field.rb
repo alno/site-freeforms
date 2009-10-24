@@ -1,8 +1,7 @@
 class Form::Field
     
   attr_accessor :title
-  attr_accessor :default  
-  attr_accessor :disabled
+  attr_accessor :default
   attr_accessor :required
   
   def self.create( type, atts )
@@ -10,11 +9,10 @@ class Form::Field
   end
   
   def initialize( atts = {} )
-    @disabled = false
     @required = false
     
     atts.each do |k,v|
-      self.send "#{k}=", v
+      self.send "#{k}=", v if respond_to? "#{k}="
     end
   end
   
@@ -30,9 +28,7 @@ class Form::Field
     return I18n.t('fields.errors.field.missed') if required && value.blank?    
     nil
   end
-    
-  def enabled?; !disabled; end
-  def disabled?; disabled; end
+  
   def required?; required; end
   
 end

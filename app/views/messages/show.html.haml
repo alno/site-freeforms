@@ -8,7 +8,6 @@
   = @message.read_at ? l( @message.read_at, :format => :long ) : t( :message_unread )
 
 - @message.form.fields.each_with_index do |field,i|
-  - if field.enabled?
-    %p
-      %b=h field.title
-      = field.render_value( @message.data[i] )
+  %p
+    %b=h field.title
+    = field.render_value( @message.data[i] )

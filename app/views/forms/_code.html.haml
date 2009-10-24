@@ -5,8 +5,7 @@
     %h3{ :style => header_style( form ) }= e( @form.title )
 		
     - form.fields.each_with_index do |field,i|
-      - if field.enabled?
-        = field.render_input( form_id, i )
+      = field.render_input( form_id, i )
 
     .submit
       %input{ :type => "submit", :value => e( form.submit_title ), :onclick => "mf_#{form_id}.post(this.form); return false;" }

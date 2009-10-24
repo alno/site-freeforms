@@ -138,12 +138,7 @@ ru:
   
   update: Обновить
   edit_account: Редактировать профиль
-  
-  types:
-    email: E-Mail
-    string: Строка
-    text: Текст
-    
+      
   style:
     font_family: Шрифт
     font_size: Размер шрифта
@@ -160,6 +155,9 @@ ru:
     email: Поле для ввода E-Mail
     string: Строковое поле
     text: Многострочное поле
+    select: Список вариантов
+    radio: Варианты
+    check: Опция
     new: Добавить поле
     
     errors:
@@ -168,6 +166,8 @@ ru:
       email:
         missed: E-Mail обязателен для заполнения!
         invalid: Вы ввели некорректный E-Mail!
+      select:
+        invalid: Выбран некорректный вариант! 
 
   activerecord:
     attributes:
@@ -198,4 +198,5 @@ ru:
         default: Значение по умолчанию
         enabled: Разрешено
         required: Обязательное
+        variants: Варианты
   

@@ -1,13 +1,13 @@
 - form.fields.each_with_index do |field,i|
   %p
     %b= field.title + ':'
-    =t 'types.' + field.type.to_s
+    =t 'fields.' + field.type.to_s
     %ul
       - if field.default
         %li
           %b По умолчанию:
           = field.default
             
-      - if field.disabled?
+      - if field.required?
         %li
-          %b Запрещено
+          %b Обязательно к заполнению

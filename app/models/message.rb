@@ -23,7 +23,7 @@ class Message < ActiveRecord::Base
   def validate_on_create
     form.fields.each_with_index do |field,i|
       e = field.error_for( data[i] )
-      errors.add(i,e) if field.enabled? && e
+      errors.add(i,e) if e
     end
   end
   

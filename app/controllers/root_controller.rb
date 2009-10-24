@@ -34,7 +34,7 @@ class RootController < ApplicationController
     @message.data = []
     
     @form.fields.each_with_index do |field,i|
-      @message.data << ( field.enabled? ? params[:fields][i.to_s] : field.default )      
+      @message.data << ( params[:fields][i.to_s] || field.default )      
     end
     
     if @message.save
