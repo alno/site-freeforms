@@ -1,4 +1,10 @@
-.r= link_to t( :link_about ), about_path
+- unless current_user
+  #login_form
+    - form_for :session, @user_session, :url => session_path do |f|
+      = f.text_field :email
+      = f.password_field :password
+  			
+      = submit_tag t('actions.session.create')
 %h1
   %a{ :href => root_url } FreeForms.ru<sup>&beta;</sup>
 %h2 контактные формы для Вашего сайта

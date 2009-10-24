@@ -18,21 +18,17 @@
 
     #header= render :partial => 'layouts/header'
     #topmenu= render :partial => 'layouts/topmenu'
-      
-    #left= render :partial => 'layouts/sidebar'
-    #title
-      %h1= page_title
-    #content		  
-      - if flash[:notice]
-        #flash-notice
-          = image_tag 'icons/ok.png'
-          = flash[:notice]
-      - if flash[:error]
-        #flash-error
-          = image_tag 'icons/error.png'
-          = flash[:error]
-    		  
-      = yield
+    
+    - if not ['root','wiki_pages'].include? controller.controller_name
+      #left= render :partial => 'layouts/sidebar'      
+      #title
+        %h1= page_title
+      #content    		  
+        = yield
+    - else
+      #content-full
+        %h1= page_title
+        = yield
     #footer
       .l 2009 &copy Алексей Носков и Анатолий Макаровский <br /> &nbsp;
       .r

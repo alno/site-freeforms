@@ -21,19 +21,3 @@
     %li= icon_link_to( :new, new_form_path ) + ' ' + link_to( '<i>' + t( 'actions.form.new' ) + '...</i>', new_form_path )
         
   %br
-- else
-  %h3 Вход
-
-  #login
-    - labelling_form_for :session, @user_session, :url => session_path, :html => { :id => 'login_form' } do |f|
-      = f.text_field :email
-      = f.password_field :password
-      = f.check_box :remember_me
-      
-      .alt
-        = link_to t( 'actions.account.create' ), register_url + '#register'
-        = link_to t( 'actions.account_password.create' ), register_url + '#restore_password'
-			
-      = f.submit_create
-      
-  %script= "ui.initEnterForm();"

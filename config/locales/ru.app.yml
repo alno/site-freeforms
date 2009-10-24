@@ -156,7 +156,7 @@ ru:
     border_color: Цвет границы
   
   fields:
-    email: Поле для E-Mail
+    email: Поле для ввода E-Mail
     string: Строковое поле
     text: Многострочное поле
     new: Добавить поле

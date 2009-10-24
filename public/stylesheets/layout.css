@@ -5,7 +5,6 @@ body, p, ol, ul, td {
 
 #header {
   width: 100%;
-  float: left;
   background: url(/images/logo-white.png) no-repeat;
   background-position: 15px 15px;
   background-color: #ffffff; }
@@ -22,17 +21,14 @@ body, p, ol, ul, td {
   #header h2 {
     margin-left: 200px;
     color: #000; }
-  #header .r {
-    margin-right: 5px; }
-    #header .r a {
-      font-size: 1em;
-      font-weight: bold;
-      text-decoration: none;
-      color: #1c94c4; }
-      #header .r a:hover {
-        font-size: 1em;
-        text-decoration: none;
-        color: #c77405; }
+
+#login_form {
+  float: right;
+  margin-right: 5px; }
+
+#session_email,
+#session_password {
+  width: 120px; }
 
 #topmenu {
   width: 100%;
@@ -87,6 +83,11 @@ body, p, ol, ul, td {
   float: left;
   width: 76%;
   margin-bottom: 20px; }
+
+#content-full {
+  padding: 20px; }
+  #content-full h1 {
+    margin: 15px; }
 
 #footer {
   clear: both;

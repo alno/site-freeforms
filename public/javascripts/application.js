@@ -155,3 +155,33 @@ ui = {
         });
 	}
 };
+
+jQuery.fn.addBlurHint = function( opts ) {	
+	opts = opts || {};
+	
+	var hintText  = opts.hintText  || 'Hint';
+	var hintClass = opts.hintClass || 'hint';
+	
+	var e = jQuery(this);
+	
+	e.focus(function(){
+		var t = jQuery(this);
+		
+		if ( t.val() == hintText )
+			t.val( '' ).removeClass( hintClass );
+	});
+	
+	e.blur(function(){
+		var t = jQuery(this);
+		
+		if ( t.val() == '' )
+			t.val( hintText ).addClass( hintClass );
+	});
+	
+	e.val( hintText ).addClass( hintClass );
+}
+
+$(function(){
+	$('#session_email').addBlurHint({ hintText: "EMail" });
+	$('#session_password').addBlurHint();
+});

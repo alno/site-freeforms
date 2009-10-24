@@ -7,7 +7,7 @@
     cursor: pointer; }
   .mfd p.current,
   .mfd h3.current {
-    border: 1px solid #666666; }
+    border: 1px dotted #666666; }
     .mfd p.current .act_icon,
     .mfd h3.current .act_icon {
       display: block; }
