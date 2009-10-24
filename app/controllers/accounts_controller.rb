@@ -24,12 +24,10 @@ class AccountsController < ApplicationController
       
       flash[:notice] = I18n.t('notice.account_registered')
       
-      redirect_to mesages_url
-    else
-      if params[:form]
-        @form = Form.new
-        @form.assign params[:form]
-      end
+      redirect_to messages_url
+    else      
+      @form = Form.new
+      @form.assign params[:form] if params[:form]
       
       @user_session = UserSession.new
       

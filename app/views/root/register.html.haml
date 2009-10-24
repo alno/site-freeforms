@@ -6,23 +6,15 @@
 
   = f.error_messages
   
-  - if params[:form]  
-    #left
-      = f.text_field :email
-      = f.password_field :password
-      = f.password_field :password_confirmation
-      
-      = f.submit_create :class => 'button'
-    
-    #content
-      - fields_for :form, @form do |ff|
-        = render :partial => 'forms/page', :locals => { :form => @form, :type => 'editor', :f => ff }
-  - else
+  #left
     = f.text_field :email
     = f.password_field :password
-    = f.password_field :password_confirmation  
-  
+    = f.password_field :password_confirmation
+      
     = f.submit_create :class => 'button'
+    
+  #content
+    - fields_for :form, @form do |ff|
+      = render :partial => 'forms/page', :locals => { :form => @form, :type => 'editor', :f => ff }
   
-- if params[:form]     
-  = render :partial => 'forms/editors/protos', :locals => { :form => @form }
+= render :partial => 'forms/editors/protos', :locals => { :form => @form }

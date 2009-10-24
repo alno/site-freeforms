@@ -12,7 +12,7 @@ class RootController < ApplicationController
   def register    
     @user = User.new
     @user_session = UserSession.new    
-    @form = Form.new if params[:form]
+    @form = Form.new
   end
   
   def restore
