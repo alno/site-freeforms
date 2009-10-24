@@ -19,7 +19,7 @@ class Form::SelectField < Form::Field
   end
   
   def render_input( form_id, field_num )
-    s = "<p id=\"mf_#{form_id}_#{field_num}\" class=\"mf_email\"><label for=\"fields[#{field_num}]\">#{escaped_title}</label><select name=\"fields[#{field_num}]\">"
+    s = "<p id=\"mf_#{form_id}_#{field_num}\" class=\"mf_select\"><label for=\"fields[#{field_num}]\">#{escaped_title}</label><select name=\"fields[#{field_num}]\">"
     
     variants.each do |v|
       s << "<option value=\"#{v}\""

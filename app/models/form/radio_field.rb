@@ -19,7 +19,7 @@ class Form::RadioField < Form::Field
   end
   
   def render_input( form_id, field_num )
-    s = "<p id=\"mf_#{form_id}_#{field_num}\" class=\"mf_email\"><label for=\"fields[#{field_num}]\">#{escaped_title}</label>"
+    s = "<p id=\"mf_#{form_id}_#{field_num}\" class=\"mf_radio\"><label for=\"fields[#{field_num}]\">#{escaped_title}</label>"
     
     variants.each do |v|
       s << "<input type=\"radio\" name=\"fields[#{field_num}]\" value=\"#{v}\""
