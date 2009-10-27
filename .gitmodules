@@ -19,7 +19,4 @@
 [submodule "vendor/plugins/csv_builder"]
 	path = vendor/plugins/csv_builder
 	url = git://github.com/econsultancy/csv_builder.git
-[submodule "vendor/plugins/irwi"]
-        path = vendor/plugins/irwi
-        url = git://github.com/alno/irwi.git
 

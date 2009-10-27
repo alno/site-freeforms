@@ -49,24 +49,26 @@
 
 .mfd .mf_check label {
 	display: inline;
-	margin-left: 5px;
 }
 
-.mfd p input,
-.mfd p textarea {
+.mfd .mf_string  input,
+.mfd .mf_email   input {
+	width: 50%;
+	border: 1px solid #666666;
+	padding: 2px;
+}
+
+.mfd .mf_text textarea {
 	width: 100%;
 	border: 1px solid #666666;
 	padding: 2px;
 }
 
-.mfd p input:focus,
-.mfd p textarea:focus {
+.mfd .mf_string  input:focus,
+.mfd .mf_email   input:focus,
+.mfd .mf_text    textarea:focus {
 	background: #ffffe0;
 	border: 1px solid #669966;
-}
-
-.mfd p input {
-	width: 300px;
 }
 
 .mfd .fb {
