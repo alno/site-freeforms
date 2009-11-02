@@ -143,3 +143,26 @@ div.panes
   
   div
     :padding 20px
+    
+.float-right
+  float: right
+  margin: 20px
+      
+.center-link
+  padding: 20px
+  clear: both
+  text-align: center 
+  
+  a
+    background: #f6f6f6 url(images/ui-bg_glass_100_f6f6f6_1x400.png) 50% 50% repeat-x
+    padding: 10px 40px 10px 40px
+
+    +widget_border
+    
+    font-size: 18px
+    :text-decoration none
+    :color = !link_color
+    
+    &:hover    
+      :text-decoration none
+      :color = !hover_color
