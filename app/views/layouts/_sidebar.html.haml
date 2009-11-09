@@ -1,5 +1,5 @@
 - if current_user
-  %h3= link_to( t( 'actions.message.index' ), messages_path )
+  %h3= link_to( 'Мои сообщения', messages_path )
   
   %ul
     %li= link_to t( 'actions.message.unread' ) + " (#{current_user.messages.unread.count})", unread_messages_path
