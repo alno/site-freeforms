@@ -84,7 +84,7 @@ ru:
       index: Начало работы
       status: Статус сообщения
       about: О проекте
-      register: Регистрация
+      register: Три шага до Вашей формы
       restore: Восстановление пароля
     messages:
       show: Просмотр сообщения
@@ -105,9 +105,9 @@ ru:
       create: Вход
     accounts:
       show: Профиль
-      new: Регистрация
+      new: Три шага до Вашей формы
       edit: Редактирование профиля
-      create: Регистрация
+      create: Три шага до Вашей формы
     account_passwords:
       show: Сменить пароль
       update: Установить пароль
@@ -182,6 +182,12 @@ ru:
         email: E-Mail
         password: Пароль
         remember_me: Запомнить меня
+      
+      user:  
+        email: E-Mail
+        name: Имя пользователя
+        password: Пароль
+        password_confirmation: Подтверждение пароля
 
       account:
         email: E-Mail

@@ -57,4 +57,12 @@ module ApplicationHelper
     t( 'titles.' + controller.controller_name + '.' + controller.action_name )
   end
   
+  def without_panel?
+    @without_panel
+  end
+  
+  def without_panel!
+    @without_panel = true
+  end
+  
 end

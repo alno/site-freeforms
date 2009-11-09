@@ -18,8 +18,8 @@
 
     #header= render :partial => 'layouts/header'
     #topmenu= render :partial => 'layouts/topmenu'
-    
-    - if not ['root','wiki_pages'].include? controller.controller_name
+        
+    - if not without_panel?
       #left= render :partial => 'layouts/sidebar'      
       #title
         %h1= page_title

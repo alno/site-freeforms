@@ -14,17 +14,20 @@ class AccountsController < ApplicationController
     
     if @user.save
       #@user.deliver_activation_instructions!
-      @user_session = UserSession.create @user
+      @user_session = UserSession.create @user      
+      
+      flash[:notice] = I18n.t('notice.account_registered')
       
       if params[:form]
         @form = @user.forms.first
         @form.assign params[:form]
         @form.save!
+        
+        redirect_to form_path( @form ) + '#form-code'
+      else
+        redirect_to messages_path
       end
       
-      flash[:notice] = I18n.t('notice.account_registered')
-      
-      redirect_to messages_url
     else      
       @form = Form.new
       @form.assign params[:form] if params[:form]

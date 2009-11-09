@@ -46,7 +46,7 @@ class FormsController < ApplicationController
     @form.assign params[:form]
     
     if @form.save
-      redirect_to form_path( @form )
+      redirect_to form_path( @form ) + '#form-code'
     else
       render :action => :new
     end
