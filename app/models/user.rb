@@ -21,6 +21,10 @@ class User < ActiveRecord::Base
     UserMailer.deliver_activation_instructions(self)
   end
   
+  def deliver_signup_notification!
+    UserMailer.deliver_signup_notification(self)
+  end
+  
   def activated
     !!activated_at
   end

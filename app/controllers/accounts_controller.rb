@@ -11,6 +11,8 @@ class AccountsController < ApplicationController
     
     @user = User.new(params[:account])
     @user.activated_at = Time.now
+    @user.password = Authlogic::CryptoProviders::Sha1.encrypt(Time.now.to_s + (1..10).collect{ rand.to_s }.join)[1..7] if @user.password.blank?
+    @user.password_confirmation = @user.password
     
     if @user.save
       #@user.deliver_activation_instructions!
@@ -28,6 +30,7 @@ class AccountsController < ApplicationController
         redirect_to messages_path
       end
       
+      @user.deliver_signup_notification!      
     else      
       @form = Form.new
       @form.assign params[:form] if params[:form]

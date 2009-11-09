@@ -3,7 +3,7 @@ class UserMailer < ActionMailer::Base
   default_url_options[:host] = APP_HOST
 
   def password_reset_instructions(user)
-    subject       "Password Reset Instructions"
+    subject       "Восстановление пароля на freeforms.ru"
     from          "FreeForms Notifier <noreply@#{MAIL_HOST}>"
     recipients    user.email
     sent_on       Time.now
@@ -16,6 +16,20 @@ class UserMailer < ActionMailer::Base
     recipients    user.email
     sent_on       Time.now
     body          :activation_url => account_activation_url(user.perishable_token)
+  end
+  
+  def signup_notification(user)
+    args = {}
+    args[:user_email] = user.email
+    args[:user_password] = user.password
+    args[:form_url] = form_url( user.forms.first ) + '#form-code' unless user.forms.empty?
+    args[:restore_password_url] = restore_url
+    
+    subject       "Регистрация на freeforms.ru"
+    from          "FreeForms Notifier <noreply@#{MAIL_HOST}>"
+    recipients    user.email
+    sent_on       Time.now
+    body          args
   end
 
 end
