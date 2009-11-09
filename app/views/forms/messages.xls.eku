@@ -4,15 +4,19 @@ __filename = @filename
 sheet = xls.create_worksheet :name => @form.title
   
 # Пишем заголовок
+sheet[0,0] = 'Дата получения'
 @form.fields.each_with_index do |field,i|
-  sheet[0,i] = field.title
+  sheet[0,i+1] = field.title
 end
   
 sheet.row(0).default_format = Spreadsheet::Format.new(:weight => :bold)
   
 # Пишем данные сообщений
-@messages.each_with_index do |message,c|
+c = 0
+@messages.each do |message|
+  sheet[c,0] = l( message.created_at, :format => :long )
   @form.fields.each_with_index do |field,i|
-    sheet[c+1,i] = message.data[i]
+    sheet[c,i+1] = message.data[i]
   end
+  c = c + 1
 end
