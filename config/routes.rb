@@ -20,6 +20,7 @@ ActionController::Routing::Routes.draw do |map|
   map.register '/register', :controller => 'root', :action => 'register'
   map.restore '/restore', :controller => 'root', :action => 'restore'
   map.about '/about', :controller => 'root', :action => 'about'
+  map.authors '/authors', :controller => 'root', :action => 'authors'
   
   map.connect '/:id.:format', :controller => 'forms', :action => 'code'
   

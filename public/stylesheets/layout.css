@@ -1,11 +1,11 @@
 body, p, ol, ul, td {
   font-family: Trebuchet MS, Tahoma, Verdana, Arial, sans-serif;
-  font-size: 13px;
+  font-size: 10pt;
   line-height: 18px; }
 
 #header {
   width: 100%;
-  height: 100px;
+  height: 85px;
   background: url(/images/logo-white.png) no-repeat;
   background-position: 15px 15px;
   background-color: #ffffff; }
