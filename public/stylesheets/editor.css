@@ -24,7 +24,9 @@
 .form_editor {
   background: white;
   width: 100%;
-  border: 1px solid silver; }
+  border: 1px solid silver;
+  padding: 3px;
+  padding-right: 10px; }
   .form_editor div {
     margin: 10px; }
     .form_editor div input,
@@ -42,6 +44,7 @@
 
 .editor_links {
   display: block;
+  width: 100%;
   margin: 0px;
   padding: 3px;
   padding-left: 10px;
