@@ -17,5 +17,7 @@
       = render :partial => "forms/editors/#{field.type}", :locals => { :field => field, :index => index, :form => @form, :f => f }
 
 #form_editor_footer
+  
+%img#left_arrow{ :src => '/images/icons/arrow-left.png', :alt => '', :style => 'display:none; position: absolute;' }
 
 <script>formEditor.init();</script>

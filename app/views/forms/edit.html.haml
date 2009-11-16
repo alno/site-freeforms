@@ -1,8 +1,8 @@
-- labelling_form_for( @form ) do |f|
+- form_for( @form ) do |f|
   = render :partial => 'page', :locals => { :form => @form, :type => 'editor', :f => f }
   
   %br
-  = f.submit_update :class => 'button'
+  = f.submit t('actions.form.update'), :class => 'button'
   = styled_link_to :cancel, form_path( @form )
   = styled_link_to 'actions.form.destroy', form_path( @form ), :confirm => t('confirm.destroy_form'), :method => :delete
 

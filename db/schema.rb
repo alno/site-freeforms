@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 11) do
+ActiveRecord::Schema.define(:version => 12) do
 
   create_table "forms", :force => true do |t|
     t.integer  "user_id"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(:version => 11) do
     t.text     "style"
     t.string   "submit_title"
     t.string   "access_key"
+    t.string   "alias"
   end
 
   add_index "forms", ["access_key"], :name => "index_forms_on_access_key"

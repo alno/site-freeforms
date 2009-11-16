@@ -4,6 +4,7 @@ javascripts:
   - lib/jquery-cookie
   - lib/jquery-validate
   - lib/jquery-colorpicker
+  - lib/jquery-scrollto
   - lib/ui.core
   - lib/ui.draggable
   - lib/ui.sortable

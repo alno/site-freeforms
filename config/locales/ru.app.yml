@@ -175,7 +175,8 @@ ru:
     attributes:
     
       form:
-        title: Название
+        alias: Название
+        title: Заголовок
         description: Описание
         submit_title: Текст на кнопке
 

@@ -10,11 +10,12 @@ class Form < ActiveRecord::Base
   
   has_many :messages, :order => 'created_at DESC'
   
-  validates_presence_of :user, :submit_title
+  validates_presence_of :user, :submit_title, :title, :alias
   
   before_validation do |form|
     form.title.strip! if form.title # Удаляем пробелы из начала и конца заголовка
     form.title = "Безымянная форма" if form.title.blank? # Пустой заголовок заменяем на стандартный
+    form.alias = "Новая форма" if form.alias.blank?
   end
   
   def self.per_page
@@ -39,6 +40,7 @@ class Form < ActiveRecord::Base
   
   def assign(args)
     self.title = args[:title] if args[:title]
+    self.alias = args[:alias] if args[:alias]
     self.submit_title = args[:submit_title] if args[:submit_title]
     self.description = args[:description] if args[:description]
     

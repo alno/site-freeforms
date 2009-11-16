@@ -38,14 +38,29 @@ var formEditor = new function() {
 		field.removeClass( 'current' );
 			
 		editorFor( field ).css('display','none');
+		
+		$('#left_arrow').css( 'display', 'none' );		
+		$('.editor_links').css( 'margin-top', '0px' );
 	}
 		
 	function showFieldEditor( field ) {
 		field.addClass( 'current' );
-							
-		editorFor( field ).css({
-			display: 'block',
+		
+		$('.editor_links').css({
 			'margin-top': Math.max(field.offset().top - editorsPane.offset().top - $('.editor_links').height() - 30,0) + 'px'
+		});
+		
+		var editor = editorFor( field ).css({
+			display: 'block',
+			'margin-top' : '0px'//'margin-top': Math.max(field.offset().top - editorsPane.offset().top - $('.editor_links').height() - 30,0) + 'px'
+		});
+		
+		$.scrollTo( editor );
+		
+		$('#left_arrow').css({
+			display: 'block',
+			top: (field.offset().top + 10) + 'px',
+			left: (field.offset().left + field.width() + 10) + 'px'
 		});
 	}
 	
@@ -58,6 +73,11 @@ var formEditor = new function() {
 		
 			field.remove();
 			editor.remove();
+			
+			$('#left_arrow').css( 'display', 'none' );		
+			$('.editor_links').css( 'margin-top', '0px' );
+			
+			$.scrollTo( '.editor_links' );
 		});
 		removeIcon.prependTo( field );
 	}
@@ -168,10 +188,13 @@ var formEditor = new function() {
 	
 	this.removeField = function( elem ) {
 		var field = fieldFor( elem );
-		var editor = editorFor( field );
+		var editor = editorFor( field );		
 		
 		field.remove();
 		editor.remove();
+		
+		$('#left_arrow').css( 'display', 'none' );		
+		$('.editor_links').css( 'margin-top', '0px' );
 	}
 	
 	this.rebuildSelectOptions = function( elem, value ) {

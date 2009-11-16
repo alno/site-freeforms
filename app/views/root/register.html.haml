@@ -2,6 +2,9 @@
 
 - labelling_form_for :account, @user, :url => account_path do |f|
 
+  %br
+  %br
+
   %p <b>ШАГ 1:</b> Для получения сообщений из формы вам понадобится пароль - укажите адрес на который вам его выслать:
       
   - unless @user.errors.empty?  

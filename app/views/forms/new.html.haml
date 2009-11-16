@@ -1,8 +1,8 @@
-- labelling_form_for( @form, :url => forms_path ) do |f|
+- form_for( @form, :url => forms_path ) do |f|
   = render :partial => 'page', :locals => { :form => @form, :type => 'editor', :f => f }
   
   %br
-  = f.submit_create :class => 'button'
+  = f.submit t('actions.form.create'), :class => 'button'
 
 %script= "ui.initEditForm(#{@hash || 'location.hash'});"
 

@@ -73,7 +73,7 @@ describe "Mail" do
     end
   
     it "should have the correct subject" do
-      @email.should have_subject(/Password Reset Instructions/)
+      @email.should have_subject(/Восстановление пароля на freeforms.ru/)
     end
     
   end

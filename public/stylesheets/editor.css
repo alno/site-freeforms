@@ -21,9 +21,6 @@
   .mfd h3 .act_icon {
     display: none; }
 
-#form_preview {
-  padding-top: 40px; }
-
 .form_editor {
   background: white;
   width: 100%;
@@ -45,10 +42,11 @@
 
 .editor_links {
   display: block;
+  margin: 0px;
   padding: 3px;
   padding-left: 10px;
   background: #f6f6f6 url(images/ui-bg_glass_100_f6f6f6_1x400.png) 50% 50% repeat-x;
-  border-bottom: 2px solid silver; }
+  border: 1px solid silver; }
   .editor_links li {
     display: inline;
     padding-left: 10px;
@@ -78,7 +76,8 @@
 
 #form_editors {
   float: left;
-  width: 30%; }
+  width: 30%;
+  padding-top: 5px; }
 
 #form_editor_footer {
   clear: both; }

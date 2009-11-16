@@ -17,7 +17,7 @@
     
   %ul
     - current_user.forms.each do |form| 
-      %li= link_to( form.title, form_path( form ) ) + ' ' + icon_link_to( :edit, edit_form_path( form ) )
+      %li= link_to( form.alias, form_path( form ) ) + ' ' + icon_link_to( :edit, edit_form_path( form ) )
     %li= icon_link_to( :new, new_form_path ) + ' ' + link_to( '<i>' + t( 'actions.form.new' ) + '...</i>', new_form_path )
         
   %br

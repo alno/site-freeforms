@@ -12,7 +12,7 @@ class RootController < ApplicationController
   def register    
     @user = User.new
     @user_session = UserSession.new    
-    @form = Form.new( :title => 'Моя первая форма' )
+    @form = Form.new( :alias => 'Моя первая форма' )
   end
   
   def restore
