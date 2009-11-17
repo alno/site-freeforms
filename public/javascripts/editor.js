@@ -55,7 +55,7 @@ var formEditor = new function() {
 			'margin-top' : '0px'//'margin-top': Math.max(field.offset().top - editorsPane.offset().top - $('.editor_links').height() - 30,0) + 'px'
 		});
 		
-		$.scrollTo( editor );
+		$.scrollTo( '.editor_links' );
 		
 		$('#left_arrow').css({
 			display: 'block',
