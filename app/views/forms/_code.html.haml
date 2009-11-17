@@ -7,10 +7,10 @@
     - form.fields.each_with_index do |field,i|
       = field.render_input( form_id, i )
 
-    .link
-      <a href="http://freeforms.ru/">Эта форма создана бесплатным сервисом freeforms.ru</a>
-
     .submit
       %input{ :type => "submit", :value => e( form.submit_title ), :onclick => "mf_#{form_id}.post(this.form); return false;" }
     
   .fb{ :id => "mfb_#{form_id}", :style => fb_style( form ) }
+
+.mfd_link <a href="http://freeforms.ru/">Эта форма создана бесплатным сервисом freeforms.ru</a>
+
