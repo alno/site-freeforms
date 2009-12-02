@@ -31,4 +31,10 @@ class Form::Field
   
   def required?; required; end
   
+  protected
+    
+  def e(s)
+    HTMLEntities.encode_entities(s, :basic, :decimal) if s
+  end
+  
 end

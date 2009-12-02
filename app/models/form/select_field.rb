@@ -24,7 +24,7 @@ class Form::SelectField < Form::Field
     variants.each do |v|
       s << "<option value=\"#{v}\""
       s << " selected=\"true\"" if v == default
-      s << ">#{v}</option>"
+      s << ">#{e v}</option>"
     end
     
     s += "</select><span id=\"mfe_#{form_id}_#{field_num}\"></span></p>"

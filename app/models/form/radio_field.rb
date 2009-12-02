@@ -24,7 +24,7 @@ class Form::RadioField < Form::Field
     variants.each do |v|
       s << "<input type=\"radio\" name=\"fields[#{field_num}]\" value=\"#{v}\""
       s << " checked=\"true\"" if v == default
-      s << ">#{v}</input>"
+      s << ">#{e v}</input>"
     end
     
     s += "<span id=\"mfe_#{form_id}_#{field_num}\"></span></p>"
