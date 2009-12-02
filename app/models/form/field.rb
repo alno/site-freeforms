@@ -29,6 +29,10 @@ class Form::Field
     nil
   end
   
+  def process_value(v)
+    v
+  end
+  
   def required?; required; end
   
   protected

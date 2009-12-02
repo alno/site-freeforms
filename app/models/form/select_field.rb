@@ -18,11 +18,20 @@ class Form::SelectField < Form::Field
     value
   end
   
+  def process_value( v )
+    i = v.to_i
+    if i >=0 && i < variants.size
+      variants[i]
+    else
+      'unknown'
+    end
+  end
+  
   def render_input( form_id, field_num )
     s = "<p id=\"mf_#{form_id}_#{field_num}\" class=\"mf_select\"><label for=\"fields[#{field_num}]\">#{escaped_title}</label><select name=\"fields[#{field_num}]\">"
     
-    variants.each do |v|
-      s << "<option value=\"#{v}\""
+    variants.each_with_index do |v,i|
+      s << "<option value=\"#{i}\""
       s << " selected=\"true\"" if v == default
       s << ">#{e v}</option>"
     end

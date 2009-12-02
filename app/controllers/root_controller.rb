@@ -35,7 +35,7 @@ class RootController < ApplicationController
     
     fields = params[:fields] || []
     @form.fields.each_with_index do |field,i|
-      @message.data << ( fields[i.to_s] || field.default )      
+      @message.data << field.process_value( fields[i.to_s] || field.default )
     end
     
     if @message.save
