@@ -30,7 +30,7 @@ class Form::RadioField < Form::Field
   def render_input( form_id, field_num )
     s = "<p id=\"mf_#{form_id}_#{field_num}\" class=\"mf_radio\"><label for=\"fields[#{field_num}]\">#{escaped_title}</label>"
     
-    variants.each_with_index do |v|
+    variants.each_with_index do |v,i|
       s << "<input type=\"radio\" name=\"fields[#{field_num}]\" value=\"#{i}\""
       s << " checked=\"true\"" if v == default
       s << ">#{e v}</input>"
