@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
     
     if @user_session.save
       flash[:notice] = I18n.t('notice.login_successful')
-      redirect_back_or_default messages_url
+      redirect_to messages_url
     else
       flash[:error] = I18n.t('error.wrong_login_or_password')
       redirect_to root_url + '#login'
