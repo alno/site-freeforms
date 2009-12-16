@@ -1,8 +1,8 @@
 # Settings specified here will take precedence over those in config/environment.rb
 
 MAIL_HOST = 'freeforms.ru'
-APP_HOST = 'www.freeforms.ru'
-JS_HOST = 'www.freeforms.ru'
+APP_HOST = 'freeforms.ru'
+JS_HOST = 'freeforms.ru'
 FORM_CODE_PREFIX = '/forms'
 FORM_CODE_SUFFIX = '/code'
 

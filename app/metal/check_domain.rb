@@ -4,8 +4,8 @@ require(File.dirname(__FILE__) + "/../../config/environment") unless defined?(Ra
 class CheckDomain
   
   def self.call(env)
-    if ENV['RAILS_ENV'] == 'production' && env["HTTP_HOST"] != 'freeforms.ru'
-      [301, {"Location" => "http://freeforms.ru#{env["PATH_INFO"]}"}, ["Found"]]
+    if ENV['RAILS_ENV'] == 'production' && env["HTTP_HOST"] != APP_HOST
+      [301, {"Location" => "#{APP_HOST}#{env["REQUEST_URI"]}"}, ["Found"]]
     else
       [404, {"Content-Type" => "text/html"}, ["Not Found"]]
     end
