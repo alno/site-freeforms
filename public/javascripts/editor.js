@@ -136,6 +136,7 @@ var formEditor = new function() {
 		
 		$('.mfd').sortable({
 			items: '> p',
+      axis: 'y',
 			update: function(event,ui) {
 				sortEditorsByFields( $('.mfd').sortable('toArray') );
 			}

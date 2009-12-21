@@ -1,7 +1,7 @@
 #form_editor_protos
-  = render :partial => "forms/editor/proto", :locals => { :type => 'email', :title => 'EMail', :form => form }
-  = render :partial => "forms/editor/proto", :locals => { :type => 'string', :title => 'Строка', :form => form }
-  = render :partial => "forms/editor/proto", :locals => { :type => 'text', :title => 'Текст', :form => form }
-  = render :partial => "forms/editor/proto", :locals => { :type => 'select', :title => 'Вариант', :form => form }
-  = render :partial => "forms/editor/proto", :locals => { :type => 'radio', :title => 'Вариант', :form => form }
-  = render :partial => "forms/editor/proto", :locals => { :type => 'check', :title => 'Опция', :form => form }
+  = field_prototype( form, 'email', 'EMail' )
+  = field_prototype( form, 'string', 'Строка' )
+  = field_prototype( form, 'text', 'Текст' )
+  = field_prototype( form, 'select', 'Вариант' )
+  = field_prototype( form, 'radio', 'Вариант' )
+  = field_prototype( form, 'check', 'Опция' )

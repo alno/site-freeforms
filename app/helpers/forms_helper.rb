@@ -41,4 +41,14 @@ module FormsHelper
     image_tag 'icons/delete.png', :class => 'act_icon', :onclick => "formEditor.removeField($(this))", :alt => t( 'tooltips.fields.delete' )
   end
   
+  def field_prototype( form, type, title )
+    field = Form::Field.create( type, :title => title )
+    index = "#{type}_proto"
+
+    html = field.render_input( form.id, index )
+    html << "<div id=\"fe_#{form.id}_#{index}\" class=\"form_editor\">"
+    html << render( :partial => "forms/editor/fields/#{type}", :locals => { :field => field, :index => index, :form => form } )
+    html << "</div>"
+  end
+  
 end

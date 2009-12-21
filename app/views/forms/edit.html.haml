@@ -1,5 +1,5 @@
 - form_for( @form ) do |f|
-  = render :partial => 'page', :locals => { :form => @form, :type => 'editor', :f => f }
+  = render :partial => 'forms/editor/editor', :locals => { :form => @form, :type => 'editor', :f => f }
   
   %br
   = f.submit t('actions.form.update'), :class => 'button'
