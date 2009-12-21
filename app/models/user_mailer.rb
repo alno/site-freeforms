@@ -31,5 +31,13 @@ class UserMailer < ActionMailer::Base
     sent_on       Time.now
     body          args
   end
+  
+  def message_notification(user,form,msg)
+    subject       "Новое сообщение на форму '#{form.alias}'"
+    from          "FreeForms Notifier <noreply@#{MAIL_HOST}>"
+    recipients    user.email
+    sent_on       Time.now
+    body          :message => msg, :form => form
+  end
 
 end

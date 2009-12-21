@@ -43,6 +43,7 @@ class Form < ActiveRecord::Base
     self.alias = args[:alias] if args[:alias]
     self.submit_title = args[:submit_title] if args[:submit_title]
     self.description = args[:description] if args[:description]
+    self.subscribed = args[:subscribed] unless args[:subscribed].blank?
     
     self.style = Form::Style.new( args[:style] ) if args[:style] # Устанавливаем стиль формы
     

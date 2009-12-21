@@ -34,5 +34,9 @@ class Message < ActiveRecord::Base
   before_create do |msg|
     msg.token = Authlogic::CryptoProviders::Sha1.encrypt(Time.now.to_s + (1..10).collect{ rand.to_s }.join)
   end
+  
+  after_create do |msg|
+    UserMailer.deliver_message_notification( msg.user, msg.form, msg ) if msg.form.subscribed
+  end
       
 end
