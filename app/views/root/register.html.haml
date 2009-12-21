@@ -26,7 +26,7 @@
     Вы можете добавить и переименовать поля, изменить цвет и шрифт, назначить содержание полей по умолчанию.
       
   - fields_for :form, @form do |ff|
-    = render :partial => 'forms/page', :locals => { :form => @form, :type => 'editor', :f => ff }
+    = render :partial => 'forms/editor/editor', :locals => { :form => @form, :type => 'editor', :f => ff }
 
   %hr
   
