@@ -9,10 +9,16 @@ FORM_CODE_SUFFIX = '/code'
 #config.gem 'rspec', :lib => 'spec', :version => ">= 1.2.0"
 #config.gem 'rspec-rails', :lib => 'spec/rails', :version => ">= 1.2.0" 
 
-config.gem 'carlosbrando-remarkable', :lib => 'remarkable', :source => "http://gems.github.com"
-config.gem 'bmabey-email_spec', :lib => 'email_spec', :source => "http://gems.github.com"
-config.gem 'notahat-machinist', :lib => 'machinist', :source => "http://gems.github.com"
-#config.gem 'cucumber'
+# Remarkable
+config.gem 'remarkable'
+config.gem 'remarkable_rails'
+config.gem 'remarkable_activerecord'
+
+# Machinist - blueprints
+config.gem 'machinist'
+
+# Testing emails
+config.gem 'email_spec'
 
 # The test environment is used exclusively to run your application's
 # test suite.  You never need to work with it otherwise.  Remember that
