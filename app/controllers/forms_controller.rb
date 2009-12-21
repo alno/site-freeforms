@@ -25,6 +25,10 @@ class FormsController < ApplicationController
     @form = Form.find params[:id]
   end
   
+  def clone
+    render :action => 'new'
+  end
+  
   def new
     @form = Form.new
   end

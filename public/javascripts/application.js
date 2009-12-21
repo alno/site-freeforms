@@ -66,17 +66,7 @@ ui = {
 			var p = $('#form-preview');
 			p.html('<iframe src="' + p.attr('code') + '" style="width:100%;height:500px;border:none;" />');
 		}
-		
-		function updateLinks(index) {
-			var edit_link = $('#form_edit_link');
-		    var clone_link = $('#form_clone_link');
-		        
-		    var hrefPart = '#form-' + ['description','fields','style','code','preview'][index];
-		        
-		    edit_link[0].href = edit_link[0].href.replace(/\#.*/,hrefPart);
-		    clone_link[0].href = clone_link[0].href.replace(/\#.*/,hrefPart);
-		}
-		
+				
 		if ( selectedTab == '#form-description' ) selectedTab = 0;
 		else if ( selectedTab == '#form-fields' ) selectedTab = 1;
 		else if ( selectedTab == '#form-style' ) selectedTab = 2;
@@ -87,16 +77,12 @@ ui = {
 		} else {
 			selectedTab = parseInt( selectedTab );
 		}
-		
-		updateLinks( selectedTab );
-		
+				
 		$("#form_tabs").tabs("#form_panes > div",{ 
 			onBeforeClick: function(index) {
 		        if ( index == 4 && $('#form-preview iframe').length == 0 )
 		        	preview();
-		        	
-		        updateLinks( index );
-		        
+		        			        
 		        return true;
 		    }			
 		 });

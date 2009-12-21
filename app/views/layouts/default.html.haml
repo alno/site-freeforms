@@ -6,7 +6,9 @@
     %meta{ 'http-equiv' => "content-type", 'content' => "text/html;charset=UTF-8" }
     %title= page_title + ' | FreeForms.ru'
     = stylesheet_link_merged :app
+    = yield :stylesheets
     = javascript_include_merged :app
+    = yield :javascripts
   %body
     
     <!--LiveInternet counter--><script type="text/javascript"><!--

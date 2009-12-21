@@ -11,7 +11,7 @@
 
     - @messages.each do |message|
       %tr{ :class => cycle('even','odd') }
-        %td.status= link_to image_tag( 'icons/newmail.png', :width => 16, :height => 16 ), message_path( message ), :title => t('tooltips.messages.new') unless message.read_at
+        %td.status= link_to image_tag( 'icons/newmail.png' ), message_path( message ), :title => t('tooltips.messages.new') unless message.read_at
         %td.date= link_to l( message.created_at, :format => :long ), message_path( message )	  	         
         %td= message_body message	    
-        %td.actions= link_to image_tag( 'icons/delete.png', :width => 16, :height => 16 ), message, :title => t('tooltips.messages.delete'), :confirm => t('confirm.destroy_message'), :method => :delete
+        %td.actions= link_to image_tag( 'icons/delete.png' ), message, :title => t('tooltips.messages.delete'), :confirm => t('confirm.destroy_message'), :method => :delete

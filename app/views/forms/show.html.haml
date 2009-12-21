@@ -7,6 +7,8 @@
     %a{ :href => '#form-style' }=t 'form.style'
   %li
     %a{ :href => '#form-code' }=t 'form.code'
+  %li
+    %a{ :href => '#form-preview' }=t 'form.preview'
 
 #form_panes.panes
   #form-description
@@ -26,10 +28,11 @@
     %p
       %b=t(:form_code_popup) + ':'
       %pre=h @form.code(:popup)
+  #form-preview{ :code => @form.code_url(:html) }
 
 %br
-= styled_link_to 'actions.form.edit', edit_form_path( @form ) + '#', :id => 'form_edit_link'
-= styled_link_to 'actions.form.clone', clone_form_path( @form ) + '#', :id => 'form_clone_link'
+= styled_link_to 'actions.form.edit', edit_form_path( @form ), :id => 'form_edit_link'
+= styled_link_to 'actions.form.clone', clone_form_path( @form ), :id => 'form_clone_link'
 = styled_link_to 'actions.form.destroy', form_path( @form ), :confirm => t('confirm.destroy_form'), :method => :delete
 
 %script{ :type => 'text/javascript' }= "ui.initShowForm(#{@hash || 'location.hash'});"

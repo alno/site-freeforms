@@ -6,6 +6,10 @@
 	padding-bottom: 0px;
 }
 
+.mfd form {
+	margin-bottom: 0px;
+}
+
 .mfd h3 {
 	text-align: center;
 	margin: 0px;
@@ -13,6 +17,7 @@
 }
 
 .mfd .submit {
+	margin-bottom: 15px
 }
 
 .mfd .submit input {

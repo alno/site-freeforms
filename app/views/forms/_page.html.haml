@@ -1,3 +1,6 @@
+- content_for :stylesheets do
+  %link{ :href => "/stylesheets/forms/default.css", :rel => "Stylesheet", :type => "text/css" }
+
 #form_preview
   = render :partial => 'forms/editors/preview', :locals => { :form => @form }
 
