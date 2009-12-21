@@ -3,4 +3,4 @@
 
 = field.render_input( form.id, index )
 .form_editor{ :id => "fe_#{form.id}_#{index}" }
-  = render :partial => "forms/editors/#{type}", :locals => { :field => field, :index => index, :form => form }
+  = render :partial => "forms/editor/fields/#{type}", :locals => { :field => field, :index => index, :form => form }

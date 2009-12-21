@@ -2,7 +2,7 @@
   %link{ :href => "/stylesheets/forms/default.css", :rel => "Stylesheet", :type => "text/css" }
 
 #form_preview
-  = render :partial => 'forms/editors/preview', :locals => { :form => @form }
+  = render :partial => 'forms/editor/preview', :locals => { :form => @form }
 
 #form_editors
   %ul.editor_links
@@ -14,10 +14,10 @@
     %li=link_to_function "Свойства формы", "$('\#mfd_#{@form.id} h3').click()"
     
   .form_editor{ :id => "fe_#{form.id}" }
-    = render :partial => "forms/editors/form", :locals => { :form => @form, :f => f }
+    = render :partial => "forms/editor/form", :locals => { :form => @form, :f => f }
   - @form.fields.each_with_index do |field,index|
     .form_editor{ :id => "fe_#{form.id}_#{index}" }
-      = render :partial => "forms/editors/#{field.type}", :locals => { :field => field, :index => index, :form => @form, :f => f }
+      = render :partial => "forms/editor/fields/#{field.type}", :locals => { :field => field, :index => index, :form => @form, :f => f }
 
 #form_editor_footer
   
