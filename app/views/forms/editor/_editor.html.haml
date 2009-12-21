@@ -1,6 +1,11 @@
 - content_for :stylesheets do
   %link{ :href => "/stylesheets/forms/default.css", :rel => "Stylesheet", :type => "text/css" }
 
+#form_editor_panel
+  %p
+    = f.check_box :subscribed
+    Оповещать о новых сообщениях по E-mail
+
 #form_preview
   = render :partial => 'forms/editor/preview', :locals => { :form => @form }
 
