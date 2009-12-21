@@ -5,7 +5,7 @@
       %option{ :value => messages_path, :selected => @form.nil? }= t 'ui.filter.all'
         
       - current_user.forms.each do |form|
-        %option{ :value => messages_form_path( form ), :selected => (form == @form) }= form.title
+        %option{ :value => messages_form_path( form ), :selected => (form == @form) }= form.alias
           
     Тип сообщений:
     %select{ :onchange => 'document.location = this.value' }

@@ -1,30 +1,103 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-
-<head>
-  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-  <title>We're sorry, but something went wrong (500)</title>
-	<style type="text/css">
-		body { background-color: #fff; color: #666; text-align: center; font-family: arial, sans-serif; }
-		div.dialog {
-			width: 25em;
-			padding: 0 4em;
-			margin: 4em auto 0 auto;
-			border: 1px solid #ccc;
-			border-right-color: #999;
-			border-bottom-color: #999;
-		}
-		h1 { font-size: 100%; color: #f00; line-height: 1.5em; }
-	</style>
-</head>
-
-<body>
-  <!-- This file lives in public/500.html -->
-  <div class="dialog">
-    <h1>We're sorry, but something went wrong.</h1>
-    <p>We've been notified about this issue and we'll take a look at it shortly.</p>
-  </div>
-</body>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+ <?xml version='1.0' encoding='utf-8'?>
+<html lang='ru' xml:lang='ru' xmlns='http://www.w3.org/1999/xhtml'>
+    <head>
+        <meta content='text/html;charset=UTF-8' http-equiv='content-type' />
+        <title>Бесплатно и просто | FreeForms.ru</title>
+        <link href="/stylesheets/common.css" media="screen" rel="Stylesheet" type="text/css" />
+        <link href="/stylesheets/layout.css" media="screen" rel="Stylesheet" type="text/css" />
+        <link href="/stylesheets/ui.css" media="screen" rel="Stylesheet" type="text/css" />
+        <style type="text/css">
+            div.dialog {
+                text-align: center;
+                color: #666;
+                width: 25em;
+                padding: 0 4em;
+                margin: 5em auto 4em auto;
+                border: 1px solid #ccc;
+            }
+            
+            div.dialog h1 {
+                font-size: 100%;
+                color: #f00;
+                line-height: 1.5em;
+            }
+        </style>
+    </head>
+    <body>
+        <!--LiveInternet counter-->
+        <script type="text/javascript">
+            <!--
+            new Image().src = "http://counter.yadro.ru/hit?r" +
+            escape(document.referrer) +
+            ((typeof(screen) == "undefined") ? "" : ";s" + screen.width + "*" + screen.height + "*" +
+            (screen.colorDepth ? screen.colorDepth : screen.pixelDepth)) +
+            ";u" +
+            escape(document.URL) +
+            ";" +
+            Math.random();//-->
+        </script>
+        <!--/LiveInternet-->
+        <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+        </script>
+        <script type="text/javascript">
+            try {
+                var pageTracker = _gat._getTracker("UA-11149699-4");
+                pageTracker._trackPageview();
+            } 
+            catch (err) {
+            }
+        </script>
+        <div id='header'>
+            <div id='login_form'>
+                <form action="/session" method="post">
+                    <input id="session_email" name="session[email]" size="30" type="text" /><input id="session_password" name="session[password]" size="30" type="password" /><input name="commit" type="submit" value="Войти" />
+                </form>
+            </div><h1><a href='http://freeforms.ru/'>FreeForms.ru
+                    <sup>
+                        &beta;
+                    </sup>
+                </a></h1>
+            <h2>контактные формы для Вашего сайта</h2>
+        </div>
+        <div id='topmenu'>
+            <ul class='l'>
+            </ul>
+            <ul class='r'>
+                <li>
+                    <a href="http://freeforms.ru/register">Получить код</a>
+                </li>
+                <li>
+                    <a href="http://freeforms.ru/restore">Восстановить пароль</a>
+                </li>
+            </ul>
+        </div>
+        <div id='content-full'>
+            <div class="dialog">
+                <h1>Ошибка!</h1>
+                <p>
+                    К сожалению произошла какая-та ошибка... Подождите немного, мы все исправим...
+                </p>
+            </div>
+        </div>
+        <div id='footer'>
+            <div class='l'>
+                2009 &copy <a href="/authors">Алексей Носков и Анатолий Макаровский</a>
+                <br/>
+                &nbsp;
+            </div>
+            <div class='r'>
+            </div>
+            <div class='c'>
+                <a href="/register">зарегистрироваться</a>
+                ׀ <a href="/restore">восстановить пароль</a>
+                <br/>
+                <a href="/messages">мои сообщения</a>
+                ׀ <a href="/forms">мои формы</a>
+                ׀ <a href="/about">о проекте</a>
+            </div>
+        </div>
+    </body>
 </html>
