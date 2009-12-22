@@ -114,6 +114,8 @@ ru:
     wiki_pages:
       show: Страница
       edit: Редактирование страницы
+    stats:
+      index: Статистика использования сервиса
       
   form_fields:
     name: Ваше имя
