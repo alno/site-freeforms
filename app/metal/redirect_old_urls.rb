@@ -6,7 +6,7 @@ class RedirectOldUrls
   def self.call(env)
     if ENV['RAILS_ENV'] == 'production' && env["HTTP_HOST"] != APP_HOST
       [301, {"Location" => "http://#{APP_HOST}#{env["REQUEST_URI"]}"}, ["Found"]]
-    elsif env["REQUEST_URI"] =~  /^(\d)+\.(\w+)$/
+    elsif env["REQUEST_URI"] =~  /^\/(\d)+\.(\w+)$/
       [301, {"Location" => "http://#{APP_HOST}/forms/#{$1}/code.#{$2}"}, ["Found"]]
     else
       [404, {"Content-Type" => "text/html"}, ["Not Found"]]
