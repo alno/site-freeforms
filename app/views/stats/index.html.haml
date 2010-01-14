@@ -2,11 +2,18 @@
 
 %table
   %tr
-    %td Зарегистрировано пользователей:
+    %th
+    %th Активных
+    %th Всего
+  %tr
+    %td Пользователей:
     %td= User.count
+    %td
   %tr
-    %td Создано форм:
+    %td Форм:
     %td= Form.count
+    %td= Form.count_with_deleted
   %tr
-    %td Отправлено сообщений:
+    %td Сообщений:
     %td= Message.count
+    %td= Message.count_with_deleted
