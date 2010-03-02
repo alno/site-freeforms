@@ -1,22 +1,10 @@
-[submodule "vendor/plugins/jrails"]
-	path = vendor/plugins/jrails
-	url = git://github.com/aaronchi/jrails.git
 [submodule "vendor/plugins/acts_as_paranoid"]
         path = vendor/plugins/acts_as_paranoid
         url = git://github.com/technoweenie/acts_as_paranoid.git
 [submodule "vendor/plugins/asset_packager"]
         path = vendor/plugins/asset_packager
         url = git://github.com/alno/asset_packager.git
-[submodule "vendor/plugins/exception_notification"]
-        path = vendor/plugins/exception_notification
-        url = git://github.com/rails/exception_notification.git
-[submodule "vendor/plugins/typus"]
-        path = vendor/plugins/typus
-        url = git://github.com/alno/typus.git
 [submodule "vendor/plugins/ekuseru"]
         path = vendor/plugins/ekuseru
         url = git://github.com/xinuc/ekuseru.git
-[submodule "vendor/plugins/csv_builder"]
-	path = vendor/plugins/csv_builder
-	url = git://github.com/econsultancy/csv_builder.git
 

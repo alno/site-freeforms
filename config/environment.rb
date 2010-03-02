@@ -17,6 +17,11 @@ Rails::Initializer.run do |config|
   config.gem "irwi"  
   config.gem "will_paginate"
   
+  config.gem 'jrails'
+  config.gem 'typus'
+  config.gem 'exception_notification'
+  config.gem 'csv_builder'
+  
   # Only load the plugins named here, in the order given (default is alphabetical).
   # :all can be used as a placeholder for all plugins not explicitly named
   # config.plugins = [ :exception_notification, :ssl_requirement, :all ]
