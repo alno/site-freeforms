@@ -23,9 +23,7 @@ ActionController::Routing::Routes.draw do |map|
   map.restore '/restore', :controller => 'root', :action => 'restore'
   map.about '/about', :controller => 'root', :action => 'about'
   map.authors '/authors', :controller => 'root', :action => 'authors'
-  
-  map.connect '/:id.:format', :controller => 'forms', :action => 'code'
-  
+    
   map.connect ':controller.:format'
   map.connect ':controller/:action/:id.:format'
 end

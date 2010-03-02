@@ -16,6 +16,7 @@ Rails::Initializer.run do |config|
   config.gem "spreadsheet" 
   config.gem "irwi"  
   config.gem "will_paginate"
+  config.gem "delayed_job"
   
   config.gem 'jrails'
   config.gem 'typus'
