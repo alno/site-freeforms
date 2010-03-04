@@ -1,12 +1,10 @@
-- form_id = form.id
-
-.mfd{ :id => "mfd_#{form_id}", :style => wrap_style( form ) }
-  %h3{ :style => header_style( form ) }= e( @form.title )
+.mfd{ :id => "mfd_#{form.id}", :style => wrap_style( form ) }
+  %h3{ :style => header_style( form ) }= e( form.title )
 		
   - form.fields.each_with_index do |field,i|
-    = field.render_input( form_id, i )
+    = field.render_input( form.id, i )
 
   .submit
     %input{ :type => "submit", :value => e( form.submit_title ), :onclick => "return false;" }
       		
-  .fb{ :id => "mfb_#{form_id}", :style => fb_style( form ) }
+  .fb{ :id => "mfb_#{form.id}", :style => fb_style( form ) }

@@ -6,4 +6,4 @@
   %label Текст на кнопке:
   = f.text_field :submit_title, :onchange => "$('\#mfd_#{form.id} .submit input').val(this.value);"
 .form_style
-  = render :partial => 'forms/editor/style', :locals => { :form => form, :f => f }
+  = render :partial => "styles/#{form.style.name}/editor", :locals => { :form => form, :style => form.style, :f => f }

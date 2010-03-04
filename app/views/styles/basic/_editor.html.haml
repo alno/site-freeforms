@@ -1,41 +1,39 @@
-- style = form.style
-    
 %p
   %label=t( 'style.font_family' ) + ':'
   = font_select_tag( 'form[style][font_family]', style.font_family, :onchange => "$('\#mfd_#{form.id}').css('font-family',this.value);" )
-    
+
 %p
   %label=t( 'style.font_size' ) + ':'
   = text_field_tag( 'form[style][font_size]', style.font_size, :onchange => "$('\#mfd_#{form.id}').css('font-size',this.value+'px');" )
-    
+
 %p
   %label=t( 'style.font_color' ) + ':'
   = color_field_tag( 'form[style][font_color]', style.font_color, :onchange => "$('\#mfd_#{form.id}').css('color',this.value);" )
-      
+
 %p
   %label=t( 'style.title_family' ) + ':'
   = font_select_tag( 'form[style][title_family]', style.title_family, :onchange => "$('\#mfd_#{form.id} h3').css('font-family',this.value);" )
-    
+
 %p
   %label=t( 'style.title_size' ) + ':'
   = text_field_tag( 'form[style][title_size]', style.title_size, :onchange => "$('\#mfd_#{form.id} h3').css('font-size',this.value+'px');" )
-    
+
 %p
   %label=t( 'style.title_color' ) + ':'
   = color_field_tag( 'form[style][title_color]', style.title_color, :onchange => "$('\#mfd_#{form.id} h3').css('color',this.value);" )
-    
-%p  
+
+%p
   %label=t( 'style.background' ) + ':'
   = color_field_tag( 'form[style][background]', style.background, :onchange => "$('\#mfd_#{form.id}').css('background',this.value);" )
-      
+
 %p
   %label=t( 'style.border_width' ) + ':'
   = text_field_tag( 'form[style][border_width]', style.border_width, :onchange => "$('\#mfd_#{form.id}').css('border-width',this.value+'px');" )
-      
+
 %p
   %label=t( 'style.border_radius' ) + ':'
   = text_field_tag( 'form[style][border_radius]', style.border_radius, :onchange => "var v=this.value+'px';$('\#mfd_#{form.id}').css({'border-radius':v,'-webkit-border-radius':v,'-khtml-border-radius':v,'-moz-border-radius':v});" )
-    
+
 %p
   %label=t( 'style.border_color' ) + ':'
   = color_field_tag( 'form[style][border_color]', style.border_color, :onchange => "$('\#mfd_#{form.id}').css('border-color',this.value);" )

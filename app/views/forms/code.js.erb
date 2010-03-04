@@ -58,7 +58,7 @@ var mf_<%=@form.id%> = new function() {
 	},
 	
 	this.build = function() {
-		attachStyle('<%="http://#{JS_HOST}/stylesheets/forms/default.css" %>');
+		attachStyle('<%="http://#{JS_HOST}/forms/#{@form.id}/code.css" %>');
 		
 		document.writeln( '<%= form_html( @form ).gsub('\'') { |s| '\\\'' } %>' );
 	}
