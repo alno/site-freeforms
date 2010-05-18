@@ -17,6 +17,6 @@ stylesheets:
   - common
   - layout
   - ui
-  - forms/default
+  - forms
   - editor
   - messages
