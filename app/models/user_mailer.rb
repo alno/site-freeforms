@@ -4,7 +4,7 @@ class UserMailer < ActionMailer::Base
 
   def password_reset_instructions(user)
     subject       "Восстановление пароля на freeforms.ru"
-    from          "FreeForms Notifier <noreply@#{MAIL_HOST}>"
+    from          "noreply@#{MAIL_HOST}"
     recipients    user.email
     sent_on       Time.now
     body          :password_reset_url => account_password_url(user.perishable_token)
@@ -12,7 +12,7 @@ class UserMailer < ActionMailer::Base
   
   def activation_instructions(user)
     subject       "Account Activation Instructions"
-    from          "FreeForms Notifier <noreply@#{MAIL_HOST}>"
+    from          "noreply@#{MAIL_HOST}"
     recipients    user.email
     sent_on       Time.now
     body          :activation_url => account_activation_url(user.perishable_token)
@@ -26,7 +26,7 @@ class UserMailer < ActionMailer::Base
     args[:restore_password_url] = restore_url
     
     subject       "Регистрация на freeforms.ru"
-    from          "FreeForms Notifier <noreply@#{MAIL_HOST}>"
+    from          "noreply@#{MAIL_HOST}"
     recipients    user.email
     sent_on       Time.now
     body          args
@@ -34,7 +34,7 @@ class UserMailer < ActionMailer::Base
   
   def message_notification(user,form,msg)
     subject       "Новое сообщение на форму '#{form.alias}'"
-    from          "FreeForms Notifier <noreply@#{MAIL_HOST}>"
+    from          "noreply@#{MAIL_HOST}"
     recipients    user.email
     sent_on       Time.now
     body          :message => msg, :form => form
