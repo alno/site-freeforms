@@ -1,29 +1,41 @@
-ActionController::Routing::Routes.draw do |map|
-
-  map.wiki_root '/pages'
-
-  map.resources :forms, :member => [ :code, :clone, :messages, :unread, :today ]  
-  map.resources :messages, :collection => [ :unread, :today ]
-
-  map.resource :account
-  map.resource :session
-
-  map.resources :account_passwords
-  map.resources :account_activations  
-
-  map.resources :stats
-
-  map.logout '/logout', :controller => 'sessions', :action => 'destroy'
+Freeforms::Application.routes.draw do
   
-  map.post_message '/post/:form_id', :controller => 'root', :action => 'post'
-  map.message_status '/status/:token', :controller => 'root', :action => 'status'
+  #match '/pages', :to => 'wiki_pages#index', :as => :wiki_root
   
-  map.root :controller => 'root', :action => 'index'  
-  map.register '/register', :controller => 'root', :action => 'register'
-  map.restore '/restore', :controller => 'root', :action => 'restore'
-  map.about '/about', :controller => 'root', :action => 'about'
-  map.authors '/authors', :controller => 'root', :action => 'authors'
-    
-  map.connect ':controller.:format'
-  map.connect ':controller/:action/:id.:format'
+  
+  resource :account
+  resource :session
+  resources :account_passwords
+  resources :account_activations
+  resources :stats
+  
+  resources :forms do    
+    member do
+      get :code
+      post :clone
+      
+      get :messages
+      get :unread
+      get :today
+    end    
+  end
+  
+  resources :messages do
+    collection do
+      get :unread
+      get :today
+    end    
+  end
+  
+  match '/post/:form_id', :to  => 'root#post', :as => :post_message
+  match '/status/:token', :to  => 'root#status', :as => :message_status
+  
+  root :to  => 'root#index'  
+  
+  match '/logout', :to  => 'sessions#destroy', :as => :logout
+  match '/register', :to  => 'root#register', :as => :register
+  match '/restore', :to  => 'root#restore', :as => :restore
+  match '/about', :to  => 'root#about', :as => :about
+  match '/authors', :to  => 'root#authors', :as => :authors
+
 end

@@ -1,0 +1,49 @@
+$font_family: unquote("Trebuchet MS, Tahoma, Verdana, Arial, sans-serif")
+
+$footer_color: #afafaf
+$header_color: #f6af39
+$border_color: silver
+$link_color: #1c94c4
+$hover_color: #c77405
+$current_color: #eb8f00
+
+$widget_bg: #f6f6f6 url(images/ui-bg_glass_100_f6f6f6_1x400.png) 50% 50% repeat-x
+$widget_hover_bg: #fdf5ce url(images/ui-bg_glass_100_fdf5ce_1x400.png) 50% 50% repeat-x
+
+=flash
+  padding: 15px
+  margin: 20px
+  img
+    float: left
+    padding-right: 15px
+
+=has_flat_lists
+  ul
+    margin: 0px
+    display: block
+    li
+      display: inline
+
+=header_border
+  -moz-border-radius: 10px
+  -khtml-border-radius: 10px
+  -webkit-border-radius: 10px
+  border-radius: 10px
+  border: 1px solid #dddddd
+
+=widget_border
+  -moz-border-radius: 4px
+  -khtml-border-radius: 4px
+  -webkit-border-radius: 4px
+  border-radius: 4px
+  border: 1px solid #dddddd
+
+=styled_link
+  font-size: 1em
+  font-weight: bold
+  text-decoration: none
+  color: $link_color
+  &:hover
+    font-size: 1em
+    text-decoration: none
+    color: $hover_color

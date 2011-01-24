@@ -1,0 +1,89 @@
+@import helpers
+
+.mfd p,
+.mfd h3
+  border: 1px solid white
+  cursor: pointer
+  *
+    cursor: pointer
+  &.current
+    border: 1px dotted #666666
+    .act_icon
+      display: block
+  &:hover
+    border: 1px dashed #999999
+    .act_icon
+      display: block
+  .act_icon
+    display: none
+
+.form_editor
+  background: white
+  width: 100%
+  border: unquote("1px solid ") + $border_color
+  padding: 3px
+  padding-right: 10px
+  div
+    margin: 10px
+    input,
+    textarea
+      width: 100%
+  .act_icon
+    margin: 4px
+
+.act_icon
+  border: none
+  float: right
+  cursor: pointer
+  width: 16px
+  height: 16px
+
+.editor_links
+  display: block
+  width: 100%
+  margin: 0px
+  padding: 3px
+  padding-left: 10px
+  background: $widget_bg
+  border: unquote("1px solid ") + $border_color
+  li
+    display: inline
+    padding-left: 10px
+    padding-right: 10px
+    ul
+      display: block
+      padding: 5px
+      padding-left: 10px
+      padding-right: 10px
+      background: white
+      border: unquote("1px solid ") + $border_color
+    li
+      display: block
+  a
+    +styled_link
+
+#form_preview
+  width: 68%
+  float: left
+
+#form_editors
+  float: left
+  width: 30%
+  padding-top: 5px
+
+#form_editor_footer
+  clear: both
+
+#form_editor_protos
+  display: none
+
+#form_editor_panel
+  border: unquote("1px solid ") + $border_color
+  margin: 10px 5px 20px
+  padding: 0px
+  -moz-border-radius: 4px
+  -webkit-border-radius: 4px
+  border-radius: 4px
+  p
+    margin: 10px
+    padding: 0

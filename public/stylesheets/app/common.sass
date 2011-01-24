@@ -1,0 +1,52 @@
+@import helpers
+
+body
+  background-color: white
+  color: #333333
+  padding: 0
+  margin: 15px
+  height: 100%
+
+img
+  border: 0px
+
+pre
+  background-color: #eeeeee
+  padding: 10px
+  font-size: 11px
+  white-space: pre
+  white-space: pre-wrap
+  white-space: pre-line
+  white-space: -moz-pre-wrap
+  white-space: -hp-pre-wrap
+  white-space: -o-pre-wrap
+  white-space: -pre-wrap
+  word-wrap: break-word
+
+form
+  p label
+    display: block
+
+hr
+  border: none
+  border-top: 1px solid #bbbbbb
+  margin-top: 25px
+
+.l
+  float: left
+
+.r
+  float: right
+
+.center
+  text-align: center
+
+#flash-error
+  +flash
+  border: 2px solid #cc0000
+  background: #ffcccc
+
+#flash-notice
+  +flash
+  border: 2px solid #009900
+  background: #ddffdd
