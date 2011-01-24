@@ -1,4 +1,0 @@
-admin:
-  Form: create, read, update, delete
-  User: create, read, update, delete
-  Message: create, read, update, delete
