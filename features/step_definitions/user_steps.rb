@@ -13,9 +13,9 @@ Given /^I am logged in as "([^\"]*)"$/ do |email|
   visit '/'
   fill_in("session[email]", :with => @current_user.email)
   fill_in("session[password]", :with => @current_user.password)
-  click_button("Войти")
+  click_button("session_submit")
 
-  response.body.should =~ /вошли/m
+  page.should have_content 'вошли'
 end
 
 Given /^I am registered in as "([^\"]*)"$/ do |email|
@@ -38,9 +38,9 @@ Then /^I should be able to login as "([^\"]*)" with "([^\"]*)"$/ do |email, pass
   visit '/logout'
   fill_in("session[email]", :with => email)
   fill_in("session[password]", :with => password)
-  click_button("Войти")
+  click_button("session_submit")
 
-  response.body.should =~ /вошли/m
+  page.should have_content 'вошли'
 end
 
 Then /^I should see the following users:$/ do |users|

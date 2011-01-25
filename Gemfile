@@ -30,7 +30,7 @@ group :development, :test do
 
   # Integration testing
   gem 'cucumber-rails', '>= 0.3.2'
-  gem 'capybara', '>= 0.4.1'
+  gem 'capybara', '~> 0.3.9'
   gem 'database_cleaner'  
 
   gem 'ruby-debug'

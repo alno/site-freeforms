@@ -32,7 +32,7 @@ module ApplicationHelper
 
   def color_field_tag(name, value = nil, options = {})
     id = sanitize_to_id(name)
-    tag( :input, { :type => "text", :name => name, :id => id, :value => value }.update( options.symbolize_keys ) ) + "<script>$(function(){$('##{id}').addColorPicker();});</script>"
+    tag( :input, { :type => "text", :name => name, :id => id, :value => value }.update( options.symbolize_keys ) ) + "<script>$(function(){$('##{id}').addColorPicker();});</script>".html_safe
   end
 
   def font_options_for_select(container, selected = nil)
