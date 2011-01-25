@@ -20,10 +20,10 @@ gem 'exception_notification', :git => 'git://github.com/rails/exception_notifica
 gem 'haml'
 gem 'smart_chart'
 
-gem 'mysql2'
+gem 'unicorn'
 
 group :production do
-  gem 'unicorn'
+  gem 'mysql'
 end
 
 group :development, :test do
