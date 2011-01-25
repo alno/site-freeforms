@@ -20,12 +20,18 @@ gem 'haml'
 group :development, :test do
   gem 'sqlite3-ruby', :require => 'sqlite3'
 
+  # Unit testing
   gem 'rspec-rails', '>= 2.1.0'
   gem 'email_spec', '>= 1.1.1'
   gem 'shoulda-matchers'
 
   gem 'faker'
   gem 'machinist', '>= 2.0.0.beta2'
+
+  # Integration testing
+  gem 'cucumber-rails', '>= 0.3.2'
+  gem 'capybara', '>= 0.4.1'
+  gem 'database_cleaner'  
 
   gem 'ruby-debug'
 end

@@ -6,8 +6,7 @@ Feature: Account
     And I am on the register page
     When I fill in "account[email]" with "my@mail.ru"
     And I fill in "account[password]" with "mypass"
-    And I fill in "account[password_confirmation]" with "mypass"
-    And I press "Зарегистрироваться"
+    And I press "Получить код"
     Then I should receive an email
     When I open the email
     Then I should see "activation" in the email
