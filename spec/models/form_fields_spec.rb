@@ -1,15 +1,13 @@
 require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 
-describe "Field" do
+RSpec::Matchers.define :accept do |value|
+  match { |given| given.error_for(value).nil? }
 
-  def accept(value)
-    simple_matcher do |given,matcher|
-      matcher.description = "accept value '#{value}'"
-      matcher.failure_message = "expected #{given.inspect} to accept '#{value}'"
-      matcher.negative_failure_message = "expected #{given.inspect} not to accept '#{value}'"
-      given.error_for(value).nil?
-    end
-  end
+  failure_message_for_should {|given| "expected #{given.inspect} to accept '#{value}'" }
+  failure_message_for_should_not {|given| "expected #{given.inspect} not to accept '#{value}'" }
+end
+
+describe "Field" do
 
   context "empty" do
     before(:all) do

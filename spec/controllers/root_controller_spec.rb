@@ -2,22 +2,18 @@ require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 
 describe RootController do
 
-  it "should use RootController" do
-    controller.should be_an_instance_of(RootController)
-  end
-
-  should_route :get, "/post/1", :controller => "root", :action => "post", :form_id => "1"
-  should_route :get, "/status/abcd", :controller => "root", :action => "status", :token => "abcd"
+  it { should route( :get, "/post/1" ).to :controller => "root", :action => "post", :form_id => "1" }
+  it { should route( :get, "/status/abcd" ).to :controller => "root", :action => "status", :token => "abcd" }
 
   context "on GET to :index" do
     before(:each) do
       get :index
     end
 
-    should_assign_to :user
-    should_assign_to :user_session
-    should_respond_with :success
-    should_render_template :about
+    it { should assign_to :user }
+    it { should assign_to :user_session }
+    it { should respond_with :success }
+    it { should render_template :about }
   end
 
 end

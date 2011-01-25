@@ -1,7 +1,6 @@
 
 Message.blueprint do
   form
-  user { form.user }
-  data { [ Sham.email, Sham.name, Sham.title, Sham.body ] }
-  token
+  data { [ Faker::Internet.email, Faker::Name.name, Faker::Lorem.sentence, Faker::Lorem.paragraph ] }
+  token { Faker::Lorem.sentence }
 end

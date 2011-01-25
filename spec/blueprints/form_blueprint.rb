@@ -1,7 +1,7 @@
 
 Form.blueprint do
-  title
-  description
   user
-  submit_title { Sham.title }
+  title { Faker::Lorem.sentence }
+  description { Faker::Lorem.paragraph }
+  submit_title { Faker::Lorem.sentence }
 end

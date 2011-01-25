@@ -3,16 +3,16 @@ require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 describe Message do
 
   before :all do
-    @f = Form.make( :fields => [
+    @f = Form.make! :fields => [
       Form::EmailField.new( :title => I18n.t( 'form_fields.email' ), :required => true ),
       Form::StringField.new( :title => I18n.t( 'form_fields.title' ) ),
       Form::TextField.new( :title => I18n.t( 'form_fields.content' ) )
-    ])
+    ]
   end
 
   context "new" do
     before :all do
-      @m = Message.make( :data => [Sham.email, Sham.title, Sham.body], :form => @f )
+      @m = Message.make!( :data => [Faker::Internet.email, Faker::Lorem.sentence, Faker::Lorem.paragraph], :form => @f )
     end
 
     it { @m.should be_valid }
@@ -23,7 +23,7 @@ describe Message do
 
   context "with no email" do
     before :all do
-      @m = Message.make_unsaved( :data => [nil, Sham.title, Sham.body], :form => @f )
+      @m = Message.make( :data => [nil, Faker::Lorem.sentence, Faker::Lorem.paragraph], :form => @f )
     end
 
     it { @m.should_not be_valid }
@@ -34,7 +34,7 @@ describe Message do
 
   context "with ivalid email" do
     before :all do
-      @m = Message.make_unsaved( :data => ['123@111', Sham.title, Sham.body], :form => @f )
+      @m = Message.make( :data => ['123@111', Faker::Lorem.sentence, Faker::Lorem.paragraph], :form => @f )
     end
 
     it { @m.should_not be_valid }
@@ -43,6 +43,6 @@ describe Message do
     it { @m.should have(0).errors_on(2) }
   end
 
-  specify { Message.make_unsaved( :data => [Sham.email, nil, Sham.body], :form => @f ).should be_valid }
+  specify { Message.make( :data => [Faker::Internet.email, nil, Faker::Lorem.paragraph], :form => @f ).should be_valid }
 
 end

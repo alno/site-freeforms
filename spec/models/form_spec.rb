@@ -11,18 +11,19 @@ describe Form do
   describe "generated" do
 
     before(:all) do
-      @form = Form.make
+      @form = Form.make!
     end
 
     it { @form.should be_valid }
     it { @form.access_key.should_not be_nil }
+    it { @form.user.should_not be_nil }
 
   end
 
   describe "default" do
 
     before(:all) do
-      @user = User.make
+      @user = User.make!
       @form = @user.forms.create
     end
 
