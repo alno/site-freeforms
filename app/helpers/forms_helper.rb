@@ -46,9 +46,9 @@ module FormsHelper
     index = "#{type}_proto"
 
     html = field.render_input( form.id, index )
-    html << "<div id=\"fe_#{form.id}_#{index}\" class=\"form_editor\">"
+    html << "<div id=\"fe_#{form.id}_#{index}\" class=\"form_editor\">".html_safe
     html << render( :partial => "forms/editor/fields/#{type}", :locals => { :field => field, :index => index, :form => form } )
-    html << "</div>"
+    html << "</div>".html_safe
   end
 
 end
