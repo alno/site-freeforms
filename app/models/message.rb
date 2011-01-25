@@ -17,7 +17,7 @@ class Message < ActiveRecord::Base
 
   validate :check_fields, :on => :create
 
-  before_create :setup_user
+  before_validation_on_create :setup_user
 
   # Кол-во сообщений на одну страницу
   def self.per_page

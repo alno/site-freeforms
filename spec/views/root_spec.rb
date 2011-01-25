@@ -1,11 +1,9 @@
 require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 
 describe "root/about.html" do
-  before do
-    render 'root/about.html'
-  end
+  before { render }
 
   it "should include link to root" do
-    response.should have_text(/#{root_path}/)
+    rendered.should include root_path
   end
 end

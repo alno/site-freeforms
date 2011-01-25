@@ -20,7 +20,7 @@ gem 'haml'
 group :development, :test do
   gem 'sqlite3-ruby', :require => 'sqlite3'
 
-  gem 'rspec-rails', '>= 2.0.0'
+  gem 'rspec-rails', '>= 2.1.0'
   gem 'email_spec', '>= 1.1.1'
   gem 'shoulda-matchers'
 

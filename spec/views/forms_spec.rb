@@ -3,14 +3,14 @@ require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 describe "forms/code.js" do
 
   before do
-    assigns[:form] = Form.make
+    assigns[:form] = Form.make!
 
-    render 'forms/code.js'
+    render
   end
 
   it "should include fields" do
-    response.should have_text(/name="fields\[0\]"/)
-    response.should have_text(/name="fields\[1\]"/)
+    rendered.should include 'name="fields[0]"'
+    rendered.should include 'name="fields[1]"'
   end
 
 end
@@ -18,14 +18,14 @@ end
 describe "forms/code.html" do
 
   before do
-    assigns[:form] = @form = Form.make
+    assigns[:form] = @form = Form.make!
 
-    render 'forms/code.html'
+    render
   end
 
   it "should include fields" do
-    response.should have_text(/#{Regexp.quote(@form.title)}/)
-    response.should have_text(/#{Regexp.quote(@form.code)}/)
+    rendered.should include @form.title
+    rendered.should include @form.code
   end
 
 end
@@ -35,17 +35,17 @@ describe "forms/new.html" do
   context "with basic form" do
 
     before do
-      assigns[:form] = @form = Form.make_unsaved
+      assigns[:form] = @form = Form.make
 
-      render 'forms/new.html'
+      render
     end
 
     it "should include form title" do
-      response.should have_text(/#{Regexp.quote(@form.title)}/)
+      rendered.should include @form.title
     end
 
     it "should include form submit title" do
-      response.should have_text(/#{Regexp.quote(@form.submit_title)}/)
+      rendered.should include @form.submit_title
     end
 
   end
@@ -53,13 +53,13 @@ describe "forms/new.html" do
   context "with form having empty title" do
 
     before do
-      assigns[:form] = @form = Form.make_unsaved( :title => '' )
+      assigns[:form] = @form = Form.make( :title => '' )
 
-      render 'forms/new.html'
+      render
     end
 
     it "should include form submit title" do
-      response.should have_text(/#{Regexp.quote(@form.submit_title)}/)
+      rendered.should include @form.submit_title
     end
 
   end
@@ -67,13 +67,13 @@ describe "forms/new.html" do
   context "with form having empty submit title" do
 
     before do
-      assigns[:form] = @form = Form.make_unsaved( :submit_title => '' )
+      assigns[:form] = @form = Form.make( :submit_title => '' )
 
-      render 'forms/new.html'
+      render
     end
 
     it "should include form title" do
-      response.should have_text(/#{Regexp.quote(@form.title)}/)
+      rendered.should include @form.title
     end
 
   end

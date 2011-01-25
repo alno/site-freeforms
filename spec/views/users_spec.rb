@@ -2,12 +2,12 @@ require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 
 describe "accounts/show.html" do
   before do
-    assigns[:user] = @user = User.make_unsaved
+    assigns[:user] = @user = User.make
 
-    render 'accounts/show.html'
+    render
   end
 
   it "should contain user email" do
-    response.should have_text(/#{Regexp.quote(@user.email)}/)
+    rendered.should include @user.email
   end
 end
