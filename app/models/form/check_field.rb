@@ -14,6 +14,7 @@ class Form::CheckField < Form::Field
     s << "<input type=\"checkbox\" name=\"fields[#{field_num}]\" value=\"1\" />"
     s << "<label for=\"fields[#{field_num}]\">#{escaped_title}</label>"
     s << "<span id=\"mfe_#{form_id}_#{field_num}\"></span></p>"
+    s.html_safe
   end
   
 end

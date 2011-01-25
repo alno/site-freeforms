@@ -36,7 +36,8 @@ class Form::RadioField < Form::Field
       s << ">#{e v}</input>"
     end
     
-    s += "<span id=\"mfe_#{form_id}_#{field_num}\"></span></p>"
+    s << "<span id=\"mfe_#{form_id}_#{field_num}\"></span></p>"
+    s.html_safe
   end
   
   def error_for(value)    

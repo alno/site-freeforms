@@ -12,8 +12,9 @@ class Form::EmailField < Form::Field
   
   def render_input( form_id, field_num )
     s = "<p id=\"mf_#{form_id}_#{field_num}\" class=\"mf_email\"><label for=\"fields[#{field_num}]\">#{escaped_title}</label><input type=\"text\" name=\"fields[#{field_num}]\""
-    s += " value=\"#{escaped_default}\"" if default
-    s += " /><span id=\"mfe_#{form_id}_#{field_num}\"></span></p>"
+    s << " value=\"#{escaped_default}\"" if default
+    s << " /><span id=\"mfe_#{form_id}_#{field_num}\"></span></p>"
+    s.html_safe
   end
   
   def error_for(value)    

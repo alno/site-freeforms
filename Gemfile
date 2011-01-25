@@ -2,14 +2,13 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.0.3'
 
-gem 'mysql2'
+gem 'authlogic' # , :git => 'git://github.com/odorcicd/authlogic.git', :branch => 'rails3'
 
-gem 'authlogic'
-gem 'spreadsheet'
-gem 'irwi'
 gem 'will_paginate', ">= 3.0.pre2"
 gem 'delayed_job'
-gem 'jrails'
+gem 'irwi'
+
+gem 'jquery-rails'
 
 gem 'csv_builder'
 gem 'ekuseru'
@@ -18,10 +17,20 @@ gem 'rails3_acts_as_paranoid'
 
 gem 'haml'
 
-gem 'sqlite3-ruby', :require => 'sqlite3'
-
 group :development, :test do
+  gem 'sqlite3-ruby', :require => 'sqlite3'
+  
   gem 'rspec-rails', '>= 2.0.0'
+  
+  gem 'faker'
+  gem 'machinist', '>= 2.0.0.beta2'
+  
+  gem 'ruby-debug'
+end
+
+group :production do
+  gem 'mysql2'
+  #gem 'ambethia-smtp-tls', :lib => 'smtp-tls'
 end
 
 # Use unicorn as the web server
@@ -29,10 +38,6 @@ end
 
 # Deploy with Capistrano
 # gem 'capistrano'
-
-# To use debugger (ruby-debug for Ruby 1.8.7+, ruby-debug19 for Ruby 1.9.2+)
-# gem 'ruby-debug'
-# gem 'ruby-debug19'
 
 # Bundle the extra gems:
 # gem 'bj'

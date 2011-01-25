@@ -15,7 +15,7 @@ class LabellingFormBuilder < ActionView::Helpers::FormBuilder
   (field_helpers - %w(check_box radio_button hidden_field label)).each do |selector|
     src = <<-END_SRC
       def #{selector}(field, options = {})
-        '<p class="' + field.to_s + '">' + smart_label( field ) + super + '</p>'
+        ('<p class="' + field.to_s + '">' + smart_label( field ) + super + '</p>').html_safe
       end
     END_SRC
         
@@ -25,7 +25,7 @@ class LabellingFormBuilder < ActionView::Helpers::FormBuilder
   %w(check_box radio_button).each do |selector|
     src = <<-END_SRC
       def #{selector}(field, options = {})
-        '<p class="' + field.to_s + '">' + super + smart_label( field ) + '</p>'
+        ('<p class="' + field.to_s + '">' + super + smart_label( field ) + '</p>').html_safe
       end
     END_SRC
         

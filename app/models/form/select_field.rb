@@ -36,7 +36,8 @@ class Form::SelectField < Form::Field
       s << ">#{e v}</option>"
     end
     
-    s += "</select><span id=\"mfe_#{form_id}_#{field_num}\"></span></p>"
+    s << "</select><span id=\"mfe_#{form_id}_#{field_num}\"></span></p>"
+    s.html_safe
   end
   
   def error_for(value)    

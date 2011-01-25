@@ -60,7 +60,7 @@ var mf_<%=@form.id%> = new function() {
 	this.build = function() {
 		attachStyle('<%="http://#{JS_HOST}/forms/#{@form.id}/code.css" %>');
 		
-		document.writeln( '<%= form_html( @form ).gsub('\'') { |s| '\\\'' } %>' );
+		document.writeln( '<%=raw form_html( @form ).gsub('\'') { |s| '\\\'' } %>' );
 	}
 	
 	return this;

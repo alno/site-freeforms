@@ -1,6 +1,4 @@
-log
-config.ru
-tmp
-.project
-.buildpath
-config/deploy.rb
+.bundle
+db/*.sqlite3
+log/*.log
+tmp/**/*

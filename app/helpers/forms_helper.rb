@@ -1,7 +1,7 @@
 module FormsHelper
   
   def e(str)
-    HTMLEntities.encode_entities(str, :basic, :decimal)
+    HTMLEntities.encode_entities(str, :basic, :decimal).html_safe
   end
   
   def wrap_style( form )
@@ -34,7 +34,7 @@ module FormsHelper
   end
   
   def form_html( form )
-    render( :partial => 'forms/code.html', :locals => { :form => form } ).gsub( /\s*\n\s*/, '' )
+    render( :partial => 'forms/code.html', :locals => { :form => form } ).gsub( /\s*\n\s*/, '' ).html_safe
   end
   
   def field_editor_remove
