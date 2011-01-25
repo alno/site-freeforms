@@ -3,15 +3,15 @@
     %ul
       %li
         %a{ :href => '#account-main' }= t 'titles.accounts.show'
-        
+
     #account-main
       = f.error_messages
-      
+
       = f.password_field :password
       = f.password_field :password_confirmation
-      
+
   %br
-    
+
   = f.submit_update :class => 'button'
   = styled_link_to :cancel, account_path
 

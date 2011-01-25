@@ -1,5 +1,5 @@
 %ul.l
-%ul.r  
+%ul.r
   - if current_user
     %li= "Вы вошли как #{link_to( current_user.email, account_path )} &nbsp;&nbsp;|&nbsp;&nbsp; #{link_to( t( 'actions.session.destroy' ), logout_path )}".html_safe
   - else

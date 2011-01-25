@@ -1,6 +1,6 @@
 - form_for( @form, :url => forms_path, :html => { :method => :post } ) do |f|
   = render :partial => 'forms/editor/editor', :locals => { :form => @form, :type => 'editor', :f => f }
-  
+
   %br
   = f.submit t('actions.form.create'), :class => 'button'
 

@@ -13,18 +13,18 @@
 #form_panes.panes
   #form-description
     = render :partial => "forms/viewer/common", :locals => { :form => @form }
-    
+
   #form-fields
     = render :partial => "forms/viewer/fields", :locals => { :form => @form }
-  
+
   #form-style
     = render :partial => "forms/viewer/style", :locals => { :form => @form }
-              
+
   #form-code
     %p
       %b=t(:form_code_inline) + ':'
       %pre=h @form.code(:js_inline)
-    
+
     %p
       %b=t(:form_code_popup) + ':'
       %pre=h @form.code(:popup)

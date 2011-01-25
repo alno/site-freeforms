@@ -2,14 +2,14 @@
   %ul
     %li
       %a{ :href => '#account-main' }= t 'titles.accounts.show'
-      
+
   #account-main
     %p
       %b Email
       =h @user.email
-      
+
 %br
- 
+
 = styled_link_to :edit_account, edit_account_path
 
 %script= "ui.initAccount(#{@hash || 'location.hash'});"

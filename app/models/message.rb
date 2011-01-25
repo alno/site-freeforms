@@ -14,7 +14,7 @@ class Message < ActiveRecord::Base
 
   scope :unread, :conditions => "messages.read_at IS NULL"
   scope :today, lambda { { :conditions => [ "messages.created_at > ?", Time.now - 24.hours ] } }
-  
+
   default_scope includes(:form)
 
   validate :check_fields, :on => :create

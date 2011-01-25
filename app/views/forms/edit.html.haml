@@ -1,6 +1,6 @@
 - form_for( @form ) do |f|
   = render :partial => 'forms/editor/editor', :locals => { :form => @form, :type => 'editor', :f => f }
-  
+
   %br
   = f.submit t('actions.form.update'), :class => 'button'
   = styled_link_to :cancel, form_path( @form )

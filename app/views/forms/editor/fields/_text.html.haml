@@ -1,15 +1,15 @@
 .field_type=t 'fields.text'
-  
+
 .field_common
   %input{ :type => 'hidden', :value => 'text', :name => "form[fields][][type]"}
   %input{ :type => 'hidden', :value => index, :name => "form[fields][][index]", :class => 'index_field' }
-  
+
   %label=t 'activerecord.attributes.field.title'
   %input{ :type => 'text', :value => field.title, :name => "form[fields][][title]", :onchange => "formEditor.fieldFor($(this)).find('label').html(this.value);" }
-    
+
   %label=t 'activerecord.attributes.field.default'
   %textarea{ :name => "form[fields][][default]", :onchange => "formEditor.fieldFor($(this)).find('textarea').html(this.value);" }= field.default
-  
-.field_options  
+
+.field_options
   %input{ :type => 'checkbox', :value => '1', :name => "form[fields][][required]", :checked => (field.required? || nil) }
   %label=t 'activerecord.attributes.field.required'

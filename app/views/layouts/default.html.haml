@@ -10,7 +10,7 @@
     = javascript_include_tag 'bundle_app'
     = yield :javascripts
   %body
-    
+
     <!--LiveInternet counter--><script type="text/javascript"><!--
     new Image().src = "http://counter.yadro.ru/hit?r"+
     escape(document.referrer)+((typeof(screen)=="undefined")?"":
@@ -30,12 +30,12 @@
 
     #header= render :partial => 'layouts/header'
     #topmenu= render :partial => 'layouts/topmenu'
-        
+
     - if not without_panel?
-      #left= render :partial => 'layouts/sidebar'      
+      #left= render :partial => 'layouts/sidebar'
       #title
         %h1= page_title
-      #content    		  
+      #content
         = yield
     - else
       #content-full
@@ -43,9 +43,9 @@
         = yield
 
     #footer
-      .l 
+      .l
         2009 &copy <a href="/authors">Алексей Носков и Анатолий Макаровский</a><br /> &nbsp;
       .r
       .c
-        <a href="/register">зарегистрироваться</a> ׀ <a href="/restore">восстановить пароль</a><br /> 
+        <a href="/register">зарегистрироваться</a> ׀ <a href="/restore">восстановить пароль</a><br />
         <a href="/messages">мои сообщения</a> ׀ <a href="/forms">мои формы</a> ׀ <a href="/about">о проекте</a>

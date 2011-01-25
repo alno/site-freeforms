@@ -56,7 +56,7 @@ Freeforms::Application.configure do
 
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
-  
+
   config.middleware.use ExceptionNotifier,
     :email_prefix => "[FreeForms] ",
     :sender_address => %{"FreeForms Error" <noreply@freeforms.ru>},

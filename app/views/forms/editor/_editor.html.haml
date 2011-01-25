@@ -17,7 +17,7 @@
         - ['string','text','email','select','radio','check'].each do |type|
           %li= link_to_function t("fields.#{type}"), "formEditor.addField('#{form.id}','#{type}_proto')"
     %li=link_to_function "Свойства формы", "$('\#mfd_#{@form.id} h3').click()"
-    
+
   .form_editor{ :id => "fe_#{form.id}" }
     = render :partial => "forms/editor/form", :locals => { :form => @form, :f => f }
   - @form.fields.each_with_index do |field,index|
@@ -25,7 +25,7 @@
       = render :partial => "forms/editor/fields/#{field.type}", :locals => { :field => field, :index => index, :form => @form, :f => f }
 
 #form_editor_footer
-  
+
 %img#left_arrow{ :src => '/images/icons/arrow-left.png', :alt => '', :style => 'display:none; position: absolute;' }
 
 %script

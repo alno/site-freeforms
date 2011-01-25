@@ -1,9 +1,9 @@
 - labelling_form_for @user, :as => :account_password, :url => account_password_path, :html => { :method => :put, :id => 'set_password_form' } do |f|
   = f.error_messages
-  
+
   = f.password_field :password
   = f.password_field :password_confirmation
-  
+
   = f.submit_update
 
 %script ui.initSetPassword();

@@ -6,32 +6,32 @@
   %br
 
   %p <b>ШАГ 1:</b> Для получения сообщений из формы вам понадобится пароль - укажите адрес на который вам его выслать:
-      
-  - unless @user.errors.empty?  
+
+  - unless @user.errors.empty?
     #flash-error
       Ошибка регистрации!
       %ul
         - @user.errors.each_full do |e|
           %li= e
-              
-  .center 
+
+  .center
     <label for="account_email">E-Mail: </label><input id="account_email" name="account[email]" size="30" type="text" value="#{@user.email}" />
     <span style="float:right">Кстати, если хотите, можете придумать пароль сами: <input id="account_password" name="account[password]" size="30" type="password" /></span>
 
   %hr
 
-  %p 
-    <b>ШАГ 2:</b> 
+  %p
+    <b>ШАГ 2:</b>
     Это Ваша форма, если хотите, можете отредактировать ее прямо сейчас (можно сделать это потом, в любое время).
     Вы можете добавить и переименовать поля, изменить цвет и шрифт, назначить содержание полей по умолчанию.
-      
+
   = fields_for @form, :as => :form do |ff|
     = render :partial => 'forms/editor/editor', :locals => { :form => @form, :type => 'editor', :f => ff }
 
   %hr
-  
+
   %p <b>ШАГ 3:</b> Получите код формы для вставки в сайт, блог и т.п. - просто нажмите кнопку:
-      
+
   = f.submit_create :class => 'button'
-  
+
 = render :partial => 'forms/editor/protos', :locals => { :form => @form }

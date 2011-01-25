@@ -11,7 +11,7 @@
     - @forms.each do |form|
       %tr{ :class => cycle('even','odd') }
         %td= link_to form.alias, form_path( form )
-        %td= link_to form.title, form_path( form )      
+        %td= link_to form.title, form_path( form )
         %td= form.fields.size
         %td
           = link_to( form.messages.size, messages_form_path( form ) )
@@ -21,4 +21,3 @@
           = link_to image_tag( 'icons/edit.png', :alt => 'actions.form.edit' ), edit_form_path( form )
           = link_to image_tag( 'icons/new.png', :alt => 'actions.form.clone' ), clone_form_path( form )
           = link_to image_tag( 'icons/delete.png', :alt => 'actions.form.destroy' ), form_path( form ), :title => t('tooltips.forms.delete'), :confirm => t('confirm.destroy_form'), :method => :delete
-    
