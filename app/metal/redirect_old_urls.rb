@@ -2,7 +2,7 @@
 require(File.dirname(__FILE__) + "/../../config/environment") unless defined?(Rails)
 
 class RedirectOldUrls
-  
+
   def self.call(env)
     if Rails.env == 'production' && env["HTTP_HOST"] != APP_HOST
       [301, {"Location" => "http://#{APP_HOST}#{env["REQUEST_URI"]}"}, ["Found"]]
@@ -12,5 +12,5 @@ class RedirectOldUrls
       [404, {"Content-Type" => "text/html"}, ["Not Found"]]
     end
   end
-  
+
 end

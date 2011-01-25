@@ -12,7 +12,7 @@ class CreateMessages < ActiveRecord::Migration
       t.timestamp :read_at
       t.timestamps
     end
-    
+
     add_index :messages, :parent_id
     add_index :messages, :user_id
     add_index :messages, :token
@@ -22,7 +22,7 @@ class CreateMessages < ActiveRecord::Migration
     remove_index :messages, :parent_id
     remove_index :messages, :user_id
     remove_index :messages, :token
-    
+
     drop_table :messages
   end
 end

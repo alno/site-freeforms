@@ -1,15 +1,15 @@
 module WikiPagesHelper
   #include Irwi::Helpers::WikiPagesHelper
-  
+
 #  def page_title
 #    case controller.action_name
-#      when 'history' 
+#      when 'history'
 #        "История изменений #{@page.title}"
-#      when 'edit' 
+#      when 'edit'
 #        "Редактирование #{@page.title}"
-#      else      
+#      else
 #        @page.title || "Новая страница"
-#    end  
+#    end
 #  end
-#  
+#
 end

@@ -3,7 +3,7 @@
 #
 
 module HTMLEntities
-  
+
   class InstructionError < RuntimeError
   end
 
@@ -60,7 +60,7 @@ module HTMLEntities
       'sbquo'     => 8218,      'ldquo'     => 8220,      'rdquo'     => 8221,
       'bdquo'     => 8222,      'dagger'    => 8224,      'Dagger'    => 8225,
       'hellip'    => 8230,      'permil'    => 8240,      'lsaquo'    => 8249,
-      'rsaquo'    => 8250,      'euro'      => 8364 
+      'rsaquo'    => 8250,      'euro'      => 8364
     }
 
     MIN_LENGTH = MAP.keys.map{ |a| a.length }.min
@@ -72,15 +72,15 @@ module HTMLEntities
 
     UTF8_NON_ASCII_REGEXP = /[\x00-\x1f]|[\xc0-\xfd][\x80-\xbf]+/
 
-    ENCODE_ENTITIES_COMMAND_ORDER = { 
+    ENCODE_ENTITIES_COMMAND_ORDER = {
       :basic => 0,
       :named => 1,
       :decimal => 2,
       :hexadecimal => 3
     }
-  
+
   end
-  
+
   #
   # Decode XML and HTML 4.01 entities in a string into their UTF-8
   # equivalents.  Obviously, if your string is not already in UTF-8, you'd
@@ -90,13 +90,13 @@ module HTMLEntities
   # Unknown named entities are not converted
   #
   def decode_entities(string)
-    return string.gsub(Data::NAMED_ENTITY_REGEXP) { 
-      (cp = Data::MAP[$1]) ? [cp].pack('U') : $& 
-    }.gsub(/&#([0-9]{1,7});|&#x([0-9a-f]{1,6});/i) { 
-      $1 ? [$1.to_i].pack('U') : [$2.to_i(16)].pack('U') 
+    return string.gsub(Data::NAMED_ENTITY_REGEXP) {
+      (cp = Data::MAP[$1]) ? [cp].pack('U') : $&
+    }.gsub(/&#([0-9]{1,7});|&#x([0-9a-f]{1,6});/i) {
+      $1 ? [$1.to_i].pack('U') : [$2.to_i(16)].pack('U')
     }
   end
-  
+
   #
   # Encode codepoints into their corresponding entities.  Various operations
   # are possible, and may be specified in order:
@@ -125,10 +125,10 @@ module HTMLEntities
   def encode_entities(string, *instructions)
     output = nil
     if (instructions.empty?)
-      instructions = [:basic] 
+      instructions = [:basic]
     else
-      instructions = instructions.sort_by { |instruction| 
-        Data::ENCODE_ENTITIES_COMMAND_ORDER[instruction] || 
+      instructions = instructions.sort_by { |instruction|
+        Data::ENCODE_ENTITIES_COMMAND_ORDER[instruction] ||
         (raise InstructionError, "unknown encode_entities command `#{instruction.inspect}'")
       }
     end
@@ -142,7 +142,7 @@ module HTMLEntities
           '&' << Data::REVERSE_MAP[$&[0]] << ';'
         }
       when :named
-        # Test everything except printable ASCII 
+        # Test everything except printable ASCII
         output = (output || string).gsub(Data::UTF8_NON_ASCII_REGEXP) {
           cp = $&.unpack('U')[0]
           (e = Data::REVERSE_MAP[cp]) ?  "&#{e};" : $&
@@ -155,11 +155,11 @@ module HTMLEntities
         output = (output || string).gsub(Data::UTF8_NON_ASCII_REGEXP) {
           "&#x#{$&.unpack('U')[0].to_s(16)};"
         }
-      end 
+      end
     end
     return output
   end
-  
+
   extend self
-  
+
 end

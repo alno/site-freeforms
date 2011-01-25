@@ -11,10 +11,10 @@ Given /^I am logged in as "([^\"]*)"$/ do |email|
   )
 
   visit '/'
-  fill_in("session[email]", :with => @current_user.email) 
-  fill_in("session[password]", :with => @current_user.password) 
+  fill_in("session[email]", :with => @current_user.email)
+  fill_in("session[password]", :with => @current_user.password)
   click_button("Войти")
-  
+
   response.body.should =~ /вошли/m
 end
 
@@ -36,10 +36,10 @@ end
 
 Then /^I should be able to login as "([^\"]*)" with "([^\"]*)"$/ do |email, password|
   visit '/logout'
-  fill_in("session[email]", :with => email) 
-  fill_in("session[password]", :with => password) 
+  fill_in("session[email]", :with => email)
+  fill_in("session[password]", :with => password)
   click_button("Войти")
-  
+
   response.body.should =~ /вошли/m
 end
 

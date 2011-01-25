@@ -1,5 +1,5 @@
 class AddDeletedAt < ActiveRecord::Migration
-  def self.up    
+  def self.up
     add_column :users, :deleted_at, :timestamp
     add_column :forms, :deleted_at, :timestamp
     add_column :messages, :deleted_at, :timestamp

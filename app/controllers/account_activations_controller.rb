@@ -1,15 +1,15 @@
 class AccountActivationsController < ApplicationController
-  
+
   before_filter :load_user_using_perishable_token, :only => [:show]
-  
+
   def show
     unless @user.activated_at
       @user.activated_at = Time.now
       @user.save
     end
-    
+
     @user_session = UserSession.new( @user )
-    
+
     if @user_session.save
       flash[:notice] = I18n.t('notice.account_activated')
       redirect_to form_url( @user.forms.first )

@@ -1,6 +1,6 @@
 class Form::Style < Styles::Base
 
-  attr_with_default :background, '#fff'  
+  attr_with_default :background, '#fff'
 
   attr_with_default :font_family, 'Verdana'
   attr_with_default :font_size, 15

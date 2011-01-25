@@ -6,5 +6,5 @@ class FormCodeSweeper < ActionController::Caching::Sweeper
     expire_page(:controller => "forms", :action => %w( code ), :id => form.id, :format => :js )
     expire_page(:controller => "forms", :action => %w( code ), :id => form.id, :format => :css )
   end
-  
+
 end
