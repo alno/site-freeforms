@@ -1,3 +1,5 @@
+require 'exception_notifier'
+
 Freeforms::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
@@ -54,6 +56,11 @@ Freeforms::Application.configure do
 
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
+  
+  config.middleware.use ExceptionNotifier,
+    :email_prefix => "[FreeForms] ",
+    :sender_address => %{"FreeForms Error" <noreply@freeforms.ru>},
+    :exception_recipients => %w{alexey.noskov@gmail.com}
 end
 
 MAIL_HOST = 'freeforms.ru'

@@ -2,7 +2,7 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.0.3'
 
-gem 'authlogic' # , :git => 'git://github.com/odorcicd/authlogic.git', :branch => 'rails3'
+gem 'authlogic', :git => 'git://github.com/odorcicd/authlogic.git', :branch => 'rails3'
 
 gem 'will_paginate', ">= 3.0.pre2"
 gem 'delayed_job'
@@ -10,10 +10,12 @@ gem 'irwi'
 
 gem 'jquery-rails'
 
-gem 'csv_builder'
+gem 'csv_builder', :git => 'git://github.com/mreinsch/csv_builder.git'
 gem 'ekuseru'
 
 gem 'rails3_acts_as_paranoid'
+
+gem 'exception_notification', :git => 'git://github.com/rails/exception_notification.git'
 
 gem 'haml'
 
