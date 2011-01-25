@@ -20,6 +20,8 @@ gem 'exception_notification', :git => 'git://github.com/rails/exception_notifica
 gem 'haml'
 gem 'smart_chart'
 
+gem 'mysql2'
+
 group :development, :test do
   gem 'sqlite3-ruby', :require => 'sqlite3'
 
@@ -37,11 +39,6 @@ group :development, :test do
   gem 'database_cleaner'  
 
   gem 'ruby-debug'
-end
-
-group :production do
-  gem 'mysql2'
-  #gem 'ambethia-smtp-tls', :lib => 'smtp-tls'
 end
 
 # Use unicorn as the web server
