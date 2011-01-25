@@ -22,7 +22,7 @@ gem 'smart_chart'
 
 gem 'mysql2'
 
-groyup :production do
+group :production do
   gem 'unicorn'
 end
 
