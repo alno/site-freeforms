@@ -12,12 +12,14 @@ class Message < ActiveRecord::Base
   validates_presence_of :user
   validates_presence_of :data
 
-  scope :unread, :conditions => "read_at IS NULL"
-  scope :today, lambda { { :conditions => [ "created_at > ?", Time.now - 24.hours ] } }
+  scope :unread, :conditions => "messages.read_at IS NULL"
+  scope :today, lambda { { :conditions => [ "messages.created_at > ?", Time.now - 24.hours ] } }
+  
+  default_scope includes(:form)
 
   validate :check_fields, :on => :create
 
-  before_validation_on_create :setup_user
+  before_validation :setup_user, :on => :create
 
   # Кол-во сообщений на одну страницу
   def self.per_page

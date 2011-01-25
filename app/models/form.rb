@@ -8,7 +8,7 @@ class Form < ActiveRecord::Base
 
   belongs_to :user
 
-  has_many :messages, :order => 'created_at DESC'
+  has_many :messages, :order => 'forms.created_at DESC'
 
   validates_presence_of :user, :submit_title, :title, :alias
 

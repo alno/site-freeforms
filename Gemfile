@@ -18,6 +18,7 @@ gem 'rails3_acts_as_paranoid'
 gem 'exception_notification', :git => 'git://github.com/rails/exception_notification.git'
 
 gem 'haml'
+gem 'smart_chart'
 
 group :development, :test do
   gem 'sqlite3-ruby', :require => 'sqlite3'
