@@ -22,6 +22,10 @@ gem 'smart_chart'
 
 gem 'mysql2'
 
+groyup :production do
+  gem 'unicorn'
+end
+
 group :development, :test do
   gem 'sqlite3-ruby', :require => 'sqlite3'
 
@@ -40,9 +44,6 @@ group :development, :test do
 
   gem 'ruby-debug'
 end
-
-# Use unicorn as the web server
-# gem 'unicorn'
 
 # Deploy with Capistrano
 # gem 'capistrano'
