@@ -1,6 +1,6 @@
 = render :partial => 'messages/filter'
 
-- paginated_section @messages, :previous_label => t('ui.pagination.prev'), :next_label => t('ui.pagination.next') do
+= paginated_section @messages, :previous_label => t('ui.pagination.prev'), :next_label => t('ui.pagination.next') do
 
   %table#messages_table{ :cellspacing => 0 }
     %tr.header

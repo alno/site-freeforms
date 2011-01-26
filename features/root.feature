@@ -12,7 +12,6 @@ Feature: Root page
     Given I am on the homepage
     When I follow "о проекте"
     Then I should be on the about page
-    And I should see "О проекте"
     
   Scenario: Logged in see around
     Given I am logged in as "tester@mail.ru"

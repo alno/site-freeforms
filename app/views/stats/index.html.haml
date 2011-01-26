@@ -6,7 +6,8 @@
   Всего:
   = User.count
 
-%img{ :src => @users_chart.to_url }
+%img{ :src => chart_for( User, :months ).to_url }
+%img{ :src => chart_for( User, :days ).to_url }
 
 %h3 Формы
 
@@ -17,7 +18,8 @@
   Всего:
   = Form.with_deleted.count
 
-%img{ :src => @forms_chart.to_url }
+%img{ :src => chart_for( Form, :months ).to_url }
+%img{ :src => chart_for( Form, :days ).to_url }
 
 %h3 Сообщения
 
@@ -28,4 +30,5 @@
   Всего:
   = Message.with_deleted.count
 
-%img{ :src => @messages_chart.to_url }
+%img{ :src => chart_for( Message, :months ).to_url }
+%img{ :src => chart_for( Message, :days ).to_url }

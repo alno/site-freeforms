@@ -1,3 +1,6 @@
+require 'email_spec'
+require 'email_spec/cucumber'
+
 # Commonly used email steps
 #
 # To add your own steps make a custom_email_steps.rb

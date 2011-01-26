@@ -38,11 +38,12 @@ group :development, :test do
   gem 'machinist', '>= 2.0.0.beta2'
 
   # Integration testing
-  gem 'cucumber-rails', '>= 0.3.2'
-  gem 'capybara', '~> 0.3.9'
+  gem 'cucumber-rails', :git => 'git://github.com/aslakhellesoy/cucumber-rails.git'
+  gem 'capybara', '>= 0.4.1.1'
   gem 'database_cleaner'  
 
   gem 'ruby-debug'
+  gem 'launchy'
 end
 
 # Deploy with Capistrano
