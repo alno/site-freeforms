@@ -12,7 +12,7 @@ class FormsController < ApplicationController
   caches_page :code
 
   def index
-    @forms = current_user.forms.paginate( :all, :page => params[:page], :order => 'created_at DESC' )
+    @forms = current_user.forms.paginate( :all, :page => params[:page], :order => 'forms.created_at DESC' )
 
     respond_to do |format|
       format.html
@@ -83,7 +83,7 @@ class FormsController < ApplicationController
     respond_to do |format|
 
       format.html do
-        @messages = msgs.paginate( :all, :page => params[:page], :order => 'created_at DESC' )
+        @messages = msgs.paginate( :all, :page => params[:page], :order => 'messages.created_at DESC' )
 
         render :action => 'messages'
       end
