@@ -2,6 +2,10 @@ require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 
 describe Form do
 
+  before(:all) do
+    Form.make!
+  end
+
   it { should validate_uniqueness_of :access_key }
   it { should validate_presence_of :submit_title }
   it { should validate_presence_of :user }

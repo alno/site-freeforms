@@ -69,7 +69,7 @@ end
 
 describe "forms/messages.html with unread" do
   before :all do
-    @form = Form.make
+    @form = Form.make!
     @messages = [ Message.make( :read_at => Time.now, :form => @form ), Message.make( :form => @form ) ].paginate
   end
 

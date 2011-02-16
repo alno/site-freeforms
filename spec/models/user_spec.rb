@@ -3,11 +3,11 @@ require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 describe User do
 
   specify "should not create a new instance without password" do
-    User.make_unsaved( :password => nil ).should have(2).error_on(:password)
+    User.make( :password => nil ).should have(2).error_on(:password)
   end
 
   specify "should not create a new instance with invalid email" do
-    User.make_unsaved( :email => 'fe&r3d((' ).should have(1).error_on(:email)
+    User.make( :email => 'fe&r3d((' ).should have(1).error_on(:email)
   end
 
   it { should have_many :forms }
@@ -18,7 +18,7 @@ describe User do
   context "new" do
 
     before(:all) do
-      @u = User.make
+      @u = User.make!
     end
 
     it { @u.should be_valid }
@@ -35,7 +35,7 @@ describe "Mail" do
   default_url_options[:host] = APP_HOST
 
   before(:all) do
-    @user = User.make
+    @user = User.make!
   end
 
   context "for Signup" do
