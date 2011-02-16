@@ -43,7 +43,7 @@ var mf_<%=@form.id%> = new function() {
 
 	this.onError = function(errors) {
 		for ( var i = 0; i < errors.length; ++ i ) {
-			var error = errors[i].substring(1);
+			var error = errors['f'+i];
 			document.getElementById('mf_<%=@form.id%>_'+error[0]).className += ' error';
 			document.getElementById('mfe_<%=@form.id%>_'+error[0]).innerHTML = error[1];
 		}

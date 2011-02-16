@@ -27,9 +27,9 @@ describe Message do
     end
 
     it { @m.should_not be_valid }
-    it { @m.should have(1).error_on(0) }
-    it { @m.should have(0).errors_on(1) }
-    it { @m.should have(0).errors_on(2) }
+    it { @m.should have(1).error_on("f0") }
+    it { @m.should have(0).errors_on("f1") }
+    it { @m.should have(0).errors_on("f2") }
   end
 
   context "with ivalid email" do
@@ -38,9 +38,9 @@ describe Message do
     end
 
     it { @m.should_not be_valid }
-    it { @m.should have(1).error_on(0) }
-    it { @m.should have(0).errors_on(1) }
-    it { @m.should have(0).errors_on(2) }
+    it { @m.should have(1).error_on("f0") }
+    it { @m.should have(0).errors_on("f1") }
+    it { @m.should have(0).errors_on("f2") }
   end
 
   specify { Message.make( :data => [Faker::Internet.email, nil, Faker::Lorem.paragraph], :form => @f ).should be_valid }
