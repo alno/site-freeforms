@@ -42,10 +42,11 @@ var mf_<%=@form.id%> = new function() {
 	},
 
 	this.onError = function(errors) {
-		for ( var i = 0; i < errors.length; ++ i ) {
-			var error = errors['f'+i];
-			document.getElementById('mf_<%=@form.id%>_'+error[0]).className += ' error';
-			document.getElementById('mfe_<%=@form.id%>_'+error[0]).innerHTML = error[1];
+		for ( var key in errors ) {
+			var error = errors[key];
+			var idx = key.substring(1);
+			document.getElementById('mf_<%=@form.id%>_'+idx).className += ' error';
+			document.getElementById('mfe_<%=@form.id%>_'+idx).innerHTML = error;
 		}
 
 		document.getElementById('mfb_<%=@form.id%>').style['display'] = 'none';
