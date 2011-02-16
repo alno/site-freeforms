@@ -43,7 +43,7 @@ class Message < ActiveRecord::Base
   def check_fields
     form.fields.each_with_index do |field,i|
       e = field.error_for( data[i] )
-      errors.add(i,e) if e
+      errors.add("f#{i}",e) if e
     end
   end
 
