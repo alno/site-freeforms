@@ -15,7 +15,7 @@ describe FormsController do
 
     it { should assign_to :form }
     it { should respond_with :success }
-    it { should render :template => :code }
+    it { should render_template :code }
   end
 
 end

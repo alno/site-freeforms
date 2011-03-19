@@ -41,7 +41,7 @@ describe "Mail" do
   context "for Signup" do
 
     before(:all) do
-      @email = UserMailer.create_activation_instructions(@user)
+      @email = UserMailer.activation_instructions(@user)
     end
 
     it "should be set to be delivered to the email passed in" do
@@ -49,7 +49,7 @@ describe "Mail" do
     end
 
     it "should contain a link to the confirmation link" do
-      @email.should have_text(/#{account_activation_url(@user.perishable_token)}/)
+      @email.should have_body_text(/#{account_activation_url(@user.perishable_token)}/)
     end
 
     it "should have the correct subject" do
@@ -61,7 +61,7 @@ describe "Mail" do
   describe "for Password Reset" do
 
     before(:all) do
-      @email = UserMailer.create_password_reset_instructions(@user)
+      @email = UserMailer.password_reset_instructions(@user)
     end
 
     it "should be set to be delivered to the email passed in" do
@@ -69,7 +69,7 @@ describe "Mail" do
     end
 
     it "should contain a link to the confirmation link" do
-      @email.should have_text(/#{account_password_url(@user.perishable_token)}/)
+      @email.should have_body_text(/#{account_password_url(@user.perishable_token)}/)
     end
 
     it "should have the correct subject" do
