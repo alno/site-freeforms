@@ -35,6 +35,14 @@ class Form::Field
 
   def required?; required; end
 
+  def support_stats?
+    false
+  end
+
+  def render_stats
+
+  end
+
   protected
 
   def e(s)

@@ -49,4 +49,8 @@ class Form::SelectField < Form::Field
     nil
   end
 
+  def support_stats?
+    true
+  end
+
 end

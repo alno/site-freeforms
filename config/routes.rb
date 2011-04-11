@@ -13,6 +13,7 @@ Freeforms::Application.routes.draw do
     member do
       get :code
       get :clone
+      get :stats
 
       get :messages
       get :unread

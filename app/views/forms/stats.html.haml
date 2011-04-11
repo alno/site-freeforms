@@ -1,0 +1,10 @@
+%ul#form_tabs.tabs
+  - @form.fields.select(&:support_stats?).each_with_index do |field,index|
+    %li
+      %a{ :href => "#form-stats-#{index}" }= field.title
+
+#form_panes.panes
+  - @form.fields.select(&:support_stats?).each_with_index do |field,index|
+    %div{ :id => "#form-stats-#{index}" }
+      = render :partial => "forms/stats/#{field.type}", :locals => { :field => field, :index => index, :messages => @form.messages }
+

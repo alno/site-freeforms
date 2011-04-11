@@ -66,6 +66,10 @@ class Form < ActiveRecord::Base
     "http://#{JS_HOST}#{FORM_CODE_PREFIX}/#{id}#{FORM_CODE_SUFFIX}.#{format}"
   end
 
+  def support_stats?
+    !!fields.detect(&:support_stats?)
+  end
+
   INNER_CLASSES = [ Form::Style, Form::StringField, Form::TextField, Form::EmailField, Form::SelectField, Form::RadioField, Form::CheckField ] # Необходимо, чтобы корректно десериализовались данные
 
 end
