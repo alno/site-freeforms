@@ -7,17 +7,16 @@ Freeforms::Application.routes.draw do
   resource :session
   resources :account_passwords
   resources :account_activations
-  resources :stats
 
   resources :forms do
     member do
       get :code
       get :clone
-      get :stats
 
       get :messages
       get :unread
       get :today
+      get :stats
     end
   end
 
@@ -25,6 +24,12 @@ Freeforms::Application.routes.draw do
     collection do
       get :unread
       get :today
+    end
+  end
+
+  resources :stats do
+    collection do
+      get :service
     end
   end
 

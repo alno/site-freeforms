@@ -1,34 +1,5 @@
-- without_panel!
+= render "stats/filter"
 
-%h3 Пользователи
-
-%p
-  Всего:
-  = User.count
-
-%img{ :src => chart_for( User, :months ).to_url }
-%img{ :src => chart_for( User, :days ).to_url }
-
-%h3 Формы
-
-%p
-  Активных:
-  = Form.count
-  %br
-  Всего:
-  = Form.with_deleted.count
-
-%img{ :src => chart_for( Form, :months ).to_url }
-%img{ :src => chart_for( Form, :days ).to_url }
-
-%h3 Сообщения
-
-%p
-  Активных:
-  = Message.count
-  %br
-  Всего:
-  = Message.with_deleted.count
-
-%img{ :src => chart_for( Message, :months ).to_url }
-%img{ :src => chart_for( Message, :days ).to_url }
+- @forms.each do |form|
+  %h3= form.alias
+  = render :partial => "forms/stats", :locals => { :form => form }

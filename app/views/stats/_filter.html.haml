@@ -1,0 +1,8 @@
+#stats_filter
+  %p
+    Форма:
+    %select{ :onchange => 'document.location = this.value' }
+      %option{ :value => stats_path, :selected => @form.nil? }= t 'ui.filter.all'
+
+      - current_user.forms.each do |form|
+        %option{ :value => stats_form_path( form ), :selected => (form == @form) }= form.alias

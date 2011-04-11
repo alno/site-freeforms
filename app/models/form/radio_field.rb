@@ -48,5 +48,9 @@ class Form::RadioField < Form::Field
 
     nil
   end
+  
+  def support_stats?
+    true
+  end
 
 end

@@ -1,0 +1,13 @@
+%ul.tabs{ :id => "form_#{form.id}_stats_tabs" }
+  - form.fields.each_with_index do |field,index|
+    - if field.support_stats?
+      %li
+        %a{ :href => "\#form-#{form.id}-stats-#{index}" }= field.title
+
+%div.panes{ :id => "form_#{form.id}_stats_panes" }
+  - form.fields.each_with_index do |field,index|
+    - if field.support_stats?
+      %div{ :id => "form-#{form.id}-stats-#{index}" }
+        = render :partial => "forms/stats/#{field.type}", :locals => { :field => field, :index => index, :messages => form.messages }
+
+%script= raw "$('#form_#{form.id}_stats_tabs').tabs('#form_#{form.id}_stats_panes > div');"

@@ -13,6 +13,13 @@
       %li= link_to "Скачать все в XLS (Excel)", messages_url( :format => :xls )
       %li= link_to "Скачать все в CSV", messages_url( :format => :csv )
 
+  %h3= link_to( t( 'actions.stats.index' ), stats_path )
+  
+  %ul
+    - current_user.forms.each do |form|
+      - if form.support_stats?
+        %li= link_to( form.alias, stats_form_path( form ) )
+  
   %h3= link_to( t( 'actions.form.index' ), forms_path )
 
   %ul
