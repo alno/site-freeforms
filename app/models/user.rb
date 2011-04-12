@@ -22,7 +22,7 @@ class User < ActiveRecord::Base
   end
 
   def deliver_signup_notification!
-    UserMailer.deliver_signup_notification(self)
+    UserMailer.send_later :deliver_signup_notification, self
   end
 
   def activated

@@ -25,7 +25,6 @@ class UserMailer < ActionMailer::Base
     from          "noreply@#{MAIL_HOST}"
     recipients    user.email
     sent_on       Time.now
-    body          args
 
     @user_email = user.email
     @user_password = user.password
