@@ -6,37 +6,37 @@ var mf_<%=@form.id%> = new function() {
 		e.src = src;
 		document.getElementsByTagName("head")[0].appendChild(e);
 	}
-	
+
 	function attachStyle(src) {
 		var e = document.createElement("link");
 		e.href = src;
 		e.rel = 'stylesheet';
-		e.type = 'text/css';	
+		e.type = 'text/css';
 		document.getElementsByTagName("head")[0].appendChild(e);
 	}
-	
+
 	function encodeForm( form ) {
 		var str = '';
-		
+
 		for ( var i = 0; i < form.elements.length; ++ i ) {
-			if ( i > 0 ) 
+			if ( i > 0 )
 				str += '&';
-			
+
 			var e = form.elements[i];
-			
+
 			if ( e.name && !e.disabled && (e.checked || /select|textarea/i.test(e.nodeName) || /text|hidden|password|search/i.test(e.type)) )
 				str += e.name + '=' + encodeURIComponent( e.value );
 		}
-		
+
 		return str;
 	}
-	
+
 	function setBlockContent( content ) {
 		var b = document.getElementById('mfb_<%=@form.id%>');
 		b.innerHTML = '<div>' + content + '</div>';
 		b.style['display'] = 'block';
 	}
-	
+
 	this.onSuccess = function( token ) {
 		setBlockContent( '<p><%=e 'Сообщение отправлено. Вы можете посмотреть его статус по ссылке:'%> <a href="http://<%=APP_HOST%>/status/' + token + '" target="_blank">http://<%=APP_HOST%>/status/' + token + '</a></p>' );
 	},
@@ -57,13 +57,13 @@ var mf_<%=@form.id%> = new function() {
 
 		attachScript('http://<%=APP_HOST%>/post/<%=@form.id%>?' + encodeForm( form ) );
 	},
-	
+
 	this.build = function() {
 		attachStyle('<%="http://#{JS_HOST}/forms/#{@form.id}/code.css" %>');
-		
+
 		document.writeln( '<%=raw form_html( @form ).gsub('\'') { |s| '\\\'' } %>' );
 	}
-	
+
 	return this;
 };
 

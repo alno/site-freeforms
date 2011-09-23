@@ -10,6 +10,8 @@ class Form < ActiveRecord::Base
 
   has_many :messages, :order => 'forms.created_at DESC'
 
+  scope :active_in, lambda{|time| where('(SELECT COUNT(id) FROM messages WHERE created_at <= ? AND created_at >= ? AND form_id = forms.id) > 0', time, time - 1.week) }
+
   validates_presence_of :user, :submit_title, :title, :alias
 
   before_validation do |form|

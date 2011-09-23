@@ -1,37 +1,37 @@
 ru:
   messages: Сообщения
-  
+
   message_date: Дата
   message_title: Заголовок
   message_content: Текст сообщения
   message_sender_name: Имя
   message_sender_email: E-Mail
-  
+
   message_status: Статус сообщения
   message_from: Отправитель
   message_sent_time: Отправлено
   message_read_time: Прочитано
   message_unread: Сообщение не прочитано
-  
+
   form_code_inline: Код для вставки формы прямо на страницу (его необходимо скопировать в то место страницы, где Вы хотите разместить форму)
   form_code_popup: Код для вставки ссылки на всплывающее окно с формой (его необходимо скопировать в то место страницы, где Вы хотите разместить форму)
-  
+
   message_default_title: Без заголовка
-  
+
   link_account: Мой профиль
   link_project: О проекте
   link_about: О проекте
-  
+
   cancel: Отменить
   get_form: Получить свою форму
-  
+
   form:
     description: Описание
     fields: Поля
     style: Внешний вид
     code: Код для вставки
     preview: Просмотр
-  
+
   tooltips:
     messages:
       new: Новое сообщение
@@ -40,11 +40,11 @@ ru:
       delete: Удалить форму
     fields:
       delete: Удалить поле
-  
+
   confirm:
     destroy_message: Вы уверены, что хотите удалить сообщение?
     destroy_form: Вы уверены, что хотите удалить форму? Вместе с формой будут удалены все отправленные на нее сообщения.
-      
+
   actions:
     field:
       new: Создать новое поле
@@ -78,7 +78,7 @@ ru:
       today: Сегодня
     stats:
       index: Статистика
-  
+
   titles:
     root:
       start: Бесплатно и просто
@@ -120,16 +120,16 @@ ru:
     stats:
       index: Статистика по всем формам
       service: Статистика использования сервиса
-      
+
   form_fields:
     name: Ваше имя
     email: Ваш E-Mail
     title: Заголовок сообщения
     content: Текст сообщения
-  
+
   default_form_title: Контактная форма
   default_form_description: Это ваша форма, которую необходимо разместить на Вашей странице, чтобы пользователи могли посылать сообщения через нее.
-  
+
   notice:
     reset_instructions_sent: Инструкции по восстановлению пароля высланы на указанный Вами E-Mail.
     password_updated: Пароль успешно изменен!
@@ -142,10 +142,10 @@ ru:
     no_user_found: Ошибка! Такого пользователя не найдено!
     login_required: Ошибка! Для просмотра этой страницы необходимо залогиниться!
     wrong_login_or_password: Ошибка! Пользователя с указанным логином и паролем не найдено!
-  
+
   update: Обновить
   edit_account: Редактировать профиль
-      
+
   style:
     font_family: Шрифт
     font_size: Размер шрифта
@@ -157,7 +157,7 @@ ru:
     border_width: Толщина границы
     border_radius: Радиус углов границы
     border_color: Цвет границы
-  
+
   fields:
     email: Поле для ввода E-Mail
     string: Строковое поле
@@ -166,7 +166,7 @@ ru:
     radio: Варианты
     check: Опция
     new: Добавить поле
-    
+
     errors:
       field:
         missed: Поле обязательно для заполнения!
@@ -174,11 +174,11 @@ ru:
         missed: E-Mail обязателен для заполнения!
         invalid: Вы ввели некорректный E-Mail!
       select:
-        invalid: Выбран некорректный вариант! 
+        invalid: Выбран некорректный вариант!
 
   activerecord:
     attributes:
-    
+
       form:
         alias: Название
         title: Заголовок
@@ -189,8 +189,8 @@ ru:
         email: E-Mail
         password: Пароль
         remember_me: Запомнить меня
-      
-      user:  
+
+      user:
         email: E-Mail
         name: Имя пользователя
         password: Пароль
@@ -201,16 +201,15 @@ ru:
         password: Пароль
         change_password: Новый пароль
         password_confirmation: Подтверждение пароля
-        
+
       account_password:
         email: E-Mail
         password: Пароль
         password_confirmation: Подтверждение пароля
-        
+
       field:
         title: Заголовок поля
         default: Значение по умолчанию
         enabled: Разрешено
         required: Обязательное
         variants: Варианты
-  

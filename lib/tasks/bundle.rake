@@ -11,12 +11,12 @@ namespace :bundle do
   desc "Bundle JS"
   task :js do
     paths = get_top_level_directories( JS_DIR )
-    
+
     paths.each do |bundle_directory|
       bundle_name = bundle_directory.gsub( JS_DIR + '/', "" )
       files = recursive_file_list( bundle_directory, ".js" )
       next if files.empty? || bundle_name == 'dev'
-      
+
       target = JS_DIR + "/bundle_#{bundle_name}.js"
       `java -jar #{CLOSURE_PATH} --js #{files.join(" --js ")} --js_output_file #{target} 2> /dev/null`
 
@@ -29,12 +29,12 @@ namespace :bundle do
     paths = get_top_level_directories( CSS_DIR )
 
     paths.each do |bundle_directory|
-      sass_files = recursive_file_list( bundle_directory, ".sass" )      
+      sass_files = recursive_file_list( bundle_directory, ".sass" )
       sass_files.each do |file_path|
         base = File.basename file_path
         `cd #{bundle_directory} && sass #{base} #{base.gsub '.sass', '.css'}`
       end
-      
+
       bundle_name = bundle_directory.gsub( CSS_DIR + '/', "" )
       files = recursive_file_list( bundle_directory, ".css" )
       next if files.empty? || bundle_name == 'dev'

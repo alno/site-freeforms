@@ -9,10 +9,17 @@
 %img{ :src => chart_for( User, :months ).to_url }
 %img{ :src => chart_for( User, :days ).to_url }
 
+%p
+  Активных
+  = User.active_in( Time.now ).count
+
+%img{ :src => chart_for( lambda{|t| User.active_in t }, :months ).to_url }
+%img{ :src => chart_for( lambda{|t| User.active_in t }, :days ).to_url }
+
 %h3 Формы
 
 %p
-  Активных:
+  Неудаленных:
   = Form.count
   %br
   Всего:
@@ -21,10 +28,17 @@
 %img{ :src => chart_for( Form, :months ).to_url }
 %img{ :src => chart_for( Form, :days ).to_url }
 
+%p
+  Активных
+  = Form.active_in( Time.now ).count
+
+%img{ :src => chart_for( lambda{|t| Form.active_in t }, :months ).to_url }
+%img{ :src => chart_for( lambda{|t| Form.active_in t }, :days ).to_url }
+
 %h3 Сообщения
 
 %p
-  Активных:
+  Неудаленных:
   = Message.count
   %br
   Всего:

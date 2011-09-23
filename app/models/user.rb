@@ -7,6 +7,8 @@ class User < ActiveRecord::Base
   has_many :messages, :order => 'created_at DESC'
   has_many :forms
 
+  scope :active_in, lambda{|time| where('(SELECT COUNT(id) FROM messages WHERE created_at <= ? AND created_at >= ? AND user_id = users.id) > 0', time, time - 1.week) }
+
   after_create do |user|
     user.forms.create!( :title => I18n.t( :default_form_title ), :description => I18n.t( :default_form_description ) )
   end

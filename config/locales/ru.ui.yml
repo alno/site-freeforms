@@ -3,7 +3,7 @@ ru:
     pagination:
       prev: « Предыдущая
       next: Следующая »
-      
+
     filter:
       all: Все
       today: Сообщения сегодня
