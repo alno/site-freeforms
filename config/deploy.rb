@@ -1,46 +1,44 @@
 set :application, "freeforms"
-set :repository,  "git://github.com/alno/site-freeforms.git"
+set :repository,  "git@github.com:alno/site-freeforms.git"
 
-set :user, "hosting_alno"
+set :user, "freeforms"
 set :use_sudo, false
-set :deploy_to, "/home/hosting_alno/projects/freeforms"
+set :deploy_to, "/home/freeforms/apps/freeforms"
 
+server "s1.alno.name", :web, :app, :db, :primary => true
+
+default_run_options[:pty] = true
+ssh_options[:forward_agent] = true
 set :scm, :git
 
-role :web, "hydrogen.locum.ru"
-role :app, "hydrogen.locum.ru"
-role :db,  "hydrogen.locum.ru", :primary => true
+default_environment['RAILS_ENV'] = 'production'
 
-after "deploy:update_code", :bundle_deps
-after "deploy:update_code", :copy_database_config
+require 'bundler/capistrano'
 
-task :bundle_deps, roles => :app do
-  run "cd #{release_path} && #{bundle} --path ~/.gem --without development test"
-end
-
-task :copy_database_config, roles => :app do
-  run "cp #{shared_path}/database.yml #{release_path}/config/database.yml"
-end
-
-set :bundle, "/var/lib/gems/1.8/bin/bundle"
-set :unicorn_rails, "/var/lib/gems/1.8/bin/unicorn_rails"
-set :unicorn_conf, "/etc/unicorn/freeforms.alno.rb"
-set :unicorn_pid, "/var/run/unicorn/freeforms.alno.pid"
-
-# - for unicorn - #
 namespace :deploy do
-  desc "Start application"
+
+  desc "Restarting unicorn"
+  task :restart, :roles => :app, :except => { :no_release => true } do
+    run "cd #{current_path} ; script/delayed_job restart"
+    run "cd #{current_path} ; ([ -f tmp/pids/unicorn.pid ] && kill -USR2 `cat tmp/pids/unicorn.pid`) || bundle exec unicorn -c config/unicorn.rb -E production -D"
+  end
+
+  desc "Rude restart application"
+  task :rude_restart, :roles => :app do
+    run "cd #{current_path} ; script/delayed_job stop; script/delayed_job start"
+    run "cd #{current_path} ; pkill -f unicorn_rails; sleep 0.5; pkill -f unicorn_rails; sleep 0.5 ; bundle exec unicorn -c config/unicorn.rb -E production -D "
+  end
+
   task :start, :roles => :app do
-    run "cd #{deploy_to}/current && #{bundle} exec #{unicorn_rails} -Dc #{unicorn_conf}"
+    rude_restart
   end
 
-  desc "Stop application"
-  task :stop, :roles => :app do
-    run "[ -f #{unicorn_pid} ] && kill -QUIT `cat #{unicorn_pid}`"
+  after "deploy:migrate", :roles => :app do
+    restart
   end
+end
 
-  desc "Restart Application"
-  task :restart, :roles => :app do
-    run "[ -f #{unicorn_pid} ] && kill -USR2 `cat #{unicorn_pid}` || (cd #{deploy_to}/current && #{bundle} exec #{unicorn_rails} -Dc #{unicorn_conf})"
-  end
+after "deploy:update_code", roles => :app do
+  run "ln -nfs #{shared_path}/config/unicorn.rb #{release_path}/config/unicorn.rb"
+  run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
 end
