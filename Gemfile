@@ -23,7 +23,7 @@ gem 'smart_chart'
 gem 'unicorn'
 
 group :production do
-  gem 'mysql'
+  gem 'pg'
 end
 
 group :development, :test do
@@ -40,7 +40,7 @@ group :development, :test do
   # Integration testing
   gem 'cucumber-rails', :git => 'git://github.com/aslakhellesoy/cucumber-rails.git'
   gem 'capybara', '>= 0.4.1.1'
-  gem 'database_cleaner'  
+  gem 'database_cleaner'
 
   gem 'ruby-debug'
   gem 'launchy'
