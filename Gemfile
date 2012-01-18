@@ -21,6 +21,7 @@ gem 'haml'
 gem 'smart_chart'
 
 gem 'unicorn'
+gem 'daemon-spawn'
 
 group :production do
   gem 'pg'
