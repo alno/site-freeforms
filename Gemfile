@@ -5,7 +5,8 @@ gem 'rails', '3.0.3'
 gem 'authlogic', :git => 'git://github.com/odorcicd/authlogic.git', :branch => 'rails3'
 
 gem 'will_paginate', ">= 3.0.pre2"
-gem 'delayed_job'
+gem 'delayed_job', '>= 3.0.0'
+gem 'delayed_job_active_record'
 gem 'irwi'
 
 gem 'jquery-rails'
@@ -21,7 +22,7 @@ gem 'haml'
 gem 'smart_chart'
 
 gem 'unicorn'
-gem 'daemon-spawn'
+gem 'daemons'
 
 group :production do
   gem 'pg'
