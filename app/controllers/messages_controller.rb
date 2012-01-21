@@ -42,7 +42,7 @@ class MessagesController < ApplicationController
     respond_to do |format|
 
       format.html do
-        @messages = msgs.paginate( :all, :page => params[:page], :order => 'created_at DESC' )
+        @messages = msgs.paginate( :page => params[:page], :order => 'created_at DESC' )
 
         render :action => 'index'
       end

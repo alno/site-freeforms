@@ -26,7 +26,7 @@ namespace :deploy do
   desc "Rude restart application"
   task :rude_restart, :roles => :app do
     run "cd #{current_path} ; script/delayed_job stop; script/delayed_job start"
-    run "cd #{current_path} ; pkill -f unicorn_rails; sleep 0.5; pkill -f unicorn_rails; sleep 0.5 ; bundle exec unicorn -c config/unicorn.rb -E production -D "
+    run "cd #{current_path} ; pkill -f unicorn; sleep 0.5; pkill -f unicorn; sleep 0.5 ; bundle exec unicorn -c config/unicorn.rb -E production -D "
   end
 
   task :start, :roles => :app do
