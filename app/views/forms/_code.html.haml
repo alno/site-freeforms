@@ -8,7 +8,7 @@
       = field.render_input( form_id, i )
 
     .submit
-      %input{ :type => "submit", :value => form.submit_title, :onclick => "mf_#{form_id}.post(this.form); return false;" }
+      = submit_tag e(form.submit_title), :onclick => "mf_#{form_id}.post(this.form); return false;"
 
   .fb{ :id => "mfb_#{form_id}", :style => fb_style( form ) }
 
