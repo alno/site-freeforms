@@ -1,4 +1,12 @@
 GIT
+  remote: git://github.com/goncalossilva/rails3_acts_as_paranoid.git
+  revision: d649726d90e0f263d35cc90cba8d6a452e430388
+  branch: rails3.0
+  specs:
+    rails3_acts_as_paranoid (0.0.9)
+      activerecord (~> 3.0)
+
+GIT
   remote: git://github.com/mreinsch/csv_builder.git
   revision: b782e55c071266489c753b5c359775b1d083fcf8
   specs:
@@ -95,7 +103,7 @@ GEM
     gherkin (2.7.3)
       json (>= 1.4.6)
     haml (3.1.4)
-    i18n (0.6.0)
+    i18n (0.6.4)
     irwi (0.4.1)
       actionpack (>= 3.0.0)
       activerecord (>= 3.0.0)
@@ -104,6 +112,7 @@ GEM
     jquery-rails (1.0.19)
       railties (~> 3.0)
       thor (~> 0.14)
+    jsmin (1.0.1)
     json (1.6.5)
     kgio (2.7.2)
     launchy (2.0.5)
@@ -134,8 +143,6 @@ GEM
       activesupport (= 3.0.3)
       bundler (~> 1.0)
       railties (= 3.0.3)
-    rails3_acts_as_paranoid (0.1.3)
-      activerecord (~> 3.0)
     railties (3.0.3)
       actionpack (= 3.0.3)
       activesupport (= 3.0.3)
@@ -181,7 +188,7 @@ GEM
     treetop (1.4.10)
       polyglot
       polyglot (>= 0.3.1)
-    tzinfo (0.3.31)
+    tzinfo (0.3.37)
     unicorn (4.1.1)
       kgio (~> 2.4)
       rack
@@ -209,11 +216,12 @@ DEPENDENCIES
   haml
   irwi
   jquery-rails
+  jsmin
   launchy
   machinist (>= 2.0.0.beta2)
   pg
   rails (= 3.0.3)
-  rails3_acts_as_paranoid
+  rails3_acts_as_paranoid!
   rspec-rails (>= 2.1.0)
   ruby-debug
   shoulda-matchers

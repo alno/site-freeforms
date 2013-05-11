@@ -14,7 +14,7 @@ gem 'jquery-rails'
 gem 'csv_builder', :git => 'git://github.com/mreinsch/csv_builder.git'
 gem 'ekuseru'
 
-gem 'rails3_acts_as_paranoid'
+gem 'rails3_acts_as_paranoid', :git => 'git://github.com/goncalossilva/rails3_acts_as_paranoid.git', :branch => 'rails3.0'
 
 gem 'exception_notification', :git => 'git://github.com/rails/exception_notification.git'
 
@@ -23,6 +23,8 @@ gem 'smart_chart'
 
 gem 'unicorn'
 gem 'daemons'
+
+gem 'jsmin'
 
 group :production do
   gem 'pg'
