@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.3'
+gem 'rails', '~> 3.0.0'
 
 gem 'authlogic', :git => 'git://github.com/odorcicd/authlogic.git', :branch => 'rails3'
 
@@ -25,6 +25,8 @@ gem 'unicorn'
 gem 'daemons'
 
 gem 'jsmin'
+
+gem 'rake', '0.9.2.2'
 
 group :production do
   gem 'pg'
