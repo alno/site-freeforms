@@ -1,25 +1,27 @@
 = render :partial => 'messages/filter'
 
-- paginated_section @messages, :previous_label => t('ui.pagination.prev'), :next_label => t('ui.pagination.next') do
+= will_paginate @messages, :previous_label => t('ui.pagination.prev'), :next_label => t('ui.pagination.next')
 
-  %table#messages_table{ :cellspacing => 0 }
-    %tr.header
-      %th
-      %th Дата получения
+%table#messages_table{ :cellspacing => 0 }
+  %tr.header
+    %th
+    %th Дата получения
+
+    - @form.fields.each_with_index do |field,i|
+      - if field.type != :text
+        %th= 'Поле "' + field.title + '"'
+
+    %th
+
+  - @messages.each do |message|
+    %tr{ :class => cycle('even','odd') }
+      %td.status= link_to image_tag( 'icons/newmail.png', :width => 16, :height => 16 ), message_path( message ), :title => t('tooltips.messages.new') unless message.read_at
+      %td.date= link_to l( message.created_at, :format => :long ), message_path( message )
 
       - @form.fields.each_with_index do |field,i|
         - if field.type != :text
-          %th= 'Поле "' + field.title + '"'
+          %td= field.render_value( message.data[i] )
 
-      %th
+      %td.actions= link_to image_tag( 'icons/delete.png', :width => 16, :height => 16 ), message, :title => t('tooltips.messages.delete'), :confirm => t('confirm.destroy_message'), :method => :delete
 
-    - @messages.each do |message|
-      %tr{ :class => cycle('even','odd') }
-        %td.status= link_to image_tag( 'icons/newmail.png', :width => 16, :height => 16 ), message_path( message ), :title => t('tooltips.messages.new') unless message.read_at
-        %td.date= link_to l( message.created_at, :format => :long ), message_path( message )
-
-        - @form.fields.each_with_index do |field,i|
-          - if field.type != :text
-            %td= field.render_value( message.data[i] )
-
-        %td.actions= link_to image_tag( 'icons/delete.png', :width => 16, :height => 16 ), message, :title => t('tooltips.messages.delete'), :confirm => t('confirm.destroy_message'), :method => :delete
+= will_paginate @messages, :previous_label => t('ui.pagination.prev'), :next_label => t('ui.pagination.next')

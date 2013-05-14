@@ -1,23 +1,25 @@
-- paginated_section @forms, :previous_label => t('ui.pagination.prev'), :next_label => t('ui.pagination.next') do
+= will_paginate @forms, :previous_label => t('ui.pagination.prev'), :next_label => t('ui.pagination.next')
 
-  %table#forms_table{ :cellspacing => 0 }
-    %tr.header
-      %th Название
-      %th Заголовок
-      %th Кол-во полей
-      %th Кол-во сообщений
-      %th
+%table#forms_table{ :cellspacing => 0 }
+  %tr.header
+    %th Название
+    %th Заголовок
+    %th Кол-во полей
+    %th Кол-во сообщений
+    %th
 
-    - @forms.each do |form|
-      %tr{ :class => cycle('even','odd') }
-        %td= link_to form.alias, form_path( form )
-        %td= link_to form.title, form_path( form )
-        %td= form.fields.size
-        %td
-          = link_to( form.messages.size, messages_form_path( form ) )
-          - if unread_count = form.messages.unread.size
-            = link_to( "<b>(#{unread_count} непрочитано)</b>", unread_form_path( form ) )
-        %td.actions
-          = link_to image_tag( 'icons/edit.png', :alt => 'actions.form.edit' ), edit_form_path( form )
-          = link_to image_tag( 'icons/new.png', :alt => 'actions.form.clone' ), clone_form_path( form )
-          = link_to image_tag( 'icons/delete.png', :alt => 'actions.form.destroy' ), form_path( form ), :title => t('tooltips.forms.delete'), :confirm => t('confirm.destroy_form'), :method => :delete
+  - @forms.each do |form|
+    %tr{ :class => cycle('even','odd') }
+      %td= link_to form.alias, form_path( form )
+      %td= link_to form.title, form_path( form )
+      %td= form.fields.size
+      %td
+        = link_to( form.messages.size, messages_form_path( form ) )
+        - if unread_count = form.messages.unread.size
+          = link_to( "<b>(#{unread_count} непрочитано)</b>", unread_form_path( form ) )
+      %td.actions
+        = link_to image_tag( 'icons/edit.png', :alt => 'actions.form.edit' ), edit_form_path( form )
+        = link_to image_tag( 'icons/new.png', :alt => 'actions.form.clone' ), clone_form_path( form )
+        = link_to image_tag( 'icons/delete.png', :alt => 'actions.form.destroy' ), form_path( form ), :title => t('tooltips.forms.delete'), :confirm => t('confirm.destroy_form'), :method => :delete
+
+= will_paginate @forms, :previous_label => t('ui.pagination.prev'), :next_label => t('ui.pagination.next')
