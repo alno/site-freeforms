@@ -4,7 +4,7 @@ gem 'rails', '~> 3.0.0'
 
 gem 'authlogic', :git => 'git://github.com/odorcicd/authlogic.git', :branch => 'rails3'
 
-gem 'will_paginate', ">= 3.0.pre2"
+gem 'will_paginate', ">= 3.0.0"
 gem 'delayed_job', '>= 3.0.0'
 gem 'delayed_job_active_record'
 gem 'irwi'
@@ -34,7 +34,9 @@ end
 
 group :development, :test do
   gem 'sqlite3-ruby', :require => 'sqlite3'
+end
 
+group :test do
   # Unit testing
   gem 'rspec-rails', '>= 2.1.0'
   gem 'email_spec', '>= 1.1.1'
