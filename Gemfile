@@ -34,9 +34,7 @@ end
 
 group :development, :test do
   gem 'sqlite3-ruby', :require => 'sqlite3'
-end
 
-group :test do
   # Unit testing
   gem 'rspec-rails', '>= 2.1.0'
   gem 'email_spec', '>= 1.1.1'
