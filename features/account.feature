@@ -6,6 +6,7 @@ Feature: Account
     When I fill in "account[email]" with "my@mail.ru"
     And I fill in "account[password]" with "mypass"
     And I press "account_submit"
+    And jobs are processed
     Then "my@mail.ru" should receive an email
 
     When "my@mail.ru" opens the email

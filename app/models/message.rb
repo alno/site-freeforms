@@ -35,7 +35,7 @@ class Message < ActiveRecord::Base
   end
 
   after_create do |msg|
-    UserMailer.send_later :deliver_message_notification, msg.user, msg.form, msg if msg.form.subscribed
+    UserMailer.delay.message_notification msg.user, msg.form, msg if msg.form.subscribed
   end
 
   private
