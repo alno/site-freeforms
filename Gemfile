@@ -33,6 +33,7 @@ group :production do
 end
 
 group :development, :test do
+  gem 'capistrano'
   gem 'sqlite3-ruby', :require => 'sqlite3'
 
   # Unit testing
