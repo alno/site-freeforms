@@ -1,6 +1,6 @@
 - without_panel!
 
-- labelling_form_for User.new, :as => :account_password, :url => account_passwords_path do |f|
+= labelling_form_for User.new, :as => :account_password, :url => account_passwords_path do |f|
   = f.text_field :email
 
   = f.submit_create
