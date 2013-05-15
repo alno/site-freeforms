@@ -45,7 +45,7 @@ group :development, :test do
   gem 'machinist', '>= 2.0.0.beta2'
 
   # Integration testing
-  gem 'cucumber-rails'
+  gem 'cucumber-rails', :require => false
   gem 'capybara', '>= 0.4.1.1'
   gem 'database_cleaner'
 
