@@ -3,7 +3,7 @@ require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 describe "forms/code.js" do
 
   before do
-    assigns[:form] = Form.make!
+    @form = Form.make!
 
     render
   end
@@ -18,7 +18,7 @@ end
 describe "forms/code.html" do
 
   before do
-    assigns[:form] = @form = Form.make!
+    @form = Form.make!
 
     render
   end
@@ -35,7 +35,7 @@ describe "forms/new.html" do
   context "with basic form" do
 
     before do
-      assigns[:form] = @form = Form.make
+      @form = Form.make
 
       render
     end
@@ -53,7 +53,7 @@ describe "forms/new.html" do
   context "with form having empty title" do
 
     before do
-      assigns[:form] = @form = Form.make( :title => '' )
+      @form = Form.make( :title => '' )
 
       render
     end
@@ -67,7 +67,7 @@ describe "forms/new.html" do
   context "with form having empty submit title" do
 
     before do
-      assigns[:form] = @form = Form.make( :submit_title => '' )
+      @form = Form.make( :submit_title => '' )
 
       render
     end
