@@ -31,16 +31,16 @@
     #header= render :partial => 'layouts/header'
     #topmenu= render :partial => 'layouts/topmenu'
 
-    - if not without_panel?
+    - if without_panel?
+      #content-full
+        %h1= page_title
+        = render 'layouts/flashes'
+        = yield
+    - else
       #left= render :partial => 'layouts/sidebar'
       #title
         %h1= page_title
       #content
-        = render 'layouts/flashes'
-        = yield
-    - else
-      #content-full
-        %h1= page_title
         = render 'layouts/flashes'
         = yield
 
