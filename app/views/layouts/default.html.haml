@@ -36,10 +36,12 @@
       #title
         %h1= page_title
       #content
+        = render 'layouts/flashes'
         = yield
     - else
       #content-full
         %h1= page_title
+        = render 'layouts/flashes'
         = yield
 
     #footer
