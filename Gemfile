@@ -46,7 +46,7 @@ group :development, :test do
 
   # Integration testing
   gem 'cucumber-rails', :require => false
-  gem 'capybara', '>= 0.4.1.1'
+  gem 'capybara', '~> 2.0.0'
   gem 'database_cleaner'
 
   gem 'ruby-debug'
