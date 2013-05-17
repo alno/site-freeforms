@@ -39,7 +39,7 @@ group :development, :test do
   # Unit testing
   gem 'rspec-rails', '>= 2.1.0'
   gem 'email_spec', '>= 1.1.1'
-  gem 'shoulda-matchers'
+  gem 'shoulda-matchers', '~> 1.5.6'
 
   gem 'faker'
   gem 'machinist', '>= 2.0.0.beta2'
