@@ -30,7 +30,7 @@ describe User do
 end
 
 describe "Mail" do
-  include ActionController::UrlWriter
+  include Rails.application.routes.url_helpers
 
   default_url_options[:host] = APP_HOST
 
