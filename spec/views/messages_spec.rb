@@ -67,6 +67,25 @@ describe "forms/messages.html" do
   end
 end
 
+describe "forms/messages.html with many messages" do
+
+  before :all do
+    @form = Form.make!
+    @messages = (1..5).map{ |i| Message.make! :read_at => Time.now, :form => @form }.paginate :per_page => 3
+  end
+
+  before :each do
+    view.stub! :current_user => @form.user, :url_for => 'some url'
+
+    render :template => 'forms/messages.html'
+  end
+
+  it "should contain pager" do
+    rendered.should include I18n.t('ui.pagination.next')
+  end
+
+end
+
 describe "forms/messages.html with unread" do
   before :all do
     @form = Form.make!
