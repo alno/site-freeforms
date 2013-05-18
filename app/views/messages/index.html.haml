@@ -1,6 +1,6 @@
 = render :partial => 'messages/filter'
 
-= will_paginate @messages, :previous_label => t('ui.pagination.prev'), :next_label => t('ui.pagination.next')
+= will_paginate @messages
 
 %table#messages_table{ :cellspacing => 0 }
   %tr.header
@@ -16,4 +16,4 @@
       %td= message_body message
       %td.actions= link_to image_tag( 'icons/delete.png' ), message, :title => t('tooltips.messages.delete'), :confirm => t('confirm.destroy_message'), :method => :delete
 
-= will_paginate @messages, :previous_label => t('ui.pagination.prev'), :next_label => t('ui.pagination.next')
+= will_paginate @messages

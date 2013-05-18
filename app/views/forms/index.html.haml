@@ -1,4 +1,4 @@
-= will_paginate @forms, :previous_label => t('ui.pagination.prev'), :next_label => t('ui.pagination.next')
+= will_paginate @forms
 
 %table#forms_table{ :cellspacing => 0 }
   %tr.header
@@ -22,4 +22,4 @@
         = link_to image_tag( 'icons/new.png', :alt => 'actions.form.clone' ), clone_form_path( form )
         = link_to image_tag( 'icons/delete.png', :alt => 'actions.form.destroy' ), form_path( form ), :title => t('tooltips.forms.delete'), :confirm => t('confirm.destroy_form'), :method => :delete
 
-= will_paginate @forms, :previous_label => t('ui.pagination.prev'), :next_label => t('ui.pagination.next')
+= will_paginate @forms

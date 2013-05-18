@@ -1,0 +1,4 @@
+ru:
+  will_paginate:
+    next_label: Следующая »
+    previous_label: « Предыдущая
